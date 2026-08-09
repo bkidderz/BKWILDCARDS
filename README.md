@@ -30,7 +30,9 @@ Add **BK Wildcard Selector** (category: `BKWILDCARDS`) to any workflow.
 
 **In Gladas' workflow specifically:** wire `prompt` into `text_a` or `text_b` on the `StringFunction` node titled "Positive Prompt" (node 118). Those two slots are free; `text_c` already carries the ImpactWildcardProcessor. The two coexist — you do not have to remove anything.
 
-The second output, `breakdown`, lists exactly which line was drawn from which category. Wire it to a `Preview as Text` node when you want to attribute a result back to the content that produced it.
+After each run the node fills in its **`resolved`** box with the prompt it produced, so you can read it without wiring anything. That text is also stamped into the workflow saved inside generated PNGs — drag a finished image back into ComfyUI and the box still shows the prompt that made it.
+
+The second output, `breakdown`, lists which line came from which category. Wire it to a `Preview as Text` node when you want that detail.
 
 Add **BK Wildcard Info** and wire its `report` output to a `Preview as Text` node to see every pack and category the loader found, with entry counts.
 
@@ -92,7 +94,7 @@ Dark Fantasy has no Environments or Poses file yet, so those toggles do not appe
 
 Wildcard content is written for KREA2-style natural-language prompting.
 
-## Known limits (v0.2.0)
+## Known limits (v0.3.0)
 
 - Widget hiding uses a community pattern, not a supported API — [Comfy-Org/ComfyUI#12244](https://github.com/Comfy-Org/ComfyUI/issues/12244) requests an official one and is unanswered. A frontend update could break the hiding. It cannot break the output.
 - One theme at a time. No cross-theme blending.
@@ -100,6 +102,7 @@ Wildcard content is written for KREA2-style natural-language prompting.
 - One line per enabled category per run. No multi-draw.
 - Adding wildcard files requires a ComfyUI refresh to surface new toggles.
 - Full-replacement metatypes (`full kitsune`, `full zombie`, `android`) can still stack on top of an enabled Ancestry line. The node has no mutual-exclusion logic yet.
+- PNG embedding relies on your image saver writing `extra_pnginfo`. Core `SaveImage` does. Third-party savers may not.
 
 ## License
 

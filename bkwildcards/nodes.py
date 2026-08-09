@@ -12,6 +12,44 @@ _CATEGORIES = library.scan()
 _THEMES = library.themes(_CATEGORIES)
 _THEME_TO_PACK = library.theme_to_pack(_CATEGORIES)
 
+# Keys written into the workflow node's `properties` dict so the resolved text
+# survives a save and, via extra_pnginfo, an embed into a saved PNG.
+PROP_PROMPT = "bk_resolved"
+PROP_BREAKDOWN = "bk_breakdown"
+
+
+def _stamp_workflow(extra_pnginfo, unique_id, prompt_text, breakdown_text):
+    """Write the resolved text into the workflow snapshot bound for the PNG.
+
+    ComfyUI captures the workflow at queue time, before this node runs, so a
+    widget written after execution would always be one generation stale in the
+    saved image. Mutating the `extra_pnginfo` snapshot here — which SaveImage
+    serialises into a PNG text chunk after we return — puts *this* run's text
+    into *this* run's file.
+
+    We write into the node's `properties` dict rather than `widgets_values`
+    because widgets_values is positional, and its indices shift with frontend
+    additions such as the control_after_generate widget.
+    """
+    if not extra_pnginfo or unique_id is None:
+        return
+    try:
+        workflow = extra_pnginfo.get("workflow")
+        if not isinstance(workflow, dict):
+            return
+        for node in workflow.get("nodes", []) or []:
+            if str(node.get("id")) != str(unique_id):
+                continue
+            props = node.get("properties")
+            if not isinstance(props, dict):
+                props = {}
+                node["properties"] = props
+            props[PROP_PROMPT] = prompt_text
+            props[PROP_BREAKDOWN] = breakdown_text
+            break
+    except Exception as exc:  # never let metadata stamping break a render
+        print("[BKWILDCARDS] could not stamp workflow metadata: {}".format(exc))
+
 
 class BKWildcardSelector:
     """Pick a theme, toggle categories, emit one combined prompt string.
@@ -54,6 +92,17 @@ class BKWildcardSelector:
                 "tooltip": "Placed between the selections from each enabled category.",
             },
         )
+        # Display box. Filled in after execution by the frontend extension and
+        # stamped into saved PNGs by _stamp_workflow. Whatever it contains on
+        # the way in is ignored.
+        required["resolved"] = (
+            "STRING",
+            {
+                "default": "",
+                "multiline": True,
+                "tooltip": "The prompt this node produced. Filled in automatically; edits are ignored.",
+            },
+        )
 
         # Global categories first, then each theme's block. Inputs for every
         # theme always exist, which is what lets toggle state survive switching
@@ -76,7 +125,14 @@ class BKWildcardSelector:
                     ),
                 },
             )
-        return {"required": required}
+
+        return {
+            "required": required,
+            "hidden": {
+                "extra_pnginfo": "EXTRA_PNGINFO",
+                "unique_id": "UNIQUE_ID",
+            },
+        }
 
     RETURN_TYPES = ("STRING", "STRING")
     RETURN_NAMES = ("prompt", "breakdown")
@@ -85,22 +141,28 @@ class BKWildcardSelector:
     DESCRIPTION = (
         "Pick a theme, enable categories with toggles. Draws one line from each "
         "enabled category and returns them joined as a single prompt string. "
-        "The second output lists what was drawn, for attribution."
+        "The resolved text is shown on the node and saved into generated PNGs."
     )
 
-    def build(self, seed, separator, theme=None, **toggles):
+    def build(
+        self,
+        seed,
+        separator,
+        resolved="",
+        theme=None,
+        extra_pnginfo=None,
+        unique_id=None,
+        **toggles
+    ):
         active_pack = _THEME_TO_PACK.get(theme)
 
         parts = []
         report = ["theme: {}".format(theme or "(none)"), "seed: {}".format(seed), ""]
 
         for cat in _CATEGORIES:
-            in_scope = cat["is_global"] or cat["pack"] == active_pack
-            enabled = bool(toggles.get(cat["key"], False))
-
-            if not in_scope:
+            if not (cat["is_global"] or cat["pack"] == active_pack):
                 continue
-            if not enabled:
+            if not toggles.get(cat["key"], False):
                 continue
 
             entries = library.read_lines(cat["path"])
@@ -116,7 +178,20 @@ class BKWildcardSelector:
         if not parts:
             report.append("(nothing enabled — output is empty)")
 
-        return (separator.join(parts), "\n".join(report))
+        prompt_text = separator.join(parts)
+        breakdown_text = "\n".join(report)
+
+        _stamp_workflow(extra_pnginfo, unique_id, prompt_text, breakdown_text)
+
+        return {
+            # Picked up by the frontend extension and written into the
+            # `resolved` box so you can read it without a preview node.
+            "ui": {
+                "bk_resolved": [prompt_text],
+                "bk_breakdown": [breakdown_text],
+            },
+            "result": (prompt_text, breakdown_text),
+        }
 
 
 class BKWildcardInfo:

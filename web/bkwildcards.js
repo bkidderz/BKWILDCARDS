@@ -19,6 +19,8 @@ import { app } from "../../scripts/app.js";
 
 const NODE = "BKWildcardSelector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
+const RESOLVED_WIDGET = "resolved";
+const PROP_PROMPT = "bk_resolved";
 
 let LAYOUT = null;
 let LAYOUT_PROMISE = null;
@@ -142,6 +144,46 @@ function relabel(node, layout) {
   }
 }
 
+/**
+ * Write the resolved prompt into the on-node display box.
+ *
+ * Also mirrored into node.properties so a normally-saved workflow carries it.
+ * The PNG path is handled server-side instead: ComfyUI snapshots the workflow
+ * at queue time, before this node executes, so Python stamps the same property
+ * into extra_pnginfo during the run.
+ */
+function setResolved(node, text) {
+  if (!node || typeof text !== "string") return;
+  try {
+    const widget = node.widgets?.find((w) => w.name === RESOLVED_WIDGET);
+    if (!widget) return;
+    widget.value = text;
+    if (widget.inputEl) {
+      widget.inputEl.readOnly = true;
+      widget.inputEl.style.opacity = "0.75";
+    }
+    node.properties = node.properties || {};
+    node.properties[PROP_PROMPT] = text;
+    node.setDirtyCanvas(true, false);
+  } catch (err) {
+    console.warn("[BKWILDCARDS] could not write resolved text:", err);
+  }
+}
+
+function restoreResolved(node) {
+  try {
+    const stored = node?.properties?.[PROP_PROMPT];
+    if (typeof stored === "string" && stored.length) setResolved(node, stored);
+    const widget = node?.widgets?.find((w) => w.name === RESOLVED_WIDGET);
+    if (widget?.inputEl) {
+      widget.inputEl.readOnly = true;
+      widget.inputEl.style.opacity = "0.75";
+    }
+  } catch (_) {
+    /* cosmetic only */
+  }
+}
+
 function attach(node, layout) {
   if (!node || !layout || node._bkAttached) return;
   node._bkAttached = true;
@@ -177,11 +219,27 @@ app.registerExtension({
     await loadLayout();
   },
 
+  async beforeRegisterNodeDef(nodeType, nodeData) {
+    if (nodeData?.name !== NODE) return;
+    const onExecuted = nodeType.prototype.onExecuted;
+    nodeType.prototype.onExecuted = function (message) {
+      const r = onExecuted?.apply(this, arguments);
+      try {
+        const text = message?.bk_resolved?.[0];
+        if (typeof text === "string") setResolved(this, text);
+      } catch (err) {
+        console.warn("[BKWILDCARDS] onExecuted handler failed:", err);
+      }
+      return r;
+    };
+  },
+
   async nodeCreated(node) {
     if (node?.comfyClass !== NODE) return;
     const layout = await loadLayout();
     if (!layout) return;
     attach(node, layout);
+    restoreResolved(node);
     applyNowAndNextFrame(node, layout);
   },
 
@@ -190,6 +248,7 @@ app.registerExtension({
     const layout = await loadLayout();
     if (!layout) return;
     attach(node, layout);
+    restoreResolved(node);
     applyNowAndNextFrame(node, layout);
   },
 });
