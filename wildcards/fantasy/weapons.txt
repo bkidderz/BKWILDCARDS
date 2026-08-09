@@ -1,0 +1,49 @@
+# Optional weapon+carry wildcard — HIGH / DARK FANTASY. Decoupled from outfits so weapons are
+# optional. Each line bundles the weapon WITH its securing rig as one unit, and LEADS with the
+# secured state (sheathed / strapped / slung / hung) so the attachment isn't buried and the
+# weapon reads as physically carried, not slapped on. One weapon per line as a rule.
+# (Polearms and staves are carried in hand — a held weapon is inherently attached.)
+
+# SWORDS
+sheathed in a worn leather scabbard on a shoulder baldric, a two-handed greatsword across the back
+sheathed in a scabbard hung from a buckled sword-belt at the hip, a longsword
+sheathed in a scabbard on a back harness between the shoulders, a broad claymore
+sheathed at the hip in a sword frog on the belt, an arming sword
+sheathed in a slim scabbard at the left hip, a rapier with a swept guard
+sheathed in a curved scabbard on a hip hanger, a cavalry saber
+sheathed crosswise at the small of the back, a shortsword
+
+# DAGGERS / KNIVES
+sheathed in a thigh sheath with buckled straps, a long fighting dagger
+sheathed in twin sheaths on a hip belt, a matched pair of daggers
+sheathed in a boot sheath, a slim throwing knife
+worn on a chest bandolier of throwing knives in individual sheaths
+sheathed horizontally at the small of the back, a curved kukri
+
+# AXES / BLUNT
+hung from a belt loop by its haft with a leather strap, a one-handed war axe
+strapped to a back harness across the shoulders, a heavy battleaxe
+hung from an iron belt-ring at the hip, a flanged mace
+strapped across the back on a leather harness, a two-handed warhammer
+
+# RANGED
+slung across the back beside a full quiver of arrows on a shoulder strap, a recurve bow
+slung over one shoulder on a leather strap with a hip quiver, a longbow
+strapped across the back with a bolt case on the belt, a heavy crossbow
+
+# POLEARMS / STAVES (held)
+held upright in one hand, a long spear with a leather-wrapped grip
+held across the body in both hands, a bladed glaive
+held at rest in one hand, a tall gnarled staff topped with a crystal
+carried in one hand, a quarterstaff of dark banded wood
+
+# ARCANE / EXOTIC
+sheathed at the hip beside a spell-component pouch, an ornate dagger
+hung from a hip cord in a fitted leather loop, a slender wand
+held loosely at the side, an ornate scepter
+sheathed in an ornate scabbard on a jeweled baldric, a runed enchanted longsword
+
+# DRAWN / HELD
+drawn and held in a reverse grip, a curved dagger, its sheath empty at the thigh
+drawn and held ready in both hands, a longsword, its scabbard empty across the back
+held low in one hand with a second axe hung at the hip, a one-handed war axe

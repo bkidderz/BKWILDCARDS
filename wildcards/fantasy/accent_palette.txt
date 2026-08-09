@@ -1,0 +1,52 @@
+# Anti-monochrome accent wildcard — HIGH / DARK FANTASY variant.
+# Same principle as the cyberpunk set: each line forces at least TWO contrasting accent hues,
+# placed on wardrobe / lighting / environment (NOT skin), so a dominant saturated color
+# (e.g. tiefling-red skin, red demon) has something to contrast against instead of flooding.
+# Uses fantasy-native light/material sources (firelight, moonlight, arcane glow, gemstones,
+# gilt, witchfire, stained glass) — no neon or signage. Inject alongside the outfit, or pin
+# one line into the base prompt. Strongest paired with the base-prompt color-separation line.
+
+# WARM-vs-COOL LIGHT
+warm torchlight against cold blue moonlight, a split-lit scene
+firelight amber against a cool arcane-blue glow
+candlelight-gold warmth against silver starlight
+lantern-orange highlights against deep teal shadow
+a hearth-warm figure against a cold moonlit environment
+
+# ARCANE / MAGIC GLOW PAIRS
+violet and emerald arcane glow through the scene
+cyan and gold arcane rune-light across the wardrobe
+teal witchfire against warm bronze accents
+sapphire-blue spell-glow against warm amber highlights
+crimson and cold-silver magic light
+
+# JEWEL / GEMSTONE PAIRS
+emerald and warm-gold jewel-tone accents across the wardrobe
+sapphire and amber gemstone accents
+amethyst-violet and teal jewel accents
+ruby accents against cool-silver highlights
+jade-green and warm-copper accents
+
+# METAL / MATERIAL
+gilded gold and verdigris-copper accents
+polished silver and warm-bronze accents
+antique brass and deep-teal enamel accents
+warm gold against cool steel-blue armor
+
+# NATURAL / ELEMENTAL
+autumn-amber and forest-green accents
+deep crimson and cold slate-blue accents
+warm gold against cold violet aurora light
+bioluminescent teal against warm ember-orange
+
+# STAINED GLASS / MULTICOLOR
+stained-glass light scattered across the scene in several distinct hues
+a rich polychromatic jewel-tone palette, colors kept visually distinct
+enchanted crystals glowing in several distinct separated colors
+a broad multicolored arcane palette, hues clearly separated
+
+# SUBJECT-vs-ENVIRONMENT (genre-agnostic — identical in the cyberpunk set)
+a warm-toned figure set against a distinctly cool-toned environment
+a cool-toned figure set against a distinctly warm-toned environment
+a saturated figure against a muted, desaturated background
+the wardrobe in hues that deliberately contrast the subject's own coloring

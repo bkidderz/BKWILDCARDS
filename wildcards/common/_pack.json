@@ -1,6 +1,7 @@
 {
   "pack": "common",
   "label": "Common",
+  "global": true,
   "entries": [
     {
       "file": "ancestry.txt",

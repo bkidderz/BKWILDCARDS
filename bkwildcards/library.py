@@ -26,6 +26,11 @@ WILDCARD_ROOT = os.path.normpath(os.path.join(_HERE, os.pardir, "wildcards"))
 
 DEFAULT_ORDER = 500
 
+# A pack marked "global": true in its _pack.json is always active regardless of
+# the selected theme. By convention the directory named below is global even if
+# it has no manifest.
+GLOBAL_PACK = "common"
+
 
 def _prettify(stem: str) -> str:
     """derive a human label from a filename stem"""
@@ -61,6 +66,7 @@ def _load_pack(pack_dir: str, pack_name: str):
             manifest = {}
 
     pack_label = manifest.get("label") or _prettify(pack_name)
+    is_global = bool(manifest.get("global", pack_name == GLOBAL_PACK))
     declared = {}
     for entry in manifest.get("entries", []) or []:
         fname = entry.get("file")
@@ -85,6 +91,7 @@ def _load_pack(pack_dir: str, pack_name: str):
                 "key": "{}_{}".format(pack_name, cid),
                 "pack": pack_name,
                 "pack_label": pack_label,
+                "is_global": is_global,
                 "id": cid,
                 "label": entry.get("label") or _prettify(stem),
                 "path": path,
@@ -117,3 +124,19 @@ def stable_offset(key: str) -> int:
     the same seed would produce different picks in different ComfyUI sessions.
     """
     return zlib.crc32(key.encode("utf-8")) & 0x7FFFFFFF
+
+
+def themes(categories):
+    """Selectable theme labels, in pack order. Global packs are excluded."""
+    seen = []
+    for cat in categories:
+        if cat["is_global"]:
+            continue
+        if cat["pack_label"] not in seen:
+            seen.append(cat["pack_label"])
+    return seen
+
+
+def theme_to_pack(categories):
+    """Map a theme label back to its pack directory name."""
+    return {c["pack_label"]: c["pack"] for c in categories if not c["is_global"]}

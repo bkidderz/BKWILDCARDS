@@ -1,0 +1,58 @@
+# ============================================================
+# BLENDABLE METATYPES — HIGH / DARK FANTASY
+# Fire together with an ancestry line (ancestry FIRST, then metatype), or use solo.
+# These add only the species "delta" and never reset the face. Same-skin species
+# carry no skin token (so they don't override ancestry); colored-skin species
+# override tone only and explicitly retain the underlying facial structure.
+# ============================================================
+
+# -- baseline
+human, no metahuman traits, natural human features
+
+# -- elves (same skin — ancestry tone kept)
+elf, long tapered pointed ears, refined ethereal features, faintly upswept eyes, the underlying face and skin left natural
+high elf, long elegant pointed ears, sharp regal features, luminous eyes, the underlying face and skin left natural
+wood elf, long pointed ears, angular wild features, faint natural skin markings, the underlying face and skin left natural
+half-elf, subtly pointed ears, softly refined features, the underlying face and skin left natural
+
+# -- dark elf (skin overridden, face retained)
+dark elf, long pointed ears, sharp angular features, dusky violet-grey skin, the underlying eye shape and bone structure retained
+
+# -- orks, trolls, dwarves (come in every ancestry, skin unchanged)
+ork, a broad heavy build, prominent lower tusks, a strong heavy brow and jaw, slightly pointed ears, natural skin tone unchanged from ancestry
+half-ork, an athletic build, small lower tusks, a strong jaw and brow, natural skin tone unchanged from ancestry
+troll, a towering massive build, thick hide, prominent tusks, curved horns, bony dermal ridges along the brow, natural skin tone unchanged from ancestry
+dwarf, a short stocky powerful build, broad features, a strong brow, natural skin tone unchanged from ancestry
+
+# -- fiendish and celestial
+tiefling, curved horns, a long slender tail, sharp features, skin flushed a deep red and features intermittent scales throughout, the underlying eye shape and bone structure retained
+tiefling, curved horns, a long slender tail, sharp features, skin flushed a cool blue and features intermittent scales throughout, the underlying eye shape and bone structure retained
+tiefling, curved horns, a long slender tail, sharp features, skin flushed a vivid lilac and features intermittent scales throughout, the underlying eye shape and bone structure retained
+demon, curved black horns, small fangs, a barbed tail, leathery wings, intense glowing eyes, the underlying facial features retained
+demon, huge and curved brown horns, sharp and long fangs, a very long and barbed tail, enormous leathery wings, intensly glowing eyes, the underlying facial features retained
+aasimar, a faint golden halo glow hovers above the head, luminous and glowing eyes, subtle radiance and glow, enormous feathered wings, the underlying face and features preserved
+
+# -- undead-touched (skin lightens over ancestry tone, face kept)
+vampire, visible fangs, a cooler paler cast over the natural complexion, sharp predatory eyes, the underlying facial features preserved
+vampire, visible fangs, a pallid skintone casts a subtle purple hue over the natural complexion and darkens significantly around the eyes, hungry and predatory eyes, the underlying facial features preserved though significantly more gaunt than traditionally seen
+dhampir, long and wickedly sharp fangs, a notable pallor over the natural skin tone, slitted eyes, the underlying facial features preserved
+zombie, a reanimated corpse, ashen grey-mottled decaying skin, dark rot veins, clouded sunken eyes, gaunt hollow cheeks, the underlying facial structure still readable beneath the decay
+
+# -- beast-kin (human-faced kemonomimi — ears and tail only, no fur, no uncanny graft)
+catgirl, a natural human face and skin, feline ears atop the head, a matching cat tail, vertical slit pupils, the underlying features preserved
+foxgirl, a natural human face and skin, fox ears atop the head, one or more fox tails, sharp eyes, the underlying features preserved
+wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, keen slit-pupil eyes, the underlying features preserved
+
+# -- lycanthrope (partial shift — furred and fanged, but the face still reads human, so ancestry survives)
+werewolf, a partly-shifted lycanthrope, a powerful muscular build, coarse fur along the forearms and jaw, pointed lupine ears, prominent fangs, clawed hands, keen slit-pupil eyes, a still-human face with the underlying features preserved
+
+# ============================================================
+# FULL-REPLACEMENT FORMS — HIGH / DARK FANTASY
+# Use SOLO. These replace the human substrate entirely — do NOT combine with an
+# ancestry line, or you get a human face grafted onto a non-human body.
+# ============================================================
+
+full nekomimi, a fully feline catgirl, a complete fur coat over the whole body, feline facial structure, a cat nose and whiskers, no human skin, cat ears and a long tail, vertical slit pupils
+full kitsune, a fully vulpine foxgirl, a complete fur coat, vulpine facial structure, no human skin, fox ears and multiple tails, slit eyes
+full werewolf, a towering anthropomorphic lycanthrope, a complete coat of coarse fur, an elongated wolf muzzle, bared fangs, pointed ears, clawed hands, digitigrade legs, no human skin, a fully lupine face
+full zombie, a rotted walking corpse, heavily decomposed grey flesh, exposed bone and sinew, a partially skeletal face, sunken hollow eye sockets, no living skin
