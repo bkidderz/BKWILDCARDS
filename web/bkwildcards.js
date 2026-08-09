@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.6.3";
+const BUILD = "0.6.4";
 const NODE = "BKWildcardSelector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
 const RESOLVED_WIDGET = "resolved";
@@ -167,19 +167,46 @@ function setResolved(node, text, { persist = true } = {}) {
     const widget = node.widgets?.find((w) => w.name === RESOLVED_WIDGET);
     if (!widget) return;
 
-    widget.value = text;
+    // A multiline STRING widget is backed by a real DOM <textarea>. On the very
+    // first execution the element gets initialised from widget.value during the
+    // node's initial layout pass, so a plain property assignment appears to
+    // work. It never syncs again — which is why the box froze on run 1 while
+    // the real prompt kept changing. Every known sync path is tried below.
+    try {
+      widget.value = text;
+    } catch (_) {}
 
-    // A multiline STRING widget is backed by a real DOM <textarea>. Setting
-    // widget.value alone updates the JS property but can leave the textarea
-    // showing stale text until some unrelated event forces a re-render — which
-    // is why the box appeared to update only once the whole run finished.
-    // Writing inputEl.value directly is what makes it visible immediately.
-    const el = widget.inputEl || widget.element;
-    if (el) {
-      if (el.value !== text) el.value = text;
+    const el =
+      widget.inputEl ||
+      widget.element ||
+      widget.options?.inputEl ||
+      (typeof widget.element === "object" ? widget.element : null);
+
+    if (el && "value" in el) {
+      if (el.value !== text) {
+        el.value = text;
+        // Some widget implementations mirror the element back into state only
+        // when the element reports a change.
+        try {
+          el.dispatchEvent(new Event("input", { bubbles: true }));
+        } catch (_) {}
+      }
       el.readOnly = true;
       el.style.opacity = "0.75";
       el.scrollTop = 0;
+    }
+
+    // Widgets built with a setter or callback pathway rather than a raw
+    // property. Guarded because calling a callback can re-enter.
+    if (!node._bkSyncing) {
+      node._bkSyncing = true;
+      try {
+        if (typeof widget.setValue === "function") widget.setValue(text);
+        else if (typeof widget.callback === "function") widget.callback(text, app.canvas, node);
+      } catch (_) {
+      } finally {
+        node._bkSyncing = false;
+      }
     }
 
     if (persist) {
@@ -323,6 +350,13 @@ app.registerExtension({
     if (!layout) return;
     attach(node, layout);
     restoreResolved(node);
+    // Visible build marker. If the box does not say this build number on a
+    // freshly added node, the browser is serving a cached script and no fix
+    // in this file has reached the user.
+    const w = node.widgets?.find((x) => x.name === RESOLVED_WIDGET);
+    if (w && !w.value) {
+      setResolved(node, "[BKWILDCARDS build " + BUILD + "] ready — press Run", { persist: false });
+    }
     applyNowAndNextFrame(node, layout);
   },
 

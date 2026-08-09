@@ -210,6 +210,15 @@ class BKWildcardSelector:
         prompt_text = separator.join(parts)
         _stamp_workflow(extra_pnginfo, unique_id, prompt_text)
 
+        # Printed to the ComfyUI server log every run. If a new line appears
+        # here on each queue while the on-node box stays frozen, the backend is
+        # fine and the frontend script is stale.
+        print(
+            "[BKWILDCARDS] node {} seed {} -> {} chars: {}".format(
+                unique_id, seed, len(prompt_text), prompt_text[:70].replace("\n", " ")
+            )
+        )
+
         return {
             "ui": {"bk_resolved": [prompt_text]},
             "result": (prompt_text,),
