@@ -1,0 +1,68 @@
+# ============================================================
+# BLENDABLE METATYPES
+# Fire together with an ancestry wildcards (ancestry FIRST, then metatype), or use solo.
+# These add only the species "delta" and never reset the face. Same-skin species
+# carry no skin token (so they don't override ancestry); colored-skin species
+# override tone only and explicitly retain the underlying facial structure.
+# ============================================================
+
+# -- baseline
+human, natural human features
+
+# -- elves (same skin — ancestry tone kept)
+elf, long tapered pointed ears, refined ethereal features, faintly upswept eyes, the underlying face and skin left natural
+high elf, long elegant pointed ears, sharp regal features, luminous eyes, the underlying face and skin left natural
+wood elf, long pointed ears, angular wild features, faint natural skin markings, the underlying face and skin left natural
+half-elf, subtly pointed ears, softly refined features, the underlying face and skin left natural
+
+# -- dark elf (skin overridden, face retained)
+dark elf, long pointed ears, sharp angular features, dusky violet-grey skin, the underlying eye shape and bone structure retained
+dark elf, long pointed ears, sharp angular features, dusky blue-grey skin, the underlying eye shape and bone structure retained
+dark elf, long pointed ears, sharp angular features, dusky pink-grey skin, the underlying eye shape and bone structure retained
+dark elf, long pointed ears, sharp angular features, dusky grey skin, the underlying eye shape and bone structure retained
+
+# -- orks, trolls, dwarves (Shadowrun-style — come in every ancestry, skin unchanged)
+ork, a broad heavy build, prominent lower tusks, a strong heavy brow and jaw, slightly pointed ears, natural skin tone unchanged from ancestry
+half-ork, an athletic build, small lower tusks, a strong jaw and brow, natural skin tone unchanged from ancestry
+troll, a towering massive build, thick hide, prominent tusks, curved horns, bony dermal ridges along the brow, natural skin tone unchanged from ancestry
+dwarf, a short stocky powerful build, broad features, a strong brow, natural skin tone unchanged from ancestry
+
+# -- fiendish and celestial
+tiefling, curved horns, a long slender tail, sharp facial features, skin flushed a deep red and intermittently sparse scales, the underlying eye shape and bone structure retained
+tiefling, curved horns, a long slender tail, sharp facial features, skin flushed a pale blue and intermittently sparse scales, the underlying eye shape and bone structure retained
+tiefling, curved horns, a long slender tail, sharp facial features, skin of metallic golden scales, the underlying eye shape and bone structure retained
+demon, curved black horns, small fangs, a barbed tail, leathery wings, intense glowing eyes, the underlying facial features retained
+aasimar, a faint halo glow hovering above her head, luminous eyes, radiant skin, large and feathered wings, the underlying face and features preserved
+
+# -- undead-touched (skin lightens over ancestry tone, face kept)
+vampire, visible subtle fangs, a cooler paler cast over the natural complexion, sharp predatory eyes, the underlying facial features preserved
+vampire, visible long fangs, a pallid complexion, sharp predatory eyes and facial features, the underlying facial features preserved
+dhampir, small fangs, a faint pallor over the natural skin, striking eyes, the underlying facial features preserved
+
+# -- beast-kin (human-faced kemonomimi — ears and tail only, no fur, no uncanny graft)
+catgirl, a natural human face and skin, feline ears atop the head, a matching cat tail, vertical slit pupils, the underlying features preserved
+foxgirl, a natural human face and skin, fox ears atop the head, one or more fox tails, sharp eyes, the underlying features preserved
+wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, amber eyes, the underlying features preserved
+
+# -- augmented (human base fully intact)
+augmented humanoid, a natural face and skin, subtle chrome cyberware at the temple and jaw, faint interface ports, the underlying features preserved
+partial cyborg, a natural face and skin, one or more sleek chrome cybernetic limbs, visible mechanical joints, the underlying features preserved
+cyber-eyed, a natural face and skin, glowing cybernetic eyes with luminous irises, subtle facial ports, the underlying features preserved
+partial cyborg, a natural face and skin, cybernetic jaw with metallic teeth, visible mechanical joints, the underlying features preserved
+
+# ============================================================
+# FULL-REPLACEMENT FORMS
+# Use SOLO. These replace the human substrate entirely — do NOT combine with an
+# ancestry line, or you get a human face grafted onto a non-human body.
+# ============================================================
+
+# -- nekomimi
+full nekomimi, a fully feline catgirl, a complete fur coat over the whole body, feline facial structure, a cat nose and whiskers, no human skin, cat ears and a long tail, vertical slit pupils
+full kitsune, a fully vulpine foxgirl, a complete fur coat, vulpine facial structure, no human skin, fox ears and multiple tails, slit eyes
+
+# -- android
+android, a fully synthetic being, a smooth seamless synthetic face and body, matte polymer skin, subtle seam lines, glowing cybernetic eyes, no human skin
+gynoid, a fully synthetic being, a sculpted porcelain-plated face and body, visible joint seams, luminous optical eyes, no organic skin
+full-conversion cyborg, a fully mechanical chassis, a chrome and matte-alloy body, an armored sculpted faceplate, glowing optical sensors, no human skin
+hologram, a fully digital being, a translucent glowing body, transparent limbs and features, scanline shimmer, no physical skin
+drone-synth, a fully robotic being, angular armored plating, a featureless sensor visor, exposed cabling, no human features

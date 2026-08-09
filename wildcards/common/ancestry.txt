@@ -1,0 +1,82 @@
+# ============================================================
+# Ancestry owns STRUCTURE only: eye SHAPE and hair TEXTURE/length — no eye or hair COLOR.
+# Color is owned by the separate eye-color and hair-color wildcards, so they never conflict.
+# Skin tone stays (no competing wildcard) and is last, so colored-skin metatypes can override it
+# while the ethnic facial structure survives.
+# ============================================================
+
+# EAST ASIAN
+japanese, warm-toned East Asian features, monolid eyes, high cheekbones, a small straight nose, soft rounded lips, straight hair, fair porcelain skin
+korean, warm-toned East Asian features, monolid eyes, flat wide cheekbones, a straight nose, a small full mouth, sleek straight hair, fair skin
+chinese, warm-toned East Asian features, monolid eyes, a softly rounded face, a small nose, delicate lips, straight hair, light skin
+
+# SOUTHEAST ASIAN
+vietnamese, Southeast Asian features, softly monolid eyes, a rounded face, a small rounded nose, soft full lips, long straight hair, warm tan skin
+thai, Southeast Asian features, almond eyes, a rounded face, a small broad nose, softly full lips, straight hair, warm golden-tan skin
+filipino, Southeast Asian features, wide almond eyes, a rounded face, a broad flat nose, full lips, wavy hair, warm brown skin
+
+# CENTRAL ASIAN
+mongolian, Central Asian steppe features, narrow monolid eyes, broad high cheekbones, a low-bridged nose, soft lips, straight hair, warm tan skin
+kazakh, Central Asian features, monolid eyes, broad flat cheekbones, a small nose, a small mouth, straight hair, light tan skin
+
+# SOUTH ASIAN
+indian, South Asian features, large deep-set almond eyes, an oval face, a defined straight nose, full lips, thick wavy hair, warm brown skin
+sri lankan, South Asian features, large round eyes, angular cheekbones, a broad nose, softly full lips, curly hair, deep brown skin
+
+# MIDDLE EASTERN / NORTH AFRICAN
+arab, Middle Eastern features, almond eyes, a strong jaw, a defined aquiline nose, full lips, thick wavy hair, olive skin
+persian, Middle Eastern features, large almond eyes, an oval face, a straight prominent nose, sharply defined lips, long wavy hair, light olive skin
+turkish, Middle Eastern features, almond eyes, softly defined cheekbones, an aquiline nose, soft full lips, thick hair, warm olive skin
+egyptian, North African features, almond eyes, a defined jaw, a straight nose, heart-shaped lips, wavy hair, warm bronze skin
+
+# MAGHREBI (NORTH AFRICAN)
+berber, Maghrebi North African features, deep-set eyes, sharp cheekbones, a straight defined nose, defined lips, wavy hair, warm olive-bronze skin
+
+# EUROPEAN
+french, European features, almond eyes, a soft oval face, a straight nose, soft lips, softly wavy hair, light skin
+italian, Mediterranean European features, almond eyes, a strong jaw, a straight Roman nose, full lips, long wavy hair, light olive skin
+spanish, Mediterranean European features, almond eyes, an oval face, a refined straight nose, softly defined lips, wavy hair, light olive skin
+german, Northern European features, wide-set eyes, a square jaw, a straight nose, thin lips, fine straight hair, fair skin
+greek, Mediterranean European features, almond eyes, strong cheekbones, a straight Roman nose, well-shaped full lips, thick wavy hair, light olive skin
+slavic, Eastern European features, wide-set eyes, high sharp cheekbones, a straight nose, firm defined lips, straight hair, fair skin
+scandinavian, Nordic features, wide-set eyes, angular features, a narrow straight nose, thin lips, fine straight hair, very fair skin
+russian, Eastern European features, hooded eyes, broad cheekbones, a straight nose, a soft small mouth, long straight hair, fair skin
+
+# AFRICAN
+west african, sub-Saharan African features, wide eyes, broad cheekbones, a broad nose, full wide lips, tightly coiled hair, deep brown skin
+east african, East African features, large almond eyes, sculpted cheekbones, a narrow straight nose, full lips, coiled hair, deep umber skin
+ethiopian, East African features, large expressive eyes, a narrow face, a narrow nose, softly full lips, curly hair, warm deep-brown skin
+nigerian, West African features, wide eyes, a broad face, a broad flat nose, broad full lips, tightly coiled hair, rich dark-brown skin
+
+# AFRO-CARIBBEAN / AFRO-LATINO
+jamaican, Afro-Caribbean features, expressive eyes, broad cheekbones, a broad nose, full lips, coiled hair, rich brown skin
+afro-brazilian, Afro-Latino features, almond eyes, full cheeks, a softly broad nose, full soft lips, curly hair, warm brown skin
+
+# LATIN / INDIGENOUS AMERICAN
+latina, Latin American mestiza features, almond eyes, a rounded face, a straight nose, soft full lips, long wavy hair, warm tan skin
+native american, Indigenous American features, almond eyes, high broad cheekbones, an aquiline nose, wide lips, long straight hair, warm bronze skin
+andean, Indigenous South American features, almond eyes, broad flat cheekbones, a straight nose, a wide full mouth, straight hair, warm copper-brown skin
+
+# ARCTIC / CIRCUMPOLAR
+inuit, Arctic Indigenous features, narrow monolid eyes, broad round cheekbones, a small flat nose, full lips, straight hair, warm tan skin
+
+# PACIFIC
+pacific islander, Polynesian features, wide eyes, a broad soft face, a broad nose, full wide lips, thick wavy hair, warm brown skin
+
+# MELANESIAN
+papua new guinean, Melanesian features, wide eyes, broad cheekbones, a broad nose, full lips, tightly-curled hair, deep brown skin
+fijian, Melanesian features, wide eyes, a strong brow, a broad nose, broad full lips, curly hair, warm dark-brown skin
+
+# ABORIGINAL AUSTRALIAN
+aboriginal australian, Aboriginal Australian features, deep-set eyes, a strong brow, a broad nose, full lips, thick wavy hair, deep brown skin
+
+# AMERICAN HERITAGE (admixture populations)
+african american, African American features, expressive eyes, sculpted cheekbones, a broad nose, full lips, coiled hair, rich brown skin
+chicana, Mexican-American mestiza features, almond eyes, a softly rounded face, a straight nose, full lips, wavy hair, warm tan-brown skin
+louisiana creole, Creole admixture features, large eyes, gently rounded cheeks, a softly defined nose, softly full lips, loosely-curled hair, warm golden-tan skin
+puerto rican, Caribbean Latino admixture features, expressive eyes, a full oval face, a rounded nose, soft lips, wavy hair, warm tan skin
+hawaiian hapa, mixed Asian-Pacific-European features, soft almond eyes, soft rounded cheeks, a small rounded nose, soft full lips, long wavy hair, warm golden skin
+appalachian, Scots-Irish and Melungeon admixture features, striking eyes, a narrow angular face, a straight nose, thin lips, wavy hair, warm olive-fair skin
+
+# MIXED
+mixed heritage, blended multi-ethnic features, striking eyes, a balanced oval face, a softly defined nose, soft full lips, soft waves, warm light-brown skin

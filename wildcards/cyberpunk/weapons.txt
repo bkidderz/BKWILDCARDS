@@ -1,0 +1,44 @@
+# Optional weapon+carry wildcard — CYBERPUNK. Decoupled from outfits so weapons are optional.
+# Each line bundles the weapon WITH its securing rig as one unit, and LEADS with the secured
+# state (holstered / sheathed / slung / mag-locked) so the attachment isn't buried and the
+# weapon reads as physically carried, not slapped on. One weapon per line as a rule.
+
+# SIDEARMS
+holstered on a drop-leg thigh rig with buckled retention straps, a heavy semi-automatic pistol
+holstered low at the hip in a fitted synthleather side holster, a compact chrome-finish pistol
+mag-locked to a hardpoint on her thigh plate, a sleek smart pistol
+holstered in a shoulder rig under the open jacket, a matte-black machine pistol
+seated in a hip holster with a thumb-break strap, a heavy revolver
+mag-locked to a forearm hardpoint, a compact hold-out pistol
+holstered in a chest rig across the sternum, a stubby machine pistol
+
+# LONG GUNS
+slung across the back on a padded tactical sling, a compact bullpup carbine
+slung diagonally across the chest on a two-point sling, a short-barrel assault rifle
+mag-locked to a back hardpoint between the shoulders, a folding-stock shotgun
+slung muzzle-down across the back in a padded scabbard, a long-barrelled sniper rifle
+slung across the back on a single-point sling, a compact submachine gun
+
+# BLADES
+sheathed in a magnetic scabbard across the back, a mono-edged katana
+sheathed in a thigh-mounted sheath with a retention strap, a broad combat knife
+sheathed horizontally at the small of the back, a tactical fixed-blade knife
+mag-locked to the forearm in a slim housing, a retractable cyber-blade
+sheathed in a boot sheath, a slim throwing knife
+sheathed in twin hip sheaths on the belt, a matched pair of combat knives
+
+# EXOTIC / NON-LETHAL
+folded against the forearm on a wrist mount, a deployable arm-blade
+clipped to a belt loop in a rubberized holster, a stun baton with exposed contact nodes
+mag-locked to the hip plate, a compact energy sidearm with a glowing power cell
+slung across the back on a hardpoint sling, a heavy anti-materiel rifle
+
+# DUAL / RIGS
+holstered in a double shoulder rig under the coat, twin machine pistols
+holstered on matched drop-leg rigs on both thighs, a pair of heavy pistols
+worn on a chest bandolier of loaded magazines with a sidearm holstered at the hip
+
+# DRAWN / HELD
+drawn and held low in a two-handed grip, a heavy pistol
+held at rest across the lap on its sling, a compact carbine
+drawn and held ready in one hand, a mono-edged katana, its scabbard empty across her back

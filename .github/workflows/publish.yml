@@ -1,0 +1,29 @@
+# Publishes to the Comfy Registry when pyproject.toml changes on main.
+#
+# Before this can work you must:
+#   1. Create a publisher account at https://registry.comfy.org and put your
+#      publisher ID in pyproject.toml under [tool.comfy] PublisherId
+#   2. Generate an API key and save it in this repo under
+#      Settings > Secrets and variables > Actions as REGISTRY_ACCESS_TOKEN
+#   3. Set a real license in pyproject.toml
+#
+# Until then this workflow will fail. Delete it or leave it disabled if you
+# are distributing via git clone only.
+
+name: Publish to Comfy Registry
+
+on:
+  push:
+    branches: [main]
+    paths: ["pyproject.toml"]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Publish
+        uses: Comfy-Org/publish-node-action@main
+        with:
+          personal_access_token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}

@@ -1,0 +1,45 @@
+# ============================================================
+# Anti-monochrome accent wildcard. Each line forces at least TWO contrasting accent hues, placed on wardrobe / lighting / environment / signage (NOT skin), so a single dominant saturated color (e.g. tiefling-red skin, orange cyberware) has something to contrast against instead of flooding the frame. Inject alongside the outfit, or pin one line into the base prompt.
+# Strongest when paired with the base-prompt color-separation line.
+# ============================================================
+
+
+# COOL-vs-WARM CONTRAST PAIRS
+cyan and warm-amber contrast lighting across the wardrobe and environment
+teal and gold accents through the outfit and background
+electric blue and orange split-complementary accent lighting
+ice-blue rim light against warm amber highlights
+cobalt-blue and warm-brass accents across the scene
+
+# NEON / CYBER PAIRS
+cyan and magenta neon accents through the wardrobe and signage
+acid-green and violet neon glow in the environment
+electric pink and electric blue accent lighting
+neon orange and deep-teal signage glow
+UV-purple and lime-green accent lighting
+
+# JEWEL / ARCANE PAIRS
+emerald-green and warm-gold arcane accent glow
+sapphire-blue and amber accents across the outfit and scene
+amethyst-violet and teal accent glow
+ruby accents against cool-silver highlights
+jade-green and warm-bronze accents
+
+# TRIADIC / MULTICOLOR
+a triadic neon palette of magenta, cyan and yellow, distinctly separated
+a triadic scheme of violet, lime and amber accents
+a vivid multicolored neon palette with several distinct, separated hues
+a broad polychromatic scheme, several saturated colors kept visually distinct
+scattered multicolored neon signage in the background, mixed hues
+
+# METALLIC / NEUTRAL ANCHORS (neutral contrast breaks a saturated dominant)
+polished chrome and cool-steel accents against the subject's saturated color
+brushed brass and cool-teal accents balancing the scene
+matte gunmetal and single-pop neon accent against a warm subject
+warm-gold metallic accents against a cool-toned environment
+
+# EXPLICIT SUBJECT-vs-ENVIRONMENT SEPARATION
+a warm-toned subject set against a distinctly cool-toned environment
+a cool-toned subject set against a distinctly warm-toned environment
+saturated subject against a desaturated, neutral-toned background
+the wardrobe in hues that deliberately contrast the subject's own coloring

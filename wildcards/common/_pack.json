@@ -1,0 +1,13 @@
+{
+  "pack": "common",
+  "label": "Common",
+  "entries": [
+    {
+      "file": "ancestry.txt",
+      "id": "ancestry",
+      "label": "Ancestry",
+      "order": 10,
+      "default": false
+    }
+  ]
+}

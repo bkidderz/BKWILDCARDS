@@ -1,0 +1,55 @@
+{
+  "pack": "cyberpunk",
+  "label": "Cyberpunk",
+  "entries": [
+    {
+      "file": "metatypes.txt",
+      "id": "metatype",
+      "label": "Metatype / Species",
+      "order": 20,
+      "default": false
+    },
+    {
+      "file": "tattoos.txt",
+      "id": "tattoo",
+      "label": "Tattoos",
+      "order": 30,
+      "default": false
+    },
+    {
+      "file": "outfits.txt",
+      "id": "outfit",
+      "label": "Outfits",
+      "order": 40,
+      "default": false
+    },
+    {
+      "file": "weapons.txt",
+      "id": "weapon",
+      "label": "Weapons / Carry",
+      "order": 50,
+      "default": false
+    },
+    {
+      "file": "accent_palette.txt",
+      "id": "accent_palette",
+      "label": "Accent Palette",
+      "order": 60,
+      "default": false
+    },
+    {
+      "file": "environments.txt",
+      "id": "environment",
+      "label": "Environments",
+      "order": 70,
+      "default": false
+    },
+    {
+      "file": "poses.txt",
+      "id": "pose",
+      "label": "Poses",
+      "order": 80,
+      "default": false
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+[project]
+name = "bkwildcards"
+description = "Toggle-driven wildcard selector for ComfyUI. Enable categories with switches; get a finished prompt string."
+version = "0.1.0"
+license = { text = "TODO — choose a license before publishing" }
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/bkidderz/BKWILDCARDS"
+
+[tool.comfy]
+PublisherId = ""
+DisplayName = "BKWILDCARDS"
+Icon = ""
