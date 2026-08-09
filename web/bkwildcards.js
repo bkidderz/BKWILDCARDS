@@ -16,11 +16,13 @@
  */
 
 import { app } from "../../scripts/app.js";
+import { api } from "../../scripts/api.js";
 
 const NODE = "BKWildcardSelector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
 const RESOLVED_WIDGET = "resolved";
 const PROP_PROMPT = "bk_resolved";
+const PENDING_TEXT = "… generating …";
 
 let LAYOUT = null;
 let LAYOUT_PROMISE = null;
@@ -158,21 +160,43 @@ function relabel(node, layout) {
  * at queue time, before this node executes, so Python stamps the same property
  * into extra_pnginfo during the run.
  */
-function setResolved(node, text) {
+function setResolved(node, text, { persist = true } = {}) {
   if (!node || typeof text !== "string") return;
   try {
     const widget = node.widgets?.find((w) => w.name === RESOLVED_WIDGET);
     if (!widget) return;
+
     widget.value = text;
-    if (widget.inputEl) {
-      widget.inputEl.readOnly = true;
-      widget.inputEl.style.opacity = "0.75";
+
+    // A multiline STRING widget is backed by a real DOM <textarea>. Setting
+    // widget.value alone updates the JS property but can leave the textarea
+    // showing stale text until some unrelated event forces a re-render — which
+    // is why the box appeared to update only once the whole run finished.
+    // Writing inputEl.value directly is what makes it visible immediately.
+    const el = widget.inputEl || widget.element;
+    if (el) {
+      if (el.value !== text) el.value = text;
+      el.readOnly = true;
+      el.style.opacity = "0.75";
+      el.scrollTop = 0;
     }
-    node.properties = node.properties || {};
-    node.properties[PROP_PROMPT] = text;
-    node.setDirtyCanvas(true, false);
+
+    if (persist) {
+      node.properties = node.properties || {};
+      node.properties[PROP_PROMPT] = text;
+    }
+    node.setDirtyCanvas(true, true);
   } catch (err) {
     console.warn("[BKWILDCARDS] could not write resolved text:", err);
+  }
+}
+
+/** Every BKWildcardSelector currently on the canvas. */
+function selectorNodes() {
+  try {
+    return (app.graph?._nodes || []).filter((n) => n?.comfyClass === NODE);
+  } catch (_) {
+    return [];
   }
 }
 
@@ -225,6 +249,42 @@ app.registerExtension({
 
   async setup() {
     await loadLayout();
+
+    // Visible feedback at queue time. The resolved text cannot be known until
+    // Python runs, so the box is marked pending rather than left showing the
+    // previous run's prompt. Not persisted — a stale placeholder must never be
+    // what gets saved into a workflow or a PNG.
+    api.addEventListener("execution_start", () => {
+      for (const node of selectorNodes()) {
+        setResolved(node, PENDING_TEXT, { persist: false });
+      }
+    });
+
+    // Backstop for the per-node onExecuted hook.
+    api.addEventListener("executed", (event) => {
+      try {
+        const detail = event?.detail;
+        const text = detail?.output?.bk_resolved?.[0];
+        if (typeof text !== "string") return;
+        const node = app.graph?.getNodeById?.(Number(detail.node) || detail.node);
+        if (node?.comfyClass === NODE) setResolved(node, text);
+      } catch (err) {
+        console.warn("[BKWILDCARDS] executed listener failed:", err);
+      }
+    });
+
+    // If a run dies before this node executes, clear the placeholder rather
+    // than leaving it stuck on screen.
+    const clearPending = () => {
+      for (const node of selectorNodes()) {
+        const w = node.widgets?.find((x) => x.name === RESOLVED_WIDGET);
+        if (w && w.value === PENDING_TEXT) {
+          setResolved(node, node.properties?.[PROP_PROMPT] || "", { persist: false });
+        }
+      }
+    };
+    api.addEventListener("execution_error", clearPending);
+    api.addEventListener("execution_interrupted", clearPending);
   },
 
   async beforeRegisterNodeDef(nodeType, nodeData) {
