@@ -17,19 +17,23 @@ except ImportError:  # pragma: no cover - not running inside ComfyUI
 
 
 def _payload():
+    packs = library.scan_packs()
     cats = library.scan()
     return {
-        "themes": library.themes(cats),
-        "theme_to_pack": library.theme_to_pack(cats),
+        "themes": library.themes(packs),
+        "theme_to_pack": library.theme_to_pack(packs),
+        "sexes": library.sexes(packs),
         "categories": [
             {
                 "key": c["key"],
                 "pack": c["pack"],
                 "pack_label": c["pack_label"],
                 "is_global": c["is_global"],
+                "sex": c["sex"],
                 "label": c["label"],
                 "count": c["count"],
                 "order": c["order"],
+                "select": c["select"],
             }
             for c in cats
         ],

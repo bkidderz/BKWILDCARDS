@@ -21,9 +21,10 @@ Restart ComfyUI. No dependencies to install.
 
 Add **BK Wildcard Selector** (category: `BKWILDCARDS`) to any workflow.
 
-- Pick a **theme** from the dropdown. Only that theme's categories contribute.
+- Pick a **sex** and a **theme**. Only categories in scope for both contribute.
 - Categories marked **◆** are global — they apply to every theme.
 - Each toggle is one wildcard category. Set the ones you want to `yes`.
+- Some categories are **section dropdowns** instead of on/off. Build is one: pick `ATHLETIC`, `PLUS`, any other section from the file, `— any section —` to draw from the whole file, or `— off —`.
 - The node draws one line from each enabled category and joins them with `separator`.
 - `seed` drives the draw. Set it to *randomize* for a new combination every run, or *fixed* to lock the result.
 - Wire the `prompt` output into whatever feeds your CLIPTextEncode.
@@ -32,17 +33,31 @@ Add **BK Wildcard Selector** (category: `BKWILDCARDS`) to any workflow.
 
 After each run the node fills in its **`resolved`** box with the prompt it produced, so you can read it without wiring anything. That text is also stamped into the workflow saved inside generated PNGs — drag a finished image back into ComfyUI and the box still shows the prompt that made it.
 
-The second output, `breakdown`, lists which line came from which category. Wire it to a `Preview as Text` node when you want that detail.
-
 Add **BK Wildcard Info** and wire its `report` output to a `Preview as Text` node to see every pack and category the loader found, with entry counts.
 
-## Themes
+## Scope: sex and theme
 
-Themes come from the pack directories under `wildcards/`. A pack whose `_pack.json` sets `"global": true` — currently `common` — is always active regardless of the selected theme. Every other pack becomes a theme in the dropdown.
+Packs are scoped on two independent axes in `_pack.json`:
 
-Theme gating is enforced in Python. A category belonging to an inactive theme cannot contribute to the output, whatever its toggle says. The browser extension only *hides* those toggles; if it fails to load, the node shows every toggle and still produces correct output.
+```json
+{ "global": true, "sex": "Female" }
+```
 
-Toggle state is remembered per theme. Switching to Dark Fantasy and back leaves your Cyberpunk toggles as you set them.
+`"global": true` means the pack applies whatever theme is selected. `"sex"` means it only applies when that sex is chosen. They compose — the `female` pack is global *and* sex-scoped, so its Build category is available under every theme but only when Female is selected. A pack with no `sex` key is available to every sex. Every non-global pack becomes a theme in the dropdown; every distinct `sex` value becomes an option in the sex dropdown, even for a pack that holds no files yet.
+
+Scope gating is enforced in Python. A category belonging to an inactive theme cannot contribute to the output, whatever its toggle says. The browser extension only *hides* those toggles; if it fails to load, the node shows every toggle and still produces correct output.
+
+Selections are remembered per scope. Switching to Dark Fantasy and back leaves your Cyberpunk toggles as you set them; the same holds for sex.
+
+## Section dropdowns
+
+A category can be declared `"select": "section"` in `_pack.json`. Its `#` headers then become dropdown options instead of a plain on/off toggle:
+
+```json
+{ "file": "builds.txt", "id": "build", "label": "Build", "order": 15, "select": "section" }
+```
+
+Headers longer than 40 characters, and `# ====` rule lines, are treated as prose and ignored — so a file's explanatory header block does not become a bogus section. If a file declared this way has no usable headers, the category falls back to an on/off toggle.
 
 ## Output order
 
@@ -77,6 +92,7 @@ Node inputs are built when ComfyUI loads the module. After adding a file, restar
 | Pack | Category | Entries |
 |---|---|---|
 | Common (global) | Ancestry | 44 |
+| Female (global, Female) | Build — 5 sections | 61 |
 | Cyberpunk | Metatype / Species | 35 |
 | Cyberpunk | Tattoos | 75 |
 | Cyberpunk | Outfits | 270 |
@@ -90,15 +106,16 @@ Node inputs are built when ComfyUI loads the module. After adding a file, restar
 | Dark Fantasy | Weapons / Carry | 30 |
 | Dark Fantasy | Accent Palette | 31 |
 
-Dark Fantasy has no Environments or Poses file yet, so those toggles do not appear when that theme is selected.
+Dark Fantasy has no Environments or Poses file yet, so those toggles do not appear when that theme is selected. The `male` pack exists so Male appears in the dropdown, but holds no files yet.
 
 Wildcard content is written for KREA2-style natural-language prompting.
 
-## Known limits (v0.3.1)
+## Known limits (v0.4.0)
 
 - Widget hiding uses a community pattern, not a supported API — [Comfy-Org/ComfyUI#12244](https://github.com/Comfy-Org/ComfyUI/issues/12244) requests an official one and is unanswered. A frontend update could break the hiding. It cannot break the output.
 - One theme at a time. No cross-theme blending.
-- No section-level selection. A file's `#` headers are organizational only — a draw can come from any section.
+- Section selection is opt-in per category. Categories not declared `"select": "section"` still draw from the whole file.
+- Files using inline `{a|b|c}` syntax are not supported — the braces are emitted literally. Split colour and style into separate files instead.
 - One line per enabled category per run. No multi-draw.
 - Adding wildcard files requires a ComfyUI refresh to surface new toggles.
 - Full-replacement metatypes (`full kitsune`, `full zombie`, `android`) can still stack on top of an enabled Ancestry line. The node has no mutual-exclusion logic yet.

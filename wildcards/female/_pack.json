@@ -1,0 +1,16 @@
+{
+  "pack": "female",
+  "label": "Female",
+  "global": true,
+  "sex": "Female",
+  "entries": [
+    {
+      "file": "builds.txt",
+      "id": "build",
+      "label": "Build",
+      "order": 15,
+      "select": "section",
+      "default": false
+    }
+  ]
+}

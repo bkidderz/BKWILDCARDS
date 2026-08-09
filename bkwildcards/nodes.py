@@ -4,21 +4,21 @@ import random
 
 from . import library
 
-# Scanned once at import. ComfyUI calls INPUT_TYPES at runtime, but the
-# category list is cached here so a directory walk does not happen on every
-# /object_info request. Adding a new wildcard file requires a ComfyUI restart
-# or a "Refresh Node Definitions" to appear.
+# Scanned once at import. INPUT_TYPES is called on every /object_info request,
+# so the walk is cached here. Adding a wildcard file needs a ComfyUI restart or
+# "Refresh Node Definitions" before its toggle appears.
+_PACKS = library.scan_packs()
 _CATEGORIES = library.scan()
-_THEMES = library.themes(_CATEGORIES)
-_THEME_TO_PACK = library.theme_to_pack(_CATEGORIES)
+_THEMES = library.themes(_PACKS)
+_THEME_TO_PACK = library.theme_to_pack(_PACKS)
+_SEXES = library.sexes(_PACKS)
 
-# Keys written into the workflow node's `properties` dict so the resolved text
-# survives a save and, via extra_pnginfo, an embed into a saved PNG.
+# Written into the workflow node's `properties` so the resolved text survives a
+# save and, via extra_pnginfo, an embed into a generated PNG.
 PROP_PROMPT = "bk_resolved"
-PROP_BREAKDOWN = "bk_breakdown"
 
 
-def _stamp_workflow(extra_pnginfo, unique_id, prompt_text, breakdown_text):
+def _stamp_workflow(extra_pnginfo, unique_id, prompt_text):
     """Write the resolved text into the workflow snapshot bound for the PNG.
 
     ComfyUI captures the workflow at queue time, before this node runs, so a
@@ -27,9 +27,8 @@ def _stamp_workflow(extra_pnginfo, unique_id, prompt_text, breakdown_text):
     serialises into a PNG text chunk after we return — puts *this* run's text
     into *this* run's file.
 
-    We write into the node's `properties` dict rather than `widgets_values`
-    because widgets_values is positional, and its indices shift with frontend
-    additions such as the control_after_generate widget.
+    Written to `properties` rather than `widgets_values` because the latter is
+    positional and its indices shift whenever a widget is added.
     """
     if not extra_pnginfo or unique_id is None:
         return
@@ -45,26 +44,41 @@ def _stamp_workflow(extra_pnginfo, unique_id, prompt_text, breakdown_text):
                 props = {}
                 node["properties"] = props
             props[PROP_PROMPT] = prompt_text
-            props[PROP_BREAKDOWN] = breakdown_text
             break
     except Exception as exc:  # never let metadata stamping break a render
         print("[BKWILDCARDS] could not stamp workflow metadata: {}".format(exc))
 
 
-class BKWildcardSelector:
-    """Pick a theme, toggle categories, emit one combined prompt string.
+def _in_scope(cat, active_pack, active_sex):
+    """Theme and sex gate. Enforced here, not in the browser."""
+    if not (cat["is_global"] or cat["pack"] == active_pack):
+        return False
+    if cat["sex"] and cat["sex"] != active_sex:
+        return False
+    return True
 
-    Theme gating is enforced here in Python, not in the browser. A category
-    belonging to a theme other than the selected one cannot contribute to the
-    output no matter what its toggle says. The frontend extension only hides
-    those toggles; if it fails to load, behaviour is unchanged and the node
-    simply shows every toggle.
+
+class BKWildcardSelector:
+    """Pick a sex and a theme, choose categories, emit one prompt string.
+
+    Scoping is enforced in Python. A category belonging to another theme or
+    another sex cannot contribute no matter what its widget says. The frontend
+    extension only hides those widgets; if it fails to load, behaviour is
+    unchanged and the node simply shows everything.
     """
 
     @classmethod
     def INPUT_TYPES(cls):
         required = {}
 
+        if _SEXES:
+            required["sex"] = (
+                _SEXES,
+                {
+                    "default": _SEXES[0],
+                    "tooltip": "Sex-scoped categories only contribute when their sex is selected.",
+                },
+            )
         if _THEMES:
             required["theme"] = (
                 _THEMES,
@@ -92,36 +106,51 @@ class BKWildcardSelector:
                 "tooltip": "Placed between the selections from each enabled category.",
             },
         )
-        # Global categories first, then each theme's block. Inputs for every
-        # theme always exist, which is what lets toggle state survive switching
-        # themes and switching back.
+
+        # Global packs first, then each theme's block. Inputs for every theme
+        # and every sex always exist, which is what lets settings survive
+        # switching away and back.
         ordered = [c for c in _CATEGORIES if c["is_global"]]
         for theme in _THEMES:
             pack = _THEME_TO_PACK[theme]
             ordered += [c for c in _CATEGORIES if c["pack"] == pack]
 
         for cat in ordered:
-            scope = "always on" if cat["is_global"] else cat["pack_label"]
-            required[cat["key"]] = (
-                "BOOLEAN",
-                {
-                    "default": cat["default"],
-                    "label_on": "yes",
-                    "label_off": "no",
-                    "tooltip": "{} — {} ({} entries)".format(
-                        scope, cat["label"], cat["count"]
-                    ),
-                },
-            )
+            scope_bits = []
+            if cat["sex"]:
+                scope_bits.append(cat["sex"])
+            scope_bits.append("always on" if cat["is_global"] else cat["pack_label"])
+            scope = " / ".join(scope_bits)
 
-        # Display box, declared LAST so it renders below every toggle instead of
-        # splitting them. Filled in after execution by the frontend extension and
-        # stamped into saved PNGs by _stamp_workflow. Whatever it contains on the
-        # way in is ignored.
+            if cat["select"] == library.SELECT_SECTION:
+                options = library.section_options(cat)
+                required[cat["key"]] = (
+                    options,
+                    {
+                        "default": options[0],
+                        "tooltip": "{} — {}. Pick a section, or any section to draw from all {} entries.".format(
+                            scope, cat["label"], cat["count"]
+                        ),
+                    },
+                )
+            else:
+                required[cat["key"]] = (
+                    "BOOLEAN",
+                    {
+                        "default": cat["default"],
+                        "label_on": "yes",
+                        "label_off": "no",
+                        "tooltip": "{} — {} ({} entries)".format(
+                            scope, cat["label"], cat["count"]
+                        ),
+                    },
+                )
+
+        # Display box, declared LAST so it renders below every selector.
         #
         # NOTE: widget order is positional in a saved workflow's widgets_values
-        # array. Moving an input after a public release shifts every value after
-        # it. Treat this ordering as frozen once the repo is published.
+        # array. Moving or inserting an input shifts every value after it.
+        # Treat this ordering as frozen once the repo is published.
         required["resolved"] = (
             "STRING",
             {
@@ -139,14 +168,14 @@ class BKWildcardSelector:
             },
         }
 
-    RETURN_TYPES = ("STRING", "STRING")
-    RETURN_NAMES = ("prompt", "breakdown")
+    RETURN_TYPES = ("STRING",)
+    RETURN_NAMES = ("prompt",)
     FUNCTION = "build"
     CATEGORY = "BKWILDCARDS"
     DESCRIPTION = (
-        "Pick a theme, enable categories with toggles. Draws one line from each "
-        "enabled category and returns them joined as a single prompt string. "
-        "The resolved text is shown on the node and saved into generated PNGs."
+        "Pick a sex and theme, then choose categories. Draws one line from each "
+        "and returns them joined as a single prompt string. The resolved text is "
+        "shown on the node and saved into generated PNGs."
     )
 
     def build(
@@ -154,48 +183,29 @@ class BKWildcardSelector:
         seed,
         separator,
         resolved="",
+        sex=None,
         theme=None,
         extra_pnginfo=None,
         unique_id=None,
-        **toggles
+        **choices
     ):
         active_pack = _THEME_TO_PACK.get(theme)
-
         parts = []
-        report = ["theme: {}".format(theme or "(none)"), "seed: {}".format(seed), ""]
 
         for cat in _CATEGORIES:
-            if not (cat["is_global"] or cat["pack"] == active_pack):
+            if not _in_scope(cat, active_pack, sex):
                 continue
-            if not toggles.get(cat["key"], False):
-                continue
-
-            entries = library.read_lines(cat["path"])
-            if not entries:
-                report.append("{}: SKIPPED (file empty)".format(cat["label"]))
-                continue
-
             rng = random.Random(int(seed) + library.stable_offset(cat["key"]))
-            pick = rng.choice(entries)
-            parts.append(pick)
-            report.append("{} [{}]: {}".format(cat["label"], cat["key"], pick))
-
-        if not parts:
-            report.append("(nothing enabled — output is empty)")
+            pick = library.draw(cat, choices.get(cat["key"]), rng)
+            if pick:
+                parts.append(pick)
 
         prompt_text = separator.join(parts)
-        breakdown_text = "\n".join(report)
-
-        _stamp_workflow(extra_pnginfo, unique_id, prompt_text, breakdown_text)
+        _stamp_workflow(extra_pnginfo, unique_id, prompt_text)
 
         return {
-            # Picked up by the frontend extension and written into the
-            # `resolved` box so you can read it without a preview node.
-            "ui": {
-                "bk_resolved": [prompt_text],
-                "bk_breakdown": [breakdown_text],
-            },
-            "result": (prompt_text, breakdown_text),
+            "ui": {"bk_resolved": [prompt_text]},
+            "result": (prompt_text,),
         }
 
 
@@ -213,25 +223,35 @@ class BKWildcardInfo:
     DESCRIPTION = "Lists the wildcard packs and categories BKWILDCARDS loaded."
 
     def report(self):
-        if not _CATEGORIES:
-            return ("No wildcard categories found under {}".format(library.WILDCARD_ROOT),)
-
         lines = ["Wildcard root: {}".format(library.WILDCARD_ROOT), ""]
-        by_pack = {}
-        for cat in _CATEGORIES:
-            by_pack.setdefault((cat["pack"], cat["pack_label"], cat["is_global"]), []).append(cat)
-
         total = 0
-        for (pack, label, is_global), cats in by_pack.items():
-            lines.append("[{}]{}".format(label, "  (global — always active)" if is_global else ""))
+
+        for pack in _PACKS:
+            flags = []
+            if pack["is_global"]:
+                flags.append("global")
+            if pack["sex"]:
+                flags.append(pack["sex"])
+            lines.append(
+                "[{}]{}".format(pack["label"], "  ({})".format(", ".join(flags)) if flags else "")
+            )
+            cats = [c for c in _CATEGORIES if c["pack"] == pack["pack"]]
+            if not cats:
+                lines.append("  (no wildcard files yet)")
             for cat in cats:
-                lines.append(
-                    "  {:<24} {:>5} entries   (input: {})".format(
-                        cat["label"], cat["count"], cat["key"]
-                    )
+                style = (
+                    "sections: " + ", ".join(cat["sections"])
+                    if cat["select"] == library.SELECT_SECTION
+                    else "on/off"
                 )
+                lines.append(
+                    "  {:<20} {:>5} entries   {}".format(cat["label"], cat["count"], style)
+                )
+                lines.append("  {:<20} input: {}".format("", cat["key"]))
                 total += cat["count"]
+
         lines.append("")
+        lines.append("Sexes:  {}".format(", ".join(_SEXES) or "(none)"))
         lines.append("Themes: {}".format(", ".join(_THEMES) or "(none)"))
         lines.append("{} categories, {} total entries".format(len(_CATEGORIES), total))
         return ("\n".join(lines),)

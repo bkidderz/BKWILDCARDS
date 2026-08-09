@@ -101,11 +101,15 @@ function resize(node) {
   node.setDirtyCanvas(true, true);
 }
 
+/**
+ * Hide every category widget out of scope for the current sex + theme.
+ * Mirrors the Python gate in nodes._in_scope; Python remains authoritative.
+ */
 function applyTheme(node, layout) {
   if (!node || !layout) return;
   try {
-    const themeWidget = node.widgets?.find((w) => w.name === "theme");
-    const activeTheme = themeWidget?.value;
+    const activeTheme = node.widgets?.find((w) => w.name === "theme")?.value;
+    const activeSex = node.widgets?.find((w) => w.name === "sex")?.value;
     const activePack = layout.theme_to_pack?.[activeTheme];
 
     // Unknown theme: don't guess, show everything.
@@ -120,12 +124,14 @@ function applyTheme(node, layout) {
     for (const widget of node.widgets || []) {
       const cat = byKey.get(widget.name);
       if (!cat) continue;
-      setHidden(widget, !(cat.is_global || cat.pack === activePack));
+      const themeOk = cat.is_global || cat.pack === activePack;
+      const sexOk = !cat.sex || cat.sex === activeSex;
+      setHidden(widget, !(themeOk && sexOk));
     }
 
     resize(node);
   } catch (err) {
-    console.warn("[BKWILDCARDS] theme apply failed, showing all toggles:", err);
+    console.warn("[BKWILDCARDS] scope apply failed, showing all widgets:", err);
     showAll(node);
   }
 }
@@ -190,10 +196,12 @@ function attach(node, layout) {
 
   relabel(node, layout);
 
-  const themeWidget = node.widgets?.find((w) => w.name === "theme");
-  if (themeWidget) {
-    const original = themeWidget.callback;
-    themeWidget.callback = function (...args) {
+  // Both scope dropdowns re-apply hiding when changed.
+  for (const name of ["theme", "sex"]) {
+    const widget = node.widgets?.find((w) => w.name === name);
+    if (!widget) continue;
+    const original = widget.callback;
+    widget.callback = function (...args) {
       const result = original?.apply(this, args);
       applyTheme(node, layout);
       return result;
