@@ -18,6 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
+const BUILD = "0.6.3";
 const NODE = "BKWildcardSelector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
 const RESOLVED_WIDGET = "resolved";
@@ -244,6 +245,16 @@ function applyNowAndNextFrame(node, layout) {
   requestAnimationFrame(() => applyTheme(node, layout));
 }
 
+// Loud on purpose. If this line is absent from the console, the browser is
+// serving a cached copy of this file and no amount of fixing here will show up.
+console.log(
+  "%c[BKWILDCARDS]%c extension loaded, build " + BUILD,
+  "color:#7dd3fc;font-weight:bold", "color:inherit"
+);
+try {
+  window.BKWILDCARDS_BUILD = BUILD;
+} catch (_) {}
+
 app.registerExtension({
   name: "bkwildcards.themeSelector",
 
@@ -255,7 +266,9 @@ app.registerExtension({
     // previous run's prompt. Not persisted — a stale placeholder must never be
     // what gets saved into a workflow or a PNG.
     api.addEventListener("execution_start", () => {
-      for (const node of selectorNodes()) {
+      const nodes = selectorNodes();
+      console.debug("[BKWILDCARDS] execution_start ->", nodes.length, "selector node(s)");
+      for (const node of nodes) {
         setResolved(node, PENDING_TEXT, { persist: false });
       }
     });
@@ -265,6 +278,8 @@ app.registerExtension({
       try {
         const detail = event?.detail;
         const text = detail?.output?.bk_resolved?.[0];
+        console.debug("[BKWILDCARDS] executed event, node", detail?.node,
+                      "resolved:", typeof text === "string" ? text.length + " chars" : "none");
         if (typeof text !== "string") return;
         const node = app.graph?.getNodeById?.(Number(detail.node) || detail.node);
         if (node?.comfyClass === NODE) setResolved(node, text);
