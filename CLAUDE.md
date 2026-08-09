@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.6.3`
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.6.5`
 **Git:** initialised, ~12 local commits, **no remote yet** — GitHub is deliberately deferred until 1.0.
 **Install path on owner's machine:**
 `C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
@@ -35,7 +35,7 @@ BKWILDCARDS/
 │   ├── __init__.py             re-exports; wraps routes import in try/except
 │   ├── library.py              pack/category scanning, section parsing, seeding, draw()
 │   ├── nodes.py                node classes, scope gating, PNG metadata stamping
-│   └── routes.py               GET /bkwildcards/layout  (frontend only, cosmetic)
+│   └── routes.py               GET /bkwildcards/layout · POST /bkwildcards/populate (cosmetic)
 ├── web/bkwildcards.js          scope hiding, relabelling, resolved-box population
 └── wildcards/
     ├── common/    ancestry.txt · metatypes.txt            (global)
@@ -147,49 +147,26 @@ Metatypes were merged from two drifted per-theme files into one shared `common/m
 
 ---
 
-## OPEN BUG — resolved-text box does not update live
+## RESOLVED (v0.6.5) — resolved-text box now updates every queue
 
-**Symptom (owner-reported, reproducible on his machine):** the `resolved` textarea only updates when the whole image generation completes, not when the node executes. Randomisation itself works, and the PNG round-trip is confirmed correct.
+**Was (owner-reported):** the `resolved` textarea did not visibly change per run — it appeared to update only when the whole generation finished. Randomisation and the PNG round-trip were always correct; the problem was purely visible feedback, and users read "box didn't change" as "wildcards didn't re-roll." The reference behaviour was ImpactWildcardProcessor, whose text box changes on every queue.
 
-**This is the top priority and the reason the project moved here — it needs a machine that can install, run, and read the browser console.**
+**Root cause was architectural, not a bug in the display code.** BK computed the prompt server-side during execution and pushed it to the box *after* the node ran, via `{"ui": {"bk_resolved": [...]}}` + `onExecuted`. Impact does the opposite: it populates `populated_text` at **queue time, before execution**. Confirmed from the installed Impact source — `ImpactWildcardProcessor.doit()` returns `(populated_text,)` with **no `ui` channel**; a `POST /impact/wildcards` endpoint resolves the text (impact_server.py); its own DESCRIPTION says *"Before the workflow is executed … is displayed in populated_text."* No amount of post-execution DOM-writing could move BK's update to queue time, which is why the v0.6.2–v0.6.4 display fixes never satisfied the symptom.
 
-### Verified from source — rule these out
+**The v0.6.3 cache hypothesis was disproven.** A fresh node reported `build 0.6.4` before any run, so the new JS was live on the owner's machine. It was never a cached-ES-module problem; the earlier "hard-refresh" theory was a dead end.
 
-- ComfyUI sends `executed` **immediately after each node finishes**, gated on `len(output_ui) > 0`, **not** on `OUTPUT_NODE`. Two call sites in `execution.py` (`_send_cached_ui` and the main `execute()` path). Our node returns `{"ui": {"bk_resolved": [...]}, "result": (...)}` so it qualifies.
-- `execution_start`, `executed`, `execution_error`, `execution_interrupted` are all real dispatched event names in `ComfyUI_frontend/src/scripts/api.ts`.
-- The node runs early in the graph — it feeds `CLIPTextEncode`.
+### The fix — Impact's timing, but Python stays authoritative
 
-### Fixes attempted, none confirmed working
+- **`nodes.resolve_prompt(seed, separator, gender, theme, choices)`** — the draw loop extracted from `build()`. Single source of truth; `build()` calls it, behaviour unchanged.
+- **`POST /bkwildcards/populate`** (routes.py) calls the **same** function over the **same** module-cached category scan, so a preview cannot drift from the generated image.
+- **`web/bkwildcards.js`** wraps `api.queuePrompt(number, {output, workflow})`, reads our node's final `inputs` from the outgoing payload — including the seed *already advanced once* by `control_after_generate` — POSTs them, and writes the result into the box before generation starts.
+- Still cosmetic (invariant #1 intact): if the endpoint is unreachable the box simply is not previewed and the generated prompt is unaffected. No widget was added, so no `widgets_values` shift (invariant #3 intact).
 
-1. **v0.6.2** — write `inputEl.value` as well as `widget.value`, on the theory that the DOM textarea wasn't syncing. Plausible but unproven.
-2. **v0.6.2** — `execution_start` listener setting a `… generating …` placeholder (not persisted).
-3. **v0.6.2** — direct `api.addEventListener("executed")` as a backstop to the per-node `onExecuted` hook.
-4. **v0.6.3** — build banner + `console.debug` tracing.
+### Why it's correct, and how that's checked
 
-### The decisive unanswered question
+Reading the seed **from the serialized payload** (not by re-calling `graphToPrompt`) is what makes the preview seed identical to the execution seed — calling `graphToPrompt` again would advance `control_after_generate` a second time and the box would show a different seed than the image used.
 
-The `execution_start` placeholder fires **before any Python runs**. The owner reported no change at queue time. That placeholder cannot fail for any backend reason — **so the leading hypothesis is that the new JavaScript never executed on his machine.**
-
-He is on **ComfyUI Desktop (Electron)**, where `Ctrl+Shift+R` does not reliably evict cached ES modules. Every "hard-refresh" instruction given to him may have been wrong.
-
-**First action in this workspace:** load the extension and check the console for
-
-```
-[BKWILDCARDS] extension loaded, build 0.6.3
-```
-
-or evaluate `window.BKWILDCARDS_BUILD`. Then press Run and look for:
-
-```
-[BKWILDCARDS] execution_start -> N selector node(s)
-[BKWILDCARDS] executed event, node <id> resolved: <n> chars
-```
-
-- Neither line → cached or threw on load. Fix the load path first; everything else is noise.
-- `execution_start` only → the `executed` event isn't reaching us, or `detail.node` doesn't match `getNodeById`.
-- Both lines, box still stale → the DOM write is genuinely wrong. Inspect the actual widget object; the multiline widget implementation may not expose `inputEl`.
-
-**Do not ship another speculative fix. Reproduce first.**
+The `executed` handler cross-checks: it compares the queue-time preview against the executed text and logs `preview matched execution ✓` or, on any regression, `PREVIEW ≠ EXECUTION`. **Confirmed ✓ on the owner's machine (v0.6.5).** Headless: 400 randomised trials plus an exact-payload test, all byte-identical (see Verification).
 
 ---
 
@@ -197,12 +174,15 @@ or evaluate `window.BKWILDCARDS_BUILD`. Then press Run and look for:
 
 No test suite exists. Verification has been ad-hoc scripts. Worth formalising.
 
+The headless harness runs under ComfyUI's own venv Python — no separate install needed. On the owner's machine:
+`...\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\.venv\Scripts\python.exe`. (There is no standalone `node` on that machine, so `node --check` is unavailable there; JS is validated by review + a real browser load.)
+
 Import the package outside ComfyUI (`routes.py` degrades gracefully when `server`/`aiohttp` are absent):
 
 ```python
 import sys; sys.path.insert(0, "<parent of BKWILDCARDS>")
 from BKWILDCARDS import NODE_CLASS_MAPPINGS
-from BKWILDCARDS.bkwildcards import library as L
+from BKWILDCARDS.bkwildcards import library as L, nodes
 ```
 
 Checks that have caught real bugs and should be kept:
@@ -213,6 +193,7 @@ Checks that have caught real bugs and should be kept:
 - **Widget order** — assert `resolved` is last and the scope dropdowns are first.
 - **Metadata stamping** — pass a fake `extra_pnginfo` workflow dict and assert the stamped property matches the returned prompt, survives `json.dumps`, and leaves other nodes untouched. Also pass malformed shapes (`None`, `{}`, `{"workflow": None}`, a bare string) and assert no raise.
 - **JS widget hide/show round-trip** — simulate a widget with and without an own `computeSize` (see the regression note below).
+- **Preview == execution** — for many seeds/choices, assert `nodes.resolve_prompt(...)` equals `BKWildcardSelector.build(...)["result"][0]` byte-for-byte, including a JSON round-trip with seed as a string and with the whole `inputs` dict passed as `choices` (extra non-category keys must be ignored). Guards the queue preview against ever drifting from the generated prompt.
 
 Syntax gates: `python3 -m compileall bkwildcards` and `node --check web/bkwildcards.js`.
 
@@ -226,6 +207,8 @@ Syntax gates: `python3 -m compileall bkwildcards` and `node --check web/bkwildca
 **Section headers.** An early version applied a 40-character limit to the *raw* header, silently dropping over half the real sections in the metatype files. Clean first, then test length.
 
 **Fantasy metatype `Lycanthrope`.** Before the merge, the four full-replacement forms had no `# --` header of their own and were absorbed into the section above. Resolved by the merge into `common/metatypes.txt`.
+
+**v0.6.5, queue preview.** The box updates at queue time via `POST /bkwildcards/populate`, not by post-execution DOM writes. Two things must not be "simplified" away: (1) the preview seed is read from the serialized payload inside the `api.queuePrompt` wrapper — never re-derive it or call `graphToPrompt`, which advances `control_after_generate` a second time and makes the box show a different seed than the image uses; (2) the draw stays in `nodes.resolve_prompt` (Python), shared by `build()` and the endpoint — do not reimplement the draw in JS. The `executed` handler's `PREVIEW ≠ EXECUTION` warning exists to catch a violation of either.
 
 ---
 
@@ -259,7 +242,7 @@ These exist because they were violated.
 
 | Item | Notes |
 |---|---|
-| **Resolved-text live update** | Top priority. See Open Bug. |
+| ~~Resolved-text live update~~ | **Done in v0.6.5.** See the Resolved section. |
 | Hair file | `krea2bk_hair.txt` uses inline `{a\|b\|c}` for colour on all 45 lines. Unsupported — emitted literally. Owner to decide: split into `hair_style` + `hair_color`, add single-level brace picking, or pre-flatten to 720 lines. Recommended: split. |
 | `group` field | Schema for sub-panels within a tier. Not built. Must land before the physical-attributes tier or manifests get rewritten. |
 | Physical attributes | `bk_female_face.txt` (26 lines, 1 dupe, 2 trailing commas), `bk_female_lips.txt` (11), `bk_female_nose.txt` (9) supplied but not packed. All female-scoped — `wildcards/female/` is their home. |

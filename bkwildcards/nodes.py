@@ -58,6 +58,29 @@ def _in_scope(cat, active_pack, active_gender):
     return True
 
 
+def resolve_prompt(seed, separator, gender=None, theme=None, choices=None):
+    """Draw one line from each in-scope, enabled category and join them.
+
+    The single source of truth for the emitted prompt. Both build() (during
+    graph execution) and the POST /bkwildcards/populate endpoint (at queue
+    time, for the on-node preview) call this, so the preview cannot drift from
+    the generated image: identical seed + choices give a byte-identical string,
+    because per-category seeding is deterministic across processes
+    (library.stable_offset uses zlib.crc32, never the salted built-in hash()).
+    """
+    choices = choices or {}
+    active_pack = _THEME_TO_PACK.get(theme)
+    parts = []
+    for cat in _CATEGORIES:
+        if not _in_scope(cat, active_pack, gender):
+            continue
+        rng = random.Random(int(seed) + library.stable_offset(cat["key"]))
+        pick = library.draw(cat, choices.get(cat["key"]), rng)
+        if pick:
+            parts.append(pick)
+    return separator.join(parts)
+
+
 class BKWildcardSelector:
     """Pick a gender and a theme, choose categories, emit one prompt string.
 
@@ -196,18 +219,7 @@ class BKWildcardSelector:
         unique_id=None,
         **choices
     ):
-        active_pack = _THEME_TO_PACK.get(theme)
-        parts = []
-
-        for cat in _CATEGORIES:
-            if not _in_scope(cat, active_pack, gender):
-                continue
-            rng = random.Random(int(seed) + library.stable_offset(cat["key"]))
-            pick = library.draw(cat, choices.get(cat["key"]), rng)
-            if pick:
-                parts.append(pick)
-
-        prompt_text = separator.join(parts)
+        prompt_text = resolve_prompt(seed, separator, gender, theme, choices)
         _stamp_workflow(extra_pnginfo, unique_id, prompt_text)
 
         # Printed to the ComfyUI server log every run. If a new line appears

@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.6.4";
+const BUILD = "0.6.5";
 const NODE = "BKWildcardSelector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
 const RESOLVED_WIDGET = "resolved";
@@ -219,6 +219,63 @@ function setResolved(node, text, { persist = true } = {}) {
   }
 }
 
+/**
+ * Queue-time preview — the mechanism that makes the box change on every Run,
+ * the way ImpactWildcardProcessor's populated_text does.
+ *
+ * Wraps the serialized prompt ComfyUI is about to send. For each selector node
+ * in it, it asks the backend to resolve the SAME seed and choices and writes the
+ * result into the box before generation starts. The seed is read from the
+ * outgoing payload — not recomputed here — so it is the exact seed the backend
+ * will run with after control_after_generate has advanced it once. The preview
+ * therefore cannot show a different seed than the image uses.
+ *
+ * This stays cosmetic: the authoritative draw is still nodes.build() during
+ * execution. If the endpoint is unreachable the box simply is not previewed and
+ * the generated prompt is unaffected. The `executed` handler below cross-checks
+ * that the previewed text equals what execution produced.
+ */
+function previewFromPrompt(promptData) {
+  const output = promptData?.output;
+  if (!output || typeof output !== "object") return;
+  for (const id of Object.keys(output)) {
+    const entry = output[id];
+    if (!entry || entry.class_type !== NODE) continue;
+    const inputs = entry.inputs || {};
+    const seed = inputs.seed;
+    // Skip if the seed was converted to a linked input (an array), not a value.
+    if (typeof seed !== "number") continue;
+    const node = app.graph?.getNodeById?.(Number(id));
+    if (!node) continue;
+
+    node._bkPreviewedThisCycle = true;
+    setResolved(node, PENDING_TEXT, { persist: false });
+
+    fetch("/bkwildcards/populate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        seed,
+        separator: typeof inputs.separator === "string" ? inputs.separator : ", ",
+        gender: inputs.gender ?? null,
+        theme: inputs.theme ?? null,
+        // resolve_prompt only reads the category keys out of this; extra keys
+        // (seed, separator, resolved, ...) are ignored.
+        choices: inputs,
+      }),
+    })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((json) => {
+        if (!json || typeof json.text !== "string") return;
+        node._bkPreview = json.text; // cross-checked against execution below
+        setResolved(node, json.text);
+        console.debug("[BKWILDCARDS] queue preview, node", id, "seed", seed,
+                      "->", json.text.length, "chars");
+      })
+      .catch((err) => console.warn("[BKWILDCARDS] populate failed:", err));
+  }
+}
+
 /** Every BKWildcardSelector currently on the canvas. */
 function selectorNodes() {
   try {
@@ -288,28 +345,54 @@ app.registerExtension({
   async setup() {
     await loadLayout();
 
-    // Visible feedback at queue time. The resolved text cannot be known until
-    // Python runs, so the box is marked pending rather than left showing the
-    // previous run's prompt. Not persisted — a stale placeholder must never be
-    // what gets saved into a workflow or a PNG.
+    // The live-update mechanism. Intercept the serialized prompt on its way to
+    // the server and preview each selector node from the exact seed being sent,
+    // so the box changes on every queue — before generation, like Impact's
+    // populated_text. Fire-and-forget so queueing is never delayed.
+    const origQueuePrompt = api.queuePrompt.bind(api);
+    api.queuePrompt = async function (number, data) {
+      try {
+        previewFromPrompt(data);
+      } catch (err) {
+        console.warn("[BKWILDCARDS] queue preview hook failed:", err);
+      }
+      return origQueuePrompt(number, data);
+    };
+
+    // Fallback feedback for any node the queue preview did not fill (endpoint
+    // down, seed linked as an input). Not persisted — a placeholder must never
+    // be saved into a workflow or PNG.
     api.addEventListener("execution_start", () => {
-      const nodes = selectorNodes();
-      console.debug("[BKWILDCARDS] execution_start ->", nodes.length, "selector node(s)");
-      for (const node of nodes) {
+      for (const node of selectorNodes()) {
+        if (node._bkPreviewedThisCycle) continue; // preview already showed the text
         setResolved(node, PENDING_TEXT, { persist: false });
       }
     });
 
-    // Backstop for the per-node onExecuted hook.
+    // Authoritative text from execution. Also the acceptance check: it must
+    // equal the queue-time preview. A mismatch means the preview read the wrong
+    // seed — the one thing that could make the box lie — and is logged loudly.
     api.addEventListener("executed", (event) => {
       try {
         const detail = event?.detail;
         const text = detail?.output?.bk_resolved?.[0];
-        console.debug("[BKWILDCARDS] executed event, node", detail?.node,
-                      "resolved:", typeof text === "string" ? text.length + " chars" : "none");
         if (typeof text !== "string") return;
         const node = app.graph?.getNodeById?.(Number(detail.node) || detail.node);
-        if (node?.comfyClass === NODE) setResolved(node, text);
+        if (node?.comfyClass !== NODE) return;
+
+        if (typeof node._bkPreview === "string") {
+          if (node._bkPreview === text) {
+            console.debug("[BKWILDCARDS] preview matched execution ✓ (" +
+                          text.length + " chars)");
+          } else {
+            console.warn("[BKWILDCARDS] PREVIEW ≠ EXECUTION — seed timing is wrong.\n" +
+                         " preview : " + node._bkPreview.slice(0, 120) + "\n" +
+                         " executed: " + text.slice(0, 120));
+          }
+          node._bkPreview = undefined;
+        }
+        node._bkPreviewedThisCycle = false;
+        setResolved(node, text);
       } catch (err) {
         console.warn("[BKWILDCARDS] executed listener failed:", err);
       }
@@ -319,6 +402,8 @@ app.registerExtension({
     // than leaving it stuck on screen.
     const clearPending = () => {
       for (const node of selectorNodes()) {
+        node._bkPreviewedThisCycle = false;
+        node._bkPreview = undefined;
         const w = node.widgets?.find((x) => x.name === RESOLVED_WIDGET);
         if (w && w.value === PENDING_TEXT) {
           setResolved(node, node.properties?.[PROP_PROMPT] || "", { persist: false });
