@@ -92,18 +92,6 @@ class BKWildcardSelector:
                 "tooltip": "Placed between the selections from each enabled category.",
             },
         )
-        # Display box. Filled in after execution by the frontend extension and
-        # stamped into saved PNGs by _stamp_workflow. Whatever it contains on
-        # the way in is ignored.
-        required["resolved"] = (
-            "STRING",
-            {
-                "default": "",
-                "multiline": True,
-                "tooltip": "The prompt this node produced. Filled in automatically; edits are ignored.",
-            },
-        )
-
         # Global categories first, then each theme's block. Inputs for every
         # theme always exist, which is what lets toggle state survive switching
         # themes and switching back.
@@ -125,6 +113,23 @@ class BKWildcardSelector:
                     ),
                 },
             )
+
+        # Display box, declared LAST so it renders below every toggle instead of
+        # splitting them. Filled in after execution by the frontend extension and
+        # stamped into saved PNGs by _stamp_workflow. Whatever it contains on the
+        # way in is ignored.
+        #
+        # NOTE: widget order is positional in a saved workflow's widgets_values
+        # array. Moving an input after a public release shifts every value after
+        # it. Treat this ordering as frozen once the repo is published.
+        required["resolved"] = (
+            "STRING",
+            {
+                "default": "",
+                "multiline": True,
+                "tooltip": "The prompt this node produced. Filled in automatically; edits are ignored.",
+            },
+        )
 
         return {
             "required": required,

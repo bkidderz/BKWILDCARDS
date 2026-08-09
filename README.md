@@ -94,7 +94,7 @@ Dark Fantasy has no Environments or Poses file yet, so those toggles do not appe
 
 Wildcard content is written for KREA2-style natural-language prompting.
 
-## Known limits (v0.3.0)
+## Known limits (v0.3.1)
 
 - Widget hiding uses a community pattern, not a supported API — [Comfy-Org/ComfyUI#12244](https://github.com/Comfy-Org/ComfyUI/issues/12244) requests an official one and is unanswered. A frontend update could break the hiding. It cannot break the output.
 - One theme at a time. No cross-theme blending.
@@ -103,6 +103,7 @@ Wildcard content is written for KREA2-style natural-language prompting.
 - Adding wildcard files requires a ComfyUI refresh to surface new toggles.
 - Full-replacement metatypes (`full kitsune`, `full zombie`, `android`) can still stack on top of an enabled Ancestry line. The node has no mutual-exclusion logic yet.
 - PNG embedding relies on your image saver writing `extra_pnginfo`. Core `SaveImage` does. Third-party savers may not.
+- Input order is positional in a saved workflow's `widgets_values`. Adding or moving an input shifts every value after it, so ordering is frozen once this repo is published.
 
 ## License
 
