@@ -1,7 +1,7 @@
 [project]
 name = "bkwildcards"
 description = "Toggle-driven wildcard selector for ComfyUI. Enable categories with switches; get a finished prompt string."
-version = "0.5.0"
+version = "0.6.0"
 license = { text = "TODO — choose a license before publishing" }
 dependencies = []
 

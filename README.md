@@ -24,7 +24,7 @@ Add **BK Wildcard Selector** (category: `BKWILDCARDS`) to any workflow.
 - Pick a **gender** and a **theme**. Only categories in scope for both contribute.
 - Categories marked **◆** are global — they apply to every theme.
 - Each toggle is one wildcard category. Set the ones you want to `yes`.
-- Some categories are **section dropdowns** instead of on/off. Build, Ancestry and Metatype are all section dropdowns: pick `Thick`, `European`, `Elves`, any other section from the file, `— random —` to draw from the whole file, or `— off —`.
+- Some categories are **section dropdowns** instead of on/off. Build, Ancestry and Metatype are section dropdowns: pick `Thick`, `European`, `Elves`, any other section from the file, `— random —` to draw from the whole file, or `— off —`.
 - The node draws one line from each enabled category and joins them with `separator`.
 - `seed` drives the draw. Set it to *randomize* for a new combination every run, or *fixed* to lock the result.
 - Wire the `prompt` output into whatever feeds your CLIPTextEncode.
@@ -58,6 +58,12 @@ A category can be declared `"select": "section"` in `_pack.json`. Its `#` header
 ```
 
 Header text is cleaned before it becomes an option: leading dashes stripped, a trailing parenthetical cut, then title-cased. So `# -- orks, trolls, dwarves (Shadowrun-style — come in every ancestry, skin unchanged)` becomes `Orks, Trolls, Dwarves`. Anything still over 40 characters after cleaning, plus `# ====` rule lines, is treated as prose and ignored, so a file's explanatory header block does not become a bogus section. Duplicate labels get a numeric suffix. If a file declared this way has no usable headers, the category falls back to an on/off toggle.
+
+## Metatypes are shared, not per-theme
+
+`common/metatypes.txt` holds every species, available under every theme. Merged from the former per-theme files, which had drifted: 20 of 28 identities existed in both, and 8 of those had diverged in wording. Where the two disagreed, both lines were kept as variants of one section rather than one being discarded.
+
+A metatype and an ancestry combine freely. A Japanese werewolf or a Korean full-conversion cyborg is a supported result, not a conflict.
 
 ## Two orderings
 
@@ -95,16 +101,15 @@ Node inputs are built when ComfyUI loads the module. After adding a file, restar
 
 | Pack | Category | Entries |
 |---|---|---|
-| Common (global) | Ancestry | 44 |
+| Common (global) | Ancestry — 16 sections | 44 |
+| Common (global) | Metatype / Species — 32 sections | 49 |
 | Female (global, Female) | Build — 5 sections | 61 |
-| Cyberpunk | Metatype / Species | 35 |
 | Cyberpunk | Tattoos | 75 |
 | Cyberpunk | Outfits | 270 |
 | Cyberpunk | Weapons / Carry | 28 |
 | Cyberpunk | Accent Palette | 28 |
 | Cyberpunk | Environments | 24 |
 | Cyberpunk | Poses | 29 |
-| Dark Fantasy | Metatype / Species | 28 |
 | Dark Fantasy | Tattoos | 75 |
 | Dark Fantasy | Outfits | 360 |
 | Dark Fantasy | Weapons / Carry | 30 |
@@ -114,7 +119,7 @@ Dark Fantasy has no Environments or Poses file yet, so those toggles do not appe
 
 Wildcard content is written for KREA2-style natural-language prompting.
 
-## Known limits (v0.5.0)
+## Known limits (v0.6.0)
 
 - Widget hiding uses a community pattern, not a supported API — [Comfy-Org/ComfyUI#12244](https://github.com/Comfy-Org/ComfyUI/issues/12244) requests an official one and is unanswered. A frontend update could break the hiding. It cannot break the output.
 - One theme at a time. No cross-theme blending.
@@ -122,7 +127,6 @@ Wildcard content is written for KREA2-style natural-language prompting.
 - Files using inline `{a|b|c}` syntax are not supported — the braces are emitted literally. Split colour and style into separate files instead.
 - One line per enabled category per run. No multi-draw.
 - Adding wildcard files requires a ComfyUI refresh to surface new toggles.
-- Full-replacement metatypes (`full kitsune`, `full zombie`, `android`) can still stack on top of an enabled Ancestry line. The node has no mutual-exclusion logic yet.
 - PNG embedding relies on your image saver writing `extra_pnginfo`. Core `SaveImage` does. Third-party savers may not.
 - Input order is positional in a saved workflow's `widgets_values`. Adding or moving an input shifts every value after it, so ordering is frozen once this repo is published.
 

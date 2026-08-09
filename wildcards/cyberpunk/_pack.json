@@ -3,14 +3,6 @@
   "label": "Cyberpunk",
   "entries": [
     {
-      "file": "metatypes.txt",
-      "id": "metatype",
-      "label": "Metatype / Species",
-      "order": 20,
-      "default": false,
-      "select": "section"
-    },
-    {
       "file": "tattoos.txt",
       "id": "tattoo",
       "label": "Tattoos",

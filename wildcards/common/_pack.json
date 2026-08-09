@@ -11,6 +11,15 @@
       "default": false,
       "select": "section",
       "display": 10
+    },
+    {
+      "file": "metatypes.txt",
+      "id": "metatype",
+      "label": "Metatype / Species",
+      "order": 20,
+      "display": 20,
+      "select": "section",
+      "default": false
     }
   ]
 }
