@@ -11,7 +11,7 @@ _PACKS = library.scan_packs()
 _CATEGORIES = library.scan()
 _THEMES = library.themes(_PACKS)
 _THEME_TO_PACK = library.theme_to_pack(_PACKS)
-_SEXES = library.sexes(_PACKS)
+_GENDERS = library.genders(_PACKS)
 
 # Written into the workflow node's `properties` so the resolved text survives a
 # save and, via extra_pnginfo, an embed into a generated PNG.
@@ -49,20 +49,20 @@ def _stamp_workflow(extra_pnginfo, unique_id, prompt_text):
         print("[BKWILDCARDS] could not stamp workflow metadata: {}".format(exc))
 
 
-def _in_scope(cat, active_pack, active_sex):
-    """Theme and sex gate. Enforced here, not in the browser."""
+def _in_scope(cat, active_pack, active_gender):
+    """Theme and gender gate. Enforced here, not in the browser."""
     if not (cat["is_global"] or cat["pack"] == active_pack):
         return False
-    if cat["sex"] and cat["sex"] != active_sex:
+    if cat["gender"] and cat["gender"] != active_gender:
         return False
     return True
 
 
 class BKWildcardSelector:
-    """Pick a sex and a theme, choose categories, emit one prompt string.
+    """Pick a gender and a theme, choose categories, emit one prompt string.
 
     Scoping is enforced in Python. A category belonging to another theme or
-    another sex cannot contribute no matter what its widget says. The frontend
+    another gender cannot contribute no matter what its widget says. The frontend
     extension only hides those widgets; if it fails to load, behaviour is
     unchanged and the node simply shows everything.
     """
@@ -71,12 +71,13 @@ class BKWildcardSelector:
     def INPUT_TYPES(cls):
         required = {}
 
-        if _SEXES:
-            required["sex"] = (
-                _SEXES,
+        # --- scope selectors, top of the node ---
+        if _GENDERS:
+            required["gender"] = (
+                _GENDERS,
                 {
-                    "default": _SEXES[0],
-                    "tooltip": "Sex-scoped categories only contribute when their sex is selected.",
+                    "default": _GENDERS[0],
+                    "tooltip": "Gender-scoped categories only contribute when their gender is selected.",
                 },
             )
         if _THEMES:
@@ -88,37 +89,23 @@ class BKWildcardSelector:
                 },
             )
 
-        required["seed"] = (
-            "INT",
-            {
-                "default": 0,
-                "min": 0,
-                "max": 0xFFFFFFFFFFFFFFFF,
-                "control_after_generate": True,
-                "tooltip": "Drives which line is drawn from each enabled category.",
-            },
-        )
-        required["separator"] = (
-            "STRING",
-            {
-                "default": ", ",
-                "multiline": False,
-                "tooltip": "Placed between the selections from each enabled category.",
-            },
-        )
+        # --- category selectors ---
+        # Global packs first, then each theme's block, each sorted by `display`
+        # so a category can be moved on the node without moving it in the
+        # prompt. Inputs for every theme and gender always exist, which is what
+        # lets settings survive switching away and back.
+        def by_display(cats):
+            return sorted(cats, key=lambda c: (c["display"], c["pack"], c["id"]))
 
-        # Global packs first, then each theme's block. Inputs for every theme
-        # and every sex always exist, which is what lets settings survive
-        # switching away and back.
-        ordered = [c for c in _CATEGORIES if c["is_global"]]
+        ordered = by_display([c for c in _CATEGORIES if c["is_global"]])
         for theme in _THEMES:
             pack = _THEME_TO_PACK[theme]
-            ordered += [c for c in _CATEGORIES if c["pack"] == pack]
+            ordered += by_display([c for c in _CATEGORIES if c["pack"] == pack])
 
         for cat in ordered:
             scope_bits = []
-            if cat["sex"]:
-                scope_bits.append(cat["sex"])
+            if cat["gender"]:
+                scope_bits.append(cat["gender"])
             scope_bits.append("always on" if cat["is_global"] else cat["pack_label"])
             scope = " / ".join(scope_bits)
 
@@ -128,7 +115,7 @@ class BKWildcardSelector:
                     options,
                     {
                         "default": options[0],
-                        "tooltip": "{} — {}. Pick a section, or any section to draw from all {} entries.".format(
+                        "tooltip": "{} — {}. Pick a section, or random to draw from all {} entries.".format(
                             scope, cat["label"], cat["count"]
                         ),
                     },
@@ -146,7 +133,27 @@ class BKWildcardSelector:
                     },
                 )
 
-        # Display box, declared LAST so it renders below every selector.
+        # --- run controls, below the selectors ---
+        required["separator"] = (
+            "STRING",
+            {
+                "default": ", ",
+                "multiline": False,
+                "tooltip": "Placed between the selections from each enabled category.",
+            },
+        )
+        required["seed"] = (
+            "INT",
+            {
+                "default": 0,
+                "min": 0,
+                "max": 0xFFFFFFFFFFFFFFFF,
+                "control_after_generate": True,
+                "tooltip": "Drives which line is drawn from each enabled category.",
+            },
+        )
+
+        # Display box, declared LAST so it renders below everything else.
         #
         # NOTE: widget order is positional in a saved workflow's widgets_values
         # array. Moving or inserting an input shifts every value after it.
@@ -173,7 +180,7 @@ class BKWildcardSelector:
     FUNCTION = "build"
     CATEGORY = "BKWILDCARDS"
     DESCRIPTION = (
-        "Pick a sex and theme, then choose categories. Draws one line from each "
+        "Pick a gender and theme, then choose categories. Draws one line from each "
         "and returns them joined as a single prompt string. The resolved text is "
         "shown on the node and saved into generated PNGs."
     )
@@ -183,7 +190,7 @@ class BKWildcardSelector:
         seed,
         separator,
         resolved="",
-        sex=None,
+        gender=None,
         theme=None,
         extra_pnginfo=None,
         unique_id=None,
@@ -193,7 +200,7 @@ class BKWildcardSelector:
         parts = []
 
         for cat in _CATEGORIES:
-            if not _in_scope(cat, active_pack, sex):
+            if not _in_scope(cat, active_pack, gender):
                 continue
             rng = random.Random(int(seed) + library.stable_offset(cat["key"]))
             pick = library.draw(cat, choices.get(cat["key"]), rng)
@@ -230,8 +237,8 @@ class BKWildcardInfo:
             flags = []
             if pack["is_global"]:
                 flags.append("global")
-            if pack["sex"]:
-                flags.append(pack["sex"])
+            if pack["gender"]:
+                flags.append(pack["gender"])
             lines.append(
                 "[{}]{}".format(pack["label"], "  ({})".format(", ".join(flags)) if flags else "")
             )
@@ -251,7 +258,7 @@ class BKWildcardInfo:
                 total += cat["count"]
 
         lines.append("")
-        lines.append("Sexes:  {}".format(", ".join(_SEXES) or "(none)"))
+        lines.append("Genders: {}".format(", ".join(_GENDERS) or "(none)"))
         lines.append("Themes: {}".format(", ".join(_THEMES) or "(none)"))
         lines.append("{} categories, {} total entries".format(len(_CATEGORIES), total))
         return ("\n".join(lines),)

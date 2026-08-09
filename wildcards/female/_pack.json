@@ -2,7 +2,6 @@
   "pack": "female",
   "label": "Female",
   "global": true,
-  "sex": "Female",
   "entries": [
     {
       "file": "builds.txt",
@@ -10,7 +9,9 @@
       "label": "Build",
       "order": 15,
       "select": "section",
-      "default": false
+      "default": false,
+      "display": 5
     }
-  ]
+  ],
+  "gender": "Female"
 }

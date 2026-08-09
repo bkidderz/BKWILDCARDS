@@ -22,14 +22,14 @@ def _payload():
     return {
         "themes": library.themes(packs),
         "theme_to_pack": library.theme_to_pack(packs),
-        "sexes": library.sexes(packs),
+        "genders": library.genders(packs),
         "categories": [
             {
                 "key": c["key"],
                 "pack": c["pack"],
                 "pack_label": c["pack_label"],
                 "is_global": c["is_global"],
-                "sex": c["sex"],
+                "gender": c["gender"],
                 "label": c["label"],
                 "count": c["count"],
                 "order": c["order"],

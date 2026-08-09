@@ -2,6 +2,6 @@
   "pack": "male",
   "label": "Male",
   "global": true,
-  "sex": "Male",
-  "entries": []
+  "entries": [],
+  "gender": "Male"
 }

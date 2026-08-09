@@ -12,11 +12,11 @@ Pack scope
 A pack can be scoped on two independent axes:
 
   "global": true   always active, whatever theme is selected
-  "sex": "Female"  only active when that sex is selected
+  "gender": "Female"  only active when that gender is selected
 
-They compose. The `female` pack is global *and* sex-scoped: its categories
-apply to every theme, but only when Female is the chosen sex. A theme pack with
-no `sex` key is available to every sex.
+They compose. The `female` pack is global *and* gender-scoped: its categories
+apply to every theme, but only when Female is the chosen gender. A theme pack
+with no `gender` key is available to every gender.
 
 Orderings
 ---------
@@ -50,7 +50,7 @@ GLOBAL_PACK = "common"
 # Reserved options on a section dropdown. Prefixed so a section literally named
 # "off" or "any" cannot collide with them.
 SECTION_OFF = "— off —"
-SECTION_ANY = "— any section —"
+SECTION_ANY = "— random —"
 
 SELECT_TOGGLE = "toggle"
 SELECT_SECTION = "section"
@@ -78,11 +78,36 @@ def read_lines(path):
     return out
 
 
+def clean_section_name(header):
+    """Turn a raw '#' header into a dropdown-friendly label.
+
+    Strips leading dashes, cuts a trailing parenthetical, and title-cases.
+    Returns None for anything that reads as prose rather than a header —
+    a rule line, or something still long after cleaning.
+
+    Cleaning happens BEFORE the length test on purpose. A raw header like
+    "-- orks, trolls, dwarves (Shadowrun-style - come in every ancestry,
+    skin unchanged)" is 80+ characters and would fail a raw length test, but
+    cleans down to "Orks, Trolls, Dwarves" — a perfectly good option.
+    """
+    h = header.strip().lstrip("#").strip()
+    if not h or h.startswith("=") or set(h) <= set("-—= "):
+        return None
+    h = h.lstrip("-—").strip()
+    h = re.split(r"\s*[\(\[]", h, 1)[0].strip().rstrip(":,.")
+    if not h or len(h) > 40:
+        return None
+    if h.isupper() or h.islower():
+        h = h.title()
+    return h
+
+
 def read_sections(path):
     """Entries grouped by their preceding '#' header, in file order.
 
-    Returns a list of (section_name, [lines]). Entries appearing before any
-    header are grouped under None. Sections with no entries are dropped.
+    Returns a list of (section_label, [lines]). Entries before any header are
+    grouped under None. Sections with no entries are dropped. Labels that
+    collide are suffixed so the dropdown stays unambiguous.
     """
     sections = []
     current = None
@@ -99,9 +124,8 @@ def read_sections(path):
                 if not line:
                     continue
                 if line.startswith("#"):
-                    header = line.lstrip("#").strip()
-                    # Long rule lines and prose notes are not section headers.
-                    if not header or len(header) > 40 or header.startswith("="):
+                    header = clean_section_name(line)
+                    if header is None:
                         continue
                     flush()
                     bucket = []
@@ -111,7 +135,21 @@ def read_sections(path):
         flush()
     except OSError:
         return []
-    return sections
+
+    # De-duplicate labels so the dropdown never has two identical options.
+    seen = {}
+    unique = []
+    for name, rows in sections:
+        if name is None:
+            unique.append((name, rows))
+            continue
+        if name in seen:
+            seen[name] += 1
+            name = "{} ({})".format(name, seen[name])
+        else:
+            seen[name] = 1
+        unique.append((name, rows))
+    return unique
 
 
 def _load_pack(pack_dir, pack_name):
@@ -128,7 +166,7 @@ def _load_pack(pack_dir, pack_name):
         "pack": pack_name,
         "label": manifest.get("label") or _prettify(pack_name),
         "is_global": bool(manifest.get("global", pack_name == GLOBAL_PACK)),
-        "sex": manifest.get("sex") or None,
+        "gender": manifest.get("gender") or None,
     }
 
     declared = {}
@@ -163,11 +201,12 @@ def _load_pack(pack_dir, pack_name):
                 "pack": pack_name,
                 "pack_label": pack["label"],
                 "is_global": pack["is_global"],
-                "sex": pack["sex"],
+                "gender": pack["gender"],
                 "id": cid,
                 "label": entry.get("label") or _prettify(stem),
                 "path": path,
                 "order": entry.get("order", DEFAULT_ORDER),
+                "display": entry.get("display", entry.get("order", DEFAULT_ORDER)),
                 "default": bool(entry.get("default", False)),
                 "select": select,
                 "sections": section_names,
@@ -223,13 +262,13 @@ def theme_to_pack(packs):
     return {p["label"]: p["pack"] for p in packs if not p["is_global"]}
 
 
-def sexes(packs):
-    """Distinct sex values declared by packs, in pack order."""
+def genders(packs):
+    """Distinct gender values declared by packs, in pack order."""
     out = []
     for pack in packs:
-        s = pack["sex"]
-        if s and s not in out:
-            out.append(s)
+        g = pack["gender"]
+        if g and g not in out:
+            out.append(g)
     return out
 
 

@@ -8,7 +8,9 @@
       "id": "ancestry",
       "label": "Ancestry",
       "order": 10,
-      "default": false
+      "default": false,
+      "select": "section",
+      "display": 10
     }
   ]
 }

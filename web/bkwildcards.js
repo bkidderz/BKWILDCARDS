@@ -102,14 +102,14 @@ function resize(node) {
 }
 
 /**
- * Hide every category widget out of scope for the current sex + theme.
+ * Hide every category widget out of scope for the current gender + theme.
  * Mirrors the Python gate in nodes._in_scope; Python remains authoritative.
  */
 function applyTheme(node, layout) {
   if (!node || !layout) return;
   try {
     const activeTheme = node.widgets?.find((w) => w.name === "theme")?.value;
-    const activeSex = node.widgets?.find((w) => w.name === "sex")?.value;
+    const activeGender = node.widgets?.find((w) => w.name === "gender")?.value;
     const activePack = layout.theme_to_pack?.[activeTheme];
 
     // Unknown theme: don't guess, show everything.
@@ -125,8 +125,8 @@ function applyTheme(node, layout) {
       const cat = byKey.get(widget.name);
       if (!cat) continue;
       const themeOk = cat.is_global || cat.pack === activePack;
-      const sexOk = !cat.sex || cat.sex === activeSex;
-      setHidden(widget, !(themeOk && sexOk));
+      const genderOk = !cat.gender || cat.gender === activeGender;
+      setHidden(widget, !(themeOk && genderOk));
     }
 
     resize(node);
@@ -197,7 +197,7 @@ function attach(node, layout) {
   relabel(node, layout);
 
   // Both scope dropdowns re-apply hiding when changed.
-  for (const name of ["theme", "sex"]) {
+  for (const name of ["theme", "gender"]) {
     const widget = node.widgets?.find((w) => w.name === name);
     if (!widget) continue;
     const original = widget.callback;
