@@ -70,6 +70,11 @@ vampire, visible long fangs, a pallid complexion, sharp predatory eyes and facia
 vampire, visible fangs, a cooler paler cast over the natural complexion, sharp predatory eyes, the underlying facial features preserved
 vampire, visible fangs, a pallid skintone casts a subtle purple hue over the natural complexion and darkens significantly around the eyes, hungry and predatory eyes, the underlying facial features preserved though significantly more gaunt than traditionally seen
 
+vampire, elongated needle-fine fangs, translucent porcelain skin with faint blue veining at the temples, crimson-ringed irises, the underlying facial features preserved
+vampire, a full set of extended predatory fangs bared, bloodshot crimson sclera, blood-flushed lips against an ashen complexion, the underlying facial features preserved
+vampire, prominent forward-set incisors, taut grey-white skin drawn tight over the skull, deeply sunken hollow eyes, long clawed fingers, pointed tapered ears, the underlying facial features preserved
+vampire, cracked colourless lips drawn back from long fangs, desiccated ash-grey skin, sunken and darkly ringed eyes, the underlying facial features preserved
+
 # -- Dhampir
 dhampir, small fangs, a faint pallor over the natural skin, striking eyes, the underlying facial features preserved
 dhampir, long and wickedly sharp fangs, a notable pallor over the natural skin tone, slitted eyes, the underlying facial features preserved
@@ -90,7 +95,7 @@ wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, 
 # -- Werewolf
 werewolf, a partly-shifted lycanthrope, a powerful muscular build, coarse fur along the forearms and jaw, pointed lupine ears, prominent fangs, clawed hands, keen slit-pupil eyes, a still-human face with the underlying features preserved
 
-# -- Augmented Humanoid
+# -- Cybernetic Augmented
 augmented humanoid, a natural face and skin, subtle chrome cyberware at the temple and jaw, faint interface ports, the underlying features preserved
 
 # -- Partial Cyborg

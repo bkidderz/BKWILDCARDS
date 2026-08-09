@@ -102,7 +102,7 @@ Node inputs are built when ComfyUI loads the module. After adding a file, restar
 | Pack | Category | Entries |
 |---|---|---|
 | Common (global) | Ancestry — 16 sections | 44 |
-| Common (global) | Metatype / Species — 32 sections | 49 |
+| Common (global) | Metatype / Species — 32 sections | 53 |
 | Female (global, Female) | Build — 5 sections | 61 |
 | Cyberpunk | Tattoos | 75 |
 | Cyberpunk | Outfits | 270 |
