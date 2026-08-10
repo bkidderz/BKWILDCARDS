@@ -1,0 +1,24 @@
+# ============================================================
+# DARK FANTASY SPELL-CASTING POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts take "the".
+# Dedicated caster body-poses (the act of casting), separate from the general
+# pose pool so a casting stance can be chosen on its own. Attribute-clean: no
+# skin, hair, eye, or garment callouts. Pair with __fantasy_spell_effects__
+# and an environment line. One pose per line.
+# ============================================================
+
+the subject stands with both arms outstretched and the palms forward in a wide channeling stance, power gathering in the air before them
+the subject raises one hand overhead with the fingers splayed, energy converging to a point at the fingertips
+the subject draws both arms back in a coiled pre-release stance, the whole body tensed with visibly building power
+the subject presses the hands together at chest level with power straining to build between the palms
+the subject thrusts one arm forward with the fist clenched at the instant of release
+the subject traces rapid geometric sigils in the air with the fingers, leaving faint glowing trails
+the subject arches the body backward with both arms flung wide in a full-body release
+the subject crouches low with both hands pressed flat to the ground, channeling energy downward into the earth
+the subject grips the wrist of the casting arm with the free hand in a braced, controlled projection
+the subject stands upright with the eyes closed and the hands loose at the sides while power radiates outward passively
+the subject spins mid-motion with one arm extended, the gathered power trailing the turn in a bright arc
+the subject kneels with both hands raised symmetrically and the head bowed in focused concentration
+the subject sets a staggered stance with the weight forward and one hand drawn back in a fired-and-following motion
+the subject crosses both arms over the chest in a containment pose, power visibly straining to break outward
+the subject holds both open hands at waist height and lifts them in a slow deliberate rise as the power ascends

@@ -203,6 +203,8 @@ def _load_pack(pack_dir, pack_name):
                 "is_global": pack["is_global"],
                 "gender": pack["gender"],
                 "id": cid,
+                "group": entry.get("group"),
+                "prompt_label": entry.get("prompt_label"),
                 "label": entry.get("label") or _prettify(stem),
                 "path": path,
                 "order": entry.get("order", DEFAULT_ORDER),

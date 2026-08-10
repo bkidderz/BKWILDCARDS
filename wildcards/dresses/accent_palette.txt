@@ -1,0 +1,46 @@
+# ============================================================
+# GOWNS & DRESSES ACCENT PALETTE - KREA2
+# Anti-monochrome accent wildcard - FORMAL / COUTURE variant.
+# Each line forces at least TWO contrasting accent hues placed on wardrobe /
+# lighting / environment (NOT skin), so a dominant color has something to
+# contrast against instead of flooding the frame.
+# Uses elegant, luminous sources: silk and velvet, gemstone and pearl, gilt
+# and silver, chandelier warmth, moonlight, soft daylight. NO neon, NO signage.
+# Inject alongside the gown, or pin one line into the base prompt.
+# ============================================================
+
+# Jewel
+deep-sapphire silk against warm champagne-gold accents
+emerald-green velvet against soft blush-rose accents
+ruby-red gown against cool silver-and-crystal highlights
+amethyst-violet against warm antique-gold accents
+deep-garnet against pale ice-blue accents
+
+# Pastel
+blush-pink against sage-green accents
+powder-blue against warm ivory-and-gold accents
+lavender against soft butter-yellow accents
+peach and dusty-teal accents across the gown and setting
+
+# Metallic
+champagne-gold beading against cool marble-white
+antique-silver embroidery against deep midnight-blue
+rose-gold accents against soft dove-grey
+warm-gilt trim against a cool moonlit environment
+
+# Warm vs Cool
+warm chandelier-gold against cool moonlight through the windows, a split-lit scene
+candle-warm highlights against cool blue evening shadow
+warm gilt interior against a cool silver garden beyond
+a warm-lit figure against a cool marble setting
+
+# Multicolor
+an iridescent gown catching several distinct jewel hues
+a rich polychromatic couture palette, colors kept visually distinct
+opalescent fabric shifting between separated pastel hues
+
+# Subject vs Environment
+a warm-toned subject set against a distinctly cool-toned environment
+a cool-toned subject set against a distinctly warm-toned environment
+a saturated subject against a muted, desaturated background
+the wardrobe in hues that deliberately contrast the subject's own coloring

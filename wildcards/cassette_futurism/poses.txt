@@ -1,0 +1,50 @@
+# ============================================================
+# CASSETTE FUTURISM POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts
+# take "the" (the hip, the neck) - no gendered pronouns anywhere.
+# Cassette-fut flavored through UBIQUITOUS fixtures and gear gestures
+# (railings, crates, bulkheads, deck plating, wall speaker grilles,
+# wrist readouts) - NOT room-specific machinery - so they stay
+# portable across every environment in the matching environment pool,
+# interior and exterior alike.
+# Attribute-clean: no skin, hair, eye, or garment callouts. Weapon-free.
+# One pose per line. Pair with __cassette_environment__ and an outfit line.
+# ============================================================
+
+# Standing
+the subject stands squarely at ease with weight even on both feet, arms loose at the sides, chin level, a still composed at-attention posture
+the subject stands with weight shifted onto one hip in a relaxed contrapposto, one hand resting at the waist and the other hanging loose, head tilted slightly
+the subject stands with both hands planted on the hips, elbows out, feet set apart, a squared and confident stance
+the subject stands with the arms crossed tightly over the chest and the shoulders drawn up, weight rocked back onto the heels, a guarded closed-off posture
+the subject stands turned three-quarters away with one hand raised to shade the eyes, gaze fixed on the far distance, a surveying stance
+
+# Leaning
+the subject leans one shoulder against a bulkhead with the ankles crossed and the arms folded, an unhurried waiting posture
+the subject leans back against a railing with both elbows hooked over it, hips pushed forward, one boot crossed over the other, casual and idle
+the subject braces both palms flat against a bulkhead at shoulder height with the arms straight and the head bowed between them, leaning in to rest
+the subject stands with one boot raised onto a low crate, a forearm resting across the lifted knee, leaning into it and looking ahead
+
+# Crouching
+the subject crouches on the balls of the feet with the forearms draped over the knees, head lifted and gaze forward, a low ready crouch
+the subject kneels on one knee with the opposite forearm braced across the raised thigh, torso upright, steady and grounded
+the subject squats low on the heels with the knees wide and the hands loosely clasped between them, head lowered, examining something on the deck
+
+# Seated
+the subject sits on the edge of a low crate with the knees apart, forearms on the thighs and the shoulders rounded forward, resting between tasks
+the subject sits on the deck with one leg drawn up and an arm looped around the knee, the other leg extended, a slouched floor-seated rest
+the subject sits perched on the lip of a raised surface with the hands gripping the edge and the legs dangling, leaning forward, waiting
+the subject reclines propped back on both elbows with the legs stretched out and the ankles loosely crossed, head tipped back, fully at ease
+
+# Motion
+the subject is caught mid-stride walking forward, one arm swinging and the weight rolling onto the leading foot
+the subject pauses mid-step and turns to glance back over one shoulder, the torso twisting while the trailing foot stays planted
+the subject walks with a heavy trudging gait, shoulders slumped and head down, the arms hanging, worn out and weary
+
+# Gestures
+the subject stretches both arms overhead with the fingers laced and the spine arched, rising onto the toes, a long waking stretch
+the subject rolls one shoulder with a hand raised to knead the back of the neck, head canted, easing stiffness
+the subject stands with a hand raised to rub the back of the head, elbow lifted, a tired or awkward idle gesture
+
+# Gear
+the subject tilts the head toward a bulkhead-mounted speaker grille with one hand cupped near the ear, listening intently
+the subject holds one wrist up close to check a strapped readout while the other hand steadies the forearm, focused on it

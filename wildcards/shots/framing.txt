@@ -1,0 +1,155 @@
+# ============================================================
+# SHOTS - FRAMING (global). Section-select: off / random / pick one.
+# Duplicate terms removed; underscores normalized. One framing per section.
+# ============================================================
+
+#extreme close up shot
+extreme close up shot
+
+#close up portrait shot
+close up portrait shot
+
+#shoulder up portrait shot
+shoulder up portrait shot
+
+#tight portrait shot
+tight portrait shot
+
+#chest up shot
+chest up shot
+
+#torso focused shot
+torso focused shot
+
+#upper torso emphasis shot
+upper torso emphasis shot
+
+#waist up shot
+waist up shot
+
+#hip up shot
+hip up shot
+
+#hip up intimate shot
+hip up intimate shot
+
+#mid thigh shot
+mid thigh shot
+
+#cowboy shot
+cowboy shot
+
+#three quarter body shot
+three quarter body shot
+
+#full body shot
+full body shot
+
+#wide character shot
+wide character shot
+
+#action shot with dynamic foreshortening
+action shot with dynamic foreshortening
+
+#reclining body shot
+reclining body shot
+
+#diagonal body shot
+diagonal body shot
+
+#lower body emphasis shot
+lower body emphasis shot
+
+#silhouette emphasis shot
+silhouette emphasis shot
+
+#off center composition
+off center composition
+
+#asymmetrical composition
+asymmetrical composition
+
+#cropped dramatic shot
+cropped dramatic shot
+
+#suggestive crop shot
+suggestive crop shot
+
+#partial body reveal shot
+partial body reveal shot
+
+#just out of frame crop
+just out of frame crop
+
+#intimate close shot
+intimate close shot
+
+#intimate proximity shot
+intimate proximity shot
+
+#foreground occluded composition
+foreground occluded composition
+
+#fabric obscured composition
+fabric obscured composition
+
+#environmental occlusion composition
+environmental occlusion composition
+
+#over the shoulder shot
+over the shoulder shot
+
+#from behind shot
+from behind shot
+
+#full-length portrait
+full-length portrait
+
+#full body portrait
+full body portrait
+
+#half-length portrait
+half-length portrait
+
+#bust portrait
+bust portrait
+
+#headshot portrait
+headshot portrait
+
+#self-portrait
+self-portrait
+
+#extreme close-up
+extreme close-up
+
+#close-up
+close-up
+
+#portrait
+portrait
+
+#headshot
+headshot
+
+#bust shot
+bust shot
+
+#upper body
+upper body
+
+#full body
+full body
+
+#cropped legs
+cropped legs
+
+#wide shot
+wide shot
+
+#silhouette
+silhouette
+
+#off-center composition
+off-center composition
+

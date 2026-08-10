@@ -1,14 +1,26 @@
 [project]
 name = "bkwildcards"
-description = "Toggle-driven wildcard selector for ComfyUI. Enable categories with switches; get a finished prompt string."
-version = "0.6.5"
-license = { text = "TODO — choose a license before publishing" }
+description = "Scoped wildcard selector for ComfyUI. Pick a theme and categories from a bundled 3,700-entry library; get a finished prompt string. No wildcard syntax required."
+version = "0.8.6"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
 dependencies = []
+classifiers = [
+  "Operating System :: OS Independent",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Intended Audience :: End Users/Desktop",
+  "Topic :: Multimedia :: Graphics",
+]
 
 [project.urls]
 Repository = "https://github.com/bkidderz/BKWILDCARDS"
+Documentation = "https://github.com/bkidderz/BKWILDCARDS#readme"
+"Bug Tracker" = "https://github.com/bkidderz/BKWILDCARDS/issues"
 
 [tool.comfy]
-PublisherId = ""
+PublisherId = "bkidderz"
 DisplayName = "BKWILDCARDS"
-Icon = ""
+# The bundled library and the frontend extension are the product — force-include
+# them so a registry package can never ship without content or the UI script.
+includes = ["wildcards", "web"]

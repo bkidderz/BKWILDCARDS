@@ -10,16 +10,20 @@
       "order": 10,
       "default": false,
       "select": "section",
-      "display": 10
+      "display": 10,
+      "group": "Identity",
+      "prompt_label": "ancestry"
     },
     {
       "file": "metatypes.txt",
       "id": "metatype",
       "label": "Metatype / Species",
       "order": 20,
-      "display": 20,
+      "display": 12,
       "select": "section",
-      "default": false
+      "default": false,
+      "group": "Identity",
+      "prompt_label": "metatype"
     }
   ]
 }

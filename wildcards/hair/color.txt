@@ -1,0 +1,54 @@
+#NATURAL
+jet black hair
+soft black hair
+dark espresso brown hair
+chestnut brown hair
+medium ash brown hair
+light caramel brown hair
+dark auburn hair
+copper red hair
+ginger red hair
+strawberry blonde hair
+honey blonde hair
+dark blonde hair
+ash blonde hair
+platinum blonde hair
+salt-and-pepper grey hair
+silver grey hair
+
+#VIVID
+snow-white hair
+pastel pink hair
+hot pink hair
+bubblegum-pink hair
+crimson red hair
+deep burgundy hair
+electric blue hair
+deep cobalt blue hair
+teal hair
+mint green hair
+neon green hair
+emerald green hair
+lavender hair
+deep violet hair
+ultraviolet purple hair
+sunset orange hair
+tangerine orange hair
+golden yellow hair
+acid-yellow hair
+rose gold hair
+peach-blonde hair
+steel grey hair
+gunmetal grey hair
+icy blue-white hair
+
+#MULTI-TONE
+oil-slick iridescent hair
+rainbow-dyed multicolored hair
+split-dyed two-tone hair
+pastel ombre hair
+dark hair with neon-dyed tips
+galaxy blue-and-purple hair
+electric-blue-streaked black hair
+sunset-gradient orange-to-pink hair
+platinum hair with pastel-pink roots

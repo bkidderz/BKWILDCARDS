@@ -3,3 +3,6 @@ __pycache__/
 *.egg-info/
 .DS_Store
 .venv/
+
+# Local handoff/scratch notes — not part of the product
+SNIPPETS.md

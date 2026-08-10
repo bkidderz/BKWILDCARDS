@@ -1,0 +1,65 @@
+# ============================================================
+# SHOTS - CAMERA ANGLE (global). Section-select: off / random / pick one.
+# One angle per single-entry section for direct selection.
+# ============================================================
+
+#from above
+from above
+
+#from below
+from below
+
+#from behind
+from behind
+
+#from side
+from side
+
+#eye-level view
+eye-level view
+
+#frontal view
+frontal view
+
+#profile view
+profile view
+
+#three-quarter view
+three-quarter view
+
+#over-the-shoulder view
+over-the-shoulder view
+
+#high-angle view
+high-angle view
+
+#low-angle view
+low-angle view
+
+#bird's eye view
+bird's eye view
+
+#worm's eye view
+worm's eye view
+
+#dutch angle
+dutch angle
+
+#aerial view
+aerial view
+
+#close-up
+close-up
+
+#pov
+pov
+
+#fisheye lens
+fisheye lens
+
+#foreshortening
+foreshortening
+
+#establishing shot
+establishing shot
+

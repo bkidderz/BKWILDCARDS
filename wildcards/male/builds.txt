@@ -1,0 +1,56 @@
+#ATHLETIC
+athletic build with a taut, muscular frame and broad shoulders
+athletic build with a lean, defined frame and a tapered waist
+a naturally muscular, gently toned frame with a broad chest
+an athletic swimmer's build with wide shoulders and a flat stomach
+a fit, toned frame with defined arms and a squared torso
+athletic build with a hard, sinewy frame and cut definition
+athletic build with a lean V-taper, strong shoulders and a narrow waist
+
+#AVERAGE
+an average build with an ordinary, unremarkable frame
+an average build with a slightly soft midsection and even proportions
+a regular everyman frame with average shoulders and a straight torso
+an average build with a lean torso and modest muscle tone
+an average build with a slightly stocky frame and a broad back
+an average build with an ordinary frame and a little softness at the middle
+
+#LITHE
+a lean, lithe frame with long limbs and a slim torso
+a wiry, lithe build with narrow shoulders and a flat chest
+a lean runner's build with a long torso and a slight frame
+a lithe, agile frame with defined but slender muscle
+a tall, lean build with a narrow waist and long legs
+a slim, lithe frame with a flat stomach and lean arms
+
+#MUSCULAR
+a heavily muscular build with a broad, powerful chest and thick arms
+a bodybuilder's frame with defined abs, wide lats and a hard V-taper
+a powerfully built frame with dense muscle and broad shoulders
+a muscular, brawny build with a thick neck and heavy shoulders
+a chiseled, hard-muscled physique with cut definition and a tapered waist
+a massive, heavily built frame with a barrel chest and huge arms
+
+#THICK
+a thick, sturdy, barrel-chested frame with broad shoulders
+a stocky, powerful build with a heavy torso and thick arms
+a solid, thickset frame with a broad back and strong legs
+a burly build with a broad chest and a thick midsection
+a stout, powerlifter's build with a thick waist and heavy limbs
+a thick, muscular frame carrying some softness over broad shoulders
+
+#SKINNY
+a gaunt, skinny build with narrow shoulders and pronounced clavicles
+a thin, bony frame with a flat chest and a sunken stomach
+a lanky, underweight build with long thin limbs
+a scrawny frame with narrow shoulders and a slight torso
+a wiry, thin build with visible ribs and lean stringy muscle
+a slim, undernourished frame with sharp collarbones and thin arms
+
+#PLUS
+a big, large-framed man with a heavy rounded belly and thick arms
+a heavyset build with a broad, soft torso and a wide frame
+a large, portly frame with a full belly and a thick neck
+a big and tall build with a heavy chest and broad shoulders
+a plump, full-figured frame with a soft midsection and thick limbs
+a broad, heavy-set man with a thick waist and a wide, solid frame

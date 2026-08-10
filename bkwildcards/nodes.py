@@ -49,16 +49,133 @@ def _stamp_workflow(extra_pnginfo, unique_id, prompt_text):
         print("[BKWILDCARDS] could not stamp workflow metadata: {}".format(exc))
 
 
+# Extra gender-dropdown options beyond the pack-derived genders (Female/Male),
+# formatted to match the section dropdowns' reserved options.
+GENDER_OFF = library.SECTION_OFF     # "— off —" — no gender, no gendered categories
+GENDER_RANDOM = library.SECTION_ANY  # "— random —" — roll a concrete gender per seed
+GENDER_FLUID = "Fluid"               # no gender gate — both genders' categories available
+
+# The subject word each gender injects into the prompt so the render is actually
+# directed toward a gender. Emitted at order 5, ahead of everything else.
+_GENDER_TEXT = {"Female": "a woman", "Male": "a man"}
+_GENDER_FLUID_TEXT = "an androgynous person"
+_GENDER_ORDER = 5
+
+
 def _in_scope(cat, active_pack, active_gender):
-    """Theme and gender gate. Enforced here, not in the browser."""
+    """Theme and gender gate. Enforced here, not in the browser.
+
+    active_gender is already resolved to a concrete gender or GENDER_FLUID by
+    the time this runs (resolve_prompt rolls GENDER_RANDOM -> a real gender).
+    Under Fluid the gender axis is dropped entirely, so both genders'
+    gender-scoped categories pass.
+    """
     if not (cat["is_global"] or cat["pack"] == active_pack):
         return False
-    if cat["gender"] and cat["gender"] != active_gender:
+    if cat["gender"] and active_gender != GENDER_FLUID and cat["gender"] != active_gender:
         return False
     return True
 
 
-def resolve_prompt(seed, separator, gender=None, theme=None, choices=None):
+def _format_picks(picks, separator, labeled):
+    """Join (order, label, text) picks — plain, or as merged 'label: ...' lines.
+
+    Stable sort by `order` matches the pre-existing behaviour (`_CATEGORIES` is
+    already ordered by (order, pack, id), so equal-order picks keep their place).
+    labeled=True merges adjacent same-label picks (the three hair categories ->
+    one 'hair:' line).
+    """
+    picks = sorted(picks, key=lambda p: p[0])
+    if not labeled:
+        return separator.join(text for _, _, text in picks)
+    groups = []
+    for _, label, text in picks:
+        if groups and groups[-1][0] == label:
+            groups[-1][1].append(text)
+        else:
+            groups.append((label, [text]))
+    return ",\n".join(
+        "{}: {}".format(label, ", ".join(texts)) for label, texts in groups
+    )
+
+
+# Bald hair type suppresses hair colour and style (a bald head has neither).
+_HAIR_SUPPRESSED_BY_BALD = {"hair_color", "hair_style"}
+
+
+def _is_bald(text):
+    return bool(text) and text.strip().lower().startswith("bald")
+
+
+def _drop_if_bald(raw):
+    """raw is a list of (order, label, text, key). If the hair_type pick is
+    bald, drop the hair colour/style picks. Returns (order, label, text) triples
+    ready for _format_picks. Applies whether bald was chosen or randomly drawn.
+    """
+    bald = any(k == "hair_type" and _is_bald(t) for _, _, t, k in raw)
+    if bald:
+        raw = [r for r in raw if r[3] not in _HAIR_SUPPRESSED_BY_BALD]
+    return [(o, l, t) for o, l, t, _k in raw]
+
+
+# --- Mayhem mode -----------------------------------------------------------
+# One-click, no-input, seeded, cross-theme composition. Maps each category id
+# to the "slot" it competes in; mayhem picks at most one category per slot from
+# a random source theme, so you get wild cross-theme mixing without stacking
+# six outfits. Core slots always appear; extras roll in at _MAYHEM_EXTRA_PROB.
+# These constants are tuning knobs, safe to adjust.
+_MAYHEM_SLOT = {
+    "ancestry": "ancestry", "metatype": "metatype", "build": "build",
+    "face": "face", "nose": "nose", "lips": "lips",
+    "color": "hair_color", "type": "hair_type", "style": "hair_style",
+    "outfit": "outfit", "dress": "outfit", "eastern": "outfit", "set": "outfit",
+    "tattoo": "tattoos", "weapon": "weapons",
+    "accent_palette": "palette", "environment": "environment",
+    "pose": "pose", "spell_casting": "pose",
+    "spell_effects": "effect",
+    "angle": "shot_angle", "framing": "shot_framing",
+}
+_MAYHEM_CORE = {"ancestry", "build", "hair_color", "hair_type", "hair_style",
+                "outfit", "environment", "pose"}
+_MAYHEM_EXTRA_PROB = 0.5
+
+
+def _resolve_mayhem(seed, separator, labeled):
+    """Seeded cross-theme random composition, ignoring every input.
+
+    Rolls a gender, then for each slot picks one category from a random source
+    theme and a random line from it. Fully determined by `seed`, so the
+    queue-time preview still matches the render and a mayhem PNG reproduces.
+    Core slots (via `or` short-circuit) never consume an extra-roll, keeping the
+    rng sequence identical between preview and execution.
+    """
+    rng = random.Random(int(seed))
+    gender = rng.choice([None] + list(_GENDERS))
+    slots = {}
+    for cat in _CATEGORIES:
+        if cat["gender"] and cat["gender"] != gender:
+            continue
+        slot = _MAYHEM_SLOT.get(cat["id"])
+        if slot:
+            slots.setdefault(slot, []).append(cat)
+    raw = []  # (order, label, text, key)
+    gtext = _GENDER_TEXT.get(gender)
+    if gtext:
+        raw.append((_GENDER_ORDER, "gender", gtext, None))
+    for slot, cats in slots.items():
+        if slot not in _MAYHEM_CORE and rng.random() >= _MAYHEM_EXTRA_PROB:
+            continue
+        cat = rng.choice(cats)
+        pool = library.read_lines(cat["path"])
+        if not pool:
+            continue
+        raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
+                    rng.choice(pool), cat["key"]))
+    return _format_picks(_drop_if_bald(raw), separator, labeled)
+
+
+def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
+                   labeled=False, mayhem=False):
     """Draw one line from each in-scope, enabled category and join them.
 
     The single source of truth for the emitted prompt. Both build() (during
@@ -67,18 +184,39 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None):
     the generated image: identical seed + choices give a byte-identical string,
     because per-category seeding is deterministic across processes
     (library.stable_offset uses zlib.crc32, never the salted built-in hash()).
+
+    labeled=True tags each selection with what it is ("build: ...", "hair: ...").
+    mayhem=True ignores the inputs entirely and returns a seeded cross-theme
+    random composition (see _resolve_mayhem) — still a pure function of `seed`.
     """
+    if mayhem:
+        return _resolve_mayhem(seed, separator, labeled)
     choices = choices or {}
+    # Random gender -> roll a concrete gender per seed (own rng stream, so the
+    # per-category draws are unchanged). Fluid falls through to _in_scope, which
+    # drops the gender gate. Deterministic, so preview still matches execution.
+    if gender == GENDER_RANDOM and _GENDERS:
+        gender = random.Random(
+            int(seed) + library.stable_offset("__gender_roll__")
+        ).choice(_GENDERS)
     active_pack = _THEME_TO_PACK.get(theme)
-    parts = []
+    raw = []  # (order, label, text, key)
+    # Lead with the gender subject word so the prompt is directed toward a gender
+    # (Off emits nothing; Fluid an androgynous subject).
+    gtext = _GENDER_TEXT.get(gender) or (
+        _GENDER_FLUID_TEXT if gender == GENDER_FLUID else None
+    )
+    if gtext:
+        raw.append((_GENDER_ORDER, "gender", gtext, None))
     for cat in _CATEGORIES:
         if not _in_scope(cat, active_pack, gender):
             continue
         rng = random.Random(int(seed) + library.stable_offset(cat["key"]))
         pick = library.draw(cat, choices.get(cat["key"]), rng)
         if pick:
-            parts.append(pick)
-    return separator.join(parts)
+            raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
+                        pick, cat["key"]))
+    return _format_picks(_drop_if_bald(raw), separator, labeled)
 
 
 class BKWildcardSelector:
@@ -95,20 +233,25 @@ class BKWildcardSelector:
         required = {}
 
         # --- scope selectors, top of the node ---
-        if _GENDERS:
-            required["gender"] = (
-                _GENDERS,
-                {
-                    "default": _GENDERS[0],
-                    "tooltip": "Gender-scoped categories only contribute when their gender is selected.",
-                },
-            )
+        # Theme is its own UI section; gender leads the Identity section. The JS
+        # assigns their section headers (theme -> "Theme", gender -> "Identity").
         if _THEMES:
             required["theme"] = (
                 _THEMES,
                 {
                     "default": _THEMES[0],
                     "tooltip": "Only this theme's categories contribute. Others are ignored.",
+                },
+            )
+        if _GENDERS:
+            required["gender"] = (
+                [GENDER_OFF, GENDER_RANDOM] + _GENDERS + [GENDER_FLUID],
+                {
+                    "default": _GENDERS[0],
+                    "tooltip": "The subject's gender, injected into the prompt (a woman / a man). "
+                    "— off —: no gender word and no gendered categories. — random —: roll a gender "
+                    "per seed. Fluid: both genders' physical options available and mixable "
+                    "(an androgynous subject).",
                 },
             )
 
@@ -120,10 +263,23 @@ class BKWildcardSelector:
         def by_display(cats):
             return sorted(cats, key=lambda c: (c["display"], c["pack"], c["id"]))
 
-        ordered = by_display([c for c in _CATEGORIES if c["is_global"]])
+        # Most globals (Identity, Physical, Hair) render above the theme block.
+        # The Camera section is pinned BELOW the theme's Scene, so its globals
+        # are emitted after all theme blocks.
+        POST_THEME_GROUPS = {"Camera"}
+        globals_all = [c for c in _CATEGORIES if c["is_global"]]
+        pre_globals = by_display(
+            [c for c in globals_all if c.get("group") not in POST_THEME_GROUPS]
+        )
+        post_globals = by_display(
+            [c for c in globals_all if c.get("group") in POST_THEME_GROUPS]
+        )
+
+        ordered = list(pre_globals)
         for theme in _THEMES:
             pack = _THEME_TO_PACK[theme]
             ordered += by_display([c for c in _CATEGORIES if c["pack"] == pack])
+        ordered += post_globals
 
         for cat in ordered:
             scope_bits = []
@@ -175,6 +331,27 @@ class BKWildcardSelector:
                 "tooltip": "Drives which line is drawn from each enabled category.",
             },
         )
+        required["label_output"] = (
+            "BOOLEAN",
+            {
+                "default": True,
+                "label_on": "labeled",
+                "label_off": "plain",
+                "tooltip": "Labeled: tag each selection (build:, hair:, scene/background:, …) "
+                "so the renderer reads structured attributes. Plain: one comma-joined string.",
+            },
+        )
+        required["mayhem"] = (
+            "BOOLEAN",
+            {
+                "default": False,
+                "label_on": "MAYHEM",
+                "label_off": "off",
+                "tooltip": "One-click chaos: ignore every selection and the theme/gender, and "
+                "build a fully random CROSS-THEME image seeded by seed. Queue again "
+                "(advance the seed) for a new one. Includes all themes and adult content.",
+            },
+        )
 
         # Display box, declared LAST so it renders below everything else.
         #
@@ -215,11 +392,16 @@ class BKWildcardSelector:
         resolved="",
         gender=None,
         theme=None,
+        label_output=True,
+        mayhem=False,
         extra_pnginfo=None,
         unique_id=None,
         **choices
     ):
-        prompt_text = resolve_prompt(seed, separator, gender, theme, choices)
+        prompt_text = resolve_prompt(
+            seed, separator, gender, theme, choices,
+            labeled=bool(label_output), mayhem=bool(mayhem),
+        )
         _stamp_workflow(extra_pnginfo, unique_id, prompt_text)
 
         # Printed to the ComfyUI server log every run. If a new line appears
@@ -291,6 +473,6 @@ NODE_CLASS_MAPPINGS = {
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
-    "BKWildcardSelector": "BK Wildcard Selector",
-    "BKWildcardInfo": "BK Wildcard Info",
+    "BKWildcardSelector": "BKWILDCARDS Selector",
+    "BKWildcardInfo": "BKWILDCARDS Info",
 }

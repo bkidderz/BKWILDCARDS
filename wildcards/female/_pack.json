@@ -2,16 +2,48 @@
   "pack": "female",
   "label": "Female",
   "global": true,
+  "gender": "Female",
   "entries": [
     {
       "file": "builds.txt",
       "id": "build",
-      "label": "Build",
+      "label": "Feminine Build",
       "order": 15,
       "select": "section",
       "default": false,
-      "display": 5
+      "display": 20,
+      "group": "Physical",
+      "prompt_label": "build"
+    },
+    {
+      "file": "face.txt",
+      "id": "face",
+      "label": "Feminine Face",
+      "order": 22,
+      "display": 22,
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "face"
+    },
+    {
+      "file": "nose.txt",
+      "id": "nose",
+      "label": "Feminine Nose",
+      "order": 24,
+      "display": 24,
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "nose"
+    },
+    {
+      "file": "lips.txt",
+      "id": "lips",
+      "label": "Feminine Lips",
+      "order": 26,
+      "display": 26,
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "lips"
     }
-  ],
-  "gender": "Female"
+  ]
 }

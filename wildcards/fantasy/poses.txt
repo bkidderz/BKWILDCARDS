@@ -1,0 +1,55 @@
+# ============================================================
+# DARK FANTASY POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts take
+# "the" (the hip, the neck) - no gendered pronouns anywhere.
+# Fantasy-flavored through UBIQUITOUS fixtures (weathered stone walls, carved
+# pillars, altar and stair steps, mossy roots, iron railings, low ruined walls)
+# - NOT location-specific machinery - so they stay portable across every
+# environment in the matching environment pool, interior and exterior alike.
+# Attribute-clean: no skin, hair, eye, or garment callouts.
+# Weapon poses (sword / staff / bow) are grouped at the end so a weapon-free
+# draw is easy to keep.
+# One pose per line. Pair with __fantasy_environment__ and an outfit line.
+# ============================================================
+
+# Standing
+the subject stands tall and composed with the weight even on both feet, the shoulders squared and the chin level, a still and regal bearing
+the subject stands with the weight settled onto one hip and one hand resting loosely at the waist, the head turned slightly aside, an idle watchful stance
+the subject stands with both hands clasped behind the back and the spine straight, feet set and grounded, a formal attentive posture
+the subject stands turned three-quarters away gazing off toward the horizon, one hand raised to shade the eyes, a searching far-off stance
+the subject stands with the arms folded across the chest and the head lowered in thought, weight rocked back, a brooding closed posture
+
+# Leaning
+the subject leans one shoulder against a weathered stone pillar with the ankles crossed and the arms folded, an unhurried waiting pose
+the subject rests both forearms folded atop a low ruined wall, leaning out over it with the head lifted to watch the distance
+the subject braces one hand flat against a cold stone archway at shoulder height, leaning in with the head bowed, pausing to gather strength
+the subject sets one boot up onto a broken step with a forearm draped across the raised knee, leaning forward and looking down
+
+# Kneeling
+the subject kneels on one knee with the head bowed and one fist pressed to the ground, a solemn oath-taking or grieving posture
+the subject crouches low on the balls of the feet with the forearms draped over the knees, the gaze lifted and forward, a wary ready crouch
+the subject kneels upright with both hands resting open on the thighs, the back straight and the head level, a still meditative kneel
+the subject squats low with one hand splayed on the stone floor for balance, studying something on the ground, the head lowered
+
+# Seated
+the subject sits on the edge of a low stone step with the knees apart and the forearms on the thighs, the shoulders rounded, resting between roads
+the subject sits sideways on a broad ruined ledge with one knee drawn up and an arm looped around it, the other leg hanging, gazing outward
+the subject sits enthroned on a high carved seat with both hands resting on the armrests and the back erect, a commanding still authority
+the subject reclines propped on both elbows across a mossy fallen log with the legs stretched out and the ankles crossed, the head tipped back at ease
+
+# Motion
+the subject is caught mid-stride striding forward, the cloak-less shoulders squared and one arm swinging, the weight rolling onto the leading foot
+the subject pauses mid-step and turns to look back over one shoulder, the torso twisting while the trailing foot stays planted
+the subject moves in a low careful half-crouch with the weight forward and one hand trailing near the ground, stealing forward with caution
+
+# Gestures
+the subject raises one open hand before the chest with the fingers spread as if channeling or warding, the head inclined toward the gesture
+the subject stretches both arms overhead with the fingers laced and the spine arched, rising onto the toes, a long loosening stretch
+the subject stands with one hand raised to the brow and the elbow lifted, the head bowed, a weary or sorrowful gesture
+
+# Weapons
+the subject stands at ease with one hand resting on the pommel of a sheathed sword at the hip and the other hanging loose, unhurried but ready
+the subject stands planted with both hands folded over the crossguard of a sword point-down before the feet, a steady sentinel posture
+the subject stands with a tall staff held upright in one hand and the other arm loose, the weight even, a calm grounded caster's stance
+the subject stands side-on in a low guard with a drawn blade held two-handed and angled toward the ground, the weight forward, alert and braced
+the subject kneels on one knee behind a low wall with a bow held across the body and an arrow nocked but lowered, the head turned to listen

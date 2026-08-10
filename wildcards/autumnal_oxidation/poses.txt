@@ -1,0 +1,47 @@
+# ============================================================
+# AUTUMNAL OXIDATION POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts take
+# "the" (the hip, the neck) - no gendered pronouns anywhere.
+# Gothic and mournful in bearing, flavored through UBIQUITOUS fixtures
+# (rusted iron railings, headstones, ruined stone walls, low steps, bare
+# branches, corroded gates) - NOT location-specific machinery - so they stay
+# portable across every environment in the matching pool, interior and
+# exterior alike. Attribute-clean: no skin, hair, eye, or garment callouts.
+# Weapon-free throughout. One pose per line.
+# Pair with __autumnal_oxidation_environment__ and an outfit line.
+# ============================================================
+
+# Standing
+the subject stands still and poised with the weight even and the hands folded low before the body, the chin dipped, a quiet mournful composure
+the subject stands with the weight settled onto one hip and one arm wrapped across the waist, the head turned aside and down, a pensive withdrawn stance
+the subject stands tall with both hands clasped behind the back and the shoulders squared, the gaze level and distant, a formal solitary bearing
+the subject stands turned three-quarters away with the face lifted toward the sky, one hand resting at the collarbone, a wistful upward stance
+the subject stands with the arms crossed loosely and the head bowed, weight rocked back onto the heels, a guarded grieving posture
+
+# Leaning
+the subject leans one shoulder against a rusted iron railing with the ankles crossed and the arms folded, an unhurried melancholic waiting pose
+the subject rests both gloved-clean hands on the top of a weathered headstone and leans over it slightly, the head bowed as if in thought
+the subject leans back against a corroded iron gate with both elbows hooked over a bar, the hips forward and one foot crossed over the other, idle and still
+the subject sets one hand flat against a cold ruined wall at shoulder height and leans in with the head lowered, pausing in quiet reflection
+
+# Kneeling
+the subject kneels on one knee with the head bowed and one hand laid flat on the ground, a solemn graveside posture
+the subject crouches low on the balls of the feet with the forearms over the knees, gazing down at the fallen leaves, a still contemplative crouch
+the subject kneels upright with both hands resting open in the lap, the back straight and the eyes lowered, a composed mournful kneel
+
+# Seated
+the subject sits on a low stone step with the knees together and the hands folded in the lap, the shoulders drawn in, a demure withdrawn rest
+the subject sits sideways along a broad ruined ledge with one knee drawn up and an arm looped around it, the other leg hanging, gazing off into the fog
+the subject sits upright on a weathered bench with the hands resting on the knees and the back straight, the face turned to one side, still and formal
+the subject reclines propped on one elbow across a low tomb-slab with the legs drawn up and angled aside, the head tipped, a languid gothic repose
+
+# Motion
+the subject drifts forward in a slow measured step, one hand trailing along a railing, the head slightly bowed, an unhurried mournful walk
+the subject pauses mid-step and turns to glance back over one shoulder, the torso twisting while the trailing foot stays planted
+the subject walks with the arms wrapped close about the torso and the head down against a cold wind, a withdrawn hurried gait
+
+# Gestures
+the subject raises one open hand toward a bare overhanging branch, the fingers lightly parted, the face lifted after it, a reaching wistful gesture
+the subject lifts one hand to rest against the cheek with the elbow tucked and the eyes lowered, a sorrowful pensive gesture
+the subject stands with one hand pressed lightly over the heart and the head bowed, a quiet grieving gesture
+the subject holds both hands cupped together low before the body as if cradling something unseen, the head inclined toward them

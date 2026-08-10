@@ -1,0 +1,17 @@
+{
+  "pack": "lingerie",
+  "label": "COZY SEXY LACY RACY Sleepwear",
+  "global": false,
+  "entries": [
+    {
+      "file": "sets.txt",
+      "id": "set",
+      "label": "Lingerie Sets",
+      "order": 40,
+      "default": false,
+      "group": "Wardrobe",
+      "prompt_label": "outfit",
+      "select": "section"
+    }
+  ]
+}

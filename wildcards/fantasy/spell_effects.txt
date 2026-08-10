@@ -1,0 +1,44 @@
+# ============================================================
+# DARK FANTASY SPELL EFFECTS - KREA2 (natural-language prose)
+# The visible magic itself, as an independent option separate from the caster
+# pose. Anchored on "the subject" so it reads whether or not a casting pose is
+# also drawn. Fantasy-native schools only (no digital/tech effects).
+# Pair with __fantasy_spell_casting__ and an environment line.
+# One effect per line. (Toggle: draws one effect at random.)
+# ============================================================
+
+# -- FIRE
+roiling flames and ember trails swirling through the air around the subject
+a churning vortex of fire spiralling up around the subject in licking tongues of flame
+
+# -- STORM / LIGHTNING
+jagged forks of lightning branching outward from the subject in blinding white-blue bolts
+churning storm-energy of whipping wind and crackling discharge spiralling around the subject
+rolling arcs of white-hot arcane energy twisting into unstable searing ribbons
+
+# -- FROST
+shards and sheets of ice crystallizing mid-air in expanding geometric formations
+biting frost and driven snow spiralling up around the subject in a freezing aura
+
+# -- SHADOW / VOID
+shadow-energy coiling like black smoke, the light visibly bending and dying around it
+void-energy tearing a brief rift in the air, its edges fraying into collapsing darkness
+raw gravitational force dragging the light and loose debris inward toward a collapsing point
+
+# -- RADIANT / HOLY
+cascading brilliant holy light radiating outward from the subject in overwhelming waves
+a swirling nimbus of golden divine radiance haloing the subject
+
+# -- ARCANE
+streams of luminous arcane glyphs cascading and turning slowly through the air around the subject
+a pulse of invisible arcane force distorting the air in a visible expanding shockwave ring
+resonant sonic force rippling outward as visible waves of compressed air
+
+# -- NATURE / ACID
+crackling corrosive green energy leaving hissing acidic trails that eat at the air
+tangled vines and thorned growth erupting and coiling upward around the subject
+
+# -- DEATH / BLOOD
+cold necrotic energy draining the warmth and color from the surrounding air
+witchfire in sickly green flickering up from the ground around the subject
+deep-red blood-energy pulsing outward from the subject in slow organic waves

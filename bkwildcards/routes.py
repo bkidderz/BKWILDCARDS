@@ -24,6 +24,9 @@ def _payload():
         "themes": library.themes(packs),
         "theme_to_pack": library.theme_to_pack(packs),
         "genders": library.genders(packs),
+        "gender_off": nodes.GENDER_OFF,
+        "gender_random": nodes.GENDER_RANDOM,
+        "gender_fluid": nodes.GENDER_FLUID,
         "categories": [
             {
                 "key": c["key"],
@@ -31,6 +34,7 @@ def _payload():
                 "pack_label": c["pack_label"],
                 "is_global": c["is_global"],
                 "gender": c["gender"],
+                "group": c["group"],
                 "label": c["label"],
                 "count": c["count"],
                 "order": c["order"],
@@ -66,13 +70,16 @@ if PromptServer is not None and web is not None:
             data = {}
         if not isinstance(data, dict):
             data = {}
+        choices = data.get("choices") or {}
         try:
             text = nodes.resolve_prompt(
                 data.get("seed", 0),
                 data.get("separator", ", "),
                 data.get("gender"),
                 data.get("theme"),
-                data.get("choices") or {},
+                choices,
+                labeled=bool(choices.get("label_output", True)),
+                mayhem=bool(choices.get("mayhem", False)),
             )
         except Exception as exc:
             return web.json_response({"error": str(exc)}, status=400)

@@ -4,35 +4,35 @@
 # ============================================================
 
 
-# COOL-vs-WARM CONTRAST PAIRS
+# Warm vs Cool
 cyan and warm-amber contrast lighting across the wardrobe and environment
 teal and gold accents through the outfit and background
 electric blue and orange split-complementary accent lighting
 ice-blue rim light against warm amber highlights
 cobalt-blue and warm-brass accents across the scene
 
-# NEON / CYBER PAIRS
+# Neon
 cyan and magenta neon accents through the wardrobe and signage
 acid-green and violet neon glow in the environment
 electric pink and electric blue accent lighting
 neon orange and deep-teal signage glow
 UV-purple and lime-green accent lighting
 
-# JEWEL / ARCANE PAIRS
+# Jewel
 emerald-green and warm-gold arcane accent glow
 sapphire-blue and amber accents across the outfit and scene
 amethyst-violet and teal accent glow
 ruby accents against cool-silver highlights
 jade-green and warm-bronze accents
 
-# TRIADIC / MULTICOLOR
+# Multicolor
 a triadic neon palette of magenta, cyan and yellow, distinctly separated
 a triadic scheme of violet, lime and amber accents
 a vivid multicolored neon palette with several distinct, separated hues
 a broad polychromatic scheme, several saturated colors kept visually distinct
 scattered multicolored neon signage in the background, mixed hues
 
-# METALLIC / NEUTRAL ANCHORS (neutral contrast breaks a saturated dominant)
+# Metallic
 polished chrome and cool-steel accents against the subject's saturated color
 brushed brass and cool-teal accents balancing the scene
 matte gunmetal and single-pop neon accent against a warm subject

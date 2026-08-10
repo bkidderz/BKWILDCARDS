@@ -1,0 +1,46 @@
+# ============================================================
+# AUTUMNAL OXIDATION ACCENT PALETTE - KREA2
+# Anti-monochrome accent wildcard - GOTHIC AUTUMN / OXIDATION variant.
+# Each line forces at least TWO contrasting accent hues placed on wardrobe /
+# lighting / environment (NOT skin), so a dominant color has something to
+# contrast against instead of flooding the frame.
+# Uses genre-native sources ONLY: rust and verdigris patina, dead-leaf and
+# ember autumn foliage, tarnished gilt and bronze, oxblood and burgundy,
+# candle and overcast light, cold fog. NO neon, NO signage. Inject alongside
+# the outfit, or pin one line into the base prompt.
+# ============================================================
+
+# Rust / Patina
+rust-orange ironwork against verdigris-green copper patina
+corroded-iron orange against cold slate-grey stone
+oxidized-copper teal against warm rust-brown accents
+tarnished-bronze green against deep oxblood-red
+
+# Foliage
+dead-leaf amber against cold moss-green accents
+burnt-orange foliage against a cool slate-blue sky
+warm russet and ember-gold against deep charcoal shadow
+faded ochre leaves against wet blackened bark
+
+# Warm vs Cool
+warm candle-gold against cold grey fog-light, a split-lit scene
+guttering ember warmth against cold blue overcast daylight
+lantern-amber highlights against deep teal shadow
+a warm-lit figure against a cold misted environment
+
+# Jewel
+tarnished gold-gilt against deep-burgundy velvet accents
+antique-gold and cold amethyst-violet accents
+oxblood-red against cool tarnished-silver highlights
+deep-garnet and verdigris-green jewel accents
+
+# Metallic
+wrought-iron black and warm rust accents against pale stone
+tarnished brass fittings against cold grey slate
+weathered-copper verdigris against warm mahogany brown
+
+# Subject vs Environment
+a warm-toned subject set against a distinctly cool-toned environment
+a cool-toned subject set against a distinctly warm-toned environment
+a saturated subject against a muted, desaturated background
+the wardrobe in hues that deliberately contrast the subject's own coloring

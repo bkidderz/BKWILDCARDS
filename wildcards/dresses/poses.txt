@@ -1,0 +1,45 @@
+# ============================================================
+# GOWNS & DRESSES POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts take
+# "the" (the hip, the neck) - no gendered pronouns anywhere.
+# DANCE-FORWARD by request: the bulk are dance and movement poses that let a
+# gown's skirt and lines read, plus a few elegant formal stances. Flavored
+# through fabric and carriage (the skirt, the hem, the train) rather than any
+# fixed prop, so they stay portable across every environment in the pool.
+# Attribute-clean: no skin, hair, eye, or specific garment callouts.
+# One pose per line. Pair with __dresses_environment__ and a gown line.
+# ============================================================
+
+# Dance
+the subject is caught mid-turn with the skirt flaring wide in a circular sweep, one arm curved overhead and the other extended, the weight rising onto one foot
+the subject holds an arabesque line with one leg extended long behind and both arms reaching forward, the skirt trailing off the lifted leg, poised and elongated
+the subject sweeps into a deep side lunge with the leading knee bent and both arms sweeping outward, the hem swinging away from the extended rear leg
+the subject rises on the ball of one foot with the free leg lifted at the knee and the opposite arm curved overhead, the skirt lifting with the motion
+the subject sinks into a deep graceful plie with the knees turned out and both arms curved low in front, the skirt pooling and spreading over the floor
+the subject arches back with the chest open and both arms drawn behind, one leg pointed forward, the skirt cascading from the arched line of the body
+the subject twists through the torso mid-step with one arm pulling across the body and the other flung wide, the skirt spiralling with the turn
+the subject extends one leg into a long low lunge with both arms lifted upward, the hem swept taut along the reaching line
+the subject balances on one leg with the free leg extended behind and the arms outstretched to the sides, the skirt streaming off the lifted leg
+the subject steps through a crossed-leg turn with one arm drawn in to the chest and the other flared outward, the skirt wrapping and releasing
+the subject pauses in a toe-pointed step with the heel lifted and both arms angled on a clean diagonal, the hem lifted with the extended foot
+the subject dips into a low grounded stance with the legs wide and both arms braced outward, the skirt spread broad across the floor
+the subject reaches upward through an elongated spine with the fingertips extended and one heel lifted, the gown drawn long and taut
+the subject holds a dance finish with one leg crossed forward and both arms gently lowered, the skirt settling around the still line of the body
+
+# Partnered
+the subject stands in a raised waltz frame with one arm curved forward at shoulder height and the other extended to the side, the weight poised to step
+the subject leans into a gentle backward dip with one arm sweeping overhead and the spine curved, the skirt falling away from the arched line
+
+# Formal
+the subject stands tall in an elegant contrapposto with the weight on one hip, one hand resting lightly at the waist and the head lifted, serene and poised
+the subject sinks into a graceful curtsy with one foot drawn behind, the knees bending and the skirt held lightly out to the sides, the head inclined
+the subject stands three-quarters to the front with one hand gathering the skirt to the side and the other loose, the head turned over the shoulder
+the subject stands with both hands lightly clasped at the front and the shoulders drawn back, the chin level, a poised formal repose
+
+# Seated
+the subject sits upright on the edge of a low seat with the ankles crossed and the hands folded in the lap, the skirt arranged in a smooth fall to the floor
+the subject sits turned aside with one arm resting along a chair back and the skirt sweeping across the floor in a long arc, the head turned to the front
+the subject reclines gracefully propped on one elbow with the legs drawn up and angled aside, the gown pooling in soft folds, the head tipped at ease
+
+# Motion
+the subject walks forward mid-stride with the skirt swinging back from the leading leg and one hand lightly lifting the hem, the carriage upright and light

@@ -1,35 +1,17 @@
 {
-  "pack": "cyberpunk",
-  "label": "_ghost.runner",
+  "pack": "autumnal_oxidation",
+  "label": "Autumnal Oxidation",
+  "global": false,
   "entries": [
-    {
-      "file": "tattoos.txt",
-      "id": "tattoo",
-      "label": "Tattoos",
-      "order": 30,
-      "default": false,
-      "group": "Wardrobe",
-      "prompt_label": "tattoos",
-      "select": "section"
-    },
     {
       "file": "outfits.txt",
       "id": "outfit",
       "label": "Outfits",
       "order": 40,
+      "display": 40,
       "default": false,
       "group": "Wardrobe",
       "prompt_label": "outfit",
-      "select": "section"
-    },
-    {
-      "file": "weapons.txt",
-      "id": "weapon",
-      "label": "Weapons / Carry",
-      "order": 50,
-      "default": false,
-      "group": "Wardrobe",
-      "prompt_label": "weapons",
       "select": "section"
     },
     {

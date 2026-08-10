@@ -13,46 +13,46 @@
 # One pose per line. Pair with __cyberpunk_environment__ and an outfit line.
 # ============================================================
 
-# -- standing / at ease
+# Standing
 the subject stands squarely at ease with the weight even on both feet, arms loose at the sides and chin level, a still composed ready posture
 the subject stands with the weight cocked onto one hip in a loose contrapposto, one hand hooked in a pocket and the other hanging free, head tilted slightly
 the subject stands with both hands planted on the hips, elbows flared and feet set wide, a squared and confident street stance
 the subject stands with the arms crossed tightly over the chest and the shoulders drawn up, weight rocked back onto the heels, a guarded closed-off posture
 the subject stands turned three-quarters away scanning the far end of the street, one hand raised to shade the eyes against the glare, a wary surveying stance
 
-# -- leaning on ubiquitous fixtures
+# Leaning
 the subject leans one shoulder against a neon-lit alley wall with the ankles crossed and the arms folded, an unhurried waiting posture
 the subject leans back against a transit railing with both elbows hooked over it, hips pushed forward and one boot crossed over the other, casual and idle
 the subject braces both palms flat against a chain-link fence at shoulder height with the arms straight and the head bowed between them, leaning in to rest
 the subject stands with one boot raised onto a low concrete barrier, a forearm resting across the lifted knee, leaning in and looking down the street
 
-# -- crouching / kneeling
+# Crouching
 the subject crouches on the balls of the feet with the forearms draped over the knees, head lifted and gaze forward, a low ready crouch
 the subject kneels on one knee with the opposite forearm braced across the raised thigh, torso upright, steady and grounded
 the subject squats low on the heels with the knees wide and the hands loosely clasped between them, head lowered, studying something on the wet pavement
 
-# -- seated
+# Seated
 the subject sits on the edge of a low crate with the knees apart, forearms on the thighs and the shoulders rounded forward, resting between jobs
 the subject sits on the curb with one leg drawn up and an arm looped around the knee, the other leg extended into the gutter, a slouched street-seated rest
 the subject sits perched on the lip of a rooftop ledge with the hands gripping the edge and the legs dangling over the drop, leaning forward, watching the city
 the subject reclines propped back on both elbows across a low bench with the legs stretched out and the ankles loosely crossed, head tipped back, fully at ease
 
-# -- motion
+# Motion
 the subject is caught mid-stride walking forward, one arm swinging and the weight rolling onto the leading foot
 the subject pauses mid-step and turns to glance back over one shoulder, the torso twisting while the trailing foot stays planted
 the subject walks with a heavy trudging gait, shoulders slumped and head down and the arms hanging, worn out and weary
 
-# -- gestures / recovery
+# Gestures
 the subject stretches both arms overhead with the fingers laced and the spine arched, rising onto the toes, a long loosening stretch
 the subject rolls one shoulder with a hand raised to knead the back of the neck, head canted, easing stiffness
 the subject stands with a hand raised to rub the back of the head, elbow lifted, a tired or awkward idle gesture
 
-# -- cyberpunk gear & interface gestures (fixture-based, not outfit-locked)
+# Gear
 the subject tilts the head toward a wall-mounted speaker grille with one hand cupped near the ear, listening intently to a transmission
 the subject holds one wrist up close to read a glowing forearm interface while the other hand steadies the forearm, focused on the readout
 the subject reaches out to seat a thin interface cable into a public data port on a pillar, head bowed toward the connection and one hand braced on the wall
 
-# -- weapons (grouped separately; all poses above are weapon-free)
+# Weapons
 the subject stands at ease with one hand resting on a holstered sidearm at the hip and the other hanging loose, unhurried but ready
 the subject stands with a rifle slung across the chest on its strap, both hands resting over it and the muzzle angled down, a watchful guard posture
 the subject stands side-on in a low ready stance with a drawn pistol held in both hands angled toward the ground, the weight forward, alert and braced

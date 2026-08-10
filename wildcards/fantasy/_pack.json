@@ -1,6 +1,6 @@
 {
   "pack": "fantasy",
-  "label": "Dark Fantasy",
+  "label": "Whimsical Woods",
   "global": false,
   "entries": [
     {
@@ -8,28 +8,79 @@
       "id": "tattoo",
       "label": "Tattoos",
       "order": 30,
-      "default": false
+      "default": false,
+      "group": "Wardrobe",
+      "prompt_label": "tattoos",
+      "select": "section"
     },
     {
       "file": "outfits.txt",
       "id": "outfit",
       "label": "Outfits",
       "order": 40,
-      "default": false
+      "default": false,
+      "group": "Wardrobe",
+      "prompt_label": "outfit",
+      "select": "section"
     },
     {
       "file": "weapons.txt",
       "id": "weapon",
       "label": "Weapons / Carry",
       "order": 50,
-      "default": false
+      "default": false,
+      "group": "Wardrobe",
+      "prompt_label": "weapons",
+      "select": "section"
     },
     {
       "file": "accent_palette.txt",
       "id": "accent_palette",
       "label": "Accent Palette",
       "order": 60,
-      "default": false
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "color palette",
+      "select": "section"
+    },
+    {
+      "file": "environments.txt",
+      "id": "environment",
+      "label": "Environments",
+      "order": 70,
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "scene/background",
+      "select": "section"
+    },
+    {
+      "file": "poses.txt",
+      "id": "pose",
+      "label": "Poses",
+      "order": 80,
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "pose",
+      "select": "section"
+    },
+    {
+      "file": "spell_casting.txt",
+      "id": "spell_casting",
+      "label": "Spell Casting",
+      "order": 82,
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "casting"
+    },
+    {
+      "file": "spell_effects.txt",
+      "id": "spell_effects",
+      "label": "Spell Effects",
+      "order": 85,
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "spell effect",
+      "select": "section"
     }
   ]
 }

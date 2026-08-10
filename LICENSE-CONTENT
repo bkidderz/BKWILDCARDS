@@ -1,0 +1,78 @@
+WILDCARD CONTENT LICENSE
+================================================================================
+
+This license covers every file inside the `wildcards/` directory of the
+BKWILDCARDS repository — all wildcard text files and their pack manifests.
+
+It does NOT cover the software in this repository. That is MIT licensed; see
+LICENSE.
+
+--------------------------------------------------------------------------------
+
+Copyright (c) 2026 bkidderz
+
+The wildcard content in this repository is licensed under the
+
+    Creative Commons Attribution-ShareAlike 4.0 International License
+    (CC BY-SA 4.0)
+
+SPDX-License-Identifier: CC-BY-SA-4.0
+
+Full legal code:  https://creativecommons.org/licenses/by-sa/4.0/legalcode
+Plain-language summary:  https://creativecommons.org/licenses/by-sa/4.0/
+
+--------------------------------------------------------------------------------
+WHAT THIS MEANS IN PRACTICE
+--------------------------------------------------------------------------------
+
+You are free to:
+
+  SHARE    — copy and redistribute this content in any medium or format
+  ADAPT    — remix, transform, and build upon it
+
+for any purpose, including commercially.
+
+Under the following terms:
+
+  ATTRIBUTION
+    Give appropriate credit, link to this license, and indicate if changes
+    were made. A reasonable credit line is:
+
+        Wildcard content from BKWILDCARDS by bkidderz,
+        licensed under CC BY-SA 4.0
+
+  SHAREALIKE
+    If you remix, transform, or build upon this content, you must distribute
+    your contributions under this same license. You may not release a modified
+    or extended version of this wildcard library under more restrictive terms.
+
+  NO ADDITIONAL RESTRICTIONS
+    You may not apply legal terms or technological measures that legally
+    restrict others from doing anything this license permits.
+
+--------------------------------------------------------------------------------
+IMAGES YOU GENERATE
+--------------------------------------------------------------------------------
+
+Images produced by running these wildcards through a diffusion model are your
+own. No attribution is requested for generated images, and the ShareAlike term
+is not asserted against them. This paragraph is a statement of the author's
+intent, offered so that users are not left guessing; it does not modify the
+license above.
+
+The ShareAlike term is aimed at redistribution of the wildcard text itself —
+forking this library, extending it, and closing it off.
+
+--------------------------------------------------------------------------------
+NOTES
+--------------------------------------------------------------------------------
+
+The full CC BY-SA 4.0 legal code is incorporated by reference at the URL above
+and governs in case of any conflict with the plain-language summary in this
+file. You may replace this file with the complete legal text if you prefer to
+vendor it.
+
+Portions of this content have also been published by the author as standalone
+wildcard releases. Those releases and this repository share an author; where
+terms differ, the terms accompanying each distribution apply to that
+distribution.

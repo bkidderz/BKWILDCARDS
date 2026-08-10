@@ -1,0 +1,40 @@
+{
+  "pack": "hair",
+  "label": "Hair",
+  "global": true,
+  "entries": [
+    {
+      "file": "type.txt",
+      "id": "type",
+      "label": "Hair Type",
+      "order": 28,
+      "display": 30,
+      "select": "section",
+      "default": false,
+      "group": "Hair",
+      "prompt_label": "hair"
+    },
+    {
+      "file": "style.txt",
+      "id": "style",
+      "label": "Hair Style",
+      "order": 29,
+      "display": 32,
+      "select": "section",
+      "default": false,
+      "group": "Hair",
+      "prompt_label": "hair"
+    },
+    {
+      "file": "color.txt",
+      "id": "color",
+      "label": "Hair Color",
+      "order": 27,
+      "display": 34,
+      "select": "section",
+      "default": false,
+      "group": "Hair",
+      "prompt_label": "hair"
+    }
+  ]
+}

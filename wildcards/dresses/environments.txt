@@ -1,0 +1,26 @@
+# ============================================================
+# GOWNS & DRESSES ENVIRONMENTS - KREA2 (natural-language prose)
+# Refined and formal settings that flatter an evening gown: ballrooms,
+# palace stairs, marble atria, moonlit terraces, opera houses, gilded salons.
+# Chandelier and candle light, moonlight, soft daylight - elegant, luminous,
+# never grimy. NO neon, NO signage, NO ruin.
+# Person-free settings. Pair with __dresses_pose__ and a gown line.
+# One environment per line.
+# ============================================================
+
+# -- INTERIORS
+a grand palace ballroom, a vast mirror-polished parquet floor beneath a row of blazing crystal chandeliers, gilded pilasters and tall arched mirrors doubling the light along the walls, swagged silk drapery at soaring windows, a frescoed ceiling of clouds and gilt, a marble balustrade to a raised gallery, warm-gold and ivory palette, radiant chandelier light
+a sweeping marble staircase in a palace foyer, a broad curved flight of pale veined marble with a gilt-bronze balustrade descending beneath an enormous chandelier, a red-and-gold runner down the center, towering columns and a domed skylight above, urns of white lilies on the landings, marble-white and warm-gilt palette, bright airy light
+a candlelit banquet hall, a long table dressed in white damask and glittering with silver and crystal beneath iron-and-candle chandeliers, tall tapestries and portrait frames on panelled walls, a great stone hearth throwing warm light, gilded chairs receding into soft shadow, ivory-and-gold and warm-ember palette, intimate candlelit warmth
+an opera house grand foyer, a sumptuous hall of red velvet and gilt mouldings under a painted vaulted ceiling, a monumental chandelier over a mosaic floor, mirrored doors and a marble balustrade sweeping up to the boxes, brass sconces glowing warm along the walls, deep-crimson and gold palette, warm opulent glow
+a gilded rococo salon, an intimate room of pale-blue silk-panelled walls edged in white-and-gold boiserie, a crystal chandelier and matching wall sconces, a marble mantel with an ormolu clock beneath a tall mirror, a polished parquet floor and delicate gilt furniture, soft-blue and gilt palette, gentle candle-warm light
+a conservatory of glass and iron in bloom, a soaring white-painted iron-framed glasshouse full of palms and flowering camellias, a checkerboard marble floor and a tiered stone fountain playing softly, wicker seating among the greenery, warm daylight pouring through the arched panes, verdant-green and warm-ivory palette, bright diffuse daylight
+a moonlit palace gallery, a long mirrored hall lined with tall arched windows open to a silver-lit night, marble busts on plinths between the glass, a runner of deep blue down the pale stone floor, chandeliers dimmed to a soft glow, moonlight and warm sconce-light mingling along the mirrors, cool-silver and warm-gold palette, soft moonlit glow
+
+# -- EXTERIORS
+a moonlit garden terrace, a balustraded stone terrace above formal parterres, a pale full moon over clipped hedges and a still reflecting pool, marble urns spilling pale roses, a scatter of warm lanterns along the steps, the glow of a lit ballroom spilling from tall doors behind, cool moon-blue and warm-lantern palette, soft romantic light
+a palace rose garden at golden hour, gravel paths winding between arched trellises heavy with climbing roses, low box hedges around a central fountain catching warm light, stone benches and classical statuary, a distant gilded facade glowing in the low sun, warm-rose and green palette, soft golden light
+a grand staircase to palace gardens at dusk, a wide balustraded stone stair descending between torch-lit urns toward geometric parterres, a fountain glittering below and a bruised violet sky above, warm flame-light along the steps against the cool evening, warm-amber and dusk-violet palette, soft twilight glow
+a marble colonnade overlooking the sea, a row of tall pale columns along a terrace above a calm moonlit bay, gauzy curtains stirring between the pillars, urns of white blossom and a stone balustrade, the horizon silvered under a high moon, cool-marble and moon-silver palette, luminous night light
+a formal fountain courtyard, a symmetrical court of pale stone around a grand tiered fountain, clipped topiary in stone planters and gravel walks, arched loggias on either side glowing warm within, a soft-clouded blue sky above, cool-stone and warm-loggia palette, bright gentle daylight
+a candlelit cathedral aisle dressed for a gala, a soaring nave with a long carpet runner between rows of white flowers and countless candles, tall clustered columns rising into gilt gloom, warm light pooling on pale stone, distant stained glass catching a last glow, warm-candle and cool-stone palette, soft solemn radiance

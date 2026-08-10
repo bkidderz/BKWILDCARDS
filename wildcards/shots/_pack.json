@@ -1,0 +1,29 @@
+{
+  "pack": "shots",
+  "label": "Shots",
+  "global": true,
+  "entries": [
+    {
+      "file": "angle.txt",
+      "id": "angle",
+      "label": "Shot Angle",
+      "order": 90,
+      "display": 90,
+      "select": "section",
+      "default": false,
+      "group": "Camera",
+      "prompt_label": "camera"
+    },
+    {
+      "file": "framing.txt",
+      "id": "framing",
+      "label": "Shot Framing",
+      "order": 92,
+      "display": 92,
+      "select": "section",
+      "default": false,
+      "group": "Camera",
+      "prompt_label": "shot"
+    }
+  ]
+}

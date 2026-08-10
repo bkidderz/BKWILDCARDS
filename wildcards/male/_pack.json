@@ -2,6 +2,48 @@
   "pack": "male",
   "label": "Male",
   "global": true,
-  "entries": [],
-  "gender": "Male"
+  "gender": "Male",
+  "entries": [
+    {
+      "file": "builds.txt",
+      "id": "build",
+      "label": "Masculine Build",
+      "order": 15,
+      "select": "section",
+      "default": false,
+      "display": 20,
+      "group": "Physical",
+      "prompt_label": "build"
+    },
+    {
+      "file": "face.txt",
+      "id": "face",
+      "label": "Masculine Face",
+      "order": 22,
+      "display": 22,
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "face"
+    },
+    {
+      "file": "nose.txt",
+      "id": "nose",
+      "label": "Masculine Nose",
+      "order": 24,
+      "display": 24,
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "nose"
+    },
+    {
+      "file": "lips.txt",
+      "id": "lips",
+      "label": "Masculine Lips",
+      "order": 26,
+      "display": 26,
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "lips"
+    }
+  ]
 }

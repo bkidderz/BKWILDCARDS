@@ -1,0 +1,46 @@
+# ============================================================
+# CASSETTE FUTURISM ACCENT PALETTE - KREA2
+# Anti-monochrome accent wildcard - RETRO ANALOG variant.
+# Each line forces at least TWO contrasting accent hues placed on wardrobe /
+# lighting / panels / readouts (NOT skin), so a dominant color has something
+# to contrast against instead of flooding the frame.
+# Uses cassette-futurism-native sources ONLY: monochrome CRT phosphor (amber
+# and green), incandescent panel bulbs, small indicator lamps, hazard striping,
+# molded beige/grey plastic, stenciled institutional paint. NO neon, NO
+# holograms, NO signage glow. Inject alongside the outfit, or pin one line in.
+# ============================================================
+
+# Warm vs Cool
+warm amber CRT phosphor glow against cool green readout light
+amber segment-display warmth against a cold cathode-green screen wash
+incandescent panel-bulb orange against cool phosphor-green light
+a warm amber-lit interior against cold green monitor glow
+
+# Signal
+faded safety-orange hazard striping against institutional grey-green panels
+warning-red indicator lamps against muted teal control housings
+caution-yellow stencil markings against dull slate-blue plastic
+a single red standby lamp against a field of cool grey switch panels
+
+# Institutional
+faded mustard-yellow and washed-teal accents across the wardrobe and panels
+dull brick-orange and slate-blue accents through the scene
+muted olive-drab and warm-tan accents across the outfit and background
+chalky sky-blue and warm ochre accents on scuffed plastic housings
+
+# Metallic
+brushed aluminium and warm-amber lamp accents against a beige plastic field
+gunmetal toggle banks and a single orange power light
+oxidized brass fittings against cool grey enamel panels
+scuffed chrome trim and warm incandescent accents against matte plastic
+
+# Multicolor
+a bank of small indicator lamps in separated red, amber and green
+mixed labeled buttons in faded red, blue and yellow kept visually distinct
+a control board of several muted signal colors held clearly separated
+
+# Subject vs Environment
+a warm-toned subject set against a distinctly cool-toned environment
+a cool-toned subject set against a distinctly warm-toned environment
+a saturated subject against a muted, desaturated background
+the wardrobe in hues that deliberately contrast the subject's own coloring

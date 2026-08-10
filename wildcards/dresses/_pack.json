@@ -1,35 +1,25 @@
 {
-  "pack": "cyberpunk",
-  "label": "_ghost.runner",
+  "pack": "dresses",
+  "label": "All the Dresses",
+  "global": false,
   "entries": [
     {
-      "file": "tattoos.txt",
-      "id": "tattoo",
-      "label": "Tattoos",
-      "order": 30,
-      "default": false,
-      "group": "Wardrobe",
-      "prompt_label": "tattoos",
-      "select": "section"
-    },
-    {
-      "file": "outfits.txt",
-      "id": "outfit",
-      "label": "Outfits",
+      "file": "dresses.txt",
+      "id": "dress",
+      "label": "Gowns & Dresses",
       "order": 40,
       "default": false,
       "group": "Wardrobe",
-      "prompt_label": "outfit",
-      "select": "section"
+      "prompt_label": "outfit"
     },
     {
-      "file": "weapons.txt",
-      "id": "weapon",
-      "label": "Weapons / Carry",
-      "order": 50,
+      "file": "eastern.txt",
+      "id": "eastern",
+      "label": "Eastern Attire",
+      "order": 41,
       "default": false,
       "group": "Wardrobe",
-      "prompt_label": "weapons",
+      "prompt_label": "attire",
       "select": "section"
     },
     {
