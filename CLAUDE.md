@@ -8,8 +8,8 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.8.6` (shipped for testing; last git commit `0.6.5` — everything since is uncommitted)
-**Git:** initialised, ~12 local commits, **no remote yet** — GitHub is deliberately deferred until 1.0.
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.8.6` (committed and pushed)
+**Git:** 14 commits on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — currently **PRIVATE** (flip to public when ready; required before the Comfy Registry can serve it). `gh` CLI is installed and authed as `bkidderz`. `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path on owner's machine:**
 `C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
 
@@ -314,7 +314,7 @@ Done in 0.7.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `group`/group
 | Art Style | Planned global tier; no file exists. |
 | Vampire variants 1 and 3 | Near-identical merge residue (`visible subtle fangs` vs `visible fangs`). One is redundant. |
 | License | ✅ Dual: MIT for code, CC BY-SA 4.0 for `wildcards/`. `pyproject.toml` points at `LICENSE`. |
-| GitHub remote / first commit | Deferred; the entire 0.7.x line is uncommitted on `0.6.5`. Learning GitHub publishing is a stated goal. |
+| GitHub publish | ✅ Pushed to `bkidderz/BKWILDCARDS` at v0.8.6. **Private** — flip to public when ready. Remaining: add `REGISTRY_ACCESS_TOKEN` secret for the Registry workflow. |
 | Canonical source | Node package vs Civitai collection. Undecided. |
 | Phase 2 | Module listed as a resource on image outputs. Surface unidentified. Partially anticipated by the PNG stamping. |
 

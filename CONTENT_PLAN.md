@@ -81,7 +81,16 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
    `wildcards/` (`LICENSE-CONTENT`), per Brian's prepared files + `SNIPPETS.md`.
    Only remaining Registry step: add the `REGISTRY_ACCESS_TOKEN` secret to the
    GitHub repo (see `.github/workflows/publish.yml`).
-4. **GitHub publish** — once the above files are correctly formatted.
+4. ~~**GitHub publish**~~ — ✅ **DONE (2026-08-09).** v0.8.6 committed (`bdb2329`,
+   57 files, +4,851) and pushed to **https://github.com/bkidderz/BKWILDCARDS**,
+   currently **PRIVATE**. `SNIPPETS.md` gitignored. GitHub reports the license as
+   "Other" (not "MIT") because our `LICENSE` opens with the dual-license
+   preamble — arguably the right outcome, since a bare MIT badge would misstate
+   the content licence. Remaining before it's installable by others:
+   **(a) flip the repo to public**, **(b) add the `REGISTRY_ACCESS_TOKEN`
+   secret** if publishing to the Comfy Registry, **(c)** optionally tag `v0.8.6`
+   / cut a Release.
+   Original notes:
    **`gh` CLI is now installed (v2.97.0) and authenticated as `bkidderz`**
    (scopes: repo, workflow, gist, read:org) — so Claude CAN create the repo and
    push on Brian's explicit go-ahead. Remaining pre-publish chores:
