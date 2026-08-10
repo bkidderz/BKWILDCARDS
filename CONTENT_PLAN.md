@@ -3,10 +3,11 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-09 — build `0.8.6`, shipped to the live install for testing,
-verified headlessly.** Everything since `0.6.5` is **uncommitted**; committed
-`0.6.5` remains the rollback. Node is now **~48 categories / 6 themes** (from 13),
-plus **Mayhem mode** and both-gender Physical content.
+**Status: 2026-08-09 — build `0.8.7`, shipped to the live install and pushed to
+GitHub (private).** Node is **43 categories / 6 themes** (from 13), plus **Mayhem
+mode** and both-gender Physical content. Repo:
+https://github.com/bkidderz/BKWILDCARDS — **private while external testers try
+it**; not for public release yet.
 
 > This revision marks answered items **✅ DONE** and keeps only the genuinely
 > open items in §2. Skim §2 for what still needs you.
