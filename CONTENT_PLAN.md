@@ -223,3 +223,4 @@ intentionally left out — available if you ever want them.
 - **0.8.6** fix: duplicate Wardrobe/Scene headers from inactive themes (per-header member check, not group name). **Confirmed working by Brian** — collapse/expand clean, no bleed-through.
 
 Earlier (committed 0.6.5): resolved-text live-update fix + `setResolved` cleanup (validated).
+- **0.8.7** **CRITICAL FIX** — section headers corrupted `widgets_values` on every save/load/undo (serialize wrote at full-array index leaving null holes; configure read sequentially). Headers now spliced out during serialize/configure. Workflows saved with 0.7.1–0.8.6 may have shifted widget values — re-set them.

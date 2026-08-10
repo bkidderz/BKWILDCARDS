@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.8.6";
+const BUILD = "0.8.7";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
@@ -124,11 +124,13 @@ function resize(node) {
 }
 
 /**
- * A non-interactive section-header row. Marked serialize:false, which this
- * ComfyUI version honours on BOTH save and load (the serialize loop does
- * `if (r.serialize === false) continue`), so it consumes no widgets_values
- * slot and never desyncs the positional array Python maps by name. That is the
- * only reason it is safe to splice into node.widgets.
+ * A non-interactive section-header row spliced into node.widgets.
+ *
+ * `serialize: false` alone is NOT sufficient to keep these out of
+ * `widgets_values` — ComfyUI's serialize skips them but still writes at the
+ * full-array index, punching null holes that the sequential reader then
+ * misaligns against. See withoutHeaders(), which is what actually makes this
+ * safe. Do not remove either mechanism.
  */
 function makeHeader(group) {
   return {
@@ -185,6 +187,35 @@ function makeHeader(group) {
       } catch (_) {}
     },
   };
+}
+
+/**
+ * Run `fn` with the header rows temporarily spliced out of node.widgets.
+ *
+ * REQUIRED for correctness — this is not cosmetic. `widgets_values` is
+ * positional, and ComfyUI's two halves disagree about what that position means:
+ *
+ *   serialize:  writes each value at its index in the FULL widgets array but
+ *               SKIPS serialize:false widgets — leaving null holes where our
+ *               headers sit.
+ *   configure:  reads back SEQUENTIALLY, also skipping serialize:false.
+ *
+ * A compact reader against a hole-punched writer shifts every value by the
+ * number of preceding headers. That corrupted every save/load round-trip and
+ * every undo (v0.8.5-0.8.6). Hiding the headers for the duration of both calls
+ * makes the array compact and the two halves agree.
+ */
+function withoutHeaders(node, fn) {
+  const all = node?.widgets;
+  if (!Array.isArray(all) || !all.some((w) => w && w._bkHeader)) return fn();
+  const stripped = all.filter((w) => !w._bkHeader);
+  node.widgets = stripped;
+  try {
+    return fn();
+  } finally {
+    // Only put them back if nothing else swapped the array out meanwhile.
+    if (node.widgets === stripped) node.widgets = all;
+  }
 }
 
 /**
@@ -647,6 +678,17 @@ app.registerExtension({
       }
       return r;
     };
+
+    // Keep our injected header rows out of every positional widgets_values
+    // read/write. Without this, saving, loading or undoing shifts every widget
+    // value by the number of preceding headers. See withoutHeaders().
+    for (const method of ["serialize", "configure"]) {
+      const original = nodeType.prototype[method];
+      if (typeof original !== "function") continue;
+      nodeType.prototype[method] = function (...args) {
+        return withoutHeaders(this, () => original.apply(this, args));
+      };
+    }
 
     // Red/green node + box message reflecting whether the prompt output is
     // wired. Fires on every wire add/remove (ComfyUI guards it during graph

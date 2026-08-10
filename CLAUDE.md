@@ -76,7 +76,14 @@ BKWILDCARDS/
 `nodes._in_scope()` decides what can contribute to a prompt. `web/bkwildcards.js` only *hides* out-of-scope widgets. If the extension fails to load, output stays correct and the node just looks cluttered. Never move gating into the browser.
 
 **2. Never reorder the *serializable* `node.widgets` in JavaScript.**
-`widgets_values` in a saved workflow is a positional array. Reordering the real widgets desyncs it silently and permanently. Ordering changes go in `INPUT_TYPES` in Python, where at least a version bump warns the user. **Exception (v0.7.x):** the JS inserts non-interactive **section-header** rows into `node.widgets`, but each is marked `serialize: false`. This ComfyUI version's serialize loop skips them on *both* save and load (`if (r.serialize === false) continue`), so they consume **no** `widgets_values` slot and never shift the real widgets' indices. That `serialize: false` is load-bearing — do not remove it, and do not add serialized widgets in JS.
+`widgets_values` in a saved workflow is a positional array. Reordering the real widgets desyncs it silently and permanently. Ordering changes go in `INPUT_TYPES` in Python, where at least a version bump warns the user.
+
+**Exception (v0.7.x+): the JS inserts non-interactive section-header rows into `node.widgets`. Two mechanisms are required to make that safe — both are load-bearing.**
+
+1. `serialize: false` on each header.
+2. **`withoutHeaders()`** wrapping `nodeType.prototype.serialize` and `.configure`, which splices the headers out for the duration of the call.
+
+**Why #2 is mandatory (the v0.8.7 bug):** ComfyUI's two halves disagree about what a position means. `serialize` skips `serialize:false` widgets **but writes each value at its index in the FULL widgets array**, leaving `null` holes where headers sit. `configure` reads back **sequentially**, also skipping headers. A compact reader against a hole-punched writer shifts every value by the number of preceding headers — so every save, load and Ctrl+Z corrupted the node (gender received the theme's value, etc.). Shipped broken in 0.7.1–0.8.6; fixed in 0.8.7. **Never conclude `serialize:false` alone is sufficient — verify BOTH the read and write paths in the installed frontend bundle before trusting any widget-array injection.**
 
 **3. Input order is frozen at 1.0.**
 Adding or moving an input shifts every `widgets_values` index after it. Pre-1.0 this has been broken several times deliberately. After publish, new inputs go on the END only.
