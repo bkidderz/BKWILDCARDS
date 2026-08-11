@@ -148,6 +148,43 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
   Passes, Battlefields & War Camps, Swamps & Moors, Coast & Harbor, Ruined
   Temples & Monoliths, Wastes & Blighted Lands.
 
+**Known content conflicts (to resolve):**
+- **Ancestry hair vs. Bald / Hair Type — double-ownership of hair texture**
+  *(parked 2026-08-11).* Nearly all 44 ancestry lines carry a hair TEXTURE/length
+  phrase ("straight hair", "long straight hair"). The `hair` pack's **Hair Type**
+  dropdown *also* owns texture (Straight/Wavy/Curly/Coily) **and Bald**. So two
+  sources describe hair at once. Worst case: Ancestry=random lands hair guidance
+  + Hair Type=random lands **Bald** → images with a bald scalp but hair on the
+  back/half the head. Subtler clashes happen non-bald too (ancestry "straight"
+  vs type "coily"). Note: the ancestry header comment claims "they never
+  conflict" (it assumed the hair pack owned only COLOR) — that comment is wrong
+  and must be updated with whatever fix we choose. Metatype/species is clean
+  (0 hair mentions), so ancestry is the only other hair source. `_drop_if_bald`
+  can't help here — it drops the hair_color/style *picks*, but ancestry hair is
+  embedded in prose and can't be surgically removed at runtime.
+  Options (Brian raised 1 & 2):
+  1. **Mutual toggle** — ancestry and hair disable each other by selection.
+     *Not recommended:* overbroad (ancestry also owns skin/eyes/face/nose/lips,
+     all lost if toggled off), kills independent hair control, and needs fragile
+     dynamic cross-widget UI logic.
+  2. **Strip hair from ancestry prose (recommended)** — make the hair pack the
+     SOLE owner of all hair. Remove texture/length phrases from the 44 ancestry
+     lines; ancestry keeps skin tone, eye shape, face structure, nose, lips.
+     Content-only, deterministic, no code; fixes bald AND all texture clashes.
+     Tradeoff: ancestry-only (hair all off) leaves hair unspecified → model
+     free-picks (acceptable; turn hair on for control). Ethnic hair textures are
+     largely already covered by Hair Type; optionally enrich the hair pack if any
+     are missed.
+  3. **Strengthen Bald lines** ("completely bald, hairless, smooth scalp") to
+     out-weight ancestry hair tokens. *Weak:* prompt-engineering mitigation only,
+     unreliable, ignores non-bald texture clashes. At best a stopgap.
+  4. **Hair-free ancestry variants** selected when Bald is active (metatype
+     multi-variant pattern). *Overkill* vs. option 2; doubles ancestry authoring
+     and adds resolver complexity.
+  Recommendation: **option 2** — it's the single-owner fix the design already
+  implies (Hair Type owns texture), and it resolves the general conflict, not
+  just the bald symptom.
+
 **Content decisions (blocking new content):**
 - **Cyberpunk outfits / structure** — current pack uses monolithic **270**.
   Available: 183, 530, and a full granular decomposition (`_ghost.runner 1.a`:
