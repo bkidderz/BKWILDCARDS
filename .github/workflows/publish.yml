@@ -1,23 +1,28 @@
-# Publishes to the Comfy Registry — MANUAL ONLY.
+# Publishes to the Comfy Registry — AUTOMATIC on every release.
 #
-# Publishing to the Registry makes the node PUBLIC and installable. The repo is
-# private during testing, so this MUST NOT run automatically. It is therefore
-# gated to workflow_dispatch: it fires only when you click
-#   Actions > "Publish to Comfy Registry" > Run workflow
-# on GitHub. No push ever triggers it — that is intentional.
+# The repo is public and the REGISTRY_ACCESS_TOKEN secret is set, so publishing
+# is now standard operation: every push to main that changes pyproject.toml
+# (i.e. every version bump) republishes the node to the Registry. Manual runs
+# are also available via Actions > "Publish to Comfy Registry" > Run workflow.
 #
-# Before the first manual run, when you ARE ready to go public:
-#   [x] Publisher ID set in pyproject.toml ([tool.comfy] PublisherId = bkidderz)
+# RELEASE FLOW (unchanged): bump `version` in pyproject.toml + BUILD in the JS,
+# commit, push. The push auto-publishes. The Registry REJECTS re-publishing an
+# existing version, so the version MUST be bumped for each release — a commit
+# that touches pyproject.toml WITHOUT bumping the version will fail this job
+# (harmless, but noisy). One version bump = one publish.
+#
+# Setup (all complete):
+#   [x] PublisherId set in pyproject.toml ([tool.comfy] PublisherId = bkidderz)
 #   [x] License set (MIT, see LICENSE)
-#   [ ] REGISTRY_ACCESS_TOKEN secret — generate an API key at
-#       https://registry.comfy.org and save it under
-#       Settings > Secrets and variables > Actions as REGISTRY_ACCESS_TOKEN
-#   [ ] Make the repository public
-# Until the secret exists a manual run will fail; that is expected and harmless.
+#   [x] REGISTRY_ACCESS_TOKEN secret set in repo Actions secrets
+#   [x] Repository public
 
 name: Publish to Comfy Registry
 
 on:
+  push:
+    branches: [main]
+    paths: ["pyproject.toml"]
   workflow_dispatch:
 
 jobs:
