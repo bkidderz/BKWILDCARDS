@@ -37,7 +37,7 @@ glowing green low-luminescent ring irises, detailed eyes
 glowing and faint blue star-pattern irises, detailed eyes
 
 # Heterochromia
-heterocromia eyes, one blue and one green, detailed eyes
-heterocromia eyes, one hazel and one grey, detailed eyes
-heterocromia eyes, one cybernetic eye and one natural eye, purple iris glow, detailed eyes
-heterocromia eyes, one magical eye and one natural eye, purple iris glow, detailed eyes
+heterochromia eyes, one blue and one green, detailed eyes
+heterochromia eyes, one hazel and one grey, detailed eyes
+heterochromia eyes, one cybernetic eye and one natural eye, purple iris glow, detailed eyes
+heterochromia eyes, one magical eye and one natural eye, purple iris glow, detailed eyes
