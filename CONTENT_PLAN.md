@@ -186,6 +186,42 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
     height in this mode (all themes' Wardrobe/Scene shown). (c) Nothing stops two
     same-slot picks (two outfits) — intended, "manually managed" like Fluid.
 
+- **Update-without-re-add (widget-value survival across updates)** — *deferred,
+  not started (discussed 2026-08-11).* Today a structural update (new
+  category/theme, changed section options) can force users to delete & re-add
+  the node. Root cause is two mechanisms:
+  1. **Positional `widgets_values`.** `INPUT_TYPES` sorts categories by `display`
+     ([nodes.py:263](bkwildcards/nodes.py:263)), so inserting a category
+     mid-list (e.g. Eyes at display 21) shifts every later widget → old saved
+     values misalign.
+  2. **Combo option changes.** A section-select's saved value (e.g.
+     `environment = "Interiors"`) becomes invalid when the file's sections
+     change → ComfyUI throws "invalid input".
+  Planned fixes, ship as **separate** versions with in-app round-trip testing:
+  - **C — tolerant combo restore (small, do first):** on load, coerce a
+    saved dropdown value that's no longer a valid option to its default instead
+    of erroring. Turns a hard error into a silent per-widget reset.
+  - **B — name-keyed value persistence (moderate, the real fix):** store values
+    keyed by widget `key` and restore by name in the existing `configure` hook,
+    so adding/reordering categories no longer misaligns. **Forward-fixing only**
+    (pre-B saves lack the map). Must ship *with* C. Negatives logged 2026-08-11:
+    deepens dependency on the fragile serialize/configure path (0.8.7 territory),
+    **silent** failure mode if wrong, two-sources-of-truth drift risk, permanent
+    dual-path complexity, and it can't be validated headlessly (JS-only path).
+  - Cheaper alternative considered: **C only + let the library stabilize** —
+    content-only updates already don't require re-adds; most churn was our own
+    structural changes. Re-add should be a *troubleshooting* step, not routine.
+
+- **Art Style option (rests with Theme)** — *future idea, noted 2026-08-11.* A
+  selector near the Theme dropdown to pick a rendering style: **anime,
+  photorealism, surreal**, etc. Likely a global, always-on category emitted near
+  the top of the prompt (a style directive), independent of theme. Open
+  questions when we pick it up: off/random/section like the others; whether it's
+  a global pack (`wildcards/style/`) or a special selector beside Theme; how it
+  composes with Mayhem; and whether style lines are one-per-style or richer
+  (e.g. "anime" → a few phrasings). Source content TBD (Brian to provide or
+  approve a drafted starter list).
+
 **Housekeeping:**
 
 - **Commit the 0.7.x/0.8.x milestone to git** once it tests clean (still uncommitted).
