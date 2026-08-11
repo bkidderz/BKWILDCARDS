@@ -1,42 +1,419 @@
 # ============================================================
 # CYBERPUNK ENVIRONMENTS - KREA2 (natural-language prose)
-# Neon-noir high-tech low-life: rain-slick streets under holographic
-# advertising, LED signage, chrome and glass, fiber-optic data trunks and
-# AR overlays - balanced evenly against Neuromancer/Sprawl grime and
-# quasi-biohorror: black clinics, vat-grown flesh, wet concrete, sodium
-# haze, rust and rot.
+# Neon-noir high-tech low-life balanced evenly against Neuromancer/Sprawl
+# grime and quasi-biohorror. Tone follows the location: corpo reads clean,
+# combat zone reads grime.
 # Sources: Cyberpunk 2077 & Edgerunners, Shadowrun 6th edition, Blade Runner,
 # Neuromancer / the Sprawl trilogy, modern cyberpunk installations.
-# Distinctly NOT cassette futurism: no molded beige plastic, analog needle
-# gauges, toggle switches, or monochrome segment readouts as the keynote.
-# Person-free settings. Pair with __cyberpunk_pose__ and an outfit line.
-# One environment per line. 18 interiors + 6 exteriors.
+# Subheaders map to where the archetypes live, work, and play (Rockerboy,
+# Joytoy, Netrunner, Techie, Ripperdoc, Media, Exec, Fixer, Solo, Nomad, Lawman).
+# LEAN format: ~4-5 controlled elements per line + palette + lighting, to keep
+# each frame uncluttered. Person-free settings. One environment per line.
+# Section subheaders (# --) are dropdown options; # === dividers are cosmetic.
+# 180 interiors + 180 exteriors, 10 subheaders each x 18.
+# Pair with __cyberpunk_pose__ and an outfit line.
 # ============================================================
 
-# -- INTERIORS
-an emptied-out underground nightclub after hours, mirror-black walls bathed in shifting magenta and cyan LED wash, a towering wall of holographic screens looping glitched idol-ads above a long chrome bar, laser grids cutting through low fog, cage-lit dance platforms and stacked subwoofers, fiber-optic trim threaded across the ceiling pulsing in sequence, spilled glasses glinting on the black glass floor, electric violet and teal palette, hard strobing light
-a braindance editing studio, a reclined scan-chair ringed by a wraparound holographic timeline of floating memory-frames, translucent AR readouts and waveform ribbons hovering in the dark, sleek matte-black consoles with glowing touch-glass, a coiled neural-interface cable hung on a hook, cool blue volumetric light and faint lens flare, a wall of soft-glowing diagnostic glyphs, glossy black and ice-blue palette, clean cold glow
-a corporate executive office high in a megatower, floor-to-ceiling glass looking onto a rain-blurred neon skyline, a glossy black desk with an embedded holographic display projecting a slow-rotating logo, brushed-chrome fixtures and a backlit onyx feature wall, recessed cove lighting in cold white, a single orchid under a pin-spot, minimalist and sterile, black glass and steel-grey palette with distant neon bleed, hushed cold light
-a netrunner's hideout, racks of humming servers strung with glowing fiber-optic cable and cooling loops, a nest of scavenged monitors cascading green and cyan datastream, a worn chair wired to a cyberdeck rig with a dangling neural jack, holographic ICE diagrams rotating midair, energy-drink cans and heat-warped plastic, tangled cable underfoot, a haze of monitor-glow in the dark, acid-green and electric-blue palette, flickering screen light
-a cramped megabuilding noodle bar, a steaming chrome counter beneath a low awning of buzzing neon kanji signage, stacked broth vats and hanging utensil racks, a wall of glowing vending machines and holographic menu boards, fogged plastic strip curtains, condensation running down a mirrored back panel, stools bolted to a grease-slicked floor, warm red and orange neon against wet reflections, hot steam-lit glow
-a neon arcade parlor, wall-to-wall cabinets flashing attract-screens in saturated primaries, mirrored columns multiplying the light into infinity, a low ceiling of chasing LED strips, sticky patterned carpet and a token machine glowing at the back, holographic high-score boards flickering overhead, a fog of colored light and dead-screen reflections, hot magenta lime and cyan palette, restless flashing glow
-a rain-streaked transit atrium, towering holographic advertisements projected across glass balconies and escalator wells, glowing wayfinding glyphs and scrolling ticker bands, wet reflective tile underfoot doubling the neon, a monorail track arcing overhead behind fogged glass, planters of dead ferns under cold spotlights, a drone charging dock blinking on a pillar, chrome and glass with magenta and blue ad-glow, bright hazy light
-a ripperdoc's clinic, a chrome surgical chair with articulated cyber-arms folded overhead under a ring of cold LED work-lights, glass cabinets displaying chromed cyberlimbs and glinting optics, trays of surgical tools and coiled interface cables, a holographic body-scan rotating on a wall panel, tiled surfaces streaked with old stains, a red biohazard bin in the corner, clinical steel and cold-white palette with a faint red accent, harsh sterile glow
-a streamer's recording booth, a lone stool inside a ring of magenta and cyan LED tube light and a haloing softbox, walls of foam baffling and glowing figurine shelves, a floating holographic chat-feed scrolling beside a suspended mic, RGB-lit cable and a mirror framed in bulb-lights, a small AR camera rig on a boom arm, saturated pink and blue palette, glossy studio glow
-an illegal back-alley clinic, a stained operating table under a single caged bulb and a jury-rigged surgical lamp, trays of unsterile instruments and bloodied gauze, an open cyberware wound-kit and dangling drip lines, a cracked-tile wall streaked with rust and old blood, a humming mini-fridge of unlabeled vials, exposed wiring taped to damp concrete, sickly fluorescent flicker, jaundiced green and dried-blood palette, cold grimy gloom
-a vat-growth flesh lab, rows of tall cylindrical tanks holding half-formed bodies suspended in cloudy amber fluid, umbilical feed-tubes and bundled cabling snaking to bubbling regulators, condensation and biolume glow through the glass, a slick tiled floor with a central drain, wall racks of specimen jars, a faint organic pulse of light, dripping conduit overhead, sickly amber and bruise-purple palette, wet biohorror shimmer
-a body-bank cold storage, a wall of stainless drawer-cabinets frosted with condensation, a wheeled gurney beneath a dead flatline monitor, coiled interface cables and a scavenged organ cooler ticking in the corner, breath-fog in the frigid air, stenciled tag-numbers and a caged safety light, cracked epoxy floor with a drain, steel-grey and frost-blue palette, cold morgue-blue glow
-a decaying tenement stairwell, graffiti-layered concrete walls under a flickering sodium tube, a bent metal handrail furred with rust, tangled illegal power-taps and dripping pipe conduit, damp-swollen doors with multiple locks, trash drifted into the corners, a dead intercom panel hanging by its wires, faint neon bleeding through a grated window, mildewed grey and sodium-amber palette, guttering yellow light
-a squatter drug den, filthy mattresses and ripped seating heaped along a graffiti-scrawled wall, a low table of scattered inhaler-vials and a cracked braindance wreath, blacked-out windows patched with cardboard, a single guttering flame and the glow of a dead screen showing static, damp-stained ceiling and drooping wires, a haze of smoke in the dark, murky brown and sickly-green palette, dim smeared light
-a flooded maintenance tunnel, curved concrete walls slick with algae and dripping condensation, a thick trunk of glowing fiber-optic cable lashed along the ceiling casting cold blue reflections on black water, rusted access ladders and a half-submerged grate, floating debris and a dead junction box sparking faintly, distant echoing drips, wet black and cold-teal palette, eerie fiber-lit gloom
-a decommissioned data fortress, a cathedral of towering dead server monoliths furred with dust and cobweb, a raised floor of pulled cable-panels, one rack still ghost-lit with a dying amber standby glow, shattered fluorescent tubes and a collapsed cooling duct, stenciled sector codes fading on cold metal, deep still shadow between the aisles, ash-grey and faint-amber palette, dim sepulchral light
-a simstim parlor booth, a coffin-sized reclining pod lined with worn padding and crowned with dermal trode-wires, a fogged glass door and a cracked status panel glowing dull red, dangling neural cables and a taped-over camera lens, sweat-stained vinyl and grimy handprints on the glass, cramped and claustrophobic, tangled wiring along the low ceiling, oxblood red and dim-grey palette, sickly red glow
-a combat-zone chop shop, a dismantled cyberlimb clamped in a vise under a swaying shop-light, walls hung with salvaged chromed arms, optics and weapon parts, a workbench of pried-open augments and spilled hydraulic fluid, welding-spark scorch across the concrete, a wheeled tool chest and a stripped vehicle chassis, oil-sheen puddles, grease-black and gunmetal palette with a hot orange spark-flare, harsh raking work light
+# === INTERIORS ===
 
-# -- EXTERIORS
-a rain-slick neon street canyon at night, towering facades stacked with layered holographic billboards and buzzing kanji signage, wet asphalt mirroring magenta and cyan light, steam curling from manhole grates, a tangle of overhead power lines and drifting ad-drones, shuttered market stalls and a parked hover-bike, puddles rippling under a passing aerodyne's underglow, saturated neon and black palette, glossy rain-lit glow
-a corporate megatower plaza at dusk, a monolithic mirror-glass tower crowned with a slow-rotating holographic logo, a vast polished granite forecourt with a monument sculpture and reflecting pools, cold white accent lighting and gliding security drones, banks of vertical LED signage climbing the facade, sterile manicured planters, a distant neon skyline haze, black glass and steel palette with corporate-blue glow, crisp cold light
-a rooftop aerodyne landing pad above the city, a glowing hazard-ringed helipad with embedded guide-lights, an aerodyne hovering on ducted fans in a wash of downlight, rooftop HVAC stacks and antenna arrays strung with warning beacons, a glass-walled access shack lit cold blue, the neon canyon glittering far below through thin drizzle, chrome and wet-concrete palette against a magenta skyline, sharp beacon-lit glow
-a combat-zone slum street at night, burnt-out storefronts and bullet-pocked concrete behind sagging chain-link, a barrel fire smoldering beside heaped refuse, dead neon signs and a single flickering sodium lamp, graffiti tags layered over boarded windows, a stripped and torched vehicle husk, toxic haze drifting low, ash-grey and rust palette with a lone amber flame-glow, grim smoke-dimmed light
-a vertical megabuilding slum exterior, a cliff-face of stacked cramped balconies caged in rusted wire and strung with laundry lines, jury-rigged satellite dishes and dripping AC units, patchwork neon signage bleeding from the lower floors, smog pooling between the towers, a dead elevator shaft and graffiti climbing the concrete, trash chutes venting steam, grimy grey and sodium palette with scattered neon, overcast smog-lit gloom
-a toxic industrial waterfront at night, rusted gantry cranes and stacked corroded shipping containers over oil-slick black water, a refinery of pipe-runs and flare-stacks belching flame on the far shore, acid drizzle haloing sparse sodium floodlights, chain-link and hazard-tape barricades, a half-sunk barge and floating chemical sheen, distant neon smeared in the haze, sickly amber and industrial-grey palette, murky poisoned glow
+# -- Nightlife & Entertainment
+an emptied concert stage after the show, a lone mic stand under a single hanging spotlight, coiled cables snaking across a scuffed riser, deep red and black palette, hard theatrical downlight
+a nightclub main floor after hours, an empty sunken dancefloor ringed by magenta and cyan LED strips, a dark chrome bar along one wall, electric violet and teal palette, dim strobe-idle glow
+a backstage green room, a worn leather couch facing a bulb-framed mirror, a clothing rack and scattered set-list pages, warm off-white and amber palette, soft vanity light
+a VIP mezzanine booth above a club, a curved velvet banquette behind a low table of empty glasses, a glass rail over the dark floor below, deep burgundy and gold palette, dim downlit glow
+a DJ booth, a dark mixing console with glowing faders flanked by monitor speakers, a wall of small blinking rack-lights behind, cyan and magenta palette, tight console glow
+a private karaoke box, a padded wraparound bench around a low table, a wall screen frozen on a lyric frame beside a resting microphone, saturated pink and blue palette, warm booth glow
+a burlesque stage, a vertical dance pole centered on a small round runway, a shuttered curtain backdrop and a single follow-spot, red and black palette, warm stage glow
+a love-hotel capsule room, a low round bed beneath a mirrored ceiling panel, a bedside control pad glowing soft pink, muted rose and violet palette, dim intimate glow
+a joytoy parlor lounge, a row of curtained alcoves off a narrow waiting bench, a backlit menu panel glowing on the wall, deep red and neon-pink palette, low sultry glow
+a braindance den, a reclined viewing couch wired to a trode-crown on a hook, a dead wall screen and a scatter of used wreaths, murky grey and sickly-violet palette, dim flicker
+a dive bar, a battered counter lined with mismatched stools, a cracked neon beer sign buzzing behind the bottles, grimy amber and brown palette, dim smoky glow
+a high-end cocktail lounge, a polished onyx bar backlit cool blue, a wall of illuminated bottle shelving above sparse geometric seating, black and ice-blue palette, hushed elegant light
+an underground fight ring, a chain-link cage over a bloodstained mat under a caged work-light, folding chairs shoved back into shadow, grim grey and rust palette, harsh raking light
+a gambling back-parlor, a felt table strewn with chips and cards under a low hanging lamp, a shuttered window behind drifting smoke, deep green and amber palette, pooled table light
+a punk basement venue, a cramped low stage crowded with battered amp stacks, graffiti-caked walls lit by a single bare bulb, black and acid-green palette, harsh dim glow
+a broadcast set, a sleek anchor desk before a glowing wraparound screen wall, a boom camera and cold key-lights on stands, clean blue and white palette, bright even light
+a hookah lounge, low cushioned seating around brass water-pipes, beaded curtains beside a dim lantern, warm amber and oxblood palette, hazy incense-lit gloom
+a cabaret theater, rows of empty velvet seats facing a small curtained stage, a dark orchestra pit and dim aisle sconces, deep red and gold palette, warm low house-light
+
+# -- Corporate
+a corporate boardroom, a long black glass table under a floating holographic org-chart, floor-to-ceiling windows over a neon skyline, black and steel-blue palette, cold even light
+an executive corner office, a sculptural glass desk with an embedded touch-display, a backlit onyx wall behind a lone leather chair, charcoal and ice-blue palette, hushed cove light
+a corporate lobby atrium, a towering chrome reception monolith flanked by holographic logo projections, a polished stone floor mirroring the glow, white and cyan palette, bright sterile light
+a server-farm data floor, endless rows of black server towers pulsing with blue status LEDs, a raised grille floor and overhead cable trays, deep blue and black palette, cold humming glow
+an R&D clean lab, white isolation benches behind a glass airlock, robotic arms poised over a lit specimen stage, clinical white and mint palette, flat shadowless light
+a corporate security control room, a wall of surveillance monitors above a dark console of glowing controls, a swivel chair in the blue screen-wash, gunmetal and blue palette, dim monitor glow
+an arcology sky-lobby, a glass skybridge lined with planters and a slow-turning holo-directory, the city haze glowing far below, silver and teal palette, bright diffuse light
+a corporate elevator interior, a mirror-polished cabin with a glowing floor-indicator strip and a single ad-screen, brushed steel and white palette, cool recessed light
+an executive washroom, a row of black stone basins under a backlit mirror wall, chrome fixtures and a single orchid, black and warm-gold palette, soft vanity light
+a trading floor, tiered desks buried under glowing multi-screen arrays and a vast ticker wall, a haze of blue light, black and green-amber palette, restless screen glow
+a corporate archive vault, rows of sealed data-cassette drawers behind a laser-gridded gate, a lone terminal glowing at the end, steel-grey and red palette, dim secure light
+a press briefing room, a raised podium before a backlit logo wall and rows of empty seats, boom mics and camera rigs, blue and white palette, bright key light
+a corporate hydroponics atrium, glass tanks of engineered greenery under grow-lights beside a chrome walkway, green and magenta palette, saturated grow glow
+an exec panic room, a cramped steel bunker with a bank of security feeds and a sealed vault door, a red standby light, gunmetal and red palette, dim emergency glow
+a members' club lounge, low-lit leather seating behind a floor-to-ceiling window over the skyline, a glowing bar cart, amber and black palette, warm intimate light
+a corporate cafeteria, sleek white tables under pendant lights beside a glowing self-serve wall, chrome and mint palette, bright clean light
+a biotech incubation suite, ranks of glass egg-incubators glowing soft amber over a spotless floor, a monitoring terminal, white and amber palette, cool clinical glow
+a corporate holding office, a bare interview table under a caged light with a two-way mirror wall, a dark recorder unit, grey and cold-blue palette, harsh flat light
+
+# -- Medical & Body-Tech
+a ripperdoc chair bay, a chrome surgery chair under folded articulated cyber-arms and a ring light, a glass case of chromed optics, steel and cold-white palette with red accent, harsh sterile glow
+a cyberware showroom, backlit display niches of gleaming chrome limbs and implants, a mirrored fitting stand, white and cyan palette, clean spotlit glow
+an illegal back-alley clinic, a stained operating table under a caged bulb, trays of unsterile tools and bloodied gauze, jaundiced green and dried-blood palette, cold grimy flicker
+a vat-growth flesh lab, tall tanks holding half-formed bodies in cloudy amber fluid, umbilical feed-tubes to bubbling regulators, sickly amber and bruise-purple palette, wet biohorror shimmer
+a body-bank cold storage, a wall of frosted stainless drawer-cabinets beside a dead flatline monitor, breath-fog in the air, steel-grey and frost-blue palette, cold morgue glow
+a trauma-team response bay, a bloodied mobile gurney under a swinging surgical lamp, banks of glowing vitals and drip lines, white and red palette, harsh emergency glow
+an organ-harvest theatre, a central slab ringed by robotic surgical arms over a drained floor, a wall of chilled organ lockers, sickly green and steel palette, cold clinical light
+a cyberpsycho holding cell, a padded chamber behind reinforced glass with a single restraint chair, a red observation light, grey and red palette, stark cold glow
+a dermal-tech implant parlor, a reclined chair under a magnifier lamp beside glowing ink rigs and a chrome tool tray, magenta and black palette, warm focused glow
+a prosthetics fitting room, half-assembled cyberlimbs on a calibration rack beside a mirrored stand and a diagnostic screen, chrome and blue palette, even clinical light
+a black-market chem lab, cluttered benches of bubbling glassware and taped tubing under a bare bulb, stacked unlabeled vials, murky green and amber palette, dim toxic glow
+a cryo-suspension ward, rows of upright frost-glazed capsules glowing faint blue, a monitoring console, ice-blue and steel palette, cold sterile glow
+a gene-clinic consultation room, a glowing holographic DNA helix above a sleek white desk, a reclined scan-couch, white and cyan palette, soft clean light
+a ripperdoc recovery ward, a row of curtained cots with bedside vitals monitors, coiled drip lines and a mop bucket, muted green and grey palette, dim recovery glow
+a biohazard morgue lab, steel autopsy tables under cold downlights beside a wall of specimen jars, a red hazard bin, steel and sickly-green palette, harsh cold light
+a neural-implant surgery suite, a haloed operating chair under a robotic drill-arm and a floating brain-scan hologram, white and electric-blue palette, cold focused glow
+a street-clinic triage room, cramped mismatched cots and a battered supply cabinet under a flickering tube, blood-smeared tile, grimy green and rust palette, dim flicker
+a flesh-sculpt beauty clinic, a reclined pod before a mirror wall of before-and-after holograms, chrome tool arms and soft pink lighting, rose and white palette, glossy clinical glow
+
+# -- Netrunning & Tech
+a netrunner's hideout, a worn chair wired to a cyberdeck rig with a dangling neural jack, a nest of scavenged monitors cascading datastream, acid-green and blue palette, flickering screen glow
+a server-closet den, floor-to-ceiling racks strung with glowing fiber-optic cable and cooling loops, a single stool and a jacked-in terminal, blue and green palette, cold humming glow
+a hardware workshop, a solder bench scattered with pried-open augments and circuit boards under a magnifier lamp, wall pegboards of tools, amber and grey palette, warm work light
+a drone repair bay, dismantled quadcopters and optics on a lit workbench beside a parts wall, a charging rack of blinking drones, gunmetal and cyan palette, harsh work glow
+a VR immersion pod room, a reclined full-dive pod haloed in trode-cables under soft blue light, a status screen, black and electric-blue palette, cool volumetric glow
+a signal-intercept nest, a cramped loft of antenna rigs and stacked receivers glowing with waveform screens, tangled coax, green and amber palette, dim monitor glow
+a holo-development studio, a floating volumetric wireframe model above a dark workstation ringed by touch-glass panels, cyan and magenta palette, cool projector glow
+a mainframe access chamber, a lone jack-in throne facing a towering server monolith laced with pulsing light-conduits, blue and violet palette, deep reverent glow
+a scavenger's tech-junk workshop, heaps of salvaged boards and cracked screens on a stained bench, a bare bulb and a glowing test-rig, rust and green palette, dim cluttered glow
+an AI research terminal room, a wall of dark glass rippling with a shifting data-face above a minimalist console, white and cyan palette, cold clean glow
+a fixer's back-office rig, a cluttered desk of monitors and encrypted comms behind a beaded curtain, a glowing contact map, amber and blue palette, dim warm glow
+a cooling server vault, aisles of frost-glazed server towers venting mist under blue LEDs, a grated catwalk, ice-blue and black palette, cold misted glow
+a braindance authoring suite, a reclined scan-chair ringed by a floating memory-frame timeline and waveform ribbons, glossy black and ice-blue palette, cool volumetric glow
+a cyberdeck workbench, a half-built deck splayed open with glowing chipsets and a coiled interface cable under a task lamp, black and green palette, focused work glow
+a data-courier prep room, a wall safe of encrypted shards beside a jack-in couch and a glowing transfer terminal, gunmetal and cyan palette, dim secure glow
+a rooftop antenna shack, a cramped control hut wired to a forest of masts, a glowing signal console and a space heater, grey and amber palette, dim utilitarian glow
+a virtuality arcade backroom, ranks of dark dive-chairs under trailing cables and a supervisor's glowing dashboard, violet and cyan palette, cool idle glow
+a hacker collective loft, mismatched desks of glowing rigs under strung LED filament and graffiti, cable snarls and takeout boxes, magenta and green palette, restless screen glow
+
+# -- Residential
+a megabuilding micro-apartment, a fold-down bed against a window glowing with neon from across the airshaft, a cramped kitchenette, warm amber and magenta palette, dim cozy glow
+a capsule-hotel corridor, a wall of stacked coffin-pods with backlit numbered hatches, a narrow carpeted aisle, blue and white palette, low even glow
+a decaying tenement room, a sagging mattress and a cracked window patched with tape under a bare bulb, peeling graffiti walls, brown and sodium palette, dim guttering glow
+a corpo executive condo, a minimalist living space with floor-to-ceiling glass over the skyline and sleek low furniture, black and cool-white palette, hushed ambient light
+a squatter loft, mattresses and scavenged furniture under strung work-lights in a gutted concrete shell, tarp-patched windows, grey and amber palette, dim makeshift glow
+a cramped family kitchenette, a fold-out table wedged beside a glowing rice-cooker wall and hanging utensils, condensation on the window, warm tan and green palette, soft domestic glow
+a capsule sleep-pod interior, a padded coffin cell with a small ceiling screen and a control pad glowing soft blue, close and claustrophobic, blue and grey palette, dim pod glow
+a high-rise balcony interior, a sliding glass door onto a caged balcony strung with plants and laundry, neon bleeding in, teal and amber palette, dim evening glow
+a shared bunk dormitory, rows of steel bunk-frames with curtained berths and personal lockers under a flickering tube, grey and sodium palette, dim institutional glow
+a hoarder's apartment, floor-to-ceiling clutter of salvaged tech and boxes around a glowing screen nook, a single lamp, brown and cyan palette, dim cluttered glow
+a luxury penthouse lounge, a sunken seating pit before a curved window wall and a glowing bar cart, ambient cove lighting, black and gold palette, warm opulent glow
+a tenement shared bathroom, a row of stained sinks and a cracked mirror under a buzzing tube, dripping pipes, grimy green and grey palette, harsh flicker
+a converted container home, a snug fitted-out steel box with a bunk, a fold-down desk and string lights, warm amber and rust palette, cozy dim glow
+an idol-fan bedroom, walls plastered with glowing holo-posters around a small bed and a merch shelf, RGB strip lighting, pink and cyan palette, saturated glow
+a rooftop shanty interior, a corrugated-metal shack with a mattress, a camp stove and a car-battery lamp, tarp walls, rust and amber palette, dim flickering glow
+a corporate arcology unit, an identical white modular apartment with built-in furniture and a wall-screen showing a fake window view, white and blue palette, flat even light
+a fixer's plush hideout, a gaudy velvet-and-gilt lounge with a wall aquarium and neon accent trim, deep red and gold palette, moody saturated glow
+a flooded ground-floor flat, an abandoned apartment with ankle-deep water reflecting a broken neon sign through the window, mildewed walls, teal and rust palette, eerie dim glow
+
+# -- Underworld & Vice
+a fixer's backroom office, a cluttered desk behind a beaded curtain with a wall of contact photos and a glowing map, amber and blue palette, dim smoky glow
+an underground fight ring, a chain-link cage over a bloodstained mat under a caged work-light, folding chairs in shadow, grey and rust palette, harsh raking light
+a gambling parlor, a felt table strewn with chips and cards under a low hanging lamp, a haze of smoke, deep green and amber palette, pooled table glow
+a pachinko gambling hall, wall-to-wall glowing machines in a mirrored aisle, a token cage at the back, magenta and gold palette, restless flashing glow
+a combat-zone chop shop, a dismantled cyberlimb clamped in a vise under a swaying shop-light, walls of salvaged chrome parts, grease-black and gunmetal palette, harsh work glow
+a black-market bazaar booth, glass cases of illegal chrome and chips under clip-on lamps, cluttered and dim, amber and cyan palette, dim spotlit glow
+a smuggler's storeroom, stacked unmarked crates and a hidden floor-hatch under a bare bulb, a glowing ledger terminal, brown and green palette, dim clandestine glow
+a loan-shark's collection office, a heavy desk and a safe behind a caged counter under a flickering tube, a bat leaning by the door, grey and sodium palette, dim menacing glow
+a dorph den, filthy mattresses and a low table of inhaler-vials under a guttering flame, blacked-out windows, murky brown and sickly-green palette, dim smeared glow
+a braindance porn den, a reclined viewing couch wired to a trode-crown beside a dead screen, used wreaths scattered, oxblood and violet palette, sickly red glow
+a weapons fence's backroom, a felt-lined table of laid-out pistols and mods under a task lamp, a wall rack of rifles, gunmetal and amber palette, focused work glow
+an illegal arena locker room, a row of dented lockers and a taped-up first-aid station under a bare bulb, blood on the concrete, grey and red palette, harsh dim glow
+a counterfeit-goods workshop, benches of fake chrome and forged chips under magnifier lamps, stacked knockoff boxes, amber and grey palette, cluttered work glow
+a joytoy den hallway, a dim corridor of curtained alcoves lit by red door-lamps and a backlit menu panel, deep red and neon-pink palette, low sultry glow
+a mahjong back-parlor, a felt table and tea cups under a hanging lamp in a smoke-hazed room with a shuttered window, green and amber palette, pooled warm glow
+a data-fence's stall, a caged booth of stacked drives and a glowing appraisal terminal behind bulletproof glass, cyan and gunmetal palette, dim secure glow
+a hidden speakeasy, a cramped bar behind a false wall with bottle-glow shelving and a lone piano, moody and close, amber and oxblood palette, warm dim glow
+a stolen-vehicle garage, a stripped bike on a lift under a shop-light beside racked hot parts and spray cans, oil-stained concrete, gunmetal and orange palette, harsh work glow
+
+# -- Commerce & Market
+a cramped noodle bar, a steaming chrome counter under buzzing neon kanji signage, stacked broth vats and hanging utensils, warm red and orange palette, hot steam-lit glow
+a night-market food stall, a griddle counter under strings of paper lanterns and a glowing menu board, hanging cured goods, amber and red palette, warm hazy glow
+a convenience store, fluorescent-lit aisles of glowing product shelving and a wall of drink coolers, a lone register terminal, white and cyan palette, flat bright light
+a pawn shop, glass cases of secondhand tech and chrome under clip lamps behind a caged counter, cluttered wall shelves, amber and grey palette, dim spotlit glow
+a gun shop, a wall rack of rifles behind a glass pistol counter under cold downlights, a range-poster backdrop, gunmetal and blue palette, hard even light
+a ramen vending alcove, a bank of glowing hot-food vending machines beside a narrow standing counter, condensation and steam, red and white palette, warm machine glow
+a street-doc pharmacy, a caged dispensary window over drawers of labeled vials under a buzzing tube, a queue rail, green and white palette, harsh flat light
+a chrome boutique, backlit display pedestals of designer cyberware and a mirrored fitting nook, minimalist and glossy, white and magenta palette, clean spotlit glow
+a clothing bazaar stall, racks of jackets under clip lamps in a cramped fabric-draped booth, a mirror and a cash tin, amber and teal palette, dim cluttered glow
+a tech repair kiosk, a tiny counter buried in cracked phones and tools under a magnifier lamp, a parts wall, grey and cyan palette, focused work glow
+a liquor and smoke shop, glowing bottle shelving and a wall of vape displays behind a register under neon trim, magenta and amber palette, saturated glow
+a florist and hydroponics stall, glowing grow-tanks of engineered blooms beside a wet counter, misting nozzles, green and pink palette, lush grow glow
+a fast-food counter, a glowing backlit menu wall above steel prep counters and soda fountains, molded booth seating, red and yellow palette, bright flat light
+a black-market meat market, hanging vat-grown cuts under red inspection lamps beside a chilled glass case, tiled and damp, red and steel palette, cold market glow
+a bookstore and data stall, crammed shelves of paper books and data-shards under warm bulbs, a reading nook, amber and brown palette, cozy dim glow
+a street-vendor cart interior, a wheeled griddle cart hung with utensils and a battery lamp under a tarp awning, close and warm, amber and rust palette, dim cart glow
+a corporate flagship store, a vast glossy showroom of floating product holograms and glass display plinths, white and cyan palette, bright pristine light
+an arcade-mall food court, ranks of glowing vendor stalls around molded tables under a neon-lit ceiling, litter and trays, magenta and amber palette, restless bright glow
+
+# -- Industrial & Infrastructure
+a factory assembly floor, robotic welding arms over a conveyor line under caged work-lights, sparks and hazard striping, gunmetal and orange palette, harsh industrial glow
+a power substation interior, humming transformer banks behind mesh cages laced with warning signage, thick cabling overhead, grey and yellow palette, cold buzzing glow
+a flooded maintenance tunnel, curved concrete walls slick with algae and a glowing fiber-optic trunk on the ceiling reflecting on black water, wet black and teal palette, eerie fiber glow
+a sewage pump station, massive rusted pipes and valve wheels over a churning channel under a caged lamp, dripping condensation, rust and green palette, dim dank glow
+a refinery control room, a console of glowing gauges before a window onto flare-lit tanks, worn swivel chairs, amber and grey palette, dim panel glow
+a cargo sorting warehouse, towering shelf-racks of crates under high sodium bays with a lone forklift, painted floor lanes, grey and amber palette, cavernous dim glow
+a boiler and utility basement, a maze of lagged pipes and pressure gauges under a bare bulb, dripping valves and rust, brown and rust palette, dim guttering glow
+a recycling plant floor, conveyor belts of shredded scrap under grimy floodlights beside baled waste towers, dust haze, grey and green palette, harsh dim glow
+a subway maintenance depot, a rail car on a service pit under strip lights beside tool carts and cable spools, oil-stained concrete, gunmetal and amber palette, cold work glow
+a rooftop HVAC plant room, banks of ducting and humming fan units under a caged bulb, condensation and warning tags, grey and blue palette, dim utilitarian glow
+a water-treatment gallery, rows of glowing filtration tanks over a grated walkway in a humid hall, teal and steel palette, cold misted glow
+a fabrication 3D-print bay, ranks of glowing resin printers extruding parts under blue light behind glass, a control terminal, blue and white palette, cool clinical glow
+a coolant plant, frost-caked pipes and pressure vessels venting mist under blue floods, a valve console, ice-blue and steel palette, cold vaporous glow
+a generator hall, rows of thrumming generators under caged lamps with fuel lines and hazard paint, exhaust haze, gunmetal and amber palette, dim thrumming glow
+a scrap foundry, a glowing crucible pouring molten metal under a gantry crane in a soot-black hall, sparks raining, black and orange palette, hot furnace glow
+a telecom relay vault, walls of blinking patch-panels and cable trunks under cold strip light, a raised floor, blue and green palette, cool humming glow
+a freight elevator shaft interior, a caged industrial lift platform lit by a single bulb amid greased guide-rails and cables, grey and amber palette, dim shaft glow
+an abandoned factory floor, rusted idle machinery under shattered skylights with pigeons and graffiti, shafts of hazy light, rust and grey palette, dim desolate glow
+
+# -- Transit & Liminal
+a subway car interior, rows of worn seats and grab-poles under flickering strip light, ad-panels and graffiti, blue and grey palette, dim rattling glow
+a metro platform, a tiled underground platform with glowing signage and an arriving-train light beyond the edge, wet floor sheen, teal and amber palette, cold station glow
+a parking garage level, ranks of parked vehicles between concrete pillars under sparse sodium tubes, painted bay numbers and oil stains, grey and amber palette, dim cavernous glow
+an aerodyne cabin interior, a cramped passenger hold of jump-seats and grab-rails with a glowing cockpit doorway, blue and gunmetal palette, dim cabin glow
+a cargo container interior, a steel box lined with lashed crates and a swinging work-lamp, hazard stencils, rust and amber palette, dim harsh glow
+a maglev bullet-train cabin, sleek reclining seats along a curved window streaked with neon blur, ambient floor lighting, white and cyan palette, cool clean glow
+a bus-station waiting hall, rows of bolted plastic seats under buzzing tubes beside a glowing departures board, a vending machine, grey and amber palette, dim flat glow
+a checkpoint inspection booth, a caged counter with scanning arches and a glowing ID terminal under harsh light, hazard striping, white and red palette, harsh cold glow
+an underground hangar, a parked aerodyne under high girders and service gantries with coiled fuel hoses, floodlit bays, gunmetal and amber palette, harsh floodlit glow
+a freight loading dock interior, a roller door open onto a rain-lit lane beside a conveyor and stacked pallets, a forklift, grey and teal palette, dim dock glow
+a nomad's van interior, a lived-in cargo van fitted with a bunk, a comms rig and string lights, cluttered and warm, amber and rust palette, cozy dim glow
+a monorail maintenance catwalk, a narrow grated walkway alongside a docked car under strip lights and cabling, blue and grey palette, cold work glow
+an autocab back seat, a cramped taxi interior with a glowing fare screen and a partition, neon streaking past the window, magenta and blue palette, dim moving glow
+a smuggler's submarine hold, a riveted steel compartment of lashed contraband under a red bulb, condensation dripping, rust and red palette, dim claustrophobic glow
+a highway rest-stop interior, a grimy diner-and-fuel counter under buzzing tubes with a coffee machine and a map wall, amber and grey palette, dim wan glow
+a cable-car gondola interior, a swaying glass cabin over a glittering neon sprawl, worn bench seats, teal and magenta palette, dim panoramic glow
+an airship gondola lounge, a long window-lined cabin with low seating over a cloud-wreathed skyline, brass and amber palette, warm ambient glow
+a transit control booth, a cramped signal cabin walled with track-map screens and a mic, a swivel stool, green and blue palette, dim monitor glow
+
+# -- Law & Security
+an NCPD precinct bullpen, rows of cluttered desks under buzzing tubes with a wall of wanted-holos, coffee cups and case files, grey and blue palette, dim institutional glow
+a holding cell, a bare steel bench behind a barred sliding gate under a caged light, a scratched wall and drain, grey and amber palette, harsh flat glow
+an interrogation room, a bare table under a hanging lamp with a two-way mirror wall and a recorder unit, cold and stark, grey and cold-blue palette, harsh downlight
+an evidence lockup, caged shelving of tagged weapons and sealed bags under strip lights, a checkout counter, gunmetal and green palette, dim secure glow
+a security checkpoint hall, scanning arches and a glowing guard console under hard light with hazard striping, a turnstile, white and red palette, harsh cold glow
+a SWAT ready-room, racked armor and rifles in lit lockers beside a briefing screen and a bench, hazard-marked floor, gunmetal and amber palette, hard even light
+a surveillance hub, a wall of city-camera feeds above a dark console of glowing controls, a lone operator chair, blue and grey palette, dim monitor glow
+a precinct armory, a caged wall of racked weapons and ammo crates behind a checkout counter under strip lights, gunmetal and red palette, cold secure glow
+a corporate security post, a sleek guard desk before a bank of glowing access-monitors and a turnstile, chrome and blue palette, cool even glow
+a booking desk, a scuffed counter with a mugshot backdrop and a fingerprint scanner under a buzzing tube, a holding bench, grey and cyan palette, harsh flat glow
+a riot-response garage, an armored van under floodlights beside racked shields and gas canisters, hazard paint, gunmetal and amber palette, harsh floodlit glow
+a morgue evidence bay, steel drawer-cabinets and an autopsy table under cold downlights beside a tagging terminal, steel and green palette, cold clinical glow
+a detention corridor, a row of barred cell doors down a grated walkway under caged lights, peeling paint, grey and amber palette, dim harsh glow
+a dispatch operations room, tiered consoles facing a giant city-incident map wall in blue glow, headset stations, blue and amber palette, dim command glow
+a courthouse security antechamber, a marble-and-steel scanner lobby with a glowing docket board and a guard rail, white and gold palette, bright formal light
+a corpo black-site cell, a sealed white isolation room with a single bench and a recessed camera, blinding and bare, white and grey palette, harsh flat glow
+a bounty-office backroom, a wall of bounty-holos above a battered desk with a terminal and a gun safe, amber and blue palette, dim worn glow
+a checkpoint watchtower interior, a cramped elevated booth walled with glass over a floodlit gate, a spotlight control and a rifle rack, gunmetal and amber palette, dim vigilant glow
+
+# === EXTERIORS ===
+
+# -- Street Level
+a rain-slick neon street canyon, towering facades stacked with holographic billboards, wet asphalt mirroring magenta and cyan, steam from a manhole grate, saturated neon and black palette, glossy rain glow
+a narrow back alley, dripping fire-escapes and tangled cables between grimy walls, a flickering noodle-stall sign and steam vents, teal and amber palette, dim moody glow
+a night-market lane, rows of glowing food stalls under strung paper lanterns and holo-signage, wet cobbles and hanging wares, red and gold palette, warm hazy glow
+a crowded crossing intersection, holographic crosswalk glyphs on wet tarmac beneath a canyon of ad-screens, parked hover-bikes, magenta and cyan palette, bright rain glow
+a graffiti-choked side street, layered spray-tags over shuttered roll-gates under a buzzing sodium lamp, scattered trash and a dead drone, grimy grey and sodium palette, dim harsh glow
+a neon strip of clubs, competing signboards and door-lit facades along a puddled sidewalk, a queue rope and bouncer podium, electric violet and pink palette, restless glow
+a covered arcade street, a low ceiling of chasing LED signage over a narrow shop-lined passage, reflective tile and vending machines, cyan and magenta palette, bright flashing glow
+a rain-drenched plaza, a holographic monument fountain ringed by ad-pillars on glistening pavement, drifting drones overhead, blue and magenta palette, glossy wet glow
+a food-cart cluster, wheeled griddle carts trailing steam under a tangle of festoon lights and awnings, stacked crates, amber and red palette, warm smoky glow
+a dead-end service alley, dumpsters and a leaking pipe under a single caged bulb, a stripped scooter and neon bleeding from the mouth, grimy grey and teal palette, dim gritty glow
+a high-street shopping row, glossy flagship storefronts with floating product holograms above a clean promenade, planters and drones, white and cyan palette, bright pristine glow
+a slum market alley, tarp stalls of salvaged goods jammed between crumbling walls under bare bulbs, hanging wares, rust and amber palette, dim cluttered glow
+a neon red-light lane, glowing doorway signs and curtained windows along a hazy sidewalk, a flickering holo-dancer sign, deep red and pink palette, sultry dim glow
+a rainy taxi rank, idling autocabs under a dripping transit canopy beside a glowing fare kiosk, puddled curb reflections, amber and blue palette, wet dim glow
+a corporate-district sidewalk, sleek glass frontages and cold LED signage above a spotless walkway, security drones and bollards, steel-blue and white palette, crisp cold glow
+a flooded low street, ankle-deep water reflecting broken neon between sandbagged shopfronts, a stalled car, teal and rust palette, eerie wet glow
+a bustling ramen alley, a row of steaming counter-stalls under buzzing kanji signage on a cramped wet lane, stacked bowls, red and orange palette, hot steamy glow
+a demolition-lot street edge, a rubble-strewn gap between towers fenced in hazard tape under a lone floodlight, graffiti and a billboard husk, grey and amber palette, dim stark glow
+
+# -- Corporate District
+a corporate megatower plaza, a monolithic mirror-glass tower crowned by a rotating holo-logo over a granite forecourt, reflecting pools, black glass and corporate-blue palette, crisp cold light
+an elevated skywalk, a glass-tube pedestrian bridge between towers over a neon-lit chasm, cold guide-lighting, chrome and cyan palette, cool clean glow
+a corporate campus courtyard, sculpted hedges and a monument sculpture ringed by glass office blocks, gliding drones, silver and teal palette, bright diffuse light
+a tower-base drop-off, a cantilevered canopy over a valet lane of sleek cars beside a glowing lobby wall, bollard lights, black and white palette, cool even glow
+a plaza at dusk, vertical LED signage climbing tower facades above a crowd-empty forecourt, a distant neon haze, indigo and magenta palette, fading glow
+a rooftop corporate helipad, a hazard-ringed pad with an idle aerodyne beside a glass penthouse over the skyline, beacon lights, chrome and blue palette, sharp beacon glow
+a fountain plaza, a holographic water sculpture shifting color before a stepped tower entrance, polished stone and drones, cyan and white palette, bright pristine glow
+a security checkpoint plaza, scanner arches and turnstiles before a corporate gate under hard floods, hazard striping, white and red palette, harsh cold glow
+a glass atrium exterior, a vast illuminated lobby seen through a curtain-wall facade at night, interior greenery glowing, green and white palette, cool glassy glow
+a corporate memorial garden, minimalist stone terraces and a lit reflecting channel between towers, sparse planters, grey and teal palette, hushed cold glow
+an executive sky-terrace, a manicured rooftop lounge with glass rails over a glittering skyline, ambient uplighting, black and amber palette, warm exclusive glow
+a monorail corporate station, a sleek elevated platform of glowing signage and glass screens beside a curving track, chrome and cyan palette, bright clean glow
+a plaza billboard canyon, colossal synchronized ad-screens wrapping tower faces above a mirror-wet forecourt, drifting drones, magenta and blue palette, saturated glow
+a corporate arcology base, a terraced green-clad megastructure with glowing tier-lights rising into haze, sky-bridges, green and silver palette, soft diffuse glow
+a walled corporate compound, a floodlit perimeter of glass guardhouses and a logo-emblazoned gate, patrol drones, steel-grey and white palette, harsh floodlit glow
+a rainy tower forecourt, umbrella-slick pavement reflecting a glass tower's cold glow beside a covered entrance, bollards, blue and steel palette, wet cold glow
+a data-center campus exterior, a low windowless bunker-block ringed by cooling towers venting mist under blue perimeter lights, chain-link, blue and grey palette, cold misted glow
+a corporate rooftop garden, geometric planters and a glass pergola under soft uplight over the neon sprawl, a lit water-wall, green and cyan palette, serene cool glow
+
+# -- Residential Facades
+a megabuilding facade at night, a cliff-face of stacked lit windows and caged balconies strung with laundry, patchwork neon below, amber and teal palette, dim glittering glow
+a slum tenement block, sagging balconies and jury-rigged wiring over a narrow alley, bleeding neon signs and satellite dishes, grimy grey and sodium palette, dim gritty glow
+a capsule-hotel exterior, a modular grid of backlit pod-hatches stacked up a narrow street frontage, a glowing vacancy sign, blue and white palette, cool even glow
+a luxury residential tower, a sleek balconied high-rise with warm-lit penthouses over a landscaped base, glass rails, black and amber palette, warm plush glow
+a public housing courtyard, grim concrete blocks around a graffitied playground under sparse sodium lamps, laundry lines, grey and amber palette, dim bleak glow
+a neon-drenched apartment strip, low-rise flats with glowing shop-fronts and overhead cabling on a wet street, parked scooters, magenta and teal palette, glossy glow
+a rooftop shanty cluster, corrugated shacks and tarps crowded across a tower roof under strung bulbs, water tanks and antennas, rust and amber palette, dim makeshift glow
+a converted-container housing stack, painted cargo boxes stacked into dwellings with ladder-walkways and string lights, grimy and lived-in, teal and rust palette, dim warm glow
+a decaying arcology wall, a vast crumbling megastructure face of broken windows and vine-choked balconies, smog haze, grey-green and rust palette, dim overcast glow
+a gated residential enclave, tidy townhouses behind a lit security wall and manicured verge, patrol drone and cameras, steel-blue and white palette, cool clean glow
+a flooded ground-floor row, half-submerged apartment fronts reflecting neon in still water, a stranded boat, teal and rust palette, eerie wet glow
+a balcony-farm facade, cramped balconies overgrown with hydroponic greenery and grow-lights up a residential tower, green and magenta palette, saturated grow glow
+a brutalist housing monolith, a sheer concrete slab of repeating windows under a flat grey sky, a single lit unit, grey and faint-amber palette, cold stark glow
+a night alley behind flats, dim windows and dripping AC units over a narrow lane of bins and cabling, a flickering stair-light, grimy grey and teal palette, dim quiet glow
+a rain-lit apartment courtyard, glowing windows ringing a wet inner court with a lone tree and a covered walkway, umbrella racks, amber and blue palette, wet cozy glow
+a stacked capsule-slum wall, endless tiny pod-windows glowing in a towering cramped block over a market lane, hanging cables, amber and cyan palette, dim dense glow
+a rooftop laundry deck, lines of drying clothes between water tanks and vents over a neon skyline, a lawn chair, teal and amber palette, dim breezy glow
+an upscale canal-side residence, sleek glass townhomes along a lit waterway with private moorings, reflective water, black and cyan palette, cool serene glow
+
+# -- Rooftops
+a rooftop aerodyne pad, a hazard-ringed helipad with an idling aerodyne over the neon canyon, HVAC stacks and beacons, chrome and magenta palette, sharp beacon glow
+a rooftop antenna farm, a forest of masts and dishes strung with warning lights over the sprawl, tangled cabling, grey and red palette, dim blinking glow
+a rooftop garden bar, planters and a glowing drinks counter under festoon lights over the skyline, low seating, green and amber palette, warm inviting glow
+a derelict rooftop squat, tarp shelters and a barrel fire among rusted vents and graffiti over the city glow, scattered junk, rust and amber palette, dim makeshift glow
+a rooftop edge overlook, a low parapet above a glittering neon abyss with a lone billboard glow, drifting drones, magenta and black palette, dim panoramic glow
+a solar-panel roof deck, angled dark panels and cable runs under a hazy dusk sky over the towers, a service hatch, indigo and amber palette, soft fading glow
+a rooftop shrine, a tiny neon-lit shrine among water tanks and prayer-ribbons over the sprawl, a flickering sign, red and teal palette, dim quiet glow
+a helipad in the rain, a wet floodlit pad with painted markings and a windsock under low cloud, a parked aerodyne, grey and amber palette, wet stark glow
+a rooftop pigeon-coop deck, wire-mesh coops and a lawn chair among vents under strung bulbs over the skyline, scattered feed, teal and amber palette, dim homely glow
+a corporate rooftop terrace, a manicured deck with a glass pergola and uplit water-wall over the neon haze, sleek loungers, green and cyan palette, serene cool glow
+an HVAC rooftop maze, banks of ducting and humming units under caged bulbs with a catwalk over the drop, condensation, grey and blue palette, dim utilitarian glow
+a rooftop drone-port, charging cradles of blinking delivery drones on a lit deck beside a control shack, cabling, cyan and grey palette, cool blinking glow
+a graffiti art-roof, a huge spray-mural across a rooftop wall lit by clip-lamps over the city glow, paint cans scattered, magenta and lime palette, dim vivid glow
+a rooftop market at night, tarp stalls and hanging bulbs crowded on a wide roof deck over the sprawl, stacked crates, amber and red palette, warm hazy glow
+a sniper's rooftop nest, a concrete parapet with a folded tarp and a spotting scope over a floodlit street below, spent shells, grey and amber palette, dim tense glow
+a rooftop pool deck, an infinity pool glowing turquoise under uplights over the skyline, glass rails and cabanas, teal and white palette, cool glossy glow
+a rusted water-tank roof, huge riveted tanks and ladder-rungs under a sodium lamp over a slum canyon, dripping pipes, rust and amber palette, dim gritty glow
+a rooftop billboard back-face, the dark scaffolded rear of a giant glowing ad-screen bleeding light over a service deck, catwalk and cables, magenta and black palette, dim edge glow
+
+# -- Combat Zone
+a combat-zone slum street, burnt-out storefronts behind sagging chain-link, a barrel fire beside heaped refuse, dead neon and a sodium lamp, ash-grey and rust palette, grim smoky glow
+a gang-turf alley, spray-tagged territory marks over bullet-pocked walls under a flickering bulb, a torched bike, grimy grey and ember palette, dim harsh glow
+a barricaded street, stacked wrecked cars and razor-wire across a rubble lane under a lone floodlight, warning graffiti, grey and amber palette, stark dim glow
+a bombed-out plaza, a cratered square of shattered facades and a toppled statue under a smog-red sky, drifting ash, rust and ember palette, bleak hazy glow
+a no-go checkpoint, a sandbagged gun-nest and hazard drums blocking a ruined avenue under harsh floods, spent casings, gunmetal and amber palette, harsh floodlit glow
+a scorched market ruin, collapsed stalls and blackened wares in a debris-choked lane, a guttering neon husk, ash-grey and dim-amber palette, grim dim glow
+a gutted apartment block, a fire-hollowed tower face of empty window-sockets over a rubble street, a dangling sign, charcoal and rust palette, bleak overcast glow
+a riot aftermath street, smashed shopfronts and overturned bins amid drifting smoke under broken streetlights, scattered debris, grey and ember palette, dim smoky glow
+a militia-held crossroads, a graffiti-marked barricade with a burning tire and a lookout perch under a dead traffic light, ash and amber palette, tense dim glow
+a flooded combat block, wrecked vehicles half-sunk in oily water reflecting a burning building, floating debris, teal-black and ember palette, grim wet glow
+a sniper-alley ruin, a narrow gap of shattered walls and hanging rebar under a shaft of grey light, rubble and shell-casings, grey and rust palette, dim stark glow
+a torched vehicle lot, rows of burnt car husks under a smog-dimmed sky beside a collapsed fence, scattered ash, charcoal and rust palette, bleak hazy glow
+a bombed overpass, a collapsed highway section slumped over a debris-strewn street, dangling cables and a fire below, grey and ember palette, grim smoky glow
+a gang shrine wall, a graffiti memorial of tags and dead bulbs beside a barrel fire under a broken lamp, scattered offerings, grimy grey and amber palette, dim moody glow
+a cratered back street, a blast-pit of rubble and a leaking main under a lone flickering light, a stripped scooter, grey and teal palette, dim gritty glow
+a fortified squat facade, a boarded-and-barricaded building with wire and warning signs over a trash-strewn lot, a lookout slit, rust and amber palette, dim wary glow
+a smoldering row of shops, a burnt terrace still trailing smoke under a red-hazed dusk, shattered glass underfoot, ember and ash palette, grim glowing haze
+a demilitarized fence line, a floodlit razor-wire border between rubble and dark towers, watchtower and hazard drums, gunmetal and amber palette, harsh floodlit glow
+
+# -- Industrial & Dockyards
+a toxic industrial waterfront, rusted gantry cranes over oil-slick black water with flare-stacks belching flame on the far shore, acid drizzle, sickly amber and grey palette, murky glow
+a container port at night, stacked corroded shipping containers under sodium floods beside gantry cranes, painted lanes and haze, grey and amber palette, harsh floodlit glow
+a refinery complex, a maze of pipe-runs and storage tanks lit by flare-stacks under a smog sky, steam venting, gunmetal and orange palette, hot hazy glow
+a rail freight yard, rows of container wagons on floodlit tracks beside a signal gantry, cable and gravel, grey and amber palette, cold floodlit glow
+a factory exterior, a soot-stained brick-and-steel plant with lit high windows and belching stacks under an overcast sky, chain-link, rust and grey palette, dim smoky glow
+a scrapyard, mountains of crushed cars and salvage under a crane-arm floodlight, a burn barrel and dog-run, rust and amber palette, dim gritty glow
+a power-plant exterior, hulking cooling towers venting steam beside a switchyard of humming pylons under night sky, warning lights, grey and blue palette, cold misted glow
+a chemical tank farm, ranks of white storage spheres and pipe-bridges under hazard floods behind chain-link, warning striping, white and amber palette, harsh floodlit glow
+a dry dock, a beached freighter hull in a floodlit graving dock ringed by scaffolds and cranes, sparks and rust-streaks, gunmetal and orange palette, harsh work glow
+a loading-dock apron, roller doors open on lit warehouse bays beside stacked pallets and a forklift under floods, wet tarmac, grey and amber palette, cold dock glow
+a smokestack row, towering brick chimneys trailing smoke over a dark industrial skyline, blinking aircraft lights, charcoal and ember palette, dim hazy glow
+a pipeline corridor, a raised tangle of insulated pipes and valve stations receding under sodium lamps, steam leaks, grey and amber palette, dim industrial glow
+a coal-and-ore terminal, conveyor gantries over black bulk-piles under floodlights beside a moored barge, dust haze, black and amber palette, grim floodlit glow
+an abandoned factory yard, rusted idle machinery and a collapsed shed under a grey sky, weeds through cracked concrete, rust and grey palette, dim desolate glow
+a tanker berth, a moored fuel tanker beside pipe-manifolds and flare towers under night floods, oil-sheen water, gunmetal and orange palette, harsh hazy glow
+a wind-turbine service yard, toppled turbine blades and a crane amid a fenced industrial lot under overcast light, cabling, grey and white palette, flat cold glow
+a slag-heap wasteland, smoking mounds of industrial slag under a red-dimmed sky beside a rusted conveyor, ash drifts, ember and charcoal palette, bleak glowing haze
+a floodlit crane dock, a row of towering ship-to-shore cranes over a container quay at night, moored hull and haze, grey and amber palette, harsh floodlit glow
+
+# -- Badlands & Nomad
+a desert highway at dusk, a cracked ribbon of asphalt vanishing into red dunes under a vast bruised sky, a lone signpost and power poles, ochre and violet palette, fading warm glow
+a nomad camp, a circle of parked haulers and awnings around a fire under a star-blazing desert sky, strung lights and water drums, amber and indigo palette, warm dim glow
+a roadside fuel stop, a lone neon-lit gas station and diner on an empty desert road under night sky, dusty pumps, red and amber palette, warm isolated glow
+a badlands canyon road, a dirt track winding between towering red rock walls under a hard sun, dust haze and a wrecked truck, rust and ochre palette, harsh bright glow
+a wind-turbine field, ranks of turning turbines on a scrub plain under a windswept dusk sky, a service track, grey and amber palette, soft fading glow
+a salt-flat expanse, a cracked white pan stretching to a distant mesa under a huge pale sky, a lone parked speeder, white and blue palette, harsh flat light
+a dust-storm highway, a road half-buried in blowing sand under an ochre-choked sky, a hazard-lit hauler, ochre and grey palette, murky diffuse glow
+a mesa overlook, a cliff-edge pull-off above a vast rust-red canyon under a blazing sunset, a cairn and a bike, ember and violet palette, warm glowing light
+a scrap-town outskirt, shanties of corrugated metal and solar panels along a dusty track under a hard sky, water tanks, rust and amber palette, harsh dusty glow
+a solar-farm array, endless mirror panels angled to a low sun on a desert plain, a control shack, blue and amber palette, bright glaring glow
+a nomad convoy halt, rigs pulled off a highway shoulder at night with headlights and a fire, stacked cargo, amber and indigo palette, dim warm glow
+a dry riverbed track, a cracked-mud gully winding between scrub banks under a dusty dusk, a stranded wreck, tan and violet palette, soft fading glow
+a border outpost, a lone floodlit checkpoint hut and boom-gate on an empty desert road under night, hazard drums, amber and grey palette, harsh isolated glow
+a wasteland junk-market, tarp stalls of salvage along a dusty roadside under a hazy sun, a parked hauler, rust and ochre palette, dim dusty glow
+a radioactive badland, a fenced glowing crater and warning signs on a cracked plain under a sick green-tinged sky, drifting dust, sickly-green and rust palette, eerie dim glow
+a canyon rope-bridge, a swaying span over a deep red gorge under a wind-driven dusk sky, frayed cables, ochre and violet palette, tense fading glow
+a starlit desert plain, an empty scrub expanse under a brilliant milky-way sky with a single parked bike, faint horizon glow, indigo and silver palette, cool starlit glow
+a sandstorm-buried ruin, the half-swallowed shell of an old structure jutting from dunes under an ochre sky, blowing grit, tan and grey palette, murky hazy glow
+
+# -- Transit Exterior
+an elevated maglev line, a sleek rail arcing between neon towers with a passing train's light-streak, support pylons, cyan and magenta palette, bright rushing glow
+a rain-slick highway interchange, stacked ramps of streaking headlights over a wet neon sprawl, overhead signage, amber and blue palette, glossy rushing glow
+a monorail station platform, an open-air elevated stop of glowing signage and glass screens beside the track over the street, chrome and cyan palette, cool clean glow
+a highway checkpoint, floodlit scanner gantries spanning a multilane road under night sky, hazard striping and drones, white and amber palette, harsh floodlit glow
+a subway entrance, a lit stairwell mouth glowing up onto a rainy neon sidewalk beside a signage pillar, wet steps, teal and magenta palette, dim wet glow
+a suspended cable-car line, gondolas gliding on cables over a glittering neon canyon at night, tower pylons, teal and magenta palette, dim panoramic glow
+a floodlit toll plaza, rows of automated toll arches over a wet highway under harsh lights, gantry cameras, amber and grey palette, harsh wet glow
+an aerodyne skylane, hovering traffic threading between towers along glowing air-corridor markers at dusk, ad-drones, indigo and cyan palette, soft neon glow
+a rail yard overpass, a graffiti-tagged bridge over floodlit tracks and container wagons, chain-link and cabling, grey and amber palette, cold floodlit glow
+a bus depot forecourt, ranks of idling transit buses under a lit canopy beside a glowing schedule board, wet tarmac, grey and amber palette, dim depot glow
+a highway overpass underside, concrete pillars and girders over a lamplit road with a tarp-camp glow beneath, graffiti, grey and amber palette, dim gritty glow
+a floodlit border crossing, a multilane gate of booths and boom-barriers under hard light with hazard drums, queue lanes, white and red palette, harsh cold glow
+a maglev tunnel mouth, a glowing portal swallowing a rail line into a hillside under blinking signal-lights, retaining walls, blue and amber palette, dim portal glow
+a rooftop skybridge transit, a glass pedestrian tube linking towers with a moving walkway over the neon drop, guide-lights, chrome and cyan palette, cool clean glow
+an elevated tram curve, a tram rounding a banked elevated bend past glowing billboards over a wet street, spark-flash overhead, magenta and blue palette, bright rushing glow
+a rain-lit parking structure exterior, an open-deck concrete garage of dim car-lights stacked over a neon street, ramp signage, grey and teal palette, dim wet glow
+a heliport approach, a lit rooftop approach-corridor of beacon poles guiding an aerodyne over the skyline, windsock, chrome and amber palette, sharp beacon glow
+a floodlit rail crossing, a barrier-armed level crossing over wet tracks under blinking red lights beside a signal box, gravel, grey and red palette, dim blinking glow
+
+# -- Waterfront
+a neon canal district, glowing signage reflected in a dark canal between leaning buildings, moored sampans and cabling, magenta and teal palette, glossy wet glow
+a harbor pier at night, a floodlit wharf of moored boats and stacked crates under a foggy neon skyline, coiled ropes, amber and blue palette, dim misty glow
+a floating slum, lashed-together shanty boats and plank walkways under strung bulbs on oily water, tarps and antennas, rust and amber palette, dim cramped glow
+a sea-wall promenade, a rain-slick esplanade of ad-pillars above a black churning sea under neon glow, storm rail, teal and magenta palette, wet windswept glow
+a container barge dock, a moored barge of stacked containers beside a crane and floodlit quay on dark water, haze, grey and amber palette, harsh floodlit glow
+a fish market wharf, stalls of iced catch under bare bulbs along a wet pier at dawn, hanging scales and gulls, teal and amber palette, cold wan glow
+a canal night-market, floating vendor boats strung with lanterns crowding a glowing waterway, hanging wares, red and gold palette, warm hazy glow
+a derelict marina, half-sunk pleasure boats and a collapsed jetty under a broken dock-light, oil-sheen water, teal-black and rust palette, eerie dim glow
+a harbor lighthouse, a lone beacon tower sweeping light over a rocky breakwater under a stormy neon-hazed sky, crashing spray, grey and amber palette, dim sweeping glow
+a flooded dockside street, submerged shopfronts and a stranded skiff reflecting neon in still floodwater, drifting debris, teal and rust palette, eerie wet glow
+a shipbreaking beach, a massive rusted hull grounded on a mud flat being torn apart under floods, cutting sparks, rust and amber palette, grim floodlit glow
+a yacht harbor, sleek lit pleasure craft moored along a glass-fronted marina under a neon skyline, glowing gangways, black and cyan palette, cool plush glow
+a stilt-village waterfront, timber houses on pilings over tidal shallows strung with bulbs under dusk, moored canoes, amber and indigo palette, warm dim glow
+a cargo canal lock, a floodlit lock gate holding back dark water beside control huts and bollards, dripping walls, grey and amber palette, cold wet glow
+a smugglers' cove dock, a hidden jetty of crates and a covered speedboat under a single lantern in a rocky inlet, lapping water, teal-black and amber palette, dim clandestine glow
+a tsunami-wall gate, a colossal floodgate sluicing dark sea beside warning beacons under a bruised sky, spray and rust, grey and amber palette, bleak windswept glow
+a bioluminescent bay, a black harbor glowing faint blue-green with algae beside silhouetted cranes under night, still water, teal and biolume palette, eerie soft glow
+a rain-lashed ferry terminal, a floodlit dock ramp and a moored ferry under driving rain beside a glowing sign, wet gangway, grey and amber palette, harsh wet glow
+
+# -- Underpass & Liminal
+a neon-lit underpass, a graffiti-caked concrete tunnel with flickering strip-lights over a wet road, dripping seams, teal and magenta palette, dim wet glow
+a storm-drain outfall, a huge concrete pipe-mouth trickling water into a graffiti-tagged culvert under a shaft of grey light, debris, grey and teal palette, dim damp glow
+a parking-structure deck, ranks of parked cars between pillars under sparse humming tubes, oil stains and bay numbers, grey and amber palette, dim cavernous glow
+a pedestrian subway tunnel, a tiled underpass of buzzing lights and layered flyers over wet floor, a busker's dead amp, teal and amber palette, dim echoing glow
+a highway underbelly, concrete pillars and girders sheltering a tarp-camp glow under a lamplit overpass, graffiti and bins, grey and amber palette, dim gritty glow
+a maintenance access tunnel, a cable-lined concrete shaft receding under caged bulbs with a dripping conduit, hazard paint, grey and amber palette, dim utilitarian glow
+a dead mall concourse, a dark abandoned shopping arcade of shuttered units and a dead fountain under emergency lights, dust and litter, grey and green palette, dim eerie glow
+a flooded underpass, a submerged road tunnel reflecting a lone working light in black water, a stalled car roof, teal-black and amber palette, eerie wet glow
+a service corridor exterior, a narrow gap between buildings of pipes, meters and a rusted door under a caged bulb, cabling, grey and teal palette, dim cramped glow
+a subway ghost-platform, a sealed-off disused station of peeling tile and dead signage beyond a chained gate, dust and dark, grey and faint-amber palette, dim abandoned glow
+a drainage canal channel, a straight concrete flood-channel of trickling water and graffiti walls under an overpass, a dumped cart, grey and teal palette, dim flat glow
+a car-park stairwell, a graffiti-scrawled concrete stair of flickering caged lights and litter, a dead camera, grey and amber palette, dim harsh glow
+an abandoned metro tunnel, a dark rail tunnel of rusted track and dripping arches lit by a single work-light, cabling and debris, grey and amber palette, dim ominous glow
+a loading-bay underpass, a dim delivery tunnel of roller-doors and an idle forklift under sodium tubes, stacked pallets, grey and amber palette, dim quiet glow
+a utility vault exterior, an open sidewalk hatch glowing from a cabling-filled pit under a work-lamp on a dark street, hazard cones, grey and amber palette, dim gritty glow
+a pedestrian skybridge underside, the girdered belly of an overhead walkway over a dim alley with cabling and a vent-glow, graffiti, grey and teal palette, dim liminal glow
+a condemned tenement passage, a boarded breezeway of graffiti and rubble between derelict blocks under a broken bulb, drifting trash, grimy grey and amber palette, dim decayed glow
+a foggy overpass dead-zone, a mist-choked stretch of empty elevated road under dead lamps and a lone flickering sign, guardrail and litter, grey and teal palette, eerie dim glow

@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.0` (0.8.8 Eyes + 0.8.9 typo pushed; 0.9.0 = **Nettie Necket** steampunk theme, 7th theme)
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.1` (0.9.0 Nettie Necket; 0.9.1 = _ghost.runner environments expanded 24→360, 20 subheader sections). **PUBLIC on GitHub + live on Comfy Registry.**
 **Git:** 14 commits on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — currently **PRIVATE** (flip to public when ready; required before the Comfy Registry can serve it). `gh` CLI is installed and authed as `bkidderz`. `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path on owner's machine:**
 `C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
@@ -187,11 +187,13 @@ headers is now **section-select**; the exceptions are noted.
 | eyes (Physical) | Eyes (section, 29 — Natural/Cybernetic/Magical/Heterochromia). Global like hair: exotic eyes are drawable under any theme by design. `order 20/display 21` → sits after Build, before Face. Sourced from `bk_cyberpunk_eyes`+`bk_fantasy_eyes` (0.8.8). |
 | shots (Camera) | Shot Angle (section, 20 — direct pick) · Shot Framing (section, 50 — direct pick) |
 
+**Two-level environment format (0.9.1+):** an env file may nest `# -- Subheader` lines under cosmetic `# === INTERIORS/EXTERIORS ===` dividers. `read_sections` already treats the `# --` subheaders as the selectable sections and **ignores the `# ===` dividers** — no code change was needed. Requirement: subheader names must be **unique across the whole file** (section-select keys by name), so an interior and an exterior subheader must not share a name or their lines silently merge. `_ghost.runner` environments use this (20 sections → 22 dropdown options incl. off/random). Verify uniqueness + no INTERIORS/EXTERIORS leak whenever a two-level env file is added.
+
 **Themes** (each with a Scene block: accent_palette / environments / poses, all section-select with cleaned labels)
 
 | Theme (label) | Wardrobe categories |
 |---|---|
-| _ghost.runner | Tattoos (by body-placement) · Outfits (18 archetypes) · Weapons (Sidearms/Long Guns/…) |
+| _ghost.runner | Tattoos (by body-placement) · Outfits (18 archetypes) · Weapons (Sidearms/Long Guns/…) · **Environments (360, 20 subheader sections — 0.9.1)** |
 | Whimsical Woods | Tattoos · Outfits (24 archetypes) · Weapons · **Spell Casting** · **Spell Effects** (by element) |
 | Cassette Futurism | Outfits (14 archetypes) |
 | Autumnal Oxidation | Outfits (12 goth substyles; granular pieces removed 0.7.12) |
