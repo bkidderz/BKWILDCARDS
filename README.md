@@ -24,6 +24,24 @@ Ships with **4,790 hand-written entries** across **47 categories** and **7 theme
 
 ## Install
 
+### Install via ComfyUI-Manager (recommended)
+
+The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://registry.comfy.org/nodes/bkwildcards), so [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager) can install it for you — no git, no manual file copying.
+
+1. Open **Manager → Custom Nodes Manager**.
+2. Search for **BKWILDCARDS**.
+3. Click **Install**.
+4. **Restart ComfyUI** when prompted.
+
+**There are no dependencies to install** — the node uses only the Python standard library.
+
+### Updating
+
+- **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
+- **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
+
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.2`), so you can confirm the update took.
+
 ### Manual install (git)
 
 ```bash
