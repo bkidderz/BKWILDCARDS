@@ -2,32 +2,418 @@
 # DARK FANTASY ENVIRONMENTS - KREA2 (natural-language prose)
 # High/dark fantasy: ancient stone, arcane fire, gothic ruin and old forest.
 # Firelight, moonlight, witchfire, gilt and gemstone glow, stained glass -
-# NO neon, no signage, no modern machinery.
-# Distinctly NOT cyberpunk and NOT cassette futurism.
-# Person-free settings. Pair with __fantasy_pose__ and an outfit line.
-# One environment per line.
+# NO neon, no signage, no modern machinery. Tone follows the location:
+# golden halls read regal, crypts and ritual chambers read grim.
+# Sources: D&D 5e, Salvatore's Forgotten Realms, Tolkien, historical dress.
+# Subheaders map to where the archetypes go (knights, mages, clerics, rogues,
+# necromancers, druids, dwarves, nobles, pirates, commoners).
+# LEAN format: ~4-5 controlled elements per line + palette + lighting, to keep
+# each frame uncluttered. Person-free settings. One environment per line.
+# Section subheaders (# --) are dropdown options; # === dividers are cosmetic.
+# 180 interiors + 180 exteriors, 10 subheaders each x 18.
+# Pair with __fantasy_pose__ and an outfit line.
 # ============================================================
 
-# -- INTERIORS
-a ruined throne hall of a forgotten keep, a cracked stone dais crowned by a toppled iron throne wound in dead ivy, tattered heraldic banners rotting on the columns, shafts of grey daylight falling through a collapsed vaulted ceiling onto a floor strewn with rubble and dry leaves, a cold hearth choked with ash at the far wall, moss creeping up the flagstones, weathered-stone and faded-crimson palette, still grey light
-an arcanist's tower study, a cluttered round chamber walled with warped bookshelves and hanging star-charts, a heavy oak table crowded with guttering candles, brass astrolabes and open grimoires, a floating orb of pale blue witchlight drifting near the rafters, jars of specimens and dried herbs on iron hooks, a spiral stair vanishing upward into shadow, aged-parchment and arcane-blue palette, warm candle-and-cold-glow mix
-a stone crypt deep beneath a cathedral, rows of carved sarcophagi under low groin-vaulted arches furred with cobweb, a single shaft of moonlight through a broken grate falling on a mossy effigy, tarnished funerary urns and a rusted portcullis, cold seeping damp on the flagstones, a scatter of bone and dead candle-stubs in the niches, slate-grey and cold-silver palette, pale sepulchral moonlight
-a vast cathedral nave gone to ruin, soaring broken arches open to a bruised sky, shattered stained-glass windows throwing scattered colored light across a debris-strewn stone floor, a collapsed altar draped in rotted cloth, ivy strangling the fallen columns, a flock of ravens roosting in the clerestory, weathered-stone and jewel-toned glass palette, dim scattered colored light
-an alchemist's laboratory in a cellar vault, a workbench of bubbling glass alembics and copper condensers over low blue flame, shelves of labeled vials and preserved oddities, a wall of hanging dried herbs and hooked implements, a chalk transmutation diagram scrawled on the flagstones, verdigris-copper apparatus and a smoking crucible, aged-brass and sickly-green palette, low alchemical glow
-a dragon's treasure hoard in a mountain cavern, heaped drifts of gold coin and spilled gemstones glinting under a shaft of light from a fissure far above, toppled chests and jeweled goblets, a scorched and cracked stone floor, ancient rusted armor half-buried in the glittering pile, wisps of sulfurous smoke curling between stalactites, molten-gold and deep-shadow palette, warm glinting firelit gleam
-a witch's hovel deep in the woods, a low crooked room hung with bundled herbs, animal skulls and tallow candles, a black iron cauldron simmering over a peat fire casting flickering shadow, a table of bone dice, tarot and a cracked scrying mirror, jars of teeth and eyes on warped shelves, a stuffed raven watching from a beam, smoke-stained and ember-orange palette, guttering firelight
-a grand library of forbidden tomes, towering iron-railed shelves receding into gloom, a rolling ladder against a wall of chained books, a reading lectern lit by a candelabra with a single open manuscript, motes of dust drifting in a shaft of amber light, scattered scroll-cases and a globe of unknown constellations, deep-shadow and warm-parchment palette, hushed candlelit warmth
-a dwarven underhall carved from living rock, massive squared pillars flanking a molten forge-channel that lights the chamber in orange, geometric runic reliefs cut deep into black stone walls, hanging braziers on heavy chains, an anvil and racked weapons at the forge, veins of raw ore glittering in the walls, black-granite and forge-orange palette, hot ember glow
-a torch-lit dungeon corridor, damp-slick stone walls lined with rusted iron cell doors and empty shackles, a guttering wall-torch throwing long trembling shadows, a scatter of old straw and gnawed bone on the flagstones, a dripping ceiling and a rat vanishing into a drain grate, water pooling in the worn floor channel, mildewed-grey and torch-amber palette, dim wavering firelight
-a ritual chamber beneath a keep, a wide summoning circle of chalk and silver inlay glowing faintly on a black stone floor, tall iron candelabra ringing the space with black wax candles, arcane sigils burning cold violet on the walls, a stone altar bearing a bound tome and a curved dagger, smoke coiling within the ring, obsidian-black and witchfire-violet palette, cold ritual glow
-an ice cavern in a frozen mountain, walls of translucent blue ice glittering with embedded frost crystals, jagged icicle columns hanging from a domed ceiling, a frozen underground pool with something dark suspended beneath, drifted snow across the cracked floor, a pale glow diffusing through the ice from somewhere deep within, glacial-blue and frost-white palette, cold diffuse shimmer
-a mead hall of a warlord, a long timber hall hung with painted shields, antlers and war-trophies, a great central fire-pit trailing smoke to a roof-hole, heavy trestle tables strewn with tankards and bones, fur pelts thrown over carved benches, iron chandeliers of dripping candles overhead, soot-blackened rafters, warm-timber and fire-gold palette, smoky hearth-light
-a shrine to a forgotten god, a moss-grown stone sanctum around a weathered idol with jeweled eyes catching the light, offering bowls of guttering oil-flame set on cracked steps, faded fresco saints peeling from the curved walls, drifting incense haze, a fissure of daylight through the domed roof striking the idol, ancient-stone and gilt-and-jade palette, soft holy light
+# === INTERIORS ===
 
-# -- EXTERIORS
-an ancient misted forest at twilight, colossal moss-cloaked trees with gnarled roots arching over a soft carpet of ferns and fallen leaves, thin shafts of pale light piercing a canopy heavy with hanging lichen, a still black pool reflecting the crooked branches, drifting fog low among the trunks, toadstools clustered on a rotting log, deep-green and cold-silver palette, dim ethereal haze
-a ruined castle on a storm-wracked crag, broken curtain walls and a half-collapsed watchtower silhouetted against roiling grey cloud, ravens wheeling over shattered battlements, a rotted drawbridge over a dry moat choked with bramble, lightning flickering on the distant horizon, wind-bent dead trees clinging to the rock, slate-grey and stormlight palette, bleak flickering gloom
-a circle of standing stones on a moonlit moor, towering weathered monoliths ringed on a windswept heath under a full moon and streaming cloud, a low ground-mist creeping between the stones, faint carved runes catching the silver light, a lone twisted rowan at the circle's edge, wet heather and scattered cairn-stones, cold-blue and moon-silver palette, pale lunar light
-a battlefield in the grey aftermath, a mist-shrouded field of trampled mud studded with broken spears, torn banners and abandoned shields, carrion crows settling among the fallen, a shattered siege engine smoldering on a rise, a cold drizzle greying the distance, ravens and drifting smoke over churned earth, ash-grey and dried-blood palette, cold desaturated gloom
-a crumbling graveyard behind a chapel, leaning moss-eaten headstones and broken funerary angels under bare black trees, wrought-iron gates hanging from rusted hinges, a low ground-fog pooling between the graves, a ruined mausoleum with its door ajar, dead leaves drifting across sunken plots, weathered-stone and cold-green palette, wan misty light
-a mountain pass at dusk, a narrow switchback trail carved along a sheer cliff above a plunging valley of pine and cloud, a weathered wayshrine cairn stacked at the bend, snow clinging to the shaded rock, a distant castle lit gold on a far peak, wind driving thin cloud across the trail, cold-slate and sunset-amber palette, fading alpenglow
+# -- Thrones & Great Halls
+a ruined throne hall, a toppled iron throne wound in dead ivy on a cracked dais, tattered banners rotting on the columns, weathered-stone and faded-crimson palette, still grey light
+a grand throne room, a high gilded throne atop a red-carpeted stair beneath towering stained-glass windows, banner-hung pillars, gold and crimson palette, warm shafted light
+a warlord's mead hall, a long central fire-pit trailing smoke to a roof-hole, trestle tables strewn with tankards and antlers on the walls, warm-timber and fire-gold palette, smoky hearth-light
+a frozen throne hall, an ice-sheathed obsidian throne under frost-glazed vaults, hanging icicle chandeliers and drifted snow on the flagstones, glacial-blue and frost-white palette, cold pale glow
+a collapsed great hall, a debris-strewn floor beneath a caved vaulted ceiling open to grey sky, a fallen chandelier and an ash-choked hearth, weathered-stone and moss-green palette, dim overcast light
+a dwarven king's hall, a colossal rune-carved stone throne between squared pillars lit by molten forge-channels, hanging chain-braziers, black-granite and forge-orange palette, hot ember glow
+a drowned banquet hall, a long table half-submerged in black flood-water reflecting a broken ceiling, floating candelabra and rotted drapes, teal-black and tarnished-gold palette, eerie dim glow
+a war-council chamber, a great round table spread with a battle-map and iron markers under an antler chandelier, banner-draped stone walls, umber and steel palette, warm candlelit glow
+a haunted throne room, a cobwebbed throne under a shredded canopy in deep gloom, a spectral cold-blue light pooling on the dais, dust-grey and ghost-blue palette, pale spectral glow
+a golden audience hall, a mirror-polished floor leading to a jeweled throne beneath a domed fresco, gilt columns and hanging tapestries, gold and ivory palette, bright regal light
+a barbarian long-hall, a hide-draped timber hall around a roaring central fire, skull-topped posts and fur-piled benches, ember-orange and hide-brown palette, flickering firelight
+a besieged keep hall, arrow-slit light falling on a barricaded doorway and overturned tables, a banner half-burned on the floor, smoke-grey and ember palette, tense dim glow
+a fae court hall, a throne grown from living silver branches under drifting motes of light, blossoming vines climbing pale columns, moon-silver and violet palette, soft ethereal glow
+an abandoned coronation hall, a dust-sheeted dais and a tarnished crown left on a cushion under a clouded chandelier, shuttered windows, faded-rose and tarnished-gilt palette, wan light
+a tyrant's black hall, a jagged iron throne on a raised plinth ringed by spiked braziers, chained banners of a dark sigil, obsidian-black and blood-red palette, harsh brazier glow
+a mountain hold hall, a vast hall hewn from raw rock with a firelit hearth-throne and hanging iron lanterns, veins of ore in the walls, slate-grey and amber palette, warm cavern glow
+a flooded ruin hall, moss-furred pillars rising from shallow reflecting water under a shattered dome, drifting leaves in shafts of daylight, green-grey and cold-silver palette, dim watery light
+a feast hall gone cold, long tables set with rotted food and toppled goblets under a dead chandelier, a raven perched on the high seat, grey and dried-blood palette, still gloomy light
+
+# -- Temples & Cathedrals
+a vast cathedral nave, soaring stone piers and pointed arches vaulting into gloom, tall stained-glass windows throwing colored light across the flagstones, cold-stone and jewel-toned palette, dim reverent light
+a ruined cathedral open to the sky, shattered arches and broken stained glass over a debris-strewn floor, a collapsed altar draped in rotted cloth, weathered-stone and faded-gold palette, dim scattered light
+a candle-lit shrine, a weathered stone idol with jeweled eyes above offering bowls of oil-flame, faded frescoes peeling from curved walls, ancient-stone and gilt palette, soft holy glow
+a high temple sanctuary, a gold-leafed altar beneath a domed fresco of saints, ranks of votive candles and hanging censers, ivory and gold palette, warm sacred light
+a drow temple of the spider-goddess, a black obsidian altar under a carved stone spider, purple witchlight glowing in web-veined columns, obsidian-black and violet palette, cold arcane glow
+a monastery prayer hall, rows of worn wooden pews before a simple stone altar, shafts of dawn light through narrow lancet windows, grey-stone and warm-amber palette, still soft light
+a crypt-chapel of a martyr, a reliquary casket on a raised bier ringed by black candles, tarnished silver icons on the walls, slate-grey and cold-silver palette, dim candlelit gloom
+a sun-god's basilica, a blazing gilt sunburst above a marble altar under a great oculus, polished floor mirroring the light, gold and white palette, bright radiant light
+a desecrated chapel, an overturned altar smeared with dark sigils under a shattered rose window, guttering black candles and torn tapestries, ash-grey and blood-red palette, grim flickering light
+a moss-grown forest shrine, a lichen-covered stone altar wound in ivy beneath a broken dome, a fissure of green daylight striking the idol, verdant-green and gilt-and-jade palette, dappled soft light
+a temple of the moon, a silver crescent altar under a domed ceiling pierced by starlight, pale banners and a reflecting basin, moon-silver and deep-blue palette, cool lunar glow
+a bell-tower interior, a great bronze bell hanging in a stone shaft laced with rotted ropes and roosting ravens, dusty light through the louvres, verdigris-bronze and grey palette, dim shafted light
+a catacomb ossuary-chapel, walls of stacked skulls framing a bone-tiled altar under low arches, guttering candles in the niches, bone-ivory and shadow palette, dim sepulchral glow
+a paladin's oath hall, a ring of banner-draped statues around a flame-topped altar on a mosaic floor, hung swords gleaming on the walls, steel-blue and gold palette, solemn warm light
+a flooded temple ruin, broken columns rising from still black water reflecting a caved dome, a half-sunk idol wreathed in mist, teal-black and cold-silver palette, eerie dim glow
+a nature-god's grotto sanctum, a spring-fed pool before a living stone altar grown with luminous fungi, root-woven walls, deep-green and biolume-blue palette, soft glowing light
+a war-god's shrine, a blood-stained stone altar hung with trophy shields and iron chains beneath a horned idol, brazier smoke coiling, iron-grey and ember-red palette, harsh brazier glow
+an inquisitor's chapel, a stark stone hall with an iron-bound altar, a rack of ritual implements and a caged candle, cold and severe, grey and cold-blue palette, harsh dim light
+
+# -- Arcane Towers & Laboratories
+an arcanist's tower study, a round chamber of warped bookshelves and hanging star-charts, a candle-crowded table of astrolabes and grimoires, aged-parchment and arcane-blue palette, warm-and-cold glow mix
+an alchemist's cellar laboratory, a workbench of bubbling alembics and copper condensers over blue flame, shelves of labeled vials and a chalk diagram on the floor, aged-brass and sickly-green palette, low alchemical glow
+a wizard's orrery chamber, a great brass planetary model turning above an inlaid floor, glowing celestial rings and a domed ceiling of painted stars, brass and deep-blue palette, cool astral glow
+a sorceress's sanctum, a crystal-topped focus pillar radiating soft light amid floating tomes and silk drapes, arcane sigils glowing on the walls, violet and rose-gold palette, ethereal glow
+an artificer's workshop, a cluttered bench of half-built clockwork automata and brass tools under a magnifier lamp, gear-walls and a glowing power-core, copper and amber palette, warm work glow
+a summoner's binding room, a chalk pentagram inlaid with silver on a black floor ringed by tall candles, a caged crystal pulsing faint light, obsidian and witchfire-blue palette, cold ritual glow
+a mage's herbarium, a glass-roofed room of hanging dried herbs and potted arcane plants over a potion bench, jars of glowing extracts, green and amber palette, soft filtered light
+a scrying chamber, a dark round room centered on a still basin of black water reflecting drifting motes, veiled mirrors on the walls, indigo and silver palette, dim mystic glow
+a ruined mage tower, a fire-scorched study with toppled shelves and a cracked floor-sigil still faintly glowing, wind through a broken window, ash-grey and faint-blue palette, dim desolate glow
+an enchanter's forge-lab, a rune-etched anvil under a hovering ring of molten light, glowing ingots and floating tools, blue-white and gold palette, bright arcane glow
+a potion-master's backroom, floor-to-ceiling shelves of glowing bottled brews around a bubbling central cauldron, a ladder on a rail, teal and amber palette, warm bubbling glow
+a crystal-growth laboratory, clusters of luminous arcane crystals sprouting from a stone bench under glass domes, humming focus-rods, magenta and cyan palette, cool crystalline glow
+a warlock's study, a shadowed chamber of forbidden tomes chained to lecterns, a floating grimoire wreathed in green flame, dark-wood and eldritch-green palette, sickly glow
+an astrologer's observatory, a great brass telescope aimed through an open dome at a starry night, scattered charts on a slanted desk, deep-blue and brass palette, cool starlit glow
+a golem workshop, a towering half-assembled clay golem on a frame beside a rune-carving bench, chains and hoists overhead, clay-brown and rune-blue palette, dim work glow
+an ice-mage's frozen sanctum, a frost-rimed study where breath fogs the air, floating ice-shards around a glowing blue focus-crystal, glacial-blue and white palette, cold shimmering glow
+a spell-scribe's scriptorium, a slanted desk of glowing inks and a half-inscribed scroll under a hovering quill, shelves of sealed scroll-cases, parchment and gold palette, warm focused glow
+an abandoned alchemist's vault, dust-caked benches of cracked glassware and a dried-out cauldron under cobwebbed shelves, a spilled reagent stain, faded-green and grey palette, dim still gloom
+
+# -- Forbidden Libraries & Archives
+a grand library of forbidden tomes, towering iron-railed shelves receding into gloom, a rolling ladder against chained books and a candle-lit lectern, deep-shadow and warm-parchment palette, hushed candlelight
+a monastic scriptorium, rows of slanted copying desks with inkpots and half-finished manuscripts under high windows, dusty light shafts, parchment and amber palette, soft daylight
+a subterranean archive, endless stone shelves of scroll-cases under low vaults lit by hanging lanterns, a map-strewn central table, brown and lantern-gold palette, dim warm glow
+a ruined library, collapsed shelves and rotted books strewn across a leaf-drifted floor, ivy through a broken window and a fallen chandelier, weathered-wood and moss-green palette, dim overcast light
+a cartographer's map room, walls hung with vast inked maps around a central globe of unknown constellations, rolled charts in pigeonholes, sepia and brass palette, warm lamp glow
+a wizard's private stacks, a cramped spiral of overloaded bookshelves around a reading nook and a floating witchlight, precarious book-piles, dark-wood and blue-glow palette, cozy dim glow
+a hall of chained grimoires, heavy tomes locked to iron lecterns down a colonnade under grim statuary, a single warded book glowing, obsidian and eldritch-green palette, cold gloom
+a sunlit reading rotunda, a domed hall of tiered galleries around an open floor of reading tables, warm light through a great oculus, ivory and gold palette, bright airy light
+a forgotten records vault, dust-buried ledgers and toppled filing shelves behind a rusted iron gate, a lone guttering candle, grey-brown and faint-amber palette, dim still gloom
+a rune-lore repository, stone tablets and etched slabs racked in a vaulted chamber lit by glowing wall-glyphs, a study pedestal, slate-grey and rune-blue palette, cool arcane glow
+an astral archive, floating tomes drifting in a starlit void-chamber around a central reading dais, constellation motes adrift, indigo and silver palette, dreamlike glow
+a herbalist's manuscript room, shelves of pressed-plant folios and botanical charts around a specimen table, hanging dried blooms, green and parchment palette, soft filtered light
+a necromancer's forbidden archive, blackened grimoires bound in pale leather on bone-framed shelves under green witchlight, a skull paperweight, bone-ivory and sickly-green palette, eerie glow
+a temple library, illuminated holy books on carved wooden stands beneath a fresco ceiling, brass reading lamps aglow, warm-gold and crimson palette, reverent warm light
+a flooded book-vault, swollen tomes on half-submerged shelves reflected in still water, a drifting candle-raft, teal-black and tarnished-gold palette, eerie dim glow
+a scholar's cluttered garret, papers and open books heaped on every surface around a slanted desk under a dormer window, a burnt-down candle, brown and wan-grey palette, dim studious glow
+a hall of prophecies, tall stone niches holding sealed scroll-urns beneath carved oracular reliefs, a shaft of light on a central plinth, sandstone and gold palette, soft solemn light
+a dragon-lore vault, immense chained folios and a mounted wyrm skull over a reading table lit by braziers, scorched map-walls, umber and ember palette, warm firelit glow
+
+# -- Crypts & Catacombs
+a stone crypt beneath a cathedral, rows of carved sarcophagi under cobwebbed groin-vaults, a shaft of moonlight on a mossy effigy, slate-grey and cold-silver palette, pale sepulchral light
+a catacomb of stacked bones, walls of piled skulls and femurs lining a low earthen passage lit by niche-candles, bone-ivory and shadow palette, dim flickering glow
+a royal burial vault, gilded sarcophagi of dead kings ringed by tarnished grave-goods under a domed seal, dust in a light-shaft, tarnished-gold and slate palette, dim solemn glow
+a necromancer's charnel lab, corpse-slabs and hanging chains beneath a green-glowing sigil, jars of preserved organs on iron racks, sickly-green and grey palette, cold ghastly glow
+a barrow-mound interior, a low stone-lined chamber around a shrouded bier and rusted grave-hoard, roots breaking through the earthen ceiling, earth-brown and cold-silver palette, dim buried gloom
+a noble house mausoleum, marble tombs and weeping stone angels under a cracked skylight, dead flowers in a bronze urn, weathered-marble and cold-green palette, wan light
+a flooded ossuary, bone-lined walls reflected in ankle-deep black water dripping from the vaults, a floating skull, bone-ivory and teal-black palette, eerie dim glow
+a lich's sepulcher, a jeweled sarcophagus on a raised dais ringed by frozen candle-flames and phylactery shards, cold blue witchlight, obsidian and ghost-blue palette, cold spectral glow
+an ancient warlord's tomb, a stone effigy clutching a rusted sword atop a sarcophagus, trophy weapons stacked in the gloom, slate-grey and ember palette, dim torch glow
+a plague crypt, hastily stacked shrouded corpses in a lime-dusted vault behind an iron grate, dead censers scattered, ash-grey and sickly-yellow palette, grim dim gloom
+a catacomb shrine to death, a black-draped altar of skulls beneath a scythe-bearing idol, guttering candles set in eye-sockets, obsidian and bone palette, cold candlelit gloom
+a vampire's resting crypt, an ornate open coffin on a marble slab amid rotted silk and spilled goblets, bats roosting in the arches, oxblood and shadow palette, dim red-tinged gloom
+a sunken sarcophagus hall, a colonnade of toppled tombs half-buried in silt and cobweb, a broken effigy in a dust-shaft, grey-brown and faint-silver palette, dim still gloom
+a reliquary undercroft, iron-banded caskets and bone-set reliquaries in wall-niches under low vaults, a warded candle, tarnished-silver and shadow palette, dim sacred gloom
+a cursed burial chamber, a cracked sarcophagus leaking black mist under sigil-scored walls, disturbed grave-offerings, obsidian and eldritch-green palette, ominous glow
+an elven tomb-grove interior, pale stone biers wound in luminous vines beneath a root-vaulted ceiling, drifting spores of soft light, moon-silver and biolume palette, ethereal glow
+a dwarven ancestor vault, rune-carved stone coffers stacked in a hewn-rock chamber lit by a low eternal-flame, ore veins glinting, black-granite and forge-amber palette, warm ember glow
+a forgotten crypt corridor, a damp-slick passage of empty niches and rusted grave-gates, a rat vanishing past a guttering torch, mildewed-grey and torch-amber palette, dim wavering light
+
+# -- Dark Ritual Chambers
+a summoning chamber beneath a keep, a glowing chalk-and-silver circle on black stone ringed by black-wax candelabra, smoke coiling within, obsidian and witchfire-violet palette, cold ritual glow
+a blood-cult altar room, a stone slab stained dark beneath a horned idol, iron chains and ritual daggers on the walls, ash-grey and blood-red palette, grim brazier glow
+an eldritch sanctum, a pulsing green portal-rift torn above a rune-scored floor, tentacular carvings on the walls, void-black and eldritch-green palette, sickly pulsing glow
+a drow ritual cavern, a web-veiled altar under a great carved spider lit by purple faerie-fire, dripping stalactite columns, obsidian and violet palette, cold arcane glow
+a demonologist's binding hall, a brass containment circle around a chained brazier of black flame, warding sigils burning on iron pillars, iron-grey and hellfire-orange palette, harsh flickering glow
+a witch-coven grove sanctum, a moss-ringed stone altar around a green bonfire, hanging bone-charms and a cauldron, deep-green and ember palette, guttering firelight
+a sacrificial pit chamber, a circular stone well ringed by sigil-carved steps descending into darkness, guttering torches on the rim, black-stone and ember-red palette, dim ominous glow
+a necromantic raising circle, a bone-inlaid ritual ring on a grave-dust floor glowing faint green, skeletal remains half-risen at the edge, grey and sickly-green palette, cold eerie glow
+a star-cult observatory shrine, a ritual dais beneath an open oculus aligned to burning constellations, slow-turning orrery-rings, indigo and silver palette, cool astral glow
+an infernal contract chamber, a scorched pentagram sealing a smoldering rift, a stone lectern bearing a burning tome, obsidian and molten-orange palette, hot infernal glow
+a shadow-priest's black chapel, a veiled altar swallowing the light amid drifting dark motes, faceless statues in the gloom, void-black and cold-violet palette, oppressive dim glow
+a rune-storm ritual hall, wall-carved glyphs crackling with blue arcane lightning around a focus-obelisk, ozone haze, slate-grey and electric-blue palette, flickering charged glow
+a plague-cult sanctum, a filth-caked altar of bound vermin and dripping censers beneath a boil-marked idol, greenish miasma, sickly-green and rust palette, murky glow
+a moon-blood rite chamber, a silver basin on a pale-stone altar under a domed hole to a full moon, a ring of white candles, moon-silver and crimson palette, cold lunar glow
+a bone-throne cult hall, a throne of fused skulls atop a stepped altar ringed by black banners, guttering skull-candles, bone-ivory and shadow palette, grim flickering glow
+a fire-cult forge-altar, a molten rune-channel encircling a black anvil-altar under a horned brazier, sparks and heat-shimmer, black and forge-orange palette, hot ember glow
+a deep-ones' tidal shrine, a barnacle-crusted altar in a sea-cave lit by phosphorescent pools, dripping kelp and idol-carvings, teal-black and biolume-green palette, eerie glowing gloom
+an abandoned ritual crypt, a cracked summoning circle scarred and cold under toppled candelabra, dark scorch-marks on the walls, ash-grey and faint-violet palette, dim dead gloom
+
+# -- Dungeons & Torture Chambers
+a torch-lit dungeon corridor, damp-slick walls lined with rusted cell doors and empty shackles, a guttering wall-torch throwing long shadows, mildewed-grey and torch-amber palette, dim wavering light
+a torture chamber, an iron rack and a brazier of glowing pokers under a low vault, chains and cruel implements on a stained wall, iron-grey and ember-red palette, harsh brazier glow
+a deep oubliette, a circular stone pit with slime-black walls rising to a grated ceiling far above, scattered bones on the wet floor, black-stone and cold-grey palette, dim shafted gloom
+a prison cell, a straw-strewn stone cell behind rusted bars with a shackle-ring and a scratched tally on the wall, a barred window slit, grey and wan palette, dim pale light
+a guardroom, a scuffed table of dice and tankards beside a weapon rack and a cell-key ring under a lantern, a smoldering hearth, umber and amber palette, warm dim glow
+an interrogation vault, a lone iron chair bolted to the floor under a caged lantern, a table of implements and a drain, cold and bare, grey and cold-blue palette, harsh dim light
+a flooded dungeon level, half-submerged cells and floating debris in black water reflecting a distant torch, rust-weeping bars, teal-black and torch-amber palette, eerie dim glow
+a pit-fight holding cage, an iron cage over a bloodstained sand floor beneath empty jeering tiers, a portcullis to the arena, ochre-sand and rust palette, dim harsh glow
+a rack-and-chain hall, rows of hanging manacles and an iron maiden along a soot-blackened wall, a coal brazier glowing, iron-grey and ember palette, grim flickering glow
+a condemned corridor, a row of sealed iron doors down a dripping passage lit by failing torches, claw-marks scored on the stone, mildewed-grey and dim-amber palette, wavering gloom
+a rat-infested cell block, gnawed straw and refuse between rusted bars under a single caged candle, rats scattering, grimy-brown and wan palette, dim squalid glow
+a dwarven deep-prison, rune-locked stone cells hewn into black rock lit by a low forge-vent glow, iron grates and ore veins, black-granite and amber palette, dim ember glow
+a warden's records room, a cluttered desk of prisoner-ledgers and a key-board under a guttering lamp, a cell-map on the wall, brown and amber palette, dim worn glow
+an ice-dungeon corridor, frost-glazed stone cells and rimed shackles under a cold blue gloom, breath-fog in the air, glacial-blue and grey palette, cold pale glow
+a bone-littered oubliette floor, a heap of shattered skeletons under a shaft of grey light from a grate overhead, dangling chains, grey and faint-silver palette, dim shafted gloom
+an inquisition dungeon, a confession-rack before a sigil-branded wall lit by a ring of black candles, iron tools laid out, grey and cold-red palette, harsh grim glow
+a monster holding pen, a massive chained iron gate and gouged stone walls behind a barred observation slit, gnawed bones scattered, gunmetal-grey and ember palette, dim ominous glow
+an escape-tunnel cell, a pried-loose floor stone revealing a crawl-hole beside a broken shackle under a dead torch, rubble scattered, grey-brown and dim palette, faint gloom
+
+# -- Forges & Smithies
+a dwarven underforge, a molten metal channel lighting squared black-stone pillars, a great anvil and racked weapons at the hearth, black-granite and forge-orange palette, hot ember glow
+a village blacksmith's shop, a glowing coal forge and a soot-black anvil hung with hammers and tongs, a quench barrel and finished blades, iron-grey and ember palette, warm firelit glow
+an armorer's workshop, half-finished plate on stands beside a bench of rivets and shears under a lantern, hung mail and helms, steel-grey and amber palette, warm work glow
+a rune-smith's forge, a rune-etched anvil beneath a hovering ring of arcane fire, glowing inscribed ingots and floating tools, blue-white and gold palette, bright arcane glow
+a great foundry hall, a glowing crucible pouring molten metal under a gantry crane in a soot-black hall, sparks raining down, black and orange palette, hot furnace glow
+a weaponsmith's display forge, racked swords, axes and spears gleaming on the walls behind a working anvil and grindstone, sparks flying, gunmetal and ember palette, warm harsh glow
+a ruined smithy, a cold rusted anvil and toppled tool-racks under a caved roof, weeds through the dead forge, rust-brown and grey palette, dim desolate light
+a siege-engine workshop, a half-built catapult frame and stacked timber beside a forge and heavy chains, iron fittings on benches, timber-brown and ember palette, dim work glow
+an artificer's clockwork forge, brass gear-walls and a rune-anvil beside a half-built automaton wired to a glowing core, copper and amber palette, warm work glow
+a mithril forge in the mountain, a silver-blue molten pool casting cold light on rune-pillars, ethereal ingots cooling on a black anvil, mithril-silver and blue palette, cool luminous glow
+a goblin scrap-forge, a crude bellows-fed fire pit littered with salvaged metal and jagged half-made blades, junk heaps and chains, rust and ember palette, dim grimy glow
+a temple bell-foundry, a great clay bell-mold in a casting pit beside a molten bronze crucible, hoists and sand-molds, verdigris-bronze and orange palette, hot dim glow
+a bowyer's shop, staves of drying yew and feathered arrow-bundles racked around a shaving-bench, a glue-pot warming, wood-brown and amber palette, warm soft glow
+a jeweler's fine-smithy, a delicate bench of gem-settings and gold wire under a bright magnifier lamp, tiny tools and glinting stones, gold and jewel-toned palette, focused bright glow
+an infernal war-forge, a hell-fed furnace casting red light on chained anvils and black iron weapon-racks, molten runoff channels, black and hellfire-red palette, harsh infernal glow
+a frozen-north smithy, a fire-lit forge fighting the frost in a timber-and-stone hut, pelts and rune-marked blades on the walls, ember-orange and frost-blue palette, warm-against-cold glow
+a royal armory-forge, ceremonial gilded plate and jeweled swords on display beside a working anvil under banners, polished floor, gold and steel palette, warm regal glow
+an abandoned dwarven forge-hall, a cold dead forge-channel and dust-caked anvils among toppled pillars, a faint ember-glow from deep ore-veins, black-granite and faint-amber palette, dim still gloom
+
+# -- Taverns & Dens
+a crowded tavern common room, a long ale-stained bar and trestle tables around a roaring hearth, hanging lanterns and a lute on a stool, warm-timber and fire-gold palette, cozy firelit glow
+a thieves' guild den, a shadowed cellar of maps and loot-crates around a dice-strewn table lit by a shuttered lantern, weapons within reach, dark-wood and amber palette, dim clandestine glow
+a seedy dockside alehouse, a grimy bar of guttering candles and spilled ale, fishing-net decor and a slumped drunk in the corner, brine-grey and amber palette, dim smoky glow
+a grand inn's hall, a galleried timber hall with a great fireplace, laden tables and a minstrel's balcony, honey-wood and fire-gold palette, warm inviting glow
+a smugglers' hideout, stacked contraband barrels and a hidden trapdoor behind a false wine-rack under a swaying lantern, a coin-scale and ledger, umber and dim-amber palette, dim secret glow
+a witch's hovel, a low crooked room hung with dried herbs and skulls, a black cauldron simmering over a peat fire, jars of teeth on warped shelves, smoke-stained and ember palette, guttering firelight
+a tavern kitchen, a hearth of hanging pots and a flour-dusted work-table strung with cured meats and herbs, a bubbling stockpot, warm-brown and fire-amber palette, hot hearth glow
+a gambling backroom, a felt table of dice, cards and coin-stacks under a low lantern in a smoke-hazed cellar, a hidden dagger, green-felt and amber palette, pooled warm glow
+a bard's music room, a hearth-lit corner of instruments on hooks around a stool and a tankard, a scatter of songsheets, honey-wood and warm-gold palette, soft cozy glow
+a rat-catcher's cellar den, a cluttered burrow of traps, cages and salvage around a crooked cot under a candle, damp brick walls, grimy-brown and wan palette, dim squalid glow
+a pirate crew's shore tavern, a rowdy plank-floored bar hung with fishing floats and a ship's wheel, tankards and a pinned treasure map, weathered-wood and amber palette, warm dim glow
+a highwayman's roadside inn, a low-beamed taproom with a fire, a shuttered window and a horse-tack corner, muddy boot-prints on the floor, umber and fire-gold palette, dim cozy glow
+a dreamsmoke den, low cushioned alcoves wreathed in blue haze around brass pipes and a dim lantern, silk drapes, indigo and amber palette, hazy dim glow
+a mercenary company's mess, a rough hall of weapon-cluttered tables around a central fire, a contract-board and stacked shields, iron-grey and fire-amber palette, warm rough glow
+a fortune-teller's parlor, a cramped candle-lit nook of hanging beads and tarot around a crystal-ball table, curling incense smoke, violet and amber palette, moody dim glow
+a cellar fighting-den, a torch-lit stone room around a chalk brawl-ring with betting benches, a barrel of ale, grey-stone and ember palette, harsh dim glow
+a cozy village alehouse, a snug low room of mismatched stools around a hearth, a cat asleep on the bar, herbs drying overhead, warm-brown and honey palette, soft warm glow
+an elven wayhouse, a graceful timber-and-vine common room lit by hanging glowlamps, delicate harps and moon-flowers in vases, pale-wood and silver-green palette, soft ethereal glow
+
+# -- Caverns & Hovels
+a dragon's treasure cavern, heaped drifts of gold coin and gemstones glinting under a fissure of light, toppled jeweled chests and scorched stone, molten-gold and deep-shadow palette, warm glinting gleam
+an ice cavern, translucent blue ice walls glittering with frost crystals and hanging icicle columns, a frozen pool with a dark shape beneath, glacial-blue and frost-white palette, cold diffuse shimmer
+a druid's grove-hollow, a living root-woven chamber lit by luminous fungi around a mossy stone seat, a trickling spring, deep-green and biolume-blue palette, soft glowing light
+a hermit's mountain hut, a cramped stone-and-timber shelter with a fire, a straw cot and drying herbs, pelts on the walls, warm-brown and ember palette, dim cozy glow
+a goblin warren, a cramped tunnel-den of crude bedding, bone-piles and stolen loot lit by scattered torches, jagged rock walls, rust-brown and ember palette, dim grimy glow
+a crystal grotto, a cavern of glowing arcane crystals sprouting from black rock over a still mirror-pool, refracted light, magenta and cyan palette, cool crystalline glow
+a troll's lair, a reeking den of gnawed bones and dragged-in wreckage around a dead fire, huge claw-scored walls, murky-brown and grey palette, dim gloomy light
+a sea-cave hollow, a tidal cavern of stacked crates and a beached skiff lit by lanterns, dripping stalactites and kelp, teal-black and amber palette, dim echoing glow
+a witch's swamp shack, a stilted hovel over black water hung with charms and a bubbling pot, glowing bog-lights through the window, murky-green and ember palette, eerie dim glow
+a barbarian cave-camp, a fire-pit ringed by fur bedrolls and trophy skulls under painted cave walls, spears leaned on the rock, ember-orange and hide-brown palette, flickering firelight
+a glowworm cavern, a vast dark grotto ceilinged with drifting blue glowworm light over a black underground lake, still and vast, indigo and biolume-blue palette, ethereal glow
+a bandit hideout cave, a torch-lit rock chamber of loot-sacks, a plank table and bedrolls behind a boulder-blocked mouth, stacked weapons, umber and ember palette, dim rough glow
+a fungal underdark cavern, towering luminous mushrooms and spore-haze over a stone path above a chasm, glowing lichen walls, violet and green palette, eerie glowing gloom
+a lava-tube cavern, a black basalt tunnel lit by a molten seam glowing through cracks, heat-shimmer and dripping stone, black and lava-orange palette, hot dim glow
+a hag's bone-hovel, a squalid hut of stitched hides and hung bones around a green-flamed hearth, a scrying bowl on a stump, sickly-green and bone palette, guttering glow
+an ice-dragon's lair, a frozen cavern of blue ice and rimed hoard-gold under a glacial dome, frost-breath haze, glacial-blue and gold palette, cold shimmering glow
+a root-cellar shrine, an earth-walled hollow beneath a great tree's roots with a candle-lit nature-idol, hanging charms and jars, earth-brown and warm-amber palette, dim soft glow
+a flooded sinkhole cavern, shafts of daylight through a broken ceiling onto a jade pool ringed by ferns and vines, dripping stone, jade-green and cold-silver palette, dappled dim light
+
+# === EXTERIORS ===
+
+# -- Castles & Ruins
+a ruined castle on a storm-crag, broken curtain walls and a half-collapsed watchtower against roiling cloud, ravens over the battlements, slate-grey and stormlight palette, bleak flickering gloom
+a grand castle at dusk, tall towers and pennanted battlements rising above a lit gatehouse over a moat, warm windows, gold and slate palette, warm fading light
+a crumbling keep on a hill, a lone weathered tower amid tumbled walls and a dry moat under a grey sky, bramble and ivy, weathered-stone and moss-green palette, dim overcast light
+a fortified gatehouse, a raised portcullis between drum-towers over a cobbled approach under torchlight, banners and murder-holes, umber and fire-amber palette, warm torch glow
+a castle courtyard, a cobbled bailey ringed by timber-framed halls and a stone well under a clear morning sky, hay and barrels, warm-stone and blue palette, bright soft light
+a besieged castle wall, scorched battlements and a breached rampart trailing smoke under a war-grey sky, broken siege-ladders, ash-grey and ember palette, grim smoky glow
+a clifftop citadel, a soaring fortress carved into a sheer sea-cliff above crashing surf under a windswept sky, snapping banners, slate and steel-blue palette, cold windswept light
+an overgrown castle ruin, ivy-strangled walls and a collapsed tower half-swallowed by forest under dappled light, fallen stones, green and weathered-grey palette, dappled soft glow
+a snow-bound fortress, ice-crusted battlements and a frozen gate under a leaden winter sky, drifting snow, frost-white and slate palette, cold pale light
+a castle drawbridge, a lowered timber bridge over a dark moat before an iron-studded gate under dusk, chains and torch-brackets, umber and violet palette, dim warm glow
+a hilltop watchtower, a lone signal tower with a cold beacon-brazier over rolling moorland under a bruised sky, a winding track, slate-grey and ember palette, dim windswept glow
+a fairy-tale palace, slender white spires and gilded roofs above terraced gardens under a soft dawn sky, banners and fountains, ivory and rose-gold palette, bright airy light
+a black volcanic fortress, jagged obsidian towers wreathed in ash-smoke over a lava-veined slope under a red sky, iron gates, black and ember-red palette, hot ominous glow
+a ruined coastal fort, a battered sea-fort of crumbling stone and rusted cannon over grey breakers, gulls and spray, weathered-grey and steel-blue palette, cold misty light
+a moated manor keep, a stout fortified house behind a lily-choked moat under an overcast sky, a stone bridge and dovecote, weathered-stone and green palette, dim soft light
+a mountain stronghold gate, a colossal rune-carved stone gate set into a cliff under snow-capped peaks, guard-braziers, black-granite and amber palette, cold ember glow
+a war-camp before a castle, rows of tents and siege engines arrayed on a muddy field before distant walls under dawn, banners and cook-fires, umber and grey palette, dim smoky glow
+a haunted castle silhouette, a jagged ruined fortress black against a full moon and streaming cloud, bats and broken towers, ink-black and moon-silver palette, pale eerie glow
+
+# -- Ancient Forests
+an ancient misted forest, colossal moss-cloaked trees arching over ferns and fallen leaves, shafts of pale light through hanging lichen, deep-green and cold-silver palette, dim ethereal haze
+a sunlit birch grove, slender white trunks in dappled golden light over a bluebell carpet, drifting pollen, white and gold-green palette, bright dappled glow
+a dark pine forest, dense black conifers crowding a needle-carpet track under a gloomy canopy, thin mist and a raven, deep-green and shadow palette, dim brooding gloom
+an enchanted glade, a ring of luminous mushrooms and drifting fae-motes around a mossy clearing under twilight, a still pool, violet and biolume palette, soft glowing light
+an autumnal woodland, blazing orange and red canopy over a leaf-strewn path with slanting amber light, a fallen log, amber and russet palette, warm glowing light
+an ancient oak hollow, a colossal gnarled oak with a hollow trunk-mouth wreathed in ivy over twisted roots, dappled gloom, brown and moss-green palette, dim soft glow
+a foggy fen-forest, skeletal trees rising from black still water in thick drifting fog, hanging moss and lily-pads, grey-green and teal palette, eerie dim haze
+a moonlit forest clearing, a silver-lit glade of dewy grass ringed by dark trees under a full moon, drifting mist, moon-silver and deep-blue palette, pale lunar glow
+a redwood cathedral, immense ancient trunks soaring into a light-shafted canopy over a fern floor, drifting motes, deep-green and gold palette, reverent dappled glow
+a thorn-choked deep wood, walls of black bramble and twisted trunks crowding a narrow game-trail under gloom, a snagged skull, shadow and rust palette, dim menacing glow
+a bioluminescent jungle, glowing vines and luminous blooms draped over dark foliage in humid night, drifting spores, teal and magenta palette, eerie glowing gloom
+a snow-laden pine wood, white-mantled evergreens along a hushed snowy trail under a pale winter sky, drifting flakes, frost-white and green palette, cold soft light
+a druid's sacred grove, a ring of standing trees around a moss-grown altar-stone under filtered green light, hanging charms, verdant-green and gold palette, soft holy glow
+a burnt forest, blackened charred trunks over an ash-grey floor under a smoke-hazed sky, faint embers and new green shoots, charcoal and ember palette, bleak hazy glow
+a river-gorge forest, a mossy ravine of ferns and a rushing stream between rock walls under dappled light, a fallen-log bridge, green and cold-silver palette, dappled cool glow
+a twisted haunted wood, contorted leafless trees clawing over a fog-bound path under a bruised sky, hanging ravens, grey-brown and shadow palette, eerie dim gloom
+a blossoming spring wood, drifts of pink blossom over a stream-crossed glade in soft morning light, petals on the water, rose-pink and green palette, bright gentle glow
+a giant-fungus forest, towering mushroom-caps forming a canopy over a spore-lit floor of glowing lichen, drifting motes, violet and green palette, soft glowing gloom
+
+# -- Villages & Markets
+a medieval village square, timber-framed houses around a stone well and market cross under a clear sky, geese and hay-carts, warm-brown and blue palette, bright soft light
+a bustling market row, stalls of produce and wares under striped awnings along a cobbled lane, hanging goods and barrels, amber and red palette, warm lively glow
+a snowbound hamlet, snow-capped cottages with smoking chimneys around a frozen pond under a pale sky, a lantern-lit inn, frost-white and warm-amber palette, cold cozy glow
+a fishing village harbor-front, weathered cottages and drying nets along a stone quay under a grey coastal sky, moored dories, brine-grey and amber palette, cool wan light
+a burning village, thatched cottages ablaze along a lane under a smoke-red sky, drifting embers and a fleeing goat, ember and ash palette, grim glowing haze
+a prosperous town street, tall gabled shopfronts and hanging trade-signs over a busy cobbled thoroughfare, flower boxes, warm-stone and gold palette, bright cheerful light
+a muddy peasant hamlet, ramshackle wattle huts and a pig-pen along a rutted track under an overcast sky, a dung-heap and cart, brown and grey palette, dim dreary light
+an autumn harvest market, stalls of pumpkins and grain under golden trees in a village square, hay-bales and lanterns, amber and russet palette, warm glowing light
+a hilltop shepherd's village, stone crofts and dry-stone walls scattered on a green slope under a big sky, grazing sheep, green and slate palette, bright breezy light
+a riverside mill town, a timber water-mill and wharf-side houses along a rushing river under dawn mist, a laden barge, green-grey and amber palette, soft misty glow
+a plague-stricken village, boarded cottages daubed with warning crosses along an empty lane under a grey sky, a dead cart, ash-grey and sickly-yellow palette, grim dim gloom
+a festive village fair, bunting and torch-poles over crowded stalls and a bonfire in a trampled green, ribbons and casks, red and gold palette, warm festive glow
+an elven treetop village, graceful timber platforms and rope-bridges strung with glowlamps among giant trunks, hanging blooms, pale-wood and silver-green palette, soft ethereal glow
+a desert caravan town, mud-brick dwellings and awninged bazaar-lanes under a blazing sky, laden camels and water jars, ochre and gold palette, harsh bright glow
+a fortified border village, palisade walls and a watch-gate around clustered huts under a tense grey sky, a warning bell, timber-brown and slate palette, dim wary glow
+a canal village, timber houses on stilts over green waterways strung with lanterns under dusk, moored punts, teal and amber palette, warm dim glow
+a ruined abandoned village, roofless cottages and a choked well overgrown with weeds under an overcast sky, a leaning signpost, weathered-grey and green palette, dim desolate light
+a mountain trading post, log-and-stone buildings around a muddy yard under snow-capped peaks, pack-mules and fur-racks, brown and slate palette, cold clear light
+
+# -- Graveyards & Barrows
+a crumbling graveyard, leaning moss-eaten headstones and broken stone angels under bare black trees, low ground-fog, weathered-stone and cold-green palette, wan misty light
+a circle of standing stones, towering weathered monoliths on a windswept moor under a full moon and streaming cloud, ground-mist, cold-blue and moon-silver palette, pale lunar light
+an ancient barrow-field, grassy burial mounds with sunken stone doorways under a bruised dusk sky, a lone rowan, green-grey and violet palette, dim brooding glow
+a cathedral churchyard, tilted graves and iron railings around a fog-drowned chapel under a bruised sky, a lone crow, oxidized-iron and slate palette, cold smoky dusk
+a haunted cemetery at night, spectral mist coiling between crooked tombs under a cold-blue glow, a broken mausoleum, ghost-blue and shadow palette, eerie pale glow
+a moonlit necropolis, avenues of grand tombs and obelisks stretching under a starlit sky, cypress silhouettes, slate-grey and silver palette, cool lunar glow
+a battlefield burial ground, rows of rough grave-mounds and planted swords on a mist-grey field under drizzle, ravens and cairns, ash-grey and rust palette, cold desaturated gloom
+a witch's hanging-tree hill, a lone gnarled tree with frayed nooses on a fog-bound rise under a sickly moon, scattered bones, grey-brown and cold-silver palette, eerie dim glow
+a sunken graveyard, half-submerged headstones in a flooded marsh-cemetery under grey mist, drifting reeds, teal-grey and green palette, eerie wet gloom
+an elven memorial glade, pale carved biers wound in luminous vines in a moonlit forest clearing, drifting spores of light, moon-silver and biolume palette, ethereal glow
+a plague pit, a raw earthen mass-grave ringed by lime-dusted stakes under a grey sky, scattered censers and crows, ash-grey and sickly-yellow palette, grim dim gloom
+a dwarven cairn-field, stacked rune-carved stone cairns on a bleak mountain shoulder under a cold sky, a raven, slate-grey and amber palette, dim windswept glow
+a catacomb entrance hillside, a stone-arched crypt mouth set into a fog-wreathed hill under bare trees, worn steps and an iron gate, weathered-stone and grey palette, dim damp glow
+a bone-field wasteland, a plain scattered with bleached bones and broken weapons under a smog-red sky, drifting ash, bone-ivory and ember palette, bleak glowing haze
+a moor of burial stones, weathered grave-slabs half-lost in heather under a low grey sky, a ribbon of mist, faded-heather and slate palette, cold flat gloom
+a mausoleum avenue, a row of grand family tombs along a leaf-strewn path under bare autumn trees, rusted gates ajar, weathered-marble and dead-leaf palette, wan misty light
+a cursed barrow entrance, a black stone-lintel doorway leaking cold mist on a lone mound under a bruised sky, disturbed earth, obsidian and ghost-blue palette, ominous glow
+a foggy lych-gate, a moss-roofed graveyard gate hung with dead vines before crooked tombs under dusk, a single crow, oxidized-iron and cold-slate palette, cold smoky dusk
+
+# -- Mountains & Passes
+a mountain pass at dusk, a switchback trail along a sheer cliff above a valley of pine and cloud, a wayshrine cairn, cold-slate and sunset-amber palette, fading alpenglow
+a snow-capped peak vista, jagged white summits above a sea of cloud under a brilliant cold sky, a wind-carved ridge, frost-white and blue palette, bright clear light
+a glacial ravine, a blue-ice gorge with a frozen waterfall between black rock walls under a pale sky, drifting snow, glacial-blue and grey palette, cold diffuse glow
+a high alpine meadow, a wildflower slope beneath towering peaks under a bright summer sky, grazing goats and a shepherd's cairn, green and blue palette, bright crisp light
+a treacherous cliff ledge, a narrow rockshelf trail above a plunging misted abyss under a grey sky, a rope-and-plank rail, slate-grey and cold-silver palette, dim precarious glow
+a volcanic mountainside, a black ash-slope veined with glowing lava fissures under a smoke-red sky, drifting cinders, black and ember-red palette, hot ominous glow
+a misty mountain valley, a green glacial valley of waterfalls and scattered boulders under drifting cloud, a winding river, green-grey and silver palette, soft diffuse light
+a frozen mountain col, a wind-scoured saddle between icy peaks under a leaden sky, a buried marker-cairn, frost-white and slate palette, cold flat glow
+a cliffside monastery approach, a stair carved up a sheer cliff toward a distant crag-temple under dawn light, prayer-ribbons, warm-stone and blue palette, soft golden glow
+a rockslide-blocked pass, a trail buried under tumbled boulders in a narrow gorge under an overcast sky, a broken cart, grey and rust palette, dim stark light
+a dragon's mountain eyrie, a jagged clifftop crag scattered with scorched bones above a cloud sea under a bruised sky, claw-marks, slate and ember palette, dim ominous glow
+a hanging rope-bridge, a swaying plank span over a deep pine-filled gorge under a windy grey sky, frayed cables, brown and slate palette, tense dim glow
+a sunset mountain ridge, a knife-edge ridgeline glowing gold against a blazing sunset over layered blue peaks, a lone tree, ember and violet palette, warm glowing light
+a cavern-mouth cliff face, a great dark cave opening in a sheer mountain wall above a scree slope under grey sky, circling crows, slate-grey and shadow palette, dim brooding glow
+an avalanche-slope aftermath, a churned snow-field of buried pines below a fractured cornice under a pale sky, drifting powder, frost-white and grey palette, cold flat glow
+a highland moor pass, a boggy heather trail winding between rocky tors under a wind-driven grey sky, a standing stone, faded-heather and slate palette, cold windswept gloom
+a mountain waterfall basin, a thundering falls plunging into a misted rock pool ringed by ferns under dappled light, spray-rainbows, green and silver palette, bright misty glow
+a starlit summit camp, a lone tent and dead fire on a high rocky shoulder under a blazing milky-way sky, a cairn silhouette, indigo and silver palette, cool starlit glow
+
+# -- Battlefields & War Camps
+a battlefield aftermath, a mist-shrouded field of broken spears and torn banners studded with abandoned shields, carrion crows, ash-grey and dried-blood palette, cold desaturated gloom
+a war camp at dawn, rows of tents and cook-fires arrayed on a muddy field under a pale sky, banners and picketed horses, umber and amber palette, dim smoky glow
+a siege line before walls, trench-works and mantlets facing distant battlements under a war-grey sky, a smoking trebuchet, grey and ember palette, grim smoky glow
+a burning battlefield, churned earth strewn with wreckage under a smoke-choked orange sky, a smoldering siege-tower, ember and ash palette, grim glowing haze
+a snowbound war camp, snow-mantled tents and a central fire on a frozen plain under a leaden sky, huddled banners, frost-white and amber palette, cold dim glow
+a river-ford battle site, a bloodied shallow crossing littered with broken shields and mired carts under grey drizzle, ravens, grey-green and rust palette, cold wet gloom
+a victory field with pyres, smoking funeral pyres and stacked arms on a trampled plain under a bruised dusk, drifting smoke, ember and grey palette, grim glowing dusk
+a fortified encampment, a palisade ring of tents and watch-platforms on a hill under a tense sky, banners and a muster-yard, timber-brown and slate palette, dim wary glow
+a cavalry muster field, ranks of picketed warhorses and lances beside striped pavilions under a bright sky, pennants, green and gold palette, bright martial light
+a plague-struck war camp, ragged tents and a burial trench under a sickly grey sky, dead cook-fires and crows, ash-grey and sickly-yellow palette, grim dim gloom
+a ruined siege field, shattered siege engines and a breached wall trailing smoke over a churned slope, ravens, charcoal and ember palette, bleak smoky glow
+a foggy no-man's-land, a mist-drowned strip of stakes and abandoned gear between two dim army lines, drifting smoke, grey and rust palette, cold eerie gloom
+a warlord's command pavilion, a great banner-hung tent on a rise above the camp under torch-lit dusk, guards' braziers, crimson and amber palette, warm dim glow
+a scorched-earth retreat, a burning grain-field and abandoned wagons under a smoke-red sky, drifting embers, ember and ash palette, grim glowing haze
+a mountain-pass ambush site, wrecked wagons and scattered arms in a narrow gorge under grey sky, rockfall and ravens, slate-grey and rust palette, dim stark gloom
+a dawn muster plain, massed tent-rows and rising cook-smoke stretching to a misty horizon under first light, banners, umber and rose-gold palette, soft dawn glow
+a flooded battlefield, water-filled craters reflecting a grey sky over churned mud and broken spears, drowned banners, teal-grey and rust palette, cold wet gloom
+a trophy-field aftermath, planted swords and helm-topped stakes marking the dead on a windswept plain under a bruised sky, crows, ash-grey and ember palette, bleak windswept gloom
+
+# -- Swamps & Moors
+a fog-drowned swamp, skeletal trees rising from black still water hung with moss in thick drifting fog, floating lily-pads, grey-green and teal palette, eerie dim haze
+a windswept heather moor, rolling brown moorland studded with weathered stones under a low grey sky, a ribbon of mist, faded-heather and slate palette, cold flat gloom
+a bog with will-o'-wisps, a peat mire pocked with dark pools glowing with drifting ghost-lights under a moonless sky, reeds, murky-green and biolume palette, eerie glowing gloom
+a sunken mangrove marsh, tangled roots and brackish channels under a humid dusk sky, drifting mist and a heron, murky-green and amber palette, dim sultry glow
+a haunted fen at night, black water and dead reeds under a spectral moon with coiling ground-mist, a broken jetty, ghost-blue and shadow palette, eerie pale glow
+a moorland tor, a weathered rock outcrop rising from windswept grass under a driving-cloud sky, scattered sheep-bones, slate-grey and green palette, cold windswept gloom
+a witch's swamp approach, a rickety boardwalk over black water toward a stilted hovel under a sickly dusk, hanging charms and bog-lights, murky-green and ember palette, eerie dim glow
+a misty peat bog, a flat brown expanse of cut peat-banks and dark water under low grey fog, stacked turf, brown and grey palette, dim dreary haze
+a drowned forest swamp, dead grey trunks standing in still reflective water under a pale overcast sky, drifting spores, grey-green and silver palette, eerie still glow
+a reed-choked delta, endless whispering reed-beds threaded by dark channels under a wide dusk sky, a poling skiff, gold-green and violet palette, soft fading glow
+a blasted moor, a scorched heath of blackened gorse and cracked mud under a smoke-grey sky, a lone dead tree, charcoal and ash palette, bleak dim gloom
+a lantern-lit marsh path, a raised causeway of guttering lamp-posts crossing a foggy fen under night, dark water either side, amber and teal palette, dim eerie glow
+a quaking mire, a treacherous expanse of moss-skinned bog-pools and sunken logs under a grey sky, a half-swallowed cart, murky-green and grey palette, dim menacing gloom
+a moonlit standing-water fen, silver moonlight on still black flood-water among dead reeds under a clear night, drifting mist, moon-silver and teal palette, cool pale glow
+a heron-haunted saltmarsh, tidal mud-flats and glasswort under a bruised coastal dusk, wading birds and a wreck, grey-green and amber palette, dim brackish glow
+a corpse-flower bog, a fetid mire dotted with pallid glowing blooms and skeletal snags under a sickly sky, rising miasma, sickly-green and violet palette, eerie glowing gloom
+a highland peat-moor at dawn, rolling dark moorland and a peat-stream under low rose-grey mist, a distant cairn, faded-heather and rose-grey palette, soft dawn gloom
+a flooded moorland ruin, a half-sunk broch and drowned walls in a mist-grey flood under an overcast sky, drifting reeds, grey-green and slate palette, dim desolate gloom
+
+# -- Coast & Harbor
+a storm-lashed sea cliff, black rock battered by towering waves under a lightning-torn sky, wheeling gulls and spray, slate-grey and stormlight palette, bleak flickering gloom
+a fishing harbor at dawn, moored dories and drying nets along a stone quay under rose mist, gulls and lobster-pots, brine-grey and rose-gold palette, soft dawn glow
+a shipwreck on the rocks, a broken galleon hull splayed across surf-washed rocks under a grey sky, torn sails and gulls, weathered-wood and steel-blue palette, cold bleak light
+a pirate cove, a hidden crescent beach with a moored sloop and a cave-mouth under dusk, palm silhouettes and crates, teal and amber palette, warm dim glow
+a tall-ship harbor, masted trading ships crowding a busy stone waterfront under a bright sky, cargo-cranes and barrels, warm-stone and blue palette, bright lively light
+a lighthouse headland, a lone beacon tower on a windswept promontory sweeping light over dark breakers under a stormy sky, spray, grey and amber palette, dim sweeping glow
+a moonlit shore, a silver-lit beach of wet sand and gentle surf under a full moon, a beached rowboat, moon-silver and deep-blue palette, cool lunar glow
+a rocky tide-pool cove, kelp-draped rocks and glassy tide-pools under an overcast coastal sky, a stranded net-float, teal-green and grey palette, cool wan light
+a war-galley beach landing, longships drawn up on a grey pebble strand under a bruised dawn, shields and cook-fires, slate and ember palette, dim martial glow
+a cliff-top fishing village, weathered cottages perched above a plunging cove and stone jetty under grey sky, drying racks, brine-grey and amber palette, cool coastal light
+a coral-sand tropical shore, turquoise shallows over white sand fringed by palms under a blazing sky, a beached canoe, aqua and gold palette, bright vivid light
+a fogbound wharf, a lantern-lit timber pier fading into thick sea-fog with moored hulls, coiled rope and gulls, grey and amber palette, dim misty glow
+a smuggler's sea-cave, a tidal cavern with a moored skiff and stacked crates lit by a lantern, dripping kelp, teal-black and amber palette, dim clandestine glow
+a storm-wrecked jetty, a shattered wooden pier clawed by grey breakers under a driving-rain sky, splintered pilings, slate-grey and steel-blue palette, bleak wet gloom
+a whaling station shore, rusted try-pots and bone-piles on a bleak grey beach under an overcast sky, a beached hull, rust and slate palette, grim wan light
+a sunset harbor mouth, silhouetted ships crossing a burning-gold horizon between headlands under a flaming sky, calm water, ember and violet palette, warm glowing light
+a frozen northern fjord, ice-fringed black water beneath sheer snow-cliffs under a pale sky, a moored longship, frost-white and slate palette, cold still light
+a barnacle-crusted sea-gate, a colossal weathered stone harbor arch over dark water under a grey sky, a chained boom and gulls, weathered-stone and teal palette, cold misty glow
+
+# -- Ruined Temples & Monoliths
+a jungle-swallowed temple, a moss-choked stone pyramid strangled by vines and roots under dappled canopy light, carved idols, verdant-green and gold palette, dappled soft glow
+a desert temple ruin, half-buried sandstone columns and a toppled god-statue under a blazing sky, drifting sand, ochre and gold palette, harsh bright glow
+a circle of monoliths, towering carved standing stones on a windswept plain under a stormy sky, faint glowing runes, slate-grey and violet palette, dim charged glow
+a sunken sea-temple, algae-draped columns rising from tidal shallows under a grey coastal sky, barnacled idols, teal-green and stone-grey palette, cold misty glow
+a mountain-cliff shrine, a colossal figure carved into a sheer cliff face above a mist-filled valley under dawn, offering-ledges, warm-stone and rose palette, soft golden glow
+an overgrown obelisk plaza, a leaning glyph-carved obelisk amid cracked flagstones and creeping vines under overcast light, fallen statuary, weathered-stone and green palette, dim soft light
+a fire-god's ruined altar, a cracked black-stone altar-platform ringed by broken columns over a lava-veined slope, drifting ash, black and ember-red palette, hot ominous glow
+a moonlit ruin colonnade, a row of broken white columns on a hilltop under a full moon and streaming cloud, ivy and shadow, moon-silver and slate palette, pale lunar glow
+a frozen temple ruin, ice-sheathed pillars and a shattered dome half-buried in snow under a pale sky, a rimed idol, glacial-blue and stone-grey palette, cold diffuse glow
+a subterranean henge, a ring of glowing rune-stones in a vast cavern lit by a shaft of daylight from above, a central altar, slate-grey and rune-blue palette, cool shafted glow
+a vine-wrapped ziggurat, a stepped stone pyramid overgrown with jungle under a humid dusk sky, macaws and carved stairs, green and amber palette, dim sultry glow
+a cliffside cave-temple facade, ornate god-figures carved around a dark cave mouth in a red rock wall under a hard sun, worn steps, sandstone and gold palette, harsh bright glow
+a drowned-plaza shrine, a half-sunk idol and toppled pillars in a still flooded ruin reflecting a caved dome, drifting mist, teal-black and cold-silver palette, eerie dim glow
+a star-aligned monolith, a lone glyph-carved megalith on a moor aligned to a burning constellation under night, ground-mist, indigo and silver palette, cool astral glow
+a ruined amphitheater, tiered broken-stone seating around a weed-choked stage under an overcast sky, fallen columns, weathered-stone and green palette, dim soft light
+a serpent-god temple ruin, a coiled stone serpent statue among collapsed jungle-columns under dappled gloom, moss and idols, verdant-green and jade palette, dappled dim glow
+a wind-scoured mesa shrine, a cluster of carved rock spires and offering-cairns on a red plateau under a vast dusk sky, blowing dust, ochre and violet palette, warm windswept glow
+a haunted temple approach, a broken processional avenue of shattered idols leading to a black doorway under a bruised sky, drifting fog, obsidian and grey palette, ominous dim glow
+
+# -- Wastes & Blighted Lands
+an ashen volcanic waste, a cracked black plain veined with dying lava under a smoke-red sky, jagged spires and cinders, black and ember-red palette, hot bleak haze
+a frozen tundra, an endless white expanse of wind-carved snow under a pale colorless sky, a lone ice-rimed marker, frost-white and grey palette, cold flat light
+a cursed blighted heath, withered black grass and dead twisted trees under a sickly green-tinged sky, a rotting fence, sickly-green and charcoal palette, eerie dim gloom
+a scorched desert of glass, a heat-fused waste of black glass shards under a merciless white sun, shimmering mirage, black and white palette, harsh glaring light
+a corpse-strewn plague-land, a grey barren plain of ash-heaps and bleached bones under a jaundiced sky, drifting smoke, ash-grey and sickly-yellow palette, grim dim gloom
+a salt-flat wasteland, a cracked white salt-pan stretching to a dead horizon under a huge pale sky, a bleached skeleton, white and slate palette, harsh flat light
+a blight-withered forest, grey desiccated trunks and dead undergrowth under a smog-choked sky, drifting spores, charcoal and sickly-green palette, bleak hazy gloom
+a demon-scarred waste, a fused-earth plain of scorched craters and warped iron under a hellfire-red sky, drifting ash, black and ember-red palette, grim glowing haze
+a dust-storm barrens, a rock-strewn desert half-lost in a rolling ochre dust-wall under a choked sky, a buried ruin, ochre and grey palette, murky diffuse gloom
+a frozen dead marsh, black ice over a mire of dead reeds under a leaden winter sky, frost-shrouded snags, frost-white and grey-green palette, cold still gloom
+a shattered rock badland, a maze of wind-carved crimson spires and dry gullies under a hard sky, drifting dust, rust and ochre palette, harsh bright glow
+a mana-blasted crater, a vast glassy impact-crater glowing faint violet with drifting arcane motes under a bruised sky, warped stone, violet and charcoal palette, eerie glowing gloom
+a bone-desert, endless dunes studded with colossal bleached skeletons under a blazing sky, drifting sand, bone-ivory and gold palette, harsh bright glow
+a poisoned mire-waste, bubbling sickly-yellow sludge-pools and dead snags under a green-hazed sky, rising fumes, sickly-yellow and charcoal palette, murky toxic glow
+a frostbitten wasteland ruin, wind-scoured broken walls jutting from deep snow under a pale grey sky, drifting powder, frost-white and slate palette, cold desolate gloom
+an ember-field aftermath, a smoldering black plain of glowing cinders and charred stumps under a smoke-red dusk, drifting sparks, ember and ash palette, grim glowing haze
+a cracked drought-basin, a dead lakebed of curled mud-tiles and a stranded wreck under a merciless sky, heat shimmer, tan and pale-blue palette, harsh flat glow
+a shadow-blighted moor, a grey lifeless heath swallowed in unnatural gloom under a starless black sky, faint cold wisps, shadow and cold-violet palette, oppressive dim gloom

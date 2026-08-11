@@ -139,12 +139,14 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
   `# -- Subheader` under cosmetic `# === INTERIORS/EXTERIORS ===`; loader already
   treats subheaders as the selectable sections (no code change). Verified: 20
   unique sections, no dupes, no divider leak, both int/ext draw.
-- ⏳ **Whimsical Woods (fantasy) environments** — **PENDING the exterior half.**
-  The file Brian sent (2026-08-11) is **interiors-only** (180 entries, 10
-  interior subheaders: Thrones, Temples, Arcane Towers, Libraries, Crypts, Dark
-  Ritual, Dungeons, Forges, Taverns, Caverns). No `# === EXTERIORS ===` present
-  despite the header claiming 180+180. **Do NOT incorporate until the exterior
-  half arrives** — swapping it in would drop all current fantasy exteriors.
+- ~~**Whimsical Woods (fantasy) environments**~~ — ✅ **DONE (0.9.2).** Expanded
+  20 → **360** (180 interiors + 180 exteriors, 20 subheader sections). The first
+  export was interiors-only; Brian force-refreshed the OneDrive file and the
+  complete 419-line / 64 KB version arrived. Verified: 20 unique sections, no
+  dupes, no leak, UTF-8 clean, both int/ext draw. Exterior subheaders: Castles &
+  Ruins, Ancient Forests, Villages & Markets, Graveyards & Barrows, Mountains &
+  Passes, Battlefields & War Camps, Swamps & Moors, Coast & Harbor, Ruined
+  Temples & Monoliths, Wastes & Blighted Lands.
 
 **Content decisions (blocking new content):**
 - **Cyberpunk outfits / structure** — current pack uses monolithic **270**.

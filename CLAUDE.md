@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.1` (0.9.0 Nettie Necket; 0.9.1 = _ghost.runner environments expanded 24→360, 20 subheader sections). **PUBLIC on GitHub + live on Comfy Registry.**
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.2` (0.9.1 _ghost.runner environments 24→360; 0.9.2 = Whimsical Woods environments 20→360, same two-level format). Both cyberpunk + fantasy now 20 subheader sections. **PUBLIC on GitHub + live on Comfy Registry.**
 **Git:** 14 commits on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — currently **PRIVATE** (flip to public when ready; required before the Comfy Registry can serve it). `gh` CLI is installed and authed as `bkidderz`. `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path on owner's machine:**
 `C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
@@ -194,7 +194,7 @@ headers is now **section-select**; the exceptions are noted.
 | Theme (label) | Wardrobe categories |
 |---|---|
 | _ghost.runner | Tattoos (by body-placement) · Outfits (18 archetypes) · Weapons (Sidearms/Long Guns/…) · **Environments (360, 20 subheader sections — 0.9.1)** |
-| Whimsical Woods | Tattoos · Outfits (24 archetypes) · Weapons · **Spell Casting** · **Spell Effects** (by element) |
+| Whimsical Woods | Tattoos · Outfits (24 archetypes) · Weapons · **Spell Casting** · **Spell Effects** (by element) · **Environments (360, 20 subheader sections — 0.9.2)** |
 | Cassette Futurism | Outfits (14 archetypes) |
 | Autumnal Oxidation | Outfits (12 goth substyles; granular pieces removed 0.7.12) |
 | All the Dresses | "Gowns & Dresses" (**toggle** — 530 flat, no headers) · Eastern Attire (section, garments) |

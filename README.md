@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **4,450 hand-written entries** across **47 categories** and **7 themes** — outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
+Ships with **4,790 hand-written entries** across **47 categories** and **7 themes** — outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -49,7 +49,7 @@ Restart ComfyUI. **There are no dependencies to install** — the node uses only
 
 ### Verify it loaded
 
-Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.1`.
+Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.2`.
 
 ---
 
@@ -115,7 +115,7 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 | Theme | Categories |
 |---|---|
 | **_ghost.runner** *(cyberpunk)* | Outfits (270, 18 sections) · Tattoos (75) · Weapons / Carry (28) · Accent Palette (28) · Environments (360, 20 sections — interiors + exteriors) · Poses (29) |
-| **Whimsical Woods** *(dark fantasy)* | Outfits (360, 24 sections) · Tattoos (75) · Weapons / Carry (30) · Accent Palette (31) · Environments (20) · Poses (28) · **Spell Casting** (15) · **Spell Effects** (20) |
+| **Whimsical Woods** *(dark fantasy)* | Outfits (360, 24 sections) · Tattoos (75) · Weapons / Carry (30) · Accent Palette (31) · Environments (360, 20 sections — interiors + exteriors) · Poses (28) · **Spell Casting** (15) · **Spell Effects** (20) |
 | **Autumnal Oxidation** *(gothic autumn)* | Outfits (337, 12 goth substyles) · Accent Palette (23) · Environments (13) · Poses (23) |
 | **Cassette Futurism** *(retro analog sci-fi)* | Outfits (139, 14 sections) · Accent Palette (23) · Environments (24) · Poses (24) |
 | **All the Dresses** | Gowns & Dresses (530) · Eastern Attire (530, 11 sections) · Accent Palette (24) · Environments (13) · Poses (24, dance-forward) |
