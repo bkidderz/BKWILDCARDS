@@ -1,0 +1,57 @@
+# ============================================================
+# STEAMPUNK POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts
+# take "the" (the hip, the neck) - no gendered pronouns anywhere.
+# Steampunk flavored through UBIQUITOUS fixtures and gear gestures
+# (railings, crates and barrels, columns, doorframes, low steps,
+# pocket watches, hand lanterns) - NOT room-specific machinery -
+# so they stay portable across every environment in the matching
+# environment pool, interior and exterior alike.
+# Attribute-clean: no skin, hair, eye, or garment callouts
+# beyond footwear. Weapon-free. One pose per line.
+# Pair with __steampunk_environment__ and an outfit line.
+# ============================================================
+
+# -- standing / at ease
+the subject stands squarely with the hands clasped behind the back and the chin level, feet set shoulder-wide, a composed formal Victorian bearing
+the subject stands with weight settled onto one hip in an easy contrapposto, one hand resting at the waist and the other hanging loose, head tilted a fraction
+the subject stands with the arms folded high across the chest and the shoulders set back, feet planted apart, a squared unmovable stance
+the subject stands turned three-quarters away with the head swung back over one shoulder toward the viewer, one hand lifted to the collarbone, a caught-glancing pose
+the subject stands with both hands laced at the small of the back, the spine straight and the gaze angled upward, patient and surveying
+
+# -- leaning on ubiquitous fixtures
+the subject leans one shoulder against a column with the ankles crossed and the arms folded, an unhurried waiting posture
+the subject leans back against a railing with both elbows hooked over it, hips pushed forward, one boot crossed over the other, idle and easy
+the subject stands with one boot raised onto a low crate, a forearm laid across the lifted knee, leaning in over it and looking ahead
+the subject braces both palms flat against a wall at shoulder height with the arms straight and the head hung between them, leaning in to rest
+the subject props one elbow atop a barrel and settles the weight into it, the free hand at the hip, head cocked in appraisal
+
+# -- crouching / kneeling
+the subject crouches on the balls of the feet with the forearms draped over the knees, head lifted and gaze level, a low ready crouch
+the subject kneels on one knee with a forearm braced across the raised thigh, the torso upright and still, steady and grounded
+the subject squats on the heels with the knees wide and the hands loosely clasped between them, head bowed to study something on the floor
+
+# -- seated
+the subject sits on the edge of a low crate with the knees apart, forearms on the thighs and the shoulders rolled forward, resting between labors
+the subject sits on a step with one leg drawn up and an arm looped around the knee, the other leg stretched to a lower stair, a slouched informal rest
+the subject sits perched on the edge of a raised surface with the hands gripping the lip and the legs dangling, leaning forward into the wait
+the subject sits upright on a bench with the knees together and both hands folded in the lap, the chin high, a poised formal sit
+
+# -- motion
+the subject is caught mid-stride walking forward, one arm swinging free and the weight rolling onto the leading foot
+the subject pauses mid-step and turns to look back over one shoulder, the torso twisting while the trailing foot stays planted
+the subject walks with a slow deliberate pace, the hands clasped behind the back and the head lowered in thought
+the subject strides forward leaning into the effort as if against wind, one forearm raised to shield the face, the other arm driving back
+
+# -- gestures / recovery
+the subject stretches both arms overhead with the fingers laced and the spine arched, rising onto the toes, a long waking stretch
+the subject rolls one shoulder with a hand raised to knead the back of the neck, head canted aside, easing a long day's stiffness
+the subject inclines the head and upper body in a small formal bow, one arm folded across the waist, the other swept slightly outward
+the subject stands with a hand pressed flat over the sternum and the head bowed, a beat of composure before moving on
+
+# -- steampunk gear gestures (near-universal, not outfit-locked)
+the subject draws a pocket watch up on its chain and studies the face, head bent to it, the free hand still holding the chain's slack
+the subject raises a hand lantern high to one side at head height, the arm at full extension, the head turning to follow the light
+the subject stands wiping the hands slowly on a rag, the work just finished, the gaze lifted away toward the middle distance
+the subject rolls a coin across the backs of the knuckles with the arm held loose, weight settled back on the heels, idle and practiced
+the subject tips the head close to a paneled door with one hand splayed flat against it, the whole body stilled to listen

@@ -3,11 +3,11 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-09 — build `0.8.7`, shipped to the live install and pushed to
-GitHub (private).** Node is **43 categories / 6 themes** (from 13), plus **Mayhem
-mode** and both-gender Physical content. Repo:
-https://github.com/bkidderz/BKWILDCARDS — **private while external testers try
-it**; not for public release yet.
+**Status: 2026-08-10 — build `0.9.0`, shipped to the live install and pushed to
+GitHub (private).** Node is **47 categories / 7 themes / 5 global packs** (from
+13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie Necket** steampunk
+theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS — **private while
+external testers try it**; not for public release yet.
 
 > This revision marks answered items **✅ DONE** and keeps only the genuinely
 > open items in §2. Skim §2 for what still needs you.
@@ -24,6 +24,7 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 | `dresses` | **All the Dresses** | Dresses / Gowns |
 | `cassette_futurism` | **Cassette Futurism** | Cassette |
 | `autumnal_oxidation` | **Autumnal Oxidation** | Autumnal / Goth |
+| `steampunk` | **Nettie Necket** | Steampunk |
 | `lingerie` | **COZY SEXY LACY RACY Sleepwear** | Lingerie (adult) |
 
 ---
@@ -115,10 +116,14 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
    - `SNIPPETS.md` is a scratch/handoff note, not part of the product — decide
      whether to delete it or keep it out of the published repo.
 
-**New source material pulled 2026-08-10 (parked, ready when Brian wants them):**
-- **Steam Punk theme** — `custom_wildcards/Steam Punk/`: outfits (235, 23
-  archetypes) · environments (41) · poses (30). Fully structured, zero inline
-  braces, matches the theme pattern — drop-in ready. No IP concerns.
+**New source material pulled 2026-08-10:**
+- ~~**Steam Punk theme**~~ — ✅ **DONE (0.9.0).** Built as the **Nettie Necket**
+  theme (`wildcards/steampunk/`, label "Nettie Necket" — its standalone release
+  name). Outfits (235, 23 archetypes) · Environments (41, Interiors/Exteriors) ·
+  Poses (30, 7 groups); no accent_palette. Confirmed **net-new** vs Cassette
+  Futurism (Victorian brass vs 1970s analog — disjoint content). Validated:
+  theme registers, 32 sections clean (no prose leak), seeded draws, end-to-end
+  resolve, scope gating, UTF-8 (moiré/piqué intact). Shipped + pushed.
 - **Halloween theme** — `custom_wildcards/halloween/`: outfits (75, classic +
   **named-franchise** costumes) · environments (26) · poses (30). ⚠️ Franchise
   costumes (Darth Vader, Spider-Man, Harry Potter, Ghostface…) are an **IP flag

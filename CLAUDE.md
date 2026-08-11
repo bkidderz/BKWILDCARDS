@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.8.8` (0.8.7 pushed; 0.8.8 = Eyes, shipped to install, **awaiting Brian's in-app test before push**)
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.0` (0.8.8 Eyes + 0.8.9 typo pushed; 0.9.0 = **Nettie Necket** steampunk theme, 7th theme)
 **Git:** 14 commits on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — currently **PRIVATE** (flip to public when ready; required before the Comfy Registry can serve it). `gh` CLI is installed and authed as `bkidderz`. `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path on owner's machine:**
 `C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
@@ -28,9 +28,12 @@ shorthands below are safe to use in conversation — they map to the shipped lab
 | `dresses` | **All the Dresses** | Dresses / Gowns |
 | `cassette_futurism` | **Cassette Futurism** | Cassette |
 | `autumnal_oxidation` | **Autumnal Oxidation** | Autumnal / Goth |
+| `steampunk` | **Nettie Necket** | Steampunk |
 | `lingerie` | **COZY SEXY LACY RACY Sleepwear** | Lingerie (adult) |
 
-Globals (not themes): `common` (Identity: ancestry, metatype), `female` (Physical: build, face, nose, lips — gender: Female), `hair` (color/type/style), `shots` (Camera: angle, framing).
+`steampunk` (Nettie Necket) is Victorian brass/clockwork — **distinct from `cassette_futurism`** (1970s–90s analog "used future"); the two share the retrofuturism umbrella but no content. Nettie Necket has no accent_palette (outfits/environments/poses only).
+
+Globals (not themes): `common` (Identity: ancestry, metatype), `female` (Physical: build, face, nose, lips — gender: Female), `hair` (color/type/style), `eyes` (Physical: eyes — Natural/Cybernetic/Magical/Heterochromia), `shots` (Camera: angle, framing).
 
 ## What it is NOT
 
@@ -170,7 +173,7 @@ One entry per line. Blank lines ignored. `#` lines are section headers (used onl
 
 ## Content inventory
 
-~44 categories across 6 themes + 4 global packs. Almost everything with usable `#`
+47 categories across 7 themes + 5 global packs. Almost everything with usable `#`
 headers is now **section-select**; the exceptions are noted.
 
 **Globals**
@@ -193,6 +196,7 @@ headers is now **section-select**; the exceptions are noted.
 | Cassette Futurism | Outfits (14 archetypes) |
 | Autumnal Oxidation | Outfits (12 goth substyles; granular pieces removed 0.7.12) |
 | All the Dresses | "Gowns & Dresses" (**toggle** — 530 flat, no headers) · Eastern Attire (section, garments) |
+| Nettie Necket | Outfits (23 archetypes — airship/aristocrat/occult/nautical/sultry). Scene: environments (Interiors/Exteriors) + poses (7 groups). **No accent_palette.** (0.9.0) |
 | COZY SEXY LACY RACY Sleepwear | Lingerie Sets (section, 12 — adult) |
 
 All content is Brian's original work, from his standalone wildcard releases (see Theme names). The TrashAI `totalChaosRandomizer` workflow was a **UX reference only** — none of its data is used. Content is also published on Civitai; which source is canonical is undecided.
