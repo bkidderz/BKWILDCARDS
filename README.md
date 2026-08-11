@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **3,779 hand-written entries** across **43 categories** and **6 themes** — outfits, environments, poses, ancestry, species, hair, physical features, camera framing and more, all written for natural-language prompting.
+Ships with **3,808 hand-written entries** across **44 categories** and **6 themes** — outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -49,7 +49,7 @@ Restart ComfyUI. **There are no dependencies to install** — the node uses only
 
 ### Verify it loaded
 
-Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.8.6`.
+Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.8.8`.
 
 ---
 
@@ -99,7 +99,7 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 |---|---|
 | **Theme** | Which theme's content is active |
 | **Identity** | Gender, Ancestry, Metatype / Species |
-| **Physical** | Build, Face, Nose, Lips (feminine and/or masculine) |
+| **Physical** | Build, Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Hair** | Hair Type, Hair Style, Hair Color |
 | **Wardrobe** | The active theme's outfits, tattoos, weapons |
 | **Scene** | Accent palette, environments, poses (plus spell casting/effects in Whimsical Woods) |
@@ -127,6 +127,7 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 |---|---|
 | **Common** | Ancestry (44, 16 sections) · Metatype / Species (53, 32 sections) |
 | **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
+| **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |
 | **Shots** | Shot Angle (20) · Shot Framing (50) |
 | **Female** *(when Female/Fluid)* | Feminine Build (61, 6 sections) · Face (26) · Nose (9) · Lips (11) |
 | **Male** *(when Male/Fluid)* | Masculine Build (43, 7 sections) · Face (26) · Nose (10) · Lips (10) |

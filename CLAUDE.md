@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.8.6` (committed and pushed)
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.8.8` (0.8.7 pushed; 0.8.8 = Eyes, shipped to install, **awaiting Brian's in-app test before push**)
 **Git:** 14 commits on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — currently **PRIVATE** (flip to public when ready; required before the Comfy Registry can serve it). `gh` CLI is installed and authed as `bkidderz`. `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path on owner's machine:**
 `C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
@@ -112,7 +112,7 @@ It is salted per process, so the same seed would give different picks in differe
 
 Do not conflate `order` and `display`. `display` is set so each `group`'s categories are **contiguous** on the node; the JS draws a header row at each group boundary.
 
-**On-node section order (v0.7.x):** Theme → Identity (gender, ancestry, metatype) → Physical (build, face, nose, lips) → Hair (type, style, color) → Wardrobe (theme outfits/tattoos/weapons) → Scene (palette, environment, poses, spell) → Camera (shot angle, framing) → Settings (separator, seed, control-after-generate) → output box. **Camera is a global but is pinned *after* the theme block** — `INPUT_TYPES` emits `POST_THEME_GROUPS = {"Camera"}` globals after all theme blocks. `theme`/`gender`/`separator`/`seed`/`label_output` get their section from `SPECIAL_GROUPS` in the JS (they carry no `group` in the layout).
+**On-node section order (v0.7.x):** Theme → Identity (gender, ancestry, metatype) → Physical (build, eyes, face, nose, lips) → Hair (type, style, color) → Wardrobe (theme outfits/tattoos/weapons) → Scene (palette, environment, poses, spell) → Camera (shot angle, framing) → Settings (separator, seed, control-after-generate) → output box. **Camera is a global but is pinned *after* the theme block** — `INPUT_TYPES` emits `POST_THEME_GROUPS = {"Camera"}` globals after all theme blocks. `theme`/`gender`/`separator`/`seed`/`label_output` get their section from `SPECIAL_GROUPS` in the JS (they carry no `group` in the layout).
 
 **Prompt order (`order`):** ancestry 10 → build 15 → face/nose/lips 22/24/26 → hair 27–29 → metatype 20 → tattoos 30 → outfit 40 → weapons 50 → palette 60 → environment 70 → pose 80 → spell 82/85 → shots 90/92.
 
@@ -181,6 +181,7 @@ headers is now **section-select**; the exceptions are noted.
 | female (Physical, gender: Female) | Build (section, 6 — incl. Brian's LITHE) · Face · Nose · Lips (toggles, flat lists) |
 | male (Physical, gender: Male) | Build (section, 7 — incl. Muscular) · Face · Nose · Lips (toggles) — authored 0.8.1 to mirror female (frame/chest/shoulders, not breasts). Claude-authored; review the prose. |
 | hair (Hair) | Color (section: Natural/Vivid/Multi-Tone) · Type (Straight/Wavy/Curly/Coily) · Style (Short/Medium/Long/…) |
+| eyes (Physical) | Eyes (section, 29 — Natural/Cybernetic/Magical/Heterochromia). Global like hair: exotic eyes are drawable under any theme by design. `order 20/display 21` → sits after Build, before Face. Sourced from `bk_cyberpunk_eyes`+`bk_fantasy_eyes` (0.8.8). |
 | shots (Camera) | Shot Angle (section, 20 — direct pick) · Shot Framing (section, 50 — direct pick) |
 
 **Themes** (each with a Scene block: accent_palette / environments / poses, all section-select with cleaned labels)

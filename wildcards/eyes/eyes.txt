@@ -1,0 +1,43 @@
+# ============================================================
+# EYES — global. Natural colors plus theme-flavored exotics, so any
+# theme can draw any eye type (composes freely like hair/ancestry).
+# Sourced from bk_cyberpunk_eyes + bk_fantasy_eyes; deduped, sectioned.
+# One eye description per line. NO skin/hair/face wording — eyes only.
+# ============================================================
+
+# Natural
+natural brown eyes, detailed eyes
+natural hazel eyes, detailed eyes
+natural grey eyes, detailed eyes
+natural green eyes, detailed eyes
+natural blue eyes, detailed eyes
+dark black eyes, detailed eyes
+pale light gray eyes, detailed eyes
+amber eyes, detailed eyes
+cat eyes, slitted eyes, detailed eyes
+
+# Cybernetic
+cybernetic purple eyes, detailed eyes
+cybernetic green eyes, hexcode eyes, green low-luminescent ring irises, detailed eyes
+cybernetic yellow eyes, barcode eyes, faint blue circuit-pattern irises, detailed eyes
+cybernetic blue eyes, x shaped pupils, minimalist HUD-reflection eyes, detailed eyes
+cybernetic red eyes, heart pupils, detailed eyes
+glass-like synthetic eyes, detailed eyes
+cybernetic eyes, dual-tone artificial irises, detailed eyes
+human-like eyes with faint data overlays, detailed eyes
+
+# Magical
+magical purple eyes, detailed eyes
+magical green eyes, glowing eyes, detailed eyes
+magical yellow eyes, glowing eyes, detailed eyes
+magical blue eyes, glowing eyes, detailed eyes
+magical red eyes, glowing eyes, detailed eyes
+subtle magical eyes, purple iris glow, detailed eyes
+glowing green low-luminescent ring irises, detailed eyes
+glowing and faint blue star-pattern irises, detailed eyes
+
+# Heterochromia
+heterocromia eyes, one blue and one green, detailed eyes
+heterocromia eyes, one hazel and one grey, detailed eyes
+heterocromia eyes, one cybernetic eye and one natural eye, purple iris glow, detailed eyes
+heterocromia eyes, one magical eye and one natural eye, purple iris glow, detailed eyes

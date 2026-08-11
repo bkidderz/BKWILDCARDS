@@ -1,0 +1,18 @@
+{
+  "pack": "eyes",
+  "label": "Eyes",
+  "global": true,
+  "entries": [
+    {
+      "file": "eyes.txt",
+      "id": "eye",
+      "label": "Eyes",
+      "order": 20,
+      "display": 21,
+      "select": "section",
+      "default": false,
+      "group": "Physical",
+      "prompt_label": "eyes"
+    }
+  ]
+}

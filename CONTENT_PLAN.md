@@ -61,10 +61,17 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 
 **PRIORITY ORDER (per Brian, 2026-08-09):**
 
-1. **Eyes** — top priority. Still no source file (colours live only inside
-   `bk_characters.txt` prose). Needs either Brian's file or his approval for a
-   Claude-drafted starter list (colour + natural/unnatural sections; would slot
-   into the Physical group and compose like hair does).
+1. ~~**Eyes**~~ — ✅ **DONE (0.8.8).** Source files existed after all
+   (`bk_cyberpunk_eyes.txt` + `bk_fantasy_eyes.txt`, found 2026-08-10 in the
+   updated source pull). Built as a **global** pack `wildcards/eyes/` (one Eyes
+   dropdown, section-select off/random/header, Physical group, order 20 →
+   after Build/before Face), per Brian's decision to mirror hair. 29 lines, 4
+   sections: Natural / Cybernetic / Magical / Heterochromia. Validated
+   headlessly (discovery, sections, seeded draws, end-to-end resolve across
+   themes incl. a theme with no eyes file). Shipped to install; **awaiting
+   Brian's in-app test before git push.**
+   - Minor: source lines spell "heterocromia" (missing h). Preserved verbatim;
+     one-line fix available on request (4 lines).
 2. ~~**README.md for GitHub**~~ — ✅ **DONE.** Rewritten from the stale v0.6.0
    version against verified current state (43 categories, 3,779 entries, 6
    themes). Has Install (git + ZIP + `custom_nodes` paths + verify), How to Use
@@ -107,6 +114,19 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
      license files go in via our commit. (From Brian's `SNIPPETS.md`.)
    - `SNIPPETS.md` is a scratch/handoff note, not part of the product — decide
      whether to delete it or keep it out of the published repo.
+
+**New source material pulled 2026-08-10 (parked, ready when Brian wants them):**
+- **Steam Punk theme** — `custom_wildcards/Steam Punk/`: outfits (235, 23
+  archetypes) · environments (41) · poses (30). Fully structured, zero inline
+  braces, matches the theme pattern — drop-in ready. No IP concerns.
+- **Halloween theme** — `custom_wildcards/halloween/`: outfits (75, classic +
+  **named-franchise** costumes) · environments (26) · poses (30). ⚠️ Franchise
+  costumes (Darth Vader, Spider-Man, Harry Potter, Ghostface…) are an **IP flag
+  for any public/Registry release** — fine while private.
+- **`krea2-bk_hair.txt` (Aug 5)** — newer hair authoring, but every line leads
+  with an inline `{color|…}` brace array. **Unusable as-is** — the node emits
+  braces literally. Bundled hair is already the mechanically-split version, so
+  this is a no-op unless Brian wants it split the same way.
 
 **Content decisions (blocking new content):**
 - **Cyberpunk outfits / structure** — current pack uses monolithic **270**.
