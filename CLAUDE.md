@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.6` (0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry.** _0.9.3–0.9.6 are on the live install for testing but uncommitted._
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.7` (0.9.7 = Anime + Anime Photo Realism art-style prompts rewritten from booru tags to natural-language KREA2 prose; 0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry** (tag `v0.9.7`).
 **Git:** committed on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — **public**. The Comfy Registry **auto-publishes** on every push to `main` that changes `pyproject.toml` (see `.github/workflows/publish.yml`). `gh` CLI is required for pushes/releases and must be installed + authed as `bkidderz` on each machine (current machine: v2.97.0, authed, scopes `repo`/`workflow`/`gist`/`read:org`). `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path (current machine, 2026-08-12):**
 `C:\Users\Owner\Documents\ComfyUI\custom_nodes\bkwildcards` — a **Portable/manual ComfyUI** under `Documents` (the running copy, pulled from the repo; the dev loop copies changed files here). Paths differ per machine; see `instructions.md` in the workspace root.
@@ -324,7 +324,6 @@ Done in 0.7.x–0.9.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `grou
 |---|---|
 | **Cyberpunk outfit structure** | Uses monolithic 270. Available: 183, 530, and a granular decomposition (`_ghost.runner 1.a`). Owner's call whether to keep/expand/granularise. |
 | **"Gowns & Dresses" flat list** | 530 lines, no headers → stays a toggle. To section-select it, headers would need adding (by silhouette/fabric). |
-| **Character presets** | `bk_characters.txt` — 12 whole-subject presets. A different feature shape (not a per-attribute category). Build or ignore? |
 | Art Style | ✅ **Built (0.9.3).** Global `common/artstyles.txt`, section-select, 2nd under the Theme header, leads the prompt (`order 1`). 9 styles incl. creator styles **BKSTYLE** / **GLADAS STYLE**. |
 | Vampire variants 1 and 3 | Near-identical merge residue (`visible subtle fangs` vs `visible fangs`). One is redundant. |
 | License | ✅ Dual: MIT for code, CC BY-SA 4.0 for `wildcards/`. `pyproject.toml` points at `LICENSE`. |

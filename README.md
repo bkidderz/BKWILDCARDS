@@ -40,7 +40,7 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.6`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.7`), so you can confirm the update took.
 
 ### Manual install (git)
 
@@ -67,7 +67,7 @@ Restart ComfyUI. **There are no dependencies to install** — the node uses only
 
 ### Verify it loaded
 
-Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.6`.
+Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.7`.
 
 ---
 

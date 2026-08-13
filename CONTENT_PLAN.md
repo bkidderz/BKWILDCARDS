@@ -3,8 +3,8 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-12 — build `0.9.6`, shipped to the live install, public on
-GitHub, and live on the Comfy Registry.** Node is **48 categories / 7 themes / 6
+**Status: 2026-08-12 — build `0.9.7`, shipped to the live install, public on
+GitHub, live on the Comfy Registry, tagged `v0.9.7`.** Node is **48 categories / 7 themes / 6
 global packs** (from 13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie
 Necket** steampunk theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS —
 **public**; the Comfy Registry auto-publishes on every version bump touching
@@ -136,7 +136,8 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
   Registry**, so those franchise lines must be stripped/renamed BEFORE this theme
   is built and shipped — the "fine while private" grace period is over. (Not yet
   exposed: the Halloween source dir is not in the repo; only the shipped
-  `wildcards/` is published.)
+  `wildcards/` is published.) **Status: not fully tested, not ready for release**
+  (owner, 0.9.7) — franchise lines must be stripped/renamed first.
 - **`krea2-bk_hair.txt` (Aug 5)** — newer hair authoring, but every line leads
   with an inline `{color|…}` brace array. **Unusable as-is** — the node emits
   braces literally. Bundled hair is already the mechanically-split version, so
@@ -199,11 +200,12 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
   Available: 183, 530, and a full granular decomposition (`_ghost.runner 1.a`:
   tops/bottoms/footwear/headgear/outerwear/accessories). Keep 270, bump to 530,
   or adopt the granular model (as done for goth)? This is your primary theme.
-- **Character presets (`bk_characters.txt`)** — 12 complete character
-  descriptions; a whole-subject preset, not a per-attribute category. Build a
-  "Character Preset" picker, or leave it?
-- **Extra global candidates** — `bk_gaze.txt` (23 gaze/expression lines) and
-  `bk_heritage.txt` (24) are plausible always-on categories. Include either?
+- ~~**Character presets**~~ — **Dropped (owner, 0.9.7):** some are Brian's own
+  personal characters and are not for public release. Prompt them manually or use
+  existing wildcard options instead.
+- **Extra global candidate** — `bk_gaze.txt` (23 gaze/expression lines) is a
+  plausible always-on category. Include it? (`bk_heritage.txt` **dropped** — too
+  similar to Ancestry, which is already built.)
 - **Unused pose sources** — `bk_poses_action` (25) and `bk_poses_suggestive`
   (62) aren't wired anywhere yet. Want them in fantasy/global poses?
 - **"Gowns & Dresses" flat list** — 530 lines, no headers, so it stays a toggle.
@@ -294,9 +296,9 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 | `bk_poses_casting` / `bk_poses_spell_effects` | 15 / 15 | ✅ → Dark Fantasy Spell Casting / Effects |
 | `whimsicalWoods_v1B` | fantasy set | ✅ Env/Poses now authored (were missing) |
 | `bk_gaze.txt` | 23 gaze lines | ⏳ Candidate global — §2 |
-| `bk_heritage.txt` | 24 (8 sections) | ⏳ Candidate global — §2 |
+| `bk_heritage.txt` | 24 (8 sections) | ✋ Dropped — overlaps Ancestry (built) |
 | `bk_poses_action` / `bk_poses_suggestive` | 25 / 62 | ⏳ Unwired — §2 |
-| `bk_characters.txt` | 12 character presets | ⏳ Feature? — §2 |
+| `bk_characters.txt` | 12 character presets | ✋ Dropped — owner's personal characters, not for public release |
 | `_ghost.runner 1.a` | cyberpunk granular (13 files) | ⏳ Cyberpunk restructure — §2 |
 | `bk_cyberpunk_outfits_183/530` | outfit supersets | ⏳ Cyberpunk decision — §2 |
 | `krea2-bk_female_builds(_small)` | build variants | ✅ Resolved (61 + LITHE) |
@@ -358,3 +360,4 @@ Earlier (committed 0.6.5): resolved-text live-update fix + `setResolved` cleanup
 - **0.9.4** label polish — `BKSTYLE` kept verbatim (`library._VERBATIM_LABELS`, no regression to the other 242 all-caps labels), `ANIME Photorealism` → `Anime Photo Realism`, **theme dropdown alphabetized** (`_THEMES` sorted), `Theme` selector Title-Cased (JS `FIXED_LABELS`)
 - **0.9.5** dropped the `◆`/`·` category-label prefixes (JS `relabel()`)
 - **0.9.6** `Gender` selector Title-Cased. Standing label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**
+- **0.9.7** **Anime** + **Anime Photo Realism** art-style prompts rewritten from Danbooru-tag strings to natural-language KREA2 prose (matching the other Art Style entries; the tag-based versions weren't producing anime). Content-only, no widget shift. Also dropped from the plan: **Character presets** (owner's personal characters) and **`bk_heritage`** (overlaps built Ancestry); **Halloween** flagged not-ready.
