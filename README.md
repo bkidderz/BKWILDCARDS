@@ -15,9 +15,7 @@ Ships with **4,799 hand-written entries** across **48 categories** and **7 theme
 - [The node at a glance](#the-node-at-a-glance)
 - [Themes and content](#themes-and-content)
 - [Features](#features)
-- [Adding your own wildcards](#adding-your-own-wildcards)
 - [How scoping works](#how-scoping-works)
-- [Known limits](#known-limits)
 - [License](#license)
 
 ---
@@ -182,54 +180,6 @@ Flip **`mayhem`** on in Settings for one-click chaos: the node ignores every sel
 
 The output box updates **at queue time**, before generation starts, so you can see exactly what the run will use. The previewed text is guaranteed identical to what the image is generated from.
 
-### Bald
-
-Choosing (or randomly drawing) a **Bald** hair type automatically suppresses hair colour and style — no "blonde bald head".
-
----
-
-## Adding your own wildcards
-
-Drop a `.txt` file into any pack directory under `wildcards/`. One entry per line. Blank lines are ignored; `#` lines are section headers.
-
-```
-# Sidearms
-a compact polymer-framed pistol holstered at the hip
-a heavy revolver worn in a shoulder rig
-
-# Long Guns
-a bullpup carbine slung across the chest
-```
-
-A new file becomes a new category automatically. Optionally declare it in that pack's `_pack.json` to control its label, prompt position and behaviour:
-
-```json
-{
-  "file": "cyberdecks.txt",
-  "id": "cyberdeck",
-  "label": "Cyberdecks",
-  "order": 45,
-  "group": "Wardrobe",
-  "prompt_label": "gear",
-  "select": "section",
-  "default": false
-}
-```
-
-| Field | Meaning |
-|---|---|
-| `order` | Position **in the emitted prompt** |
-| `display` | Position **on the node** (defaults to `order`) |
-| `group` | Which on-node section it appears under |
-| `prompt_label` | The tag used in labeled output (`gear: …`) |
-| `select` | `"section"` for an off/random/section dropdown; omit for a plain on/off toggle |
-| `default` | Whether it starts enabled |
-
-> [!NOTE]
-> Node inputs are built when ComfyUI loads the module. After adding a file, **restart ComfyUI** (or use *Refresh Node Definitions*) for the new category to appear.
-
-Section headers are cleaned before becoming dropdown options: leading dashes stripped, a trailing parenthetical cut, then title-cased. Anything still over 40 characters, plus `# ====` rule lines, is treated as prose and ignored — so an explanatory header block at the top of your file won't become a bogus section. If a file declared `"select": "section"` has no usable headers, it falls back to an on/off toggle.
-
 ---
 
 ## How scoping works
@@ -248,18 +198,6 @@ The two compose: the `female` pack is global *and* gender-scoped, so its categor
 **Scope gating is enforced in Python.** A category belonging to an inactive theme cannot contribute to the output, whatever its widget says. The browser extension only *hides* those widgets — if it fails to load, the node shows everything and still produces correct output.
 
 Selections are remembered per scope: switching theme and back leaves your previous choices intact.
-
----
-
-## Known limits
-
-- **One theme at a time.** No manual cross-theme blending yet (Mayhem mode does it randomly).
-- **Widget hiding uses a community pattern, not a supported API** — [Comfy-Org/ComfyUI#12244](https://github.com/Comfy-Org/ComfyUI/issues/12244) requests an official one and is unanswered. A frontend update could break the hiding; it cannot break the output.
-- **One line per active category per run.** No multi-draw.
-- **Inline `{a|b|c}` syntax is not supported** — braces are emitted literally. Split alternatives into separate files or sections instead.
-- **Adding wildcard files requires a ComfyUI refresh** to surface new categories.
-- **PNG embedding relies on your image saver writing `extra_pnginfo`.** Core `SaveImage` does; third-party savers may not.
-- **Input order is positional** in a saved workflow's `widgets_values`. Adding or moving an input shifts every value after it, so ordering is frozen at 1.0.
 
 ---
 
