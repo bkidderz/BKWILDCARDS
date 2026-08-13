@@ -1,0 +1,30 @@
+# ============================================================
+# ART STYLES - KREA2 (natural-language prose)
+# ============================================================
+
+# BKSTYLE
+A varied polychromatic palette digital rendering with distinct and contrasting colors across the entire composition, no single dominant color. Modern photorealism blending high-precision digital illustration Asian–influenced anime aesthetic cel-shaded style with clean linework from understated Western comic designs, all fused with cinematic and hyperreal details. Dark and dramatic low-key lighting with deep, true black shadows and rich chiaroscuro: a soft, diffused incandescent key light carves the form out of shadow, edged by a extremly subtle rim-light halo, for an ethereal, refined, mysterious and seductive atmosphere influenced by sultry, intimate, boudoir-like glow. Finely detailed skin and material textures, glossy highlights, a wide-aperture shallow depth of field with soft bokeh. 
+
+# GLADAS STYLE
+A high-resolution mixed-media illustration of an adult character. The character has a clearly traditional 2D anime face with simplified anime facial structure, a simple anime style nose, delicate minimal mouth detail, and expressive anime eyes. The face remains clean, stylized, and distinctly anime, while the hair, skin, body, clothing, and environment are rendered with realistic texture and material detail. The face is more anime style rendered. The hair appears soft, layered, and naturally detailed, with visible strand definition, realistic volume, and subtle light catching along individual sections. The skin is smooth but realistically rendered, with gentle shading, natural tonal variation, soft subsurface depth, and a matte finish rather than a wet or glossy look. The body is rendered with believable form, natural proportions, soft anatomical definition, and realistic surface shading while preserving the illustrated aesthetic. The material shows visible knit, weave, ribbing, seam definition, layered thickness, and natural surface variation. Folds, creases, stretch, compression, and drape behave realistically based on the pose. The clothing has subtle shadow depth within the folds and believable highlights that follow the texture of the material instead of looking flat or plastic. The garments feel tangible, dimensional, and physically present. The scene uses cinematic lighting with controlled contrast, soft shadow gradation, natural highlight placement, and atmospheric depth. Light interacts realistically with the character, clothing, and surroundings, enhancing material definition and form. The environment is richly detailed and visually grounded, with realistic textures, depth, and natural light behavior while still fitting the illustrated style. The overall image feels polished, immersive, and visually rich, combining a traditional anime face with realistic rendering everywhere else.
+
+# ANIME
+[masterpiece, anime source, best quality, amazing quality, 4k, very aesthetic, high resolution, ultra-detailed, absurdres, newest,] 
+
+# Anime Photo Realism
+[photographic, photorealism, realistic], [masterpiece, anime source, best quality, amazing quality, 4k, very aesthetic, high resolution, ultra-detailed, absurdres, newest], 
+
+# PAINTERLY
+A dreamy anime style clean line and ink wash illustration. Serene magical atmosphere, crisp details, lush details and accurate textures, cinematic wide shot, painterly texture, gentle mood, award winning masterpiece, delicate ink drawing aesthetic. 
+
+# PIXEL ART 16-BIT
+16-bit SNES-era pixel art sprite, built from large visible square pixels on a strict grid, hard aliased edges, flat solid-color blocks, a limited 16-color palette, bold dark outlines, ordered dithering for shading, low-resolution and blocky, no anti-aliasing, no smooth gradients, no blur, no photorealism, 1990s retro pixel art
+
+# SURREAL
+A surreal, dreamlike illustration governed by dream-logic: impossible juxtapositions, melting and morphing forms, floating objects, and shifting, uncanny scale, all rendered with meticulous and believable detail. Symbolic, otherworldly imagery in the surrealist tradition, soft atmospheric depth, strange ambient light, and a hazy oneiric mood that blurs the boundary between the real and the imagined.
+
+# SEMI-REALISM
+A semi-realistic illustration poised between anime stylization and photorealism. Proportions and anatomy stay naturalistic and believable, with richly detailed skin, hair, and fabric and soft cinematic lighting, while the face keeps a lightly stylized, idealized quality. Realistic material texture and a gentle painterly finish, grounded and lifelike without fully surrendering the illustrated look.
+
+# WESTERN COMICS
+A bold late-1980s-to-1990s American comic book style in the vein of early Image Comics: dynamic, exaggerated anatomy with heavy musculature and dramatic foreshortening, thick confident ink outlines, dense cross-hatching and feathered shadows, aggressive action posing, and sharp angular rendering. Flat, punchy print-comic color with hard cel shading, high-energy and over-the-top, unmistakably drawn-and-inked.

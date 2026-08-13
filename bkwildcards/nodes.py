@@ -9,7 +9,7 @@ from . import library
 # "Refresh Node Definitions" before its toggle appears.
 _PACKS = library.scan_packs()
 _CATEGORIES = library.scan()
-_THEMES = library.themes(_PACKS)
+_THEMES = sorted(library.themes(_PACKS), key=str.lower)  # alphabetical dropdown
 _THEME_TO_PACK = library.theme_to_pack(_PACKS)
 _GENDERS = library.genders(_PACKS)
 
@@ -60,6 +60,11 @@ GENDER_FLUID = "Fluid"               # no gender gate — both genders' categori
 _GENDER_TEXT = {"Female": "a woman", "Male": "a man"}
 _GENDER_FLUID_TEXT = "an androgynous person"
 _GENDER_ORDER = 5
+
+# The Art Style category leads both the node (second, under the Theme header)
+# and the prompt output. Its key is fixed by pack+id (common + art_style); its
+# low `order` in _pack.json puts its text first, ahead of the gender word.
+ART_STYLE_KEY = "common_art_style"
 
 
 def _in_scope(cat, active_pack, active_gender):
@@ -232,6 +237,39 @@ class BKWildcardSelector:
     def INPUT_TYPES(cls):
         required = {}
 
+        # Emit one category's widget (section dropdown or boolean toggle) into
+        # `required`. A closure so the Art Style category can be placed at the
+        # top (before gender) while every other category flows through the loop.
+        def emit(cat):
+            scope_bits = []
+            if cat["gender"]:
+                scope_bits.append(cat["gender"])
+            scope_bits.append("always on" if cat["is_global"] else cat["pack_label"])
+            scope = " / ".join(scope_bits)
+            if cat["select"] == library.SELECT_SECTION:
+                options = library.section_options(cat)
+                required[cat["key"]] = (
+                    options,
+                    {
+                        "default": options[0],
+                        "tooltip": "{} — {}. Pick a section, or random to draw from all {} entries.".format(
+                            scope, cat["label"], cat["count"]
+                        ),
+                    },
+                )
+            else:
+                required[cat["key"]] = (
+                    "BOOLEAN",
+                    {
+                        "default": cat["default"],
+                        "label_on": "yes",
+                        "label_off": "no",
+                        "tooltip": "{} — {} ({} entries)".format(
+                            scope, cat["label"], cat["count"]
+                        ),
+                    },
+                )
+
         # --- scope selectors, top of the node ---
         # Theme is its own UI section; gender leads the Identity section. The JS
         # assigns their section headers (theme -> "Theme", gender -> "Identity").
@@ -243,6 +281,16 @@ class BKWildcardSelector:
                     "tooltip": "Only this theme's categories contribute. Others are ignored.",
                 },
             )
+
+        # Art Style: second option under the Theme header (emitted here, right
+        # after the theme selector and before gender) and first in the output
+        # (its low `order` in _pack.json leads the prompt text).
+        art_style_cat = next(
+            (c for c in _CATEGORIES if c["key"] == ART_STYLE_KEY), None
+        )
+        if art_style_cat:
+            emit(art_style_cat)
+
         if _GENDERS:
             required["gender"] = (
                 [GENDER_OFF, GENDER_RANDOM] + _GENDERS + [GENDER_FLUID],
@@ -267,7 +315,7 @@ class BKWildcardSelector:
         # The Camera section is pinned BELOW the theme's Scene, so its globals
         # are emitted after all theme blocks.
         POST_THEME_GROUPS = {"Camera"}
-        globals_all = [c for c in _CATEGORIES if c["is_global"]]
+        globals_all = [c for c in _CATEGORIES if c["is_global"] and c["key"] != ART_STYLE_KEY]
         pre_globals = by_display(
             [c for c in globals_all if c.get("group") not in POST_THEME_GROUPS]
         )
@@ -282,35 +330,7 @@ class BKWildcardSelector:
         ordered += post_globals
 
         for cat in ordered:
-            scope_bits = []
-            if cat["gender"]:
-                scope_bits.append(cat["gender"])
-            scope_bits.append("always on" if cat["is_global"] else cat["pack_label"])
-            scope = " / ".join(scope_bits)
-
-            if cat["select"] == library.SELECT_SECTION:
-                options = library.section_options(cat)
-                required[cat["key"]] = (
-                    options,
-                    {
-                        "default": options[0],
-                        "tooltip": "{} — {}. Pick a section, or random to draw from all {} entries.".format(
-                            scope, cat["label"], cat["count"]
-                        ),
-                    },
-                )
-            else:
-                required[cat["key"]] = (
-                    "BOOLEAN",
-                    {
-                        "default": cat["default"],
-                        "label_on": "yes",
-                        "label_off": "no",
-                        "tooltip": "{} — {} ({} entries)".format(
-                            scope, cat["label"], cat["count"]
-                        ),
-                    },
-                )
+            emit(cat)
 
         # --- run controls, below the selectors ---
         required["separator"] = (

@@ -8,12 +8,12 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.2` (0.9.1 _ghost.runner environments 24→360; 0.9.2 = Whimsical Woods environments 20→360, same two-level format). Both cyberpunk + fantasy now 20 subheader sections. **PUBLIC on GitHub + live on Comfy Registry.**
-**Git:** 14 commits on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — currently **PRIVATE** (flip to public when ready; required before the Comfy Registry can serve it). `gh` CLI is installed and authed as `bkidderz`. `SNIPPETS.md` is gitignored (local handoff note, not product).
-**Install path on owner's machine:**
-`C:\Users\brian\AppData\Local\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes\BKWILDCARDS`
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.6` (0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry.** _0.9.3–0.9.6 are on the live install for testing but uncommitted._
+**Git:** committed on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — **public**. The Comfy Registry **auto-publishes** on every push to `main` that changes `pyproject.toml` (see `.github/workflows/publish.yml`). `gh` CLI is required for pushes/releases and must be installed + authed as `bkidderz` on each machine (current machine: v2.97.0, authed, scopes `repo`/`workflow`/`gist`/`read:org`). `SNIPPETS.md` is gitignored (local handoff note, not product).
+**Install path (current machine, 2026-08-12):**
+`C:\Users\Owner\Documents\ComfyUI\custom_nodes\bkwildcards` — a **Portable/manual ComfyUI** under `Documents` (the running copy, pulled from the repo; the dev loop copies changed files here). Paths differ per machine; see `instructions.md` in the workspace root.
 
-The owner runs **ComfyUI Desktop (Electron)**. This matters — see the caching note under Open Bug.
+The earlier machine ran **ComfyUI Desktop (Electron)** under `%LOCALAPPDATA%\Comfy-Desktop\…`. Either way the dev-loop caching note in §Critical gotchas applies — restart ComfyUI to reload both Python and the cached JS.
 
 ## Theme names
 
@@ -33,7 +33,7 @@ shorthands below are safe to use in conversation — they map to the shipped lab
 
 `steampunk` (Nettie Necket) is Victorian brass/clockwork — **distinct from `cassette_futurism`** (1970s–90s analog "used future"); the two share the retrofuturism umbrella but no content. Nettie Necket has no accent_palette (outfits/environments/poses only).
 
-Globals (not themes): `common` (Identity: ancestry, metatype), `female` (Physical: build, face, nose, lips — gender: Female), `hair` (color/type/style), `eyes` (Physical: eyes — Natural/Cybernetic/Magical/Heterochromia), `shots` (Camera: angle, framing).
+Globals (not themes): `common` (Identity: ancestry, metatype; **Art Style**, rendered in the Theme section and leading the prompt), `female` (Physical: build, face, nose, lips — gender: Female), `hair` (color/type/style), `eyes` (Physical: eyes — Natural/Cybernetic/Magical/Heterochromia), `shots` (Camera: angle, framing).
 
 ## What it is NOT
 
@@ -50,7 +50,7 @@ BKWILDCARDS/
 ├── pyproject.toml              version, Registry metadata (license + PublisherId still TODO)
 ├── README.md                   user-facing
 ├── CLAUDE.md                   this file
-├── .github/workflows/publish.yml   inert until Registry setup
+├── .github/workflows/publish.yml   auto-publishes to the Comfy Registry on push to main touching pyproject.toml
 ├── bkwildcards/
 │   ├── __init__.py             re-exports; wraps routes import in try/except
 │   ├── library.py              pack/category scanning, section parsing, seeding, draw()
@@ -58,10 +58,11 @@ BKWILDCARDS/
 │   └── routes.py               GET /bkwildcards/layout · POST /bkwildcards/populate (cosmetic)
 ├── web/bkwildcards.js          scope hiding, section headers, queue-preview, connection colour, node title
 └── wildcards/
-    ├── common/     ancestry · metatypes                    (global — Identity)
+    ├── common/     ancestry · metatypes · artstyles       (global — Identity; Art Style pinned to Theme)
     ├── female/     builds · face · nose · lips             (global, gender: Female — Physical)
     ├── male/       builds · face · nose · lips             (global, gender: Male — Physical, authored 0.8.1)
     ├── hair/       color · type · style                    (global — Hair)
+    ├── eyes/       eyes (Natural/Cybernetic/Magical/Heterochromia) (global — Physical, 0.8.8)
     ├── shots/      angle · framing                         (global — Camera)
     ├── cyberpunk/  tattoos outfits weapons accent_palette environments poses
     ├── fantasy/    tattoos outfits weapons accent_palette environments poses spell_casting spell_effects
@@ -115,9 +116,9 @@ It is salted per process, so the same seed would give different picks in differe
 
 Do not conflate `order` and `display`. `display` is set so each `group`'s categories are **contiguous** on the node; the JS draws a header row at each group boundary.
 
-**On-node section order (v0.7.x):** Theme → Identity (gender, ancestry, metatype) → Physical (build, eyes, face, nose, lips) → Hair (type, style, color) → Wardrobe (theme outfits/tattoos/weapons) → Scene (palette, environment, poses, spell) → Camera (shot angle, framing) → Settings (separator, seed, control-after-generate) → output box. **Camera is a global but is pinned *after* the theme block** — `INPUT_TYPES` emits `POST_THEME_GROUPS = {"Camera"}` globals after all theme blocks. `theme`/`gender`/`separator`/`seed`/`label_output` get their section from `SPECIAL_GROUPS` in the JS (they carry no `group` in the layout).
+**On-node section order:** Theme (theme, **art style**) → Identity (gender, ancestry, metatype) → Physical (build, eyes, face, nose, lips) → Hair (type, style, color) → Wardrobe (theme outfits/tattoos/weapons) → Scene (palette, environment, poses, spell) → Camera (shot angle, framing) → Settings (separator, seed, control-after-generate) → output box. **Art Style is a `common`-pack category pinned into the Theme section** (`group: "Theme"`) and emitted right after `theme` in `INPUT_TYPES`, *before* gender, so it renders 2nd under the Theme header (0.9.3). **Camera is a global but is pinned *after* the theme block** — `INPUT_TYPES` emits `POST_THEME_GROUPS = {"Camera"}` globals after all theme blocks. `theme`/`gender`/`separator`/`seed`/`label_output` get their section from `SPECIAL_GROUPS` in the JS. The JS `relabel()` prettifies fixed-widget labels via `FIXED_LABELS` (theme→`Theme`, gender→`Gender`) and no longer prefixes category labels with `◆`/`·` (0.9.4–0.9.6). Label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**
 
-**Prompt order (`order`):** ancestry 10 → build 15 → face/nose/lips 22/24/26 → hair 27–29 → metatype 20 → tattoos 30 → outfit 40 → weapons 50 → palette 60 → environment 70 → pose 80 → spell 82/85 → shots 90/92.
+**Prompt order (`order`):** art style 1 (leads, ahead of the gender word at 5) → ancestry 10 → build 15 → face/nose/lips 22/24/26 → hair 27–29 → metatype 20 → tattoos 30 → outfit 40 → weapons 50 → palette 60 → environment 70 → pose 80 → spell 82/85 → shots 90/92.
 
 ---
 
@@ -163,7 +164,7 @@ Entry level:
 
 ### Section header parsing
 
-`library.clean_section_name()` strips leading `#` and dashes, cuts at the first `(` or `[`, trims, and title-cases. **Cleaning happens before the 40-character length test** — deliberately. A raw header like `# -- orks, trolls, dwarves (Shadowrun-style — come in every ancestry, skin unchanged)` is 80+ chars and would fail a raw length test, but cleans to `Orks, Trolls, Dwarves`. Lines starting `=` and all-punctuation rules are rejected as prose. Duplicate labels get a numeric suffix.
+`library.clean_section_name()` strips leading `#` and dashes, cuts at the first `(` or `[`, trims, and title-cases. **Cleaning happens before the 40-character length test** — deliberately. A raw header like `# -- orks, trolls, dwarves (Shadowrun-style — come in every ancestry, skin unchanged)` is 80+ chars and would fail a raw length test, but cleans to `Orks, Trolls, Dwarves`. Lines starting `=` and all-punctuation rules are rejected as prose. Duplicate labels get a numeric suffix. **Exception:** labels in `library._VERBATIM_LABELS` (e.g. `BKSTYLE`) skip title-casing so a creator's all-caps branding is preserved; because `clean_section_name` is the single source for both the dropdown option and the draw-match, the verbatim label stays consistent end-to-end (0.9.4).
 
 ### Wildcard file format
 
@@ -173,14 +174,14 @@ One entry per line. Blank lines ignored. `#` lines are section headers (used onl
 
 ## Content inventory
 
-47 categories across 7 themes + 5 global packs. Almost everything with usable `#`
+48 categories across 7 themes + 6 global packs. Almost everything with usable `#`
 headers is now **section-select**; the exceptions are noted.
 
 **Globals**
 
 | Pack | Categories (selector) |
 |---|---|
-| common (Identity) | Ancestry (section, 16) · Metatype/Species (section, 32) |
+| common (Identity + Art Style) | Ancestry (section, 16) · Metatype/Species (section, 32) · **Art Style** (section, 9 — off/random + BKSTYLE, GLADAS STYLE, Anime, Anime Photo Realism, Painterly, Pixel Art 16-Bit, Surreal, Semi-Realism, Western Comics; `group: Theme` → 2nd under the Theme header, `order 1` → leads the prompt; 0.9.3) |
 | female (Physical, gender: Female) | Build (section, 6 — incl. Brian's LITHE) · Face · Nose · Lips (toggles, flat lists) |
 | male (Physical, gender: Male) | Build (section, 7 — incl. Muscular) · Face · Nose · Lips (toggles) — authored 0.8.1 to mirror female (frame/chest/shoulders, not breasts). Claude-authored; review the prose. |
 | hair (Hair) | Color (section: Natural/Vivid/Multi-Tone) · Type (Straight/Wavy/Curly/Coily) · Style (Short/Medium/Long/…) |
@@ -317,18 +318,17 @@ These exist because they were violated.
 
 ## Open items
 
-Done in 0.7.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `group`/grouped-panels, physical attributes (face/nose/lips), Dark Fantasy env/poses. Still open:
+Done in 0.7.x–0.9.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `group`/grouped-panels, physical attributes (face/nose/lips), Dark Fantasy env/poses, **eyes (0.8.8)**, **Nettie Necket steampunk theme (0.9.0)**, **environment expansions to 360 (0.9.1–0.9.2)**, **public + live on the Comfy Registry**, and **Art Style global category (0.9.3, + label polish 0.9.4–0.9.6)**. Still open:
 
 | Item | Notes |
 |---|---|
-| **Eye color** | No source file exists (colours live only inside `bk_characters.txt` prose). Owner to provide a file or approve a drafted starter list. Would slot into the Physical group. |
 | **Cyberpunk outfit structure** | Uses monolithic 270. Available: 183, 530, and a granular decomposition (`_ghost.runner 1.a`). Owner's call whether to keep/expand/granularise. |
 | **"Gowns & Dresses" flat list** | 530 lines, no headers → stays a toggle. To section-select it, headers would need adding (by silhouette/fabric). |
 | **Character presets** | `bk_characters.txt` — 12 whole-subject presets. A different feature shape (not a per-attribute category). Build or ignore? |
-| Art Style | Planned global tier; no file exists. |
+| Art Style | ✅ **Built (0.9.3).** Global `common/artstyles.txt`, section-select, 2nd under the Theme header, leads the prompt (`order 1`). 9 styles incl. creator styles **BKSTYLE** / **GLADAS STYLE**. |
 | Vampire variants 1 and 3 | Near-identical merge residue (`visible subtle fangs` vs `visible fangs`). One is redundant. |
 | License | ✅ Dual: MIT for code, CC BY-SA 4.0 for `wildcards/`. `pyproject.toml` points at `LICENSE`. |
-| GitHub publish | ✅ Pushed to `bkidderz/BKWILDCARDS` at v0.8.6. **Private** — flip to public when ready. Remaining: add `REGISTRY_ACCESS_TOKEN` secret for the Registry workflow. |
+| GitHub publish | ✅ **Public** on GitHub + **live on the Comfy Registry** (auto-publishes on version bump touching `pyproject.toml`; `REGISTRY_ACCESS_TOKEN` secret configured). No `v*` git tags/Releases cut yet. |
 | Canonical source | Node package vs Civitai collection. Undecided. |
 | Phase 2 | Module listed as a resource on image outputs. Surface unidentified. Partially anticipated by the PNG stamping. |
 
@@ -336,7 +336,7 @@ Done in 0.7.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `group`/group
 
 ```
 gender → ancestry (optional) → metatype (optional)
-→ physical attributes (hair ✓, eyes ✗, build ✓, face/nose/lips ✓) → outfits ✓ → environments ✓ → art style ✗
+→ physical attributes (hair ✓, eyes ✓, build ✓, face/nose/lips ✓) → outfits ✓ → environments ✓ → art style ✓
 ```
 
-Built: gender, ancestry, metatype, build, face/nose/lips (**both genders** — male authored 0.8.1), hair, outfits, environments, poses, palettes, weapons, tattoos, shots. Unbuilt: **eyes** (no source), **art style**.
+Built: gender, ancestry, metatype, build, face/nose/lips (**both genders** — male authored 0.8.1), hair, **eyes** (0.8.8), outfits, environments, poses, palettes, weapons, tattoos, shots, **art style** (0.9.3). Unbuilt: — (the planned hierarchy is now feature-complete).

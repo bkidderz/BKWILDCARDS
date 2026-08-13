@@ -78,6 +78,11 @@ def read_lines(path):
     return out
 
 
+# Brand/acronym labels kept verbatim rather than title-cased (which would turn
+# "BKSTYLE" into "Bkstyle"). Everything else still title-cases as before.
+_VERBATIM_LABELS = {"BKSTYLE"}
+
+
 def clean_section_name(header):
     """Turn a raw '#' header into a dropdown-friendly label.
 
@@ -97,6 +102,8 @@ def clean_section_name(header):
     h = re.split(r"\s*[\(\[]", h, 1)[0].strip().rstrip(":,.")
     if not h or len(h) > 40:
         return None
+    if h in _VERBATIM_LABELS:
+        return h
     if h.isupper() or h.islower():
         h = h.title()
     return h

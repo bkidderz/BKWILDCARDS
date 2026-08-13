@@ -24,6 +24,17 @@
       "default": false,
       "group": "Identity",
       "prompt_label": "metatype"
+    },
+    {
+      "file": "artstyles.txt",
+      "id": "art_style",
+      "label": "Art Style",
+      "order": 1,
+      "display": 1,
+      "select": "section",
+      "default": false,
+      "group": "Theme",
+      "prompt_label": "art style"
     }
   ]
 }

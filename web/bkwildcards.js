@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.9.2";
+const BUILD = "0.9.6";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
@@ -42,6 +42,13 @@ const SPECIAL_GROUPS = {
   control_after_generate: "Settings",
   label_output: "Settings",
   mayhem: "Settings",
+};
+
+// Display labels for the fixed (non-category) widgets. Only the on-node label is
+// prettified; the widget NAME and its serialized value are unchanged.
+const FIXED_LABELS = {
+  theme: "Theme",
+  gender: "Gender",
 };
 
 let LAYOUT = null;
@@ -410,8 +417,11 @@ function relabel(node, layout) {
     for (const cat of layout.categories || []) byKey.set(cat.key, cat);
     for (const widget of node.widgets || []) {
       const cat = byKey.get(widget.name);
-      if (!cat) continue;
-      widget.label = `${cat.is_global ? "◆" : "·"} ${cat.label}`;
+      if (cat) {
+        widget.label = cat.label;
+      } else if (FIXED_LABELS[widget.name]) {
+        widget.label = FIXED_LABELS[widget.name];
+      }
     }
   } catch (err) {
     console.warn("[BKWILDCARDS] relabel failed:", err);

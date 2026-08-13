@@ -3,11 +3,12 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-10 — build `0.9.0`, shipped to the live install and pushed to
-GitHub (private).** Node is **47 categories / 7 themes / 5 global packs** (from
-13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie Necket** steampunk
-theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS — **private while
-external testers try it**; not for public release yet.
+**Status: 2026-08-12 — build `0.9.6`, shipped to the live install, public on
+GitHub, and live on the Comfy Registry.** Node is **48 categories / 7 themes / 6
+global packs** (from 13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie
+Necket** steampunk theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS —
+**public**; the Comfy Registry auto-publishes on every version bump touching
+`pyproject.toml`.
 
 > This revision marks answered items **✅ DONE** and keeps only the genuinely
 > open items in §2. Skim §2 for what still needs you.
@@ -69,13 +70,14 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
    after Build/before Face), per Brian's decision to mirror hair. 29 lines, 4
    sections: Natural / Cybernetic / Magical / Heterochromia. Validated
    headlessly (discovery, sections, seeded draws, end-to-end resolve across
-   themes incl. a theme with no eyes file). Shipped to install; **awaiting
-   Brian's in-app test before git push.**
-   - Minor: source lines spell "heterocromia" (missing h). Preserved verbatim;
-     one-line fix available on request (4 lines).
+   themes incl. a theme with no eyes file). **Tested in-app, pushed to git
+   (0.8.8), and live on the Comfy Registry.**
+   - Spelling: source lines originally read "heterocromia" (missing h);
+     **fixed to "heterochromia" in 0.8.9.**
 2. ~~**README.md for GitHub**~~ — ✅ **DONE.** Rewritten from the stale v0.6.0
-   version against verified current state (43 categories, 3,779 entries, 6
-   themes). Has Install (git + ZIP + `custom_nodes` paths + verify), How to Use
+   version against verified state (then 43 categories / 3,779 entries / 6
+   themes; **now 47 categories / 4,790 entries / 7 themes**, and the live README
+   reflects those counts plus Eyes and the Comfy Registry install). Has Install (git + ZIP + `custom_nodes` paths + verify), How to Use
    with a GitHub `> [!IMPORTANT]` callout to **wire `prompt` into a prompt
    block**, node-at-a-glance, theme/content tables, features (labeled output,
    Mayhem, live preview, bald), adding-your-own-wildcards, scoping, limits.
@@ -88,17 +90,19 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
    can never ship without the content or the UI script. TOML parses; node still
    loads. **License is DUAL** — MIT for code (`LICENSE`), CC BY-SA 4.0 for
    `wildcards/` (`LICENSE-CONTENT`), per Brian's prepared files + `SNIPPETS.md`.
-   Only remaining Registry step: add the `REGISTRY_ACCESS_TOKEN` secret to the
-   GitHub repo (see `.github/workflows/publish.yml`).
+   The `REGISTRY_ACCESS_TOKEN` secret is now configured and the Registry workflow
+   (`.github/workflows/publish.yml`) auto-publishes on every version bump —
+   **live on the Comfy Registry** (registry.comfy.org/nodes/bkwildcards).
 4. ~~**GitHub publish**~~ — ✅ **DONE (2026-08-09).** v0.8.6 committed (`bdb2329`,
    57 files, +4,851) and pushed to **https://github.com/bkidderz/BKWILDCARDS**,
-   currently **PRIVATE**. `SNIPPETS.md` gitignored. GitHub reports the license as
-   "Other" (not "MIT") because our `LICENSE` opens with the dual-license
-   preamble — arguably the right outcome, since a bare MIT badge would misstate
-   the content licence. Remaining before it's installable by others:
-   **(a) flip the repo to public**, **(b) add the `REGISTRY_ACCESS_TOKEN`
-   secret** if publishing to the Comfy Registry, **(c)** optionally tag `v0.8.6`
-   / cut a Release.
+   now **PUBLIC** (repo has since advanced to v0.9.2). `SNIPPETS.md` gitignored.
+   GitHub reports the license as "Other" (not "MIT") because our `LICENSE` opens
+   with the dual-license preamble — arguably the right outcome, since a bare MIT
+   badge would misstate the content licence. **Completed since:** ✅ repo flipped
+   to public · ✅ `REGISTRY_ACCESS_TOKEN` secret added and the Registry workflow
+   auto-publishes on every version bump · **live on the Comfy Registry**
+   (registry.comfy.org/nodes/bkwildcards). Still not done: no `v*` git
+   **tags / Releases** cut, even at 0.9.2.
    Original notes:
    **`gh` CLI is now installed (v2.97.0) and authenticated as `bkidderz`**
    (scopes: repo, workflow, gist, read:org) — so Claude CAN create the repo and
@@ -127,7 +131,11 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 - **Halloween theme** — `custom_wildcards/halloween/`: outfits (75, classic +
   **named-franchise** costumes) · environments (26) · poses (30). ⚠️ Franchise
   costumes (Darth Vader, Spider-Man, Harry Potter, Ghostface…) are an **IP flag
-  for any public/Registry release** — fine while private.
+  for any public/Registry release**. ⚠️ **The repo is now public and on the
+  Registry**, so those franchise lines must be stripped/renamed BEFORE this theme
+  is built and shipped — the "fine while private" grace period is over. (Not yet
+  exposed: the Halloween source dir is not in the repo; only the shipped
+  `wildcards/` is published.)
 - **`krea2-bk_hair.txt` (Aug 5)** — newer hair authoring, but every line leads
   with an inline `{color|…}` brace array. **Unusable as-is** — the node emits
   braces literally. Bundled hair is already the mechanically-split version, so
@@ -249,19 +257,24 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
     content-only updates already don't require re-adds; most churn was our own
     structural changes. Re-add should be a *troubleshooting* step, not routine.
 
-- **Art Style option (rests with Theme)** — *future idea, noted 2026-08-11.* A
-  selector near the Theme dropdown to pick a rendering style: **anime,
-  photorealism, surreal**, etc. Likely a global, always-on category emitted near
-  the top of the prompt (a style directive), independent of theme. Open
-  questions when we pick it up: off/random/section like the others; whether it's
-  a global pack (`wildcards/style/`) or a special selector beside Theme; how it
-  composes with Mayhem; and whether style lines are one-per-style or richer
-  (e.g. "anime" → a few phrasings). Source content TBD (Brian to provide or
-  approve a drafted starter list).
+- ~~**Art Style option (rests with Theme)**~~ — ✅ **BUILT (0.9.3, polished
+  0.9.4–0.9.6).** A global section-select category `common/artstyles.txt`
+  (`id: art_style`), `group: "Theme"` so it sits **2nd, directly under the Theme
+  selector**, and `order: 1` so its text **leads the prompt** ahead of the gender
+  word. Off/random like every other section dropdown. The open questions
+  resolved: it's a **category in the `common` global pack** (not a separate
+  selector or `wildcards/style/`), off/random/section like the others, and
+  **Mayhem ignores it** (mayhem composes its own image). 9 styles: **BKSTYLE** and
+  **GLADAS STYLE** (creator styles, kept verbatim via `_VERBATIM_LABELS`), Anime,
+  Anime Photo Realism, Painterly, Pixel Art 16-Bit, Surreal, Semi-Realism, Western
+  Comics. Source: `bk_art_styles.txt` + Brian's KREA2 prose. ⚠️ Inserting it as
+  widget #2 **shifts `widgets_values`**, so workflows saved before 0.9.3 need the
+  node re-added.
 
 **Housekeeping:**
 
-- **Commit the 0.7.x/0.8.x milestone to git** once it tests clean (still uncommitted).
+- ~~**Commit the 0.7.x/0.8.x milestone to git**~~ — ✅ done; every shipped version
+  through 0.9.2 is committed and pushed to `main` (working tree clean).
 
 ---
 
@@ -275,6 +288,7 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 | `bk_female_face/lips/nose` | flat lists | ✅ Built into `female` |
 | `krea2-bk_hair.txt` | 45 lines, `{color}` braces | ✅ Built — split into Color/Type/Style |
 | `bk_shots_angle/framing.txt` | 20 / 52 camera lines | ✅ Built → global `shots` |
+| `bk_art_styles.txt` + KREA2 prose | art-style directives | ✅ Built (0.9.3) → global `common/art_style`, 2nd under Theme, leads prompt |
 | `bk_poses_dancing` | 20 dance lines | ✅ Reference for Dresses poses |
 | `bk_poses_casting` / `bk_poses_spell_effects` | 15 / 15 | ✅ → Dark Fantasy Spell Casting / Effects |
 | `whimsicalWoods_v1B` | fantasy set | ✅ Env/Poses now authored (were missing) |
@@ -338,3 +352,8 @@ intentionally left out — available if you ever want them.
 
 Earlier (committed 0.6.5): resolved-text live-update fix + `setResolved` cleanup (validated).
 - **0.8.7** **CRITICAL FIX** — section headers corrupted `widgets_values` on every save/load/undo (serialize wrote at full-array index leaving null holes; configure read sequentially). Headers now spliced out during serialize/configure. Workflows saved with 0.7.1–0.8.6 may have shifted widget values — re-set them.
+- **0.8.8** **Eyes** global category · **0.8.9** heterochromia spelling fix · **0.9.0** **Nettie Necket** steampunk theme · **0.9.1 / 0.9.2** _ghost.runner + Whimsical Woods environments expanded to 360 (two-level `# --` subheader format)
+- **0.9.3** **Art Style** — new global section-select category (`common/artstyles.txt`), pinned **2nd under the Theme header** (`group: Theme`) and **leading the prompt** (`order 1`, ahead of the gender word). Off/random + 9 styles incl. creator styles **BKSTYLE** / **GLADAS STYLE**. Emitted right after `theme` in `INPUT_TYPES` via an extracted `emit()` closure. ⚠️ Shifts `widgets_values` → re-add nodes in pre-0.9.3 saved workflows.
+- **0.9.4** label polish — `BKSTYLE` kept verbatim (`library._VERBATIM_LABELS`, no regression to the other 242 all-caps labels), `ANIME Photorealism` → `Anime Photo Realism`, **theme dropdown alphabetized** (`_THEMES` sorted), `Theme` selector Title-Cased (JS `FIXED_LABELS`)
+- **0.9.5** dropped the `◆`/`·` category-label prefixes (JS `relabel()`)
+- **0.9.6** `Gender` selector Title-Cased. Standing label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**

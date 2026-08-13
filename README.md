@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **4,790 hand-written entries** across **47 categories** and **7 themes** — outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
+Ships with **4,799 hand-written entries** across **48 categories** and **7 themes** — art styles, outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -40,7 +40,7 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.2`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.6`), so you can confirm the update took.
 
 ### Manual install (git)
 
@@ -67,7 +67,7 @@ Restart ComfyUI. **There are no dependencies to install** — the node uses only
 
 ### Verify it loaded
 
-Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.2`.
+Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.6`.
 
 ---
 
@@ -115,7 +115,7 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 
 | Section | Contains |
 |---|---|
-| **Theme** | Which theme's content is active |
+| **Theme** | Which theme's content is active, plus **Art Style** (leads the prompt) |
 | **Identity** | Gender, Ancestry, Metatype / Species |
 | **Physical** | Build, Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Hair** | Hair Type, Hair Style, Hair Color |
@@ -144,6 +144,7 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 
 | Pack | Categories |
 |---|---|
+| **Art Style** | 9 styles — BKSTYLE, GLADAS STYLE, Anime, Anime Photo Realism, Painterly, Pixel Art 16-Bit, Surreal, Semi-Realism, Western Comics (leads the prompt; sits under Theme) |
 | **Common** | Ancestry (44, 16 sections) · Metatype / Species (53, 32 sections) |
 | **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
 | **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |
