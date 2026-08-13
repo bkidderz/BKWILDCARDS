@@ -328,7 +328,7 @@ Done in 0.7.x–0.9.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `grou
 | Art Style | ✅ **Built (0.9.3).** Global `common/artstyles.txt`, section-select, 2nd under the Theme header, leads the prompt (`order 1`). 9 styles incl. creator styles **BKSTYLE** / **GLADAS STYLE**. |
 | Vampire variants 1 and 3 | Near-identical merge residue (`visible subtle fangs` vs `visible fangs`). One is redundant. |
 | License | ✅ Dual: MIT for code, CC BY-SA 4.0 for `wildcards/`. `pyproject.toml` points at `LICENSE`. |
-| GitHub publish | ✅ **Public** on GitHub + **live on the Comfy Registry** (auto-publishes on version bump touching `pyproject.toml`; `REGISTRY_ACCESS_TOKEN` secret configured). No `v*` git tags/Releases cut yet. |
+| GitHub publish | ✅ **Public** on GitHub + **live on the Comfy Registry** (auto-publishes on version bump touching `pyproject.toml`; `REGISTRY_ACCESS_TOKEN` secret configured). **Git tagging initialized at `v0.9.6`** (first tag, 2026-08-12) — annotate + push a `vX.Y.Z` tag on each release going forward. |
 | Canonical source | Node package vs Civitai collection. Undecided. |
 | Phase 2 | Module listed as a resource on image outputs. Surface unidentified. Partially anticipated by the PNG stamping. |
 

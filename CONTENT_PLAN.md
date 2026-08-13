@@ -101,8 +101,9 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
    badge would misstate the content licence. **Completed since:** ✅ repo flipped
    to public · ✅ `REGISTRY_ACCESS_TOKEN` secret added and the Registry workflow
    auto-publishes on every version bump · **live on the Comfy Registry**
-   (registry.comfy.org/nodes/bkwildcards). Still not done: no `v*` git
-   **tags / Releases** cut, even at 0.9.2.
+   (registry.comfy.org/nodes/bkwildcards). **Git tagging initialized at `v0.9.6`**
+   (first tag, 2026-08-12) — annotate + push a `vX.Y.Z` tag on each release from
+   here on. (Full GitHub Releases with notes are still optional.)
    Original notes:
    **`gh` CLI is now installed (v2.97.0) and authenticated as `bkidderz`**
    (scopes: repo, workflow, gist, read:org) — so Claude CAN create the repo and
