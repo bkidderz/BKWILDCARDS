@@ -63,10 +63,6 @@ Restart ComfyUI. **There are no dependencies to install** — the node uses only
 | ComfyUI Desktop (Windows) | `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs\ComfyUI\ComfyUI\custom_nodes` |
 | Portable / manual | `<your ComfyUI folder>\ComfyUI\custom_nodes` |
 
-### Verify it loaded
-
-Add the **BKWILDCARDS Selector** node (right-click canvas → Add Node → **BKWILDCARDS**). The node title shows the build number, e.g. `BKWILDCARDS Selector 0.9.8`.
-
 ---
 
 ## How to use
@@ -78,9 +74,9 @@ Add **BKWILDCARDS Selector** to your workflow (right-click → Add Node → **BK
 >
 > The node does not talk to your model on its own — it only *produces text*. Connect its **`prompt`** output to whatever feeds your positive prompt: a **`CLIPTextEncode`** node's `text` input, or a string node (such as `StringFunction`) that is already feeding your prompt.
 >
-> **The node tells you if you forgot:** it turns **red** and displays
+> **The node tells you if you forgot:** it turns 🔴 **red** and displays
 > `NOT ready, please wire the node to your prompt block.`
-> Once wired, it turns **green** and reads `ready — press Run`.
+> Once wired, it turns 🟢 **green** and reads `ready — press Run`.
 
 ### Basic workflow
 
@@ -101,10 +97,6 @@ Set the **`seed`** widget's control to **`randomize`** for a fresh combination e
 
 The **output box** at the bottom of the node fills in with the exact prompt, **updating the moment you press Run** — before the image renders. That same text is embedded in generated PNGs, so dragging a finished image back into ComfyUI restores the prompt that made it.
 
-### Seeing what's installed
-
-Add the **BKWILDCARDS Info** node and wire its `report` output to a **Preview as Text** node to list every pack and category the loader found, with entry counts.
-
 ---
 
 ## The node at a glance
@@ -113,11 +105,11 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 
 | Section | Contains |
 |---|---|
-| **Theme** | Which theme's content is active, plus **Art Style** (leads the prompt) |
+| **Theme** | Theme selector, **Art Style** (leads the prompt) |
 | **Identity** | Gender, Ancestry, Metatype / Species |
 | **Physical** | Build, Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Hair** | Hair Type, Hair Style, Hair Color |
-| **Wardrobe** | The active theme's outfits, tattoos, weapons |
+| **Wardrobe** | The active theme's tattoos, outfits, weapons / carry |
 | **Scene** | Accent palette, environments, poses (plus spell casting/effects in Whimsical Woods) |
 | **Camera** | Shot angle, shot framing |
 | **Settings** | Separator, seed, labeled output, Mayhem — then the output box |
