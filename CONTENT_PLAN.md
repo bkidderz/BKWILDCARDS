@@ -3,8 +3,8 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-12 — build `0.9.7`, shipped to the live install, public on
-GitHub, live on the Comfy Registry, tagged `v0.9.7`.** Node is **48 categories / 7 themes / 6
+**Status: 2026-08-12 — build `0.9.8`, shipped to the live install, public on
+GitHub, live on the Comfy Registry, tagged `v0.9.8`.** Node is **48 categories / 7 themes / 6
 global packs** (from 13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie
 Necket** steampunk theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS —
 **public**; the Comfy Registry auto-publishes on every version bump touching
@@ -361,3 +361,4 @@ Earlier (committed 0.6.5): resolved-text live-update fix + `setResolved` cleanup
 - **0.9.5** dropped the `◆`/`·` category-label prefixes (JS `relabel()`)
 - **0.9.6** `Gender` selector Title-Cased. Standing label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**
 - **0.9.7** **Anime** + **Anime Photo Realism** art-style prompts rewritten from Danbooru-tag strings to natural-language KREA2 prose (matching the other Art Style entries; the tag-based versions weren't producing anime). Content-only, no widget shift. Also dropped from the plan: **Character presets** (owner's personal characters) and **`bk_heritage`** (overlaps built Ancestry); **Halloween** flagged not-ready.
+- **0.9.8** **Fix:** Mayhem ignored the Art Style category — it was never added to `_MAYHEM_SLOT` when the category shipped in 0.9.3. Added `art_style` as a **core** mayhem slot, so every mayhem image now rolls a random art style, leading the prompt. Determinism preserved (preview == execution); mayhem seeds re-roll vs pre-0.9.8. No widget shift.

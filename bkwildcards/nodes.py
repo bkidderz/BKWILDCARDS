@@ -130,6 +130,7 @@ def _drop_if_bald(raw):
 # six outfits. Core slots always appear; extras roll in at _MAYHEM_EXTRA_PROB.
 # These constants are tuning knobs, safe to adjust.
 _MAYHEM_SLOT = {
+    "art_style": "art_style",
     "ancestry": "ancestry", "metatype": "metatype", "build": "build",
     "face": "face", "nose": "nose", "lips": "lips",
     "color": "hair_color", "type": "hair_type", "style": "hair_style",
@@ -140,8 +141,8 @@ _MAYHEM_SLOT = {
     "spell_effects": "effect",
     "angle": "shot_angle", "framing": "shot_framing",
 }
-_MAYHEM_CORE = {"ancestry", "build", "hair_color", "hair_type", "hair_style",
-                "outfit", "environment", "pose"}
+_MAYHEM_CORE = {"art_style", "ancestry", "build", "hair_color", "hair_type",
+                "hair_style", "outfit", "environment", "pose"}
 _MAYHEM_EXTRA_PROB = 0.5
 
 
