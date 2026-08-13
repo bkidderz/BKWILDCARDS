@@ -174,25 +174,6 @@ The output box updates **at queue time**, before generation starts, so you can s
 
 ---
 
-## How scoping works
-
-Packs are scoped on two independent axes in `_pack.json`:
-
-```json
-{ "pack": "female", "label": "Female", "global": true, "gender": "Female" }
-```
-
-- **`"global": true`** — the pack applies under every theme. Every **non-global** pack becomes a **theme** in the dropdown.
-- **`"gender"`** — the pack only applies when that gender is selected. Every distinct value becomes a gender option.
-
-The two compose: the `female` pack is global *and* gender-scoped, so its categories are available under every theme, but only when Female (or Fluid) is selected.
-
-**Scope gating is enforced in Python.** A category belonging to an inactive theme cannot contribute to the output, whatever its widget says. The browser extension only *hides* those widgets — if it fails to load, the node shows everything and still produces correct output.
-
-Selections are remembered per scope: switching theme and back leaves your previous choices intact.
-
----
-
 ## License
 
 BKWILDCARDS is licensed in two parts.
