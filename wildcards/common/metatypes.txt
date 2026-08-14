@@ -95,16 +95,6 @@ wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, 
 # -- Werewolf
 werewolf, a partly-shifted lycanthrope, a powerful muscular build, coarse fur along the forearms and jaw, pointed lupine ears, prominent fangs, clawed hands, keen slit-pupil eyes, a still-human face with the underlying features preserved
 
-# -- Cybernetic Augmented
-augmented humanoid, a natural face and skin, subtle chrome cyberware at the temple and jaw, faint interface ports, the underlying features preserved
-
-# -- Partial Cyborg
-partial cyborg, a natural face and skin, one or more sleek chrome cybernetic limbs, visible mechanical joints, the underlying features preserved
-partial cyborg, a natural face and skin, cybernetic jaw with metallic teeth, visible mechanical joints, the underlying features preserved
-
-# -- Cyber-Eyed
-cyber-eyed, a natural face and skin, glowing cybernetic eyes with luminous irises, subtle facial ports, the underlying features preserved
-
 # -- Full Nekomimi
 full nekomimi, a fully feline catgirl, a complete fur coat over the whole body, feline facial structure, a cat nose and whiskers, no human skin, cat ears and a long tail, vertical slit pupils
 
@@ -118,10 +108,14 @@ full werewolf, a towering anthropomorphic lycanthrope, a complete coat of coarse
 full zombie, a rotted walking corpse, heavily decomposed grey flesh, exposed bone and sinew, a partially skeletal face, sunken hollow eye sockets, no living skin
 
 # -- Android
-android, a fully synthetic being, a smooth seamless synthetic face and body, matte polymer skin, subtle seam lines, glowing cybernetic eyes, no human skin
+an android, a synthetic humanoid engineered to resemble a person yet clearly artificial, its entire body covered in smooth seamless synthetic skin of matte polymer, uniform and poreless with no blemishes, veins or fine hair, the same flawless manufactured surface across the face, neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, faint seam lines only where the panels meet at the joints, a lifelike but fabricated face with a subtle matte synthetic sheen, no organic flesh or living tissue anywhere, purposefully built not born
+an android, a synthetic humanoid engineered to pass convincingly as a person, its entire body covered in soft lifelike synthetic skin of fine matte silicone, uniform and poreless with an unnervingly flawless finish, the same near-perfect surface across the face, neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, virtually no visible seams and only the faintest joint lines, a serene lifelike face with a subtle soft sheen that reads almost human until examined closely, no organic flesh or living tissue anywhere, a fabricated being built not born
+an android, a synthetic humanoid that makes no attempt to hide its construction, its entire body covered in a firm semi-gloss synthetic skin, uniform and poreless, divided by visible seam lines and panel joints running across the face, neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, clean segmented sections meeting at crisp seams with articulated joints between them, a fabricated face with a smooth semi-gloss synthetic surface, evidently a manufactured machine at a glance yet still skinned rather than plated, no organic flesh or living tissue anywhere, purposefully built not born
 
 # -- Gynoid
-gynoid, a fully synthetic being, a sculpted porcelain-plated face and body, visible joint seams, luminous optical eyes, no organic skin
+a gynoid, a fully synthetic android whose entire body is hard synthetic plating instead of skin, a sculpted faceplate of glossy pearl-white paneling with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face with a matte synthetic sheen, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by fine panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic skin anywhere on the body, precisely inorganic and unmistakably machine
+a gynoid, a fully synthetic android whose entire body is hard synthetic plating instead of skin, a sculpted faceplate of matte obsidian-black paneling with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face with a deep non-reflective matte finish, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by fine panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic skin anywhere on the body, precisely inorganic and unmistakably machine
+a gynoid, a fully synthetic android whose entire body is hard synthetic plating instead of skin, a sculpted faceplate of polished mirror-chrome paneling with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face with a bright mirror-like reflective chrome finish that catches and warps the surrounding light, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by fine panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic skin anywhere on the body, precisely inorganic and unmistakably machine
 
 # -- Full-Conversion Cyborg
 full-conversion cyborg, a fully mechanical chassis, a chrome and matte-alloy body, an armored sculpted faceplate, glowing optical sensors, no human skin

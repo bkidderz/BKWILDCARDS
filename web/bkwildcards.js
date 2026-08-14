@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.9.8";
+const BUILD = "0.9.10";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";

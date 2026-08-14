@@ -123,6 +123,32 @@ def _drop_if_bald(raw):
     return [(o, l, t) for o, l, t, _k in raw]
 
 
+# Cybernetics finish colour: the Cybernetics Color pick replaces the "chrome"
+# finish word inside the chosen Cybernetics augment (a cross-category rule, like
+# the bald one). The colour never emits on its own, and vanishes if no augment
+# is active. Keep exactly one "chrome" per augment line for a clean swap.
+_CYBER_KEY = "common_cybernetics"
+_CYBER_COLOR_KEY = "common_cyber_color"
+_CYBER_FINISH = "chrome"
+
+
+def _apply_cyber_color(raw):
+    """raw is a list of (order, label, text, key). Fold the Cybernetics Color
+    pick into the Cybernetics augment by swapping its finish word, then drop the
+    colour entry so it is a modifier, not an emitter."""
+    color = next((t for _o, _l, t, k in raw if k == _CYBER_COLOR_KEY), None)
+    if color is None:
+        return raw
+    out = []
+    for o, l, t, k in raw:
+        if k == _CYBER_COLOR_KEY:
+            continue
+        if k == _CYBER_KEY and _CYBER_FINISH in t:
+            t = t.replace(_CYBER_FINISH, color, 1)
+        out.append((o, l, t, k))
+    return out
+
+
 # --- Mayhem mode -----------------------------------------------------------
 # One-click, no-input, seeded, cross-theme composition. Maps each category id
 # to the "slot" it competes in; mayhem picks at most one category per slot from
@@ -177,7 +203,7 @@ def _resolve_mayhem(seed, separator, labeled):
             continue
         raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                     rng.choice(pool), cat["key"]))
-    return _format_picks(_drop_if_bald(raw), separator, labeled)
+    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
 
 
 def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
@@ -222,7 +248,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
         if pick:
             raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                         pick, cat["key"]))
-    return _format_picks(_drop_if_bald(raw), separator, labeled)
+    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
 
 
 class BKWildcardSelector:

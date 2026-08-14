@@ -3,8 +3,8 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-12 — build `0.9.8`, shipped to the live install, public on
-GitHub, live on the Comfy Registry, tagged `v0.9.8`.** Node is **48 categories / 7 themes / 6
+**Status: 2026-08-13 — build `0.9.10`, shipped to the live install, public on
+GitHub, live on the Comfy Registry, tagged `v0.9.10`.** Node is **50 categories / 7 themes / 6
 global packs** (from 13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie
 Necket** steampunk theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS —
 **public**; the Comfy Registry auto-publishes on every version bump touching
@@ -362,3 +362,5 @@ Earlier (committed 0.6.5): resolved-text live-update fix + `setResolved` cleanup
 - **0.9.6** `Gender` selector Title-Cased. Standing label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**
 - **0.9.7** **Anime** + **Anime Photo Realism** art-style prompts rewritten from Danbooru-tag strings to natural-language KREA2 prose (matching the other Art Style entries; the tag-based versions weren't producing anime). Content-only, no widget shift. Also dropped from the plan: **Character presets** (owner's personal characters) and **`bk_heritage`** (overlaps built Ancestry); **Halloween** flagged not-ready.
 - **0.9.8** **Fix:** Mayhem ignored the Art Style category — it was never added to `_MAYHEM_SLOT` when the category shipped in 0.9.3. Added `art_style` as a **core** mayhem slot, so every mayhem image now rolls a random art style, leading the prompt. Determinism preserved (preview == execution); mayhem seeds re-roll vs pre-0.9.8. No widget shift.
+- **0.9.9** **Cybernetics as an axis.** Split augmentation from identity: new global `common/cybernetics.txt` (17 species-neutral augments — single/both Arm·Hand·Leg·Foot·Ear, Jaw, Torso, Neural Jack, + Partial Cyborg Four Limbs/Upper/Lower/Extensive) in its **own group between Physical and Hair** (`order 14`), composing onto any metatype (orc + cyber arm). Metatypes restructured: **Android + Gynoid strengthened to 3 variants each**; **Cybernetic Augmented, Partial Cyborg and Cyber-Eyed removed** (augments-as-identity; cyber-eyes already live in the Eyes category). Metatype set 32 → 29 sections. New widget → re-add.
+- **0.9.10** **Cybernetics Color.** New `common/cybernetics_color.txt` (`— off —` = chrome / `— random —` / 14 colours drawn from the _ghost.runner + Cassette Futurism hue vocabulary). Cross-category rule `_apply_cyber_color` swaps the chosen colour into the augment's `chrome` finish word and drops the colour entry — the colour binds to the metal instead of floating, and vanishes when no augment is active. Preview == execution preserved. Replaced the chrome/matte-black augment variants with this single colour axis.

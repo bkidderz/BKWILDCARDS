@@ -35,6 +35,27 @@
       "default": false,
       "group": "Theme",
       "prompt_label": "art style"
+    },
+    {
+      "file": "cybernetics.txt",
+      "id": "cybernetics",
+      "label": "Cybernetics",
+      "order": 14,
+      "display": 27,
+      "select": "section",
+      "default": false,
+      "group": "Cybernetics",
+      "prompt_label": "cybernetics"
+    },
+    {
+      "file": "cybernetics_color.txt",
+      "id": "cyber_color",
+      "label": "Cybernetics Color",
+      "order": 14,
+      "display": 28,
+      "select": "section",
+      "default": false,
+      "group": "Cybernetics"
     }
   ]
 }

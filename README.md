@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **4,799 hand-written entries** across **48 categories** and **7 themes** — art styles, outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
+Ships with **4,830 hand-written entries** across **50 categories** and **7 themes** — art styles, cybernetics, outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -38,7 +38,7 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.8`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.10`), so you can confirm the update took.
 
 ### Manual install (git)
 
@@ -108,6 +108,7 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 | **Theme** | Theme selector, **Art Style** (leads the prompt) |
 | **Identity** | Gender, Ancestry, Metatype / Species |
 | **Physical** | Build, Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
+| **Cybernetics** | The augment (arm, leg, torso, …) and its finish color |
 | **Hair** | Hair Type, Hair Style, Hair Color |
 | **Wardrobe** | The active theme's tattoos, outfits, weapons / carry |
 | **Scene** | Accent palette, environments, poses (plus spell casting/effects in Whimsical Woods) |
@@ -135,7 +136,8 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 | Pack | Categories |
 |---|---|
 | **Art Style** | 9 styles — BKSTYLE, GLADAS STYLE, Anime, Anime Photo Realism, Painterly, Pixel Art 16-Bit, Surreal, Semi-Realism, Western Comics (leads the prompt; sits under Theme) |
-| **Common** | Ancestry (44, 16 sections) · Metatype / Species (53, 32 sections) |
+| **Common** | Ancestry (44, 16 sections) · Metatype / Species (53, 29 sections) |
+| **Cybernetics** | 17 augments — single/both limbs, jaw, torso, neural jack, + Partial Cyborg presets · 14 finish colors (— off — = chrome) |
 | **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
 | **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |
 | **Shots** | Shot Angle (20) · Shot Framing (50) |

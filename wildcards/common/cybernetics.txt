@@ -1,0 +1,57 @@
+# ============================================================
+# === CYBERNETIC AUGMENTS - species-neutral, single-component
+# === Finish word is "chrome" (default); the Cybernetics Color
+# === category swaps it via a resolve_prompt rule. Keep exactly
+# === one "chrome" per line so the substitution stays clean.
+# ============================================================
+
+# -- Single Arm
+a single cybernetic arm, one arm from the shoulder down replaced by a sleek prosthetic of chrome alloy, articulated mechanical joints, exposed pistons and fine cabling, a hard segmented synthetic hand, the augmented arm standing out sharply against the natural skin, the other arm and the rest of the body left natural and unaugmented
+
+# -- Both Arms
+both cybernetic arms, both arms from the shoulder down replaced by sleek prosthetics of chrome alloy, articulated mechanical joints, exposed pistons and fine cabling, hard segmented synthetic hands, the augmented arms standing out sharply against the natural skin, the rest of the body left natural and unaugmented
+
+# -- Single Hand
+a single cybernetic hand, one hand and forearm replaced by a sleek prosthetic of chrome alloy, articulated mechanical fingers, exposed servos and fine cabling at the wrist, a hard segmented synthetic palm, the augmented hand standing out sharply against the natural skin, the other hand and the rest of the body left natural and unaugmented
+
+# -- Both Hands
+both cybernetic hands, both hands and forearms replaced by sleek prosthetics of chrome alloy, articulated mechanical fingers, exposed servos and fine cabling at the wrists, hard segmented synthetic palms, the augmented hands standing out sharply against the natural skin, the rest of the body left natural and unaugmented
+
+# -- Single Leg
+a single cybernetic leg, one leg from the hip down replaced by a sleek prosthetic of chrome alloy, articulated mechanical knee and ankle joints, exposed pistons and fine cabling, a hard segmented synthetic foot, the augmented leg standing out sharply against the natural skin, the other leg and the rest of the body left natural and unaugmented
+
+# -- Both Legs
+both cybernetic legs, both legs from the hip down replaced by sleek prosthetics of chrome alloy, articulated mechanical knee and ankle joints, exposed pistons and fine cabling, hard segmented synthetic feet, the augmented legs standing out sharply against the natural skin, the rest of the body left natural and unaugmented
+
+# -- Single Foot
+a single cybernetic foot, one foot and ankle replaced by a sleek prosthetic of chrome alloy, articulated mechanical toe and ankle joints, exposed servos and fine cabling, a hard segmented synthetic sole, the augmented foot standing out sharply against the natural skin, the other foot and the rest of the body left natural and unaugmented
+
+# -- Both Feet
+both cybernetic feet, both feet and ankles replaced by sleek prosthetics of chrome alloy, articulated mechanical toe and ankle joints, exposed servos and fine cabling, hard segmented synthetic soles, the augmented feet standing out sharply against the natural skin, the rest of the body left natural and unaugmented
+
+# -- Single Ear
+a single cybernetic ear, one ear replaced by a sleek chrome audio module, fine seams and small sensor ports where it meets the skin, faint indicator lights, the augmented ear standing out sharply against the natural skin, the other ear and the rest of the body left natural and unaugmented
+
+# -- Both Ears
+both cybernetic ears, both ears replaced by sleek chrome audio modules, fine seams and small sensor ports where they meet the skin, faint indicator lights, the augmented ears standing out sharply against the natural skin, the rest of the body left natural and unaugmented
+
+# -- Jaw
+a cybernetic jaw, the lower jaw replaced by a chrome alloy mandible with exposed mechanical hinges and gleaming metal teeth, fine seams where the plating meets the skin at the cheeks and chin, the augmented jaw standing out sharply against the natural skin, the rest of the face and body left natural and unaugmented
+
+# -- Torso
+a cybernetic torso, the chest and abdomen encased in a sleek chrome alloy panel with visible seams, mechanical vents and a faint glowing core, the plated torso standing out sharply against the natural skin of the neck, arms and legs, the rest of the body left natural and unaugmented
+
+# -- Neural Jack
+a cybernetic neural jack, a small chrome port set into the skin at the nape of the neck, fine seams and a few thin cables trailing from the socket, a subtle single implant, the port standing out against the natural skin, the rest of the body left natural and unaugmented
+
+# -- Partial Four Limbs
+a partial cyborg, both arms and both legs replaced by sleek prosthetics of chrome alloy, articulated mechanical joints, exposed pistons and fine cabling, hard segmented synthetic hands and feet, all four cybernetic limbs standing out sharply against the natural skin of a fully organic torso and head, the natural face and features preserved
+
+# -- Partial Upper Body
+a partial cyborg, the chest and abdomen encased in a sleek chrome alloy panel and both arms replaced by matching prosthetics from the shoulders down, articulated mechanical joints, exposed pistons and fine cabling, hard segmented synthetic hands, the plated torso and cybernetic arms standing out sharply against the natural skin of the head and legs, the natural face and features preserved
+
+# -- Partial Lower Body
+a partial cyborg, the pelvis and both legs from the waist down replaced by a sleek chrome alloy lower body, articulated mechanical hip, knee and ankle joints, exposed pistons and fine cabling, hard segmented synthetic feet, the cybernetic lower body standing out sharply against the natural skin of the torso, arms and head, the natural face and features preserved
+
+# -- Partial Extensive
+a partial cyborg, the entire body below the neck rebuilt in cybernetics, a sleek chrome alloy torso with both arms and both legs replaced by matching prosthetics, articulated mechanical joints, exposed pistons and fine cabling throughout, hard segmented synthetic hands and feet, the fully augmented body standing out sharply against the only remaining organic part, the natural head with its face and features preserved

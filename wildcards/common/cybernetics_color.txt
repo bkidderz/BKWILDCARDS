@@ -1,0 +1,49 @@
+# ============================================================
+# === CYBERNETIC FINISH COLORS
+# === Each line is an injectable adjective that replaces the
+# === "chrome" finish word in the chosen Cybernetics augment
+# === (via the resolve_prompt cyber-color rule). — off — keeps chrome.
+# === Hues drawn from _ghost.runner + Cassette Futurism.
+# ============================================================
+
+# -- Gunmetal
+gunmetal grey
+
+# -- Matte Black
+matte black
+
+# -- Crimson
+crimson red
+
+# -- Electric Blue
+electric blue
+
+# -- Cyan
+bright cyan
+
+# -- Teal
+deep teal
+
+# -- Emerald
+emerald green
+
+# -- Gold
+polished gold
+
+# -- Brass
+brushed brass
+
+# -- Copper
+burnished copper
+
+# -- Amber
+amber orange
+
+# -- Magenta
+hot magenta
+
+# -- Violet
+electric violet
+
+# -- Pearl White
+pearl white
