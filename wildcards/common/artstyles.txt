@@ -28,3 +28,9 @@ A semi-realistic illustration poised between anime stylization and photorealism.
 
 # WESTERN COMICS
 A bold late-1980s-to-1990s American comic book style in the vein of early Image Comics: dynamic, exaggerated anatomy with heavy musculature and dramatic foreshortening, thick confident ink outlines, dense cross-hatching and feathered shadows, aggressive action posing, and sharp angular rendering. Flat, punchy print-comic color with hard cel shading, high-energy and over-the-top, unmistakably drawn-and-inked.
+
+# Bradhamel Style
+A painterly photorealistic illustration with luminous oil-like brushwork, rich tangible texture and visible brushstroke edges over realistic form, dramatic chiaroscuro lighting with sharp deep shadows and glowing highlights, a moody cinematic close-up atmosphere, saturated yet refined color, hand-painted depth carrying real emotional intensity, more painted than photographed
+
+# Photorealism
+A photorealistic image with professional 8K clarity and tack-sharp focus, crisp fine detail like a high-end studio portrait or professionally shot 8K video, realistic natural skin showing pores, fine texture and subtle imperfections, individual hair strands and fabric weave cleanly resolved, accurate lifelike anatomy and proportions, natural color and true-to-life lighting, captured with a high-end camera and prime lens at a natural shallow depth of field, exceptionally sharp and richly detailed

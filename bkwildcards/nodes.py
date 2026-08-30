@@ -156,7 +156,6 @@ def _apply_cyber_color(raw):
 # six outfits. Core slots always appear; extras roll in at _MAYHEM_EXTRA_PROB.
 # These constants are tuning knobs, safe to adjust.
 _MAYHEM_SLOT = {
-    "art_style": "art_style",
     "ancestry": "ancestry", "metatype": "metatype", "build": "build",
     "face": "face", "nose": "nose", "lips": "lips",
     "color": "hair_color", "type": "hair_type", "style": "hair_style",
@@ -167,20 +166,27 @@ _MAYHEM_SLOT = {
     "spell_effects": "effect",
     "angle": "shot_angle", "framing": "shot_framing",
 }
-_MAYHEM_CORE = {"art_style", "ancestry", "build", "hair_color", "hair_type",
+_MAYHEM_CORE = {"ancestry", "build", "hair_color", "hair_type",
                 "hair_style", "outfit", "environment", "pose"}
 _MAYHEM_EXTRA_PROB = 0.5
 
 
-def _resolve_mayhem(seed, separator, labeled):
-    """Seeded cross-theme random composition, ignoring every input.
+def _resolve_mayhem(seed, separator, labeled, choices=None):
+    """Seeded cross-theme random composition, ignoring every input EXCEPT the
+    Art Style selection.
 
     Rolls a gender, then for each slot picks one category from a random source
     theme and a random line from it. Fully determined by `seed`, so the
     queue-time preview still matches the render and a mayhem PNG reproduces.
     Core slots (via `or` short-circuit) never consume an extra-roll, keeping the
     rng sequence identical between preview and execution.
+
+    Art Style is exempt from the randomisation: mayhem honours the user's Art
+    Style pick on its own seeded rng stream (independent of the mayhem rolls), so
+    the look stays consistent while everything else goes wild. Off contributes
+    nothing; a specific style stays put; — random — still rolls per seed.
     """
+    choices = choices or {}
     rng = random.Random(int(seed))
     gender = rng.choice([None] + list(_GENDERS))
     slots = {}
@@ -191,6 +197,15 @@ def _resolve_mayhem(seed, separator, labeled):
         if slot:
             slots.setdefault(slot, []).append(cat)
     raw = []  # (order, label, text, key)
+    # Art Style is honoured from the user's selection, not randomised by mayhem.
+    art_cat = next((c for c in _CATEGORIES if c["key"] == ART_STYLE_KEY), None)
+    if art_cat:
+        art_rng = random.Random(int(seed) + library.stable_offset(art_cat["key"]))
+        pick = library.draw(art_cat, choices.get(art_cat["key"]), art_rng)
+        if pick:
+            raw.append((art_cat["order"],
+                        art_cat.get("prompt_label") or art_cat["label"],
+                        pick, art_cat["key"]))
     gtext = _GENDER_TEXT.get(gender)
     if gtext:
         raw.append((_GENDER_ORDER, "gender", gtext, None))
@@ -222,7 +237,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
     random composition (see _resolve_mayhem) — still a pure function of `seed`.
     """
     if mayhem:
-        return _resolve_mayhem(seed, separator, labeled)
+        return _resolve_mayhem(seed, separator, labeled, choices)
     choices = choices or {}
     # Random gender -> roll a concrete gender per seed (own rng stream, so the
     # per-category draws are unchanged). Fluid falls through to _in_scope, which
