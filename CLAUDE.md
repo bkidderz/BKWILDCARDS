@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.11` (0.9.11 = **Bradhamel Style** + **Photorealism** art styles (→ 11 total); Art Style now **exempt from Mayhem** — mayhem honours the user's selection on its own seeded rng instead of rolling it, reversing the 0.9.8 core-slot change. 0.9.9–0.9.10 = **Cybernetics** — a new augment axis (17 species-neutral single + partial augments) in its own group between Physical and Hair, plus a **Cybernetics Color** axis whose pick is folded into the augment's finish word by a `resolve_prompt` cross-category rule; Android + Gynoid metatypes strengthened to 3 variants each; the augment-as-identity metatypes Cybernetic Augmented, Partial Cyborg and Cyber-Eyed removed. 0.9.8 = fix — Mayhem now includes the Art Style category, added to `_MAYHEM_SLOT` as a core slot; it had been skipped since the category shipped in 0.9.3; 0.9.7 = Anime + Anime Photo Realism art-style prompts rewritten from booru tags to natural-language KREA2 prose; 0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry** (tag `v0.9.11`).
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.12` (0.9.12 = **Haunted Hallows** — 8th theme, Halloween costumes/environments/poses (`wildcards/halloween/`: 245 costumes incl. named-franchise costumes kept, `{a|b|c}` variants pre-expanded to individual lines; 26 environments; 30 poses) + **Compression / Zentai Suits** — a new `_ghost.runner` Wardrobe category (`cyberpunk/bodysuits.txt`, 144 full-coverage armored suits, 7 families, `order 45` between Outfits and Weapons, its own `suit:` label) + _ghost.runner **outfits reworded** (270 lines, every `bodysuit` swapped to a varied covering garment — undersuit/plugsuit/zentai/techsuit/leotard/…) + **gender word now explicitly adult** (`an adult woman` / `an adult man` / `an adult androgynous person`). Node is now **54 categories / 8 themes / 6 global packs / 5,277 entries**. Also a one-label library fix: `_VERBATIM_LABELS` gained `E.T.` and the verbatim check now runs before the trailing-punctuation strip so `E.T.` keeps its dot. 0.9.11 = **Bradhamel Style** + **Photorealism** art styles (→ 11 total); Art Style now **exempt from Mayhem** — mayhem honours the user's selection on its own seeded rng instead of rolling it, reversing the 0.9.8 core-slot change. 0.9.9–0.9.10 = **Cybernetics** — a new augment axis (17 species-neutral single + partial augments) in its own group between Physical and Hair, plus a **Cybernetics Color** axis whose pick is folded into the augment's finish word by a `resolve_prompt` cross-category rule; Android + Gynoid metatypes strengthened to 3 variants each; the augment-as-identity metatypes Cybernetic Augmented, Partial Cyborg and Cyber-Eyed removed. 0.9.8 = fix — Mayhem now includes the Art Style category, added to `_MAYHEM_SLOT` as a core slot; it had been skipped since the category shipped in 0.9.3; 0.9.7 = Anime + Anime Photo Realism art-style prompts rewritten from booru tags to natural-language KREA2 prose; 0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry** (tag `v0.9.12`).
 **Git:** committed on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — **public**. The Comfy Registry **auto-publishes** on every push to `main` that changes `pyproject.toml` (see `.github/workflows/publish.yml`). `gh` CLI is required for pushes/releases and must be installed + authed as `bkidderz` on each machine (current machine: v2.97.0, authed, scopes `repo`/`workflow`/`gist`/`read:org`). `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path (current machine, 2026-08-12):**
 `C:\Users\Owner\Documents\ComfyUI\custom_nodes\bkwildcards` — a **Portable/manual ComfyUI** under `Documents` (the running copy, pulled from the repo; the dev loop copies changed files here). Paths differ per machine; see `instructions.md` in the workspace root.
@@ -29,6 +29,7 @@ shorthands below are safe to use in conversation — they map to the shipped lab
 | `cassette_futurism` | **Cassette Futurism** | Cassette |
 | `autumnal_oxidation` | **Autumnal Oxidation** | Autumnal / Goth |
 | `steampunk` | **Nettie Necket** | Steampunk |
+| `halloween` | **Haunted Hallows** | Halloween |
 | `lingerie` | **COZY SEXY LACY RACY Sleepwear** | Lingerie (adult) |
 
 `steampunk` (Nettie Necket) is Victorian brass/clockwork — **distinct from `cassette_futurism`** (1970s–90s analog "used future"); the two share the retrofuturism umbrella but no content. Nettie Necket has no accent_palette (outfits/environments/poses only).
@@ -64,8 +65,9 @@ BKWILDCARDS/
     ├── hair/       color · type · style                    (global — Hair)
     ├── eyes/       eyes (Natural/Cybernetic/Magical/Heterochromia) (global — Physical, 0.8.8)
     ├── shots/      angle · framing                         (global — Camera)
-    ├── cyberpunk/  tattoos outfits weapons accent_palette environments poses
+    ├── cyberpunk/  tattoos outfits bodysuits weapons accent_palette environments poses
     ├── fantasy/    tattoos outfits weapons accent_palette environments poses spell_casting spell_effects
+    ├── halloween/  outfits(costumes) environments poses          (theme — Haunted Hallows, 0.9.12)
     ├── cassette_futurism/ outfits accent_palette environments poses
     ├── autumnal_oxidation/ outfits accent_palette environments poses   (granular pieces removed in 0.7.12)
     ├── dresses/    dresses · eastern · accent_palette · environments · poses
@@ -174,7 +176,7 @@ One entry per line. Blank lines ignored. `#` lines are section headers (used onl
 
 ## Content inventory
 
-50 categories across 7 themes + 6 global packs. Almost everything with usable `#`
+54 categories across 8 themes + 6 global packs. Almost everything with usable `#`
 headers is now **section-select**; the exceptions are noted.
 
 **Globals**
@@ -194,12 +196,13 @@ headers is now **section-select**; the exceptions are noted.
 
 | Theme (label) | Wardrobe categories |
 |---|---|
-| _ghost.runner | Tattoos (by body-placement) · Outfits (18 archetypes) · Weapons (Sidearms/Long Guns/…) · **Environments (360, 20 subheader sections — 0.9.1)** |
+| _ghost.runner | Tattoos (by body-placement) · Outfits (18 archetypes, 270) · **Compression / Zentai Suits (144, 7 families — full-coverage armored suits, `order 45`; 0.9.12)** · Weapons (Sidearms/Long Guns/…) · **Environments (360, 20 subheader sections — 0.9.1)** |
 | Whimsical Woods | Tattoos · Outfits (24 archetypes) · Weapons · **Spell Casting** · **Spell Effects** (by element) · **Environments (360, 20 subheader sections — 0.9.2)** |
 | Cassette Futurism | Outfits (14 archetypes) |
 | Autumnal Oxidation | Outfits (12 goth substyles; granular pieces removed 0.7.12) |
 | All the Dresses | "Gowns & Dresses" (**toggle** — 530 flat, no headers) · Eastern Attire (section, garments) |
 | Nettie Necket | Outfits (23 archetypes — airship/aristocrat/occult/nautical/sultry). Scene: environments (Interiors/Exteriors) + poses (7 groups). **No accent_palette.** (0.9.0) |
+| Haunted Hallows | **Costumes** (245, 36 costume sections — classic monsters, cute/glam, + named-franchise costumes; braces pre-expanded). Scene: environments (Interiors/Exteriors, 26) + poses (8 groups, 30). **No accent_palette/tattoos/weapons** (same shape as Nettie Necket). Costumes are a *costumed person, not the creature* — reads best with Metatype off (Metatype=Werewolf + a werewolf costume contradicts). (0.9.12) |
 | COZY SEXY LACY RACY Sleepwear | Lingerie Sets (section, 12 — adult) |
 
 All content is Brian's original work, from his standalone wildcard releases (see Theme names). The TrashAI `totalChaosRandomizer` workflow was a **UX reference only** — none of its data is used. Content is also published on Civitai; which source is canonical is undecided.
@@ -318,11 +321,11 @@ These exist because they were violated.
 
 ## Open items
 
-Done in 0.7.x–0.9.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `group`/grouped-panels, physical attributes (face/nose/lips), Dark Fantasy env/poses, **eyes (0.8.8)**, **Nettie Necket steampunk theme (0.9.0)**, **environment expansions to 360 (0.9.1–0.9.2)**, **public + live on the Comfy Registry**, **Art Style global category (0.9.3, + label polish 0.9.4–0.9.6)**, and **Cybernetics augment axis + Cybernetics Color (0.9.9–0.9.10; metatypes restructured — Android/Gynoid strengthened, 3 augment-metatypes relocated to Cybernetics)**. Still open:
+Done in 0.7.x–0.9.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `group`/grouped-panels, physical attributes (face/nose/lips), Dark Fantasy env/poses, **eyes (0.8.8)**, **Nettie Necket steampunk theme (0.9.0)**, **environment expansions to 360 (0.9.1–0.9.2)**, **public + live on the Comfy Registry**, **Art Style global category (0.9.3, + label polish 0.9.4–0.9.6)**, and **Cybernetics augment axis + Cybernetics Color (0.9.9–0.9.10; metatypes restructured — Android/Gynoid strengthened, 3 augment-metatypes relocated to Cybernetics)**, and **Haunted Hallows theme + Compression/Zentai Suits category + adult gender wording (0.9.12)**. Still open:
 
 | Item | Notes |
 |---|---|
-| **Cyberpunk outfit structure** | Uses monolithic 270. Available: 183, 530, and a granular decomposition (`_ghost.runner 1.a`). Owner's call whether to keep/expand/granularise. |
+| **Cyberpunk outfit structure** | Outfits still monolithic 270 (available: 183, 530, granular `_ghost.runner 1.a`). Owner's call whether to keep/expand/granularise. **0.9.12** added a *separate* Compression/Zentai Suits category (144) as a coverage alternative and reworded the 270's `bodysuit` garments — the 270-vs-530 structure question itself is still open. |
 | **"Gowns & Dresses" flat list** | 530 lines, no headers → stays a toggle. To section-select it, headers would need adding (by silhouette/fabric). |
 | Art Style | ✅ **Built (0.9.3).** Global `common/artstyles.txt`, section-select, 2nd under the Theme header, leads the prompt (`order 1`). 9 styles incl. creator styles **BKSTYLE** / **GLADAS STYLE**. |
 | Vampire variants 1 and 3 | Near-identical merge residue (`visible subtle fangs` vs `visible fangs`). One is redundant. |

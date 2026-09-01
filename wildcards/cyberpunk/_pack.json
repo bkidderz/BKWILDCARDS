@@ -23,6 +23,16 @@
       "select": "section"
     },
     {
+      "file": "bodysuits.txt",
+      "id": "bodysuit",
+      "label": "Compression / Zentai Suits",
+      "order": 45,
+      "default": false,
+      "group": "Wardrobe",
+      "prompt_label": "suit",
+      "select": "section"
+    },
+    {
       "file": "weapons.txt",
       "id": "weapon",
       "label": "Weapons / Carry",

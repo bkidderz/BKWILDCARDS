@@ -57,8 +57,8 @@ GENDER_FLUID = "Fluid"               # no gender gate — both genders' categori
 
 # The subject word each gender injects into the prompt so the render is actually
 # directed toward a gender. Emitted at order 5, ahead of everything else.
-_GENDER_TEXT = {"Female": "a woman", "Male": "a man"}
-_GENDER_FLUID_TEXT = "an androgynous person"
+_GENDER_TEXT = {"Female": "an adult woman", "Male": "an adult man"}
+_GENDER_FLUID_TEXT = "an adult androgynous person"
 _GENDER_ORDER = 5
 
 # The Art Style category leads both the node (second, under the Theme header)
@@ -338,10 +338,10 @@ class BKWildcardSelector:
                 [GENDER_OFF, GENDER_RANDOM] + _GENDERS + [GENDER_FLUID],
                 {
                     "default": _GENDERS[0],
-                    "tooltip": "The subject's gender, injected into the prompt (a woman / a man). "
+                    "tooltip": "The subject's gender, injected into the prompt (an adult woman / an adult man). "
                     "— off —: no gender word and no gendered categories. — random —: roll a gender "
                     "per seed. Fluid: both genders' physical options available and mixable "
-                    "(an androgynous subject).",
+                    "(an adult androgynous subject).",
                 },
             )
 

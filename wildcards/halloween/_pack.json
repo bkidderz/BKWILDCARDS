@@ -1,0 +1,36 @@
+{
+  "pack": "halloween",
+  "label": "Haunted Hallows",
+  "entries": [
+    {
+      "file": "outfits.txt",
+      "id": "outfit",
+      "label": "Costumes",
+      "order": 40,
+      "default": false,
+      "group": "Wardrobe",
+      "prompt_label": "outfit",
+      "select": "section"
+    },
+    {
+      "file": "environments.txt",
+      "id": "environment",
+      "label": "Environments",
+      "order": 70,
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "scene/background",
+      "select": "section"
+    },
+    {
+      "file": "poses.txt",
+      "id": "pose",
+      "label": "Poses",
+      "order": 80,
+      "default": false,
+      "group": "Scene",
+      "prompt_label": "pose",
+      "select": "section"
+    }
+  ]
+}

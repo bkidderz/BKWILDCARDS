@@ -3,10 +3,11 @@
 Working document for growing the bundled library. Survey source:
 `comfyui-impact-pack/custom_wildcards/` (Brian's collected/authored wildcard files).
 
-**Status: 2026-08-13 — build `0.9.11`, shipped to the live install, public on
-GitHub, live on the Comfy Registry, tagged `v0.9.11`.** Node is **50 categories / 7 themes / 6
-global packs** (from 13), plus **Mayhem mode**, **Eyes** (0.8.8) and the **Nettie
-Necket** steampunk theme (0.9.0). Repo: https://github.com/bkidderz/BKWILDCARDS —
+**Status: 2026-08-31 — build `0.9.12`, staged to the live install, public on
+GitHub, live on the Comfy Registry, tag `v0.9.12` (pending push).** Node is **54 categories / 8 themes / 6
+global packs** (from 13), plus **Mayhem mode**, **Eyes** (0.8.8), the **Nettie
+Necket** steampunk theme (0.9.0) and the **Haunted Hallows** Halloween theme (0.9.12).
+Repo: https://github.com/bkidderz/BKWILDCARDS —
 **public**; the Comfy Registry auto-publishes on every version bump touching
 `pyproject.toml`.
 
@@ -26,6 +27,7 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 | `cassette_futurism` | **Cassette Futurism** | Cassette |
 | `autumnal_oxidation` | **Autumnal Oxidation** | Autumnal / Goth |
 | `steampunk` | **Nettie Necket** | Steampunk |
+| `halloween` | **Haunted Hallows** | Halloween |
 | `lingerie` | **COZY SEXY LACY RACY Sleepwear** | Lingerie (adult) |
 
 ---
@@ -129,15 +131,22 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
   Futurism (Victorian brass vs 1970s analog — disjoint content). Validated:
   theme registers, 32 sections clean (no prose leak), seeded draws, end-to-end
   resolve, scope gating, UTF-8 (moiré/piqué intact). Shipped + pushed.
-- **Halloween theme** — `custom_wildcards/halloween/`: outfits (75, classic +
-  **named-franchise** costumes) · environments (26) · poses (30). ⚠️ Franchise
-  costumes (Darth Vader, Spider-Man, Harry Potter, Ghostface…) are an **IP flag
-  for any public/Registry release**. ⚠️ **The repo is now public and on the
-  Registry**, so those franchise lines must be stripped/renamed BEFORE this theme
-  is built and shipped — the "fine while private" grace period is over. (Not yet
-  exposed: the Halloween source dir is not in the repo; only the shipped
-  `wildcards/` is published.) **Status: not fully tested, not ready for release**
-  (owner, 0.9.7) — franchise lines must be stripped/renamed first.
+- ~~**Halloween theme**~~ — ✅ **DONE (0.9.12), built as the Haunted Hallows theme**
+  (`wildcards/halloween/`, label "Haunted Hallows"). Costumes (245, 36 costume
+  sections — classic monsters, cute/glam, + named-franchise) · environments (26,
+  Interiors/Exteriors) · poses (30, 8 groups); no accent_palette/tattoos/weapons.
+  The 18 source `{a|b|c}` outfit lines were **pre-expanded to individual lines**
+  (192 → 245) since the node can't parse braces — every colour/option variant
+  preserved. **IP decision (owner, 2026-08-31): franchise costumes KEPT**
+  (Darth Vader, Pikachu, E.T., Wonder Woman, TMNT, Harry Potter, Ghostface…) — the
+  owner accepts the exposure knowingly for a public/Registry release. Label fixes:
+  `Frankenstein's Monster` (mixed-case header) and `E.T.` (via `_VERBATIM_LABELS`
+  + a verbatim-before-rstrip tweak so the dot survives). Validated: theme
+  registers, 36/2/8 sections clean, in-section draws, preview == execution,
+  Mayhem pulls Halloween content. **⚠️ Known interaction:** costumes are written
+  as "a costumed person, not the creature," so pairing with **Metatype =
+  Werewolf/Vampire/etc.** contradicts ("a vampire … in a vampire costume").
+  Metatype is off by default; the theme reads best with Metatype off.
 - **`krea2-bk_hair.txt` (Aug 5)** — newer hair authoring, but every line leads
   with an inline `{color|…}` brace array. **Unusable as-is** — the node emits
   braces literally. Bundled hair is already the mechanically-split version, so
@@ -200,6 +209,14 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
   Available: 183, 530, and a full granular decomposition (`_ghost.runner 1.a`:
   tops/bottoms/footwear/headgear/outerwear/accessories). Keep 270, bump to 530,
   or adopt the granular model (as done for goth)? This is your primary theme.
+  **0.9.12 progress (structure question still open):** (a) added a *separate*
+  **Compression / Zentai Suits** category (`cyberpunk/bodysuits.txt`, 144
+  full-coverage armored suits, 7 families, `order 45`, own `suit:` label) as a
+  coverage alternative to Outfits — pick one or the other; (b) reworded the 270 —
+  every `bodysuit` garment swapped to a varied covering garment
+  (undersuit/plugsuit/zentai/techsuit/leotard/skinsuit/jumpsuit) since the plain
+  "bodysuit" rendered under-covered. 8 `catsuit`/`undersuit` lines remain as an
+  optional later pass (worksheet: `ghost-runner_bodysuit_rewrites.md`, workspace root).
 - ~~**Character presets**~~ — **Dropped (owner, 0.9.7):** some are Brian's own
   personal characters and are not for public release. Prompt them manually or use
   existing wildcard options instead.
@@ -304,16 +321,17 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 | `krea2-bk_female_builds(_small)` | build variants | ✅ Resolved (61 + LITHE) |
 | `GhostRunner_v1B` | cyberpunk set | Already the node's `cyberpunk` source |
 | `cozySEXYLACYRACY_v1B/bk_lingerie_sets.txt` | 530 lingerie sets | ✅ Built → Lingerie theme (sets only) |
-| `Steam Punk` / `halloween` / `nettie_necket` | theme dirs | ⏳ Future themes — §4 |
+| `Steam Punk` / `halloween` | theme dirs | ✅ Built — Nettie Necket (0.9.0) / Haunted Hallows (0.9.12) |
+| `krea2-bk_cyberpunk_bodysuits.txt` | 152 armored suits (`{a|b|c}` colour rows) | ✅ Built (0.9.12) → `cyberpunk/bodysuits.txt` (Compression/Zentai Suits, 144; transparent dropped, braces expanded) |
 | `*.zip` | archives | Ignore (extracted copies present) |
 
 ---
 
 ## 4. Future themes (planned, not built — awaiting your go)
 
-Self-contained theme dirs ready to build the same way when you want them:
-`Steam Punk` (env/outfits/poses), `halloween` (env/outfits/poses),
-`nettie_necket` (zip, unopened). The `cozySEXYLACYRACY` **sets** are now built (the
+Both `Steam Punk` (→ Nettie Necket, 0.9.0) and `halloween` (→ Haunted Hallows,
+0.9.12) are now built. `nettie_necket` (zip) remains unopened — likely redundant
+with the built Nettie Necket theme. The `cozySEXYLACYRACY` **sets** are now built (the
 Lingerie theme); its 7 other granular lingerie files (tops/bottoms/hosiery/…) are
 intentionally left out — available if you ever want them.
 
@@ -365,3 +383,4 @@ Earlier (committed 0.6.5): resolved-text live-update fix + `setResolved` cleanup
 - **0.9.9** **Cybernetics as an axis.** Split augmentation from identity: new global `common/cybernetics.txt` (17 species-neutral augments — single/both Arm·Hand·Leg·Foot·Ear, Jaw, Torso, Neural Jack, + Partial Cyborg Four Limbs/Upper/Lower/Extensive) in its **own group between Physical and Hair** (`order 14`), composing onto any metatype (orc + cyber arm). Metatypes restructured: **Android + Gynoid strengthened to 3 variants each**; **Cybernetic Augmented, Partial Cyborg and Cyber-Eyed removed** (augments-as-identity; cyber-eyes already live in the Eyes category). Metatype set 32 → 29 sections. New widget → re-add.
 - **0.9.10** **Cybernetics Color.** New `common/cybernetics_color.txt` (`— off —` = chrome / `— random —` / 14 colours drawn from the _ghost.runner + Cassette Futurism hue vocabulary). Cross-category rule `_apply_cyber_color` swaps the chosen colour into the augment's `chrome` finish word and drops the colour entry — the colour binds to the metal instead of floating, and vanishes when no augment is active. Preview == execution preserved. Replaced the chrome/matte-black augment variants with this single colour axis.
 - **0.9.11** Two art styles added — **Bradhamel Style** (painterly oil-realism, distinct from BKSTYLE's blend) and **Photorealism** (clean 8K-sharp photo, the missing straight-photoreal option); 9 → 11 styles. **Art Style exempted from Mayhem**: mayhem now honours the selected style on its own seeded rng (independent of the mayhem rolls) instead of randomising it — reverses the 0.9.8 core-slot change. Mayhem RNG shifts, so pre-0.9.11 mayhem seeds re-roll. No widget change → no re-add.
+- **0.9.12** **Haunted Hallows** theme (8th) — Halloween Costumes (245, 36 sections incl. named-franchise, kept per owner), Environments (26), Poses (30); `{a|b|c}` source rows pre-expanded (192 → 245). **Compression / Zentai Suits** — new `_ghost.runner` Wardrobe category (144 full-coverage armored suits, 7 families, `order 45`, own `suit:` label; transparent variants dropped). **_ghost.runner outfits reworded** — every `bodysuit` (48 lines) swapped to varied covering garments; 270 count unchanged. **Gender word now explicitly adult** — `an adult woman` / `an adult man` / `an adult androgynous person`. Library: `_VERBATIM_LABELS` += `E.T.` with a verbatim-before-rstrip tweak (keeps the dot); no regression to existing labels. Node 50→**54 categories**, 7→**8 themes**, 4,832→**5,277 entries**. New categories/theme → re-add nodes in pre-0.9.12 saved workflows.

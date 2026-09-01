@@ -1,0 +1,342 @@
+# ============================================================
+# HALLOWEEN COSTUMES - KREA2 (natural-language prose)
+# Classic (1950-79), cute/glam, and modern/franchise (1980-present) Halloween
+# costumes AS WORN BY A PERSON. Every line must read as a subject dressed in a
+# costume for Halloween - never the actual creature, monster, or character.
+#
+# COSTUME, NOT CREATURE / NOT METATYPE: makeup is applied costume face paint
+# over natural skin; blood is theatrical fake blood; monsters and franchise
+# creatures (zombie, werewolf, TMNT, Pikachu, E.T.) are a costumed human,
+# explicitly not the real being.
+#
+# MASKS & HELMETS: full-coverage helmets/masks state the hair is completely
+# hidden and no hair is visible; pushed-up boxed masks state the wearer's hair
+# shows beneath; face-only masks state the hair is left visible around them -
+# so hair-wildcard lines never blend into the headwear.
+#
+# One costume per line. Color/option variants pre-expanded to individual lines.
+# ============================================================
+
+# ---- CLASSIC
+# -- DEVIL
+a classic devil costume, a red cotton union-suit with a stitched spade-tipped tail, a red felt hood with two stuffed horns, a small pointed collar, red costume face paint over natural skin and dark-lined brows
+a homemade devil getup, red long-johns and a red hooded sweatshirt with felt horns sewn on, a stuffed red-fabric tail pinned at the back, red costume face paint and a drawn-on goatee
+a devil in a red satin caped bodysuit with black trim, a horned headband, pointed collar and cuffs, red-and-black costume face paint over natural skin, a long spade tail trailing behind, gripping a black-and-red pitchfork
+a classic devil costume with a red felt cape and horned hood, a red union-suit and spade tail, red costume face paint, holding a cardboard-and-foil trident aloft
+a boxed devil costume, a red vinyl smock silk-screened with flames and a grinning imp, a red horned plastic mask pushed up off the face and worn on top of the head with the wearer's hair visible beneath, a short red cape tied at the neck, box-creased
+
+# -- GHOST
+a simple homemade ghost costume, a white cotton bedsheet draped over the head and entire body with two ragged scissor-cut eye holes, the head completely covered by the sheet with no hair visible, the hem falling uneven to the floor, a length of cord cinching it loosely at the neck, creased and faintly grimy
+a classic sheet ghost, an oversized ivory muslin sheet thrown over the whole figure and head with frayed oval eyeholes and no hair or face visible beneath, a hand-stitched hem, safety pins gathering the excess at the shoulders, soft grey smudges across the folds
+a threadbare white bedsheet ghost draped fully over the head with scalloped cut eyeholes and a black-cord tie at the throat, no hair visible, the fabric pooling around the feet, worn thin and slightly translucent
+a homemade ghost in a draped white sheet gathered at the waist with cord, the head fully hooded by the sheet with uneven torn eyeholes and no hair showing, a faint chalky pallor to the cloth, the hem trailing on the ground
+a boxed dime-store ghost costume, a printed white vinyl smock silk-screened with a cartoon grinning specter, a soft plastic hooded ghost mask pushed up off the face and worn atop the head with the wearer's hair visible beneath, tied at the back with thin ribbon, box-creased
+
+# -- SKELETON
+a classic skeleton costume, a close-fitting black cotton union-suit hand-painted front and back with white bone shapes, a black hood covering the head with no hair visible and a skull face painted on in white costume face paint, the ribs slightly misaligned as if brushed on at home
+a skeleton in black long-johns stitched with white felt bone cut-outs down the arms and legs, a white skull face in white costume greasepaint over natural skin with painted blacked-out eyes, black gloves and socks completing the black ground
+a glow-in-the-dark skeleton costume, a black jersey coverall printed with pale luminous bones, a soft skull hood covering the head with no hair visible, the bones a greenish-white against the worn black fabric
+a skeleton in a black bodysuit taped with white bone shapes, a white skull face painted on over natural skin with dark eye sockets, black cotton gloves and a snug black skullcap covering the hair
+a boxed skeleton costume, a black vinyl smock silk-screened with white printed bones, a rigid plastic skull mask pushed up off the face and worn on top of the head with the wearer's hair visible beneath, tied at the back, the printed bones cracking along the fold lines
+
+# -- VAMPIRE
+a classic Dracula costume, a long black satin opera cape with a high stiff red-lined collar, a black tuxedo jacket over a white dress shirt and black bow tie, slicked-back hair with a sharp widow's peak, pale costume face powder over natural skin, small plastic fangs, a red medallion at the throat
+a homemade vampire getup, a floor-length cape cut from black lining fabric with a wired stand-up collar, a thrifted black dinner jacket and a red cummerbund, chalk-white costume face powder over natural skin, painted-on dark brows, a trickle of theatrical fake blood at the lip
+a vampire in a black-and-crimson reversible cape swept across the chest, a ruffled white dress shirt, a brocade waistcoat, slick black hair, pale costume makeup, small plastic fangs
+a classic vampire in a black cape lined in purple satin, a black formal suit with a stiff-collared white shirt and a crimson bow tie, slicked black hair, pale costume face powder, plastic fangs
+a boxed Dracula costume, a black vinyl smock silk-screened with a caped vampire and bats, a pale plastic Dracula mask with a molded widow's peak pushed up off the face and worn on top of the head with the wearer's hair visible beneath, a short attached cape tied at the neck
+
+# -- WITCH
+a classic witch costume, a tall black felt cone hat with a wide floppy brim, a long ragged-hemmed black crepe dress with billowing sleeves, a tattered grey shawl at the shoulders, green costume face paint over natural skin and a stuck-on warty hooked nose
+a homemade witch getup, a pointed construction-paper-and-felt hat, a floor-length black rayon robe belted with cord, black lace at the cuffs, pale green costume face paint, wispy grey costume-wig hair straggling from under the brim
+a witch in a black satin cone hat trailing a torn chiffon veil, a layered black-and-purple ragged-hem skirt, a stiffened felt collar, green costume face paint over natural skin on the hands and face, clutching a bundled-twig broomstick
+a classic witch costume with a wide-brimmed black felt hat and a ragged black crepe dress, green costume face paint, one hand resting on a tall straw broom
+a boxed witch costume, a black vinyl smock silk-screened with a cauldron and bats, a pointed-hat plastic mask pushed up off the face and worn on top of the head with the wearer's hair visible beneath, a short felt cape tied at the neck, box-creased
+
+# -- CLOWN
+a classic clown costume, a baggy polka-dot ruffled jumpsuit with a wide frilled collar, a curly rainbow wig covering the hair, white costume face paint over natural skin with a red nose and a painted grin, oversized floppy shoes
+a creepy clown costume, a tattered grimy ruffled suit in faded colors, a matted wig over the hair, cracked white costume face paint over natural skin with a sinister red grin and painted dark-ringed eyes, a limp balloon in one hand
+a homemade clown getup, mismatched oversized thrift clothes with suspenders, a red foam nose and white costume face paint, a colorful yarn wig, big floppy shoes
+a jester harlequin clown costume, a diamond-patterned motley suit in black and red with a bell-tipped jester hood over the hair and a ruffled collar, diamond-accented costume face paint over natural skin
+a jester harlequin clown costume, a diamond-patterned motley suit in purple and gold with a bell-tipped jester hood over the hair and a ruffled collar, diamond-accented costume face paint over natural skin
+a jester harlequin clown costume, a diamond-patterned motley suit in green and orange with a bell-tipped jester hood over the hair and a ruffled collar, diamond-accented costume face paint over natural skin
+a circus clown costume in red accents, a ruffled polka-dot suit and frill collar, a white-painted face over natural skin with a painted grin and red nose, a curly wig, giant shoes
+a circus clown costume in blue accents, a ruffled polka-dot suit and frill collar, a white-painted face over natural skin with a painted grin and red nose, a curly wig, giant shoes
+a circus clown costume in yellow accents, a ruffled polka-dot suit and frill collar, a white-painted face over natural skin with a painted grin and red nose, a curly wig, giant shoes
+a circus clown costume in rainbow accents, a ruffled polka-dot suit and frill collar, a white-painted face over natural skin with a painted grin and red nose, a curly wig, giant shoes
+
+# -- Frankenstein's Monster
+a Frankenstein's monster costume, an oversized dark ill-fitting suit jacket with too-short sleeves, green-grey costume face paint over natural skin, drawn-on forehead stitches, a flat-top head prosthetic with neck bolts, heavy boots, a person made up as the monster, not the real creature
+a Frankenstein's monster getup, a torn black jacket over a grey shirt, green costume face paint over natural skin with a painted scarred brow and a bolt-topped neck piece, blocky elevated boots, arms held stiff
+a homemade Frankenstein costume, a thrifted too-small blazer, green costume face paint and marker stitches on natural skin, a foam flat-top headpiece with bolts, work boots
+a classic monster costume, a boxy dark suit, green-grey costume face paint over natural skin, a heavy painted brow and a flat-topped head prosthetic, neck electrode props, painted stitched scars across the face and hands
+a Frankenstein's monster costume, a tattered dark coat and trousers, a green-painted face over natural skin with painted sunken eyes and a stitched-jaw effect, a bolt-neck collar, oversized platform boots, arms outstretched, clearly a costumed person
+
+# -- GRIM REAPER
+a grim reaper costume, a long hooded black tattered robe with draping ragged sleeves, the deep hood pulled fully over the head leaving the face lost in shadow with no hair visible, a rope belt at the waist, skeletal painted hands
+a grim reaper getup, a floor-length black hooded cloak with a frayed hem and wide bell sleeves, the hood fully covering the head with darkness where the face should be and no hair showing, holding a long scythe
+a homemade reaper costume, a black graduation robe with a safety-pinned hood pulled fully over the head, black gloves, the face hidden in gauzy shadow with no hair visible, a broom-handle scythe
+a grim reaper costume, a heavy black tattered shroud with a cowl low over the brow covering the hair, skeletal painted hands, no scythe, an ominous still silhouette
+a reaper costume, a ragged black hooded robe layered over wispy grey underlayers, the hood drawn fully over the head with a shadowed empty hood and no hair visible, trailing torn sleeves, a rope belt
+
+# -- MUMMY
+a mummy costume, layered aged off-white linen bandages wound head-to-toe with the head fully wrapped and no hair visible, loose trailing ends, glimpses of grey wrappings beneath, hollow dark eye gaps, a shuffling wrapped silhouette
+a mummy getup, torn and yellowed gauze strips wrapped over a beige bodysuit and fully around the head with no hair showing, dangling frayed ends, dust-smudged and grimy, dark-shadowed eye gaps
+a homemade mummy costume, strips of torn old bedsheet and medical gauze wound over white long-johns and fully around the head with no hair visible, safety-pinned ends trailing loose, a little dirt and tea-staining for age
+a mummy costume, tightly wound aged linen with an unraveling arm and trailing bandages, a fully wrapped head with only the eyes showing and no hair visible, an ancient dusty look
+a classic mummy costume in aged ivory wrappings, bandages layered head-to-toe with the head fully wrapped and no hair visible, loose trailing ends and a partly unwound arm, hollow eye slits
+a classic mummy costume in grey wrappings, bandages layered head-to-toe with the head fully wrapped and no hair visible, loose trailing ends and a partly unwound arm, hollow eye slits
+a classic mummy costume in tea-stained tan wrappings, bandages layered head-to-toe with the head fully wrapped and no hair visible, loose trailing ends and a partly unwound arm, hollow eye slits
+
+# -- SCARECROW
+a scarecrow costume, a patched plaid flannel shirt and burlap-patched overalls with straw poking from the cuffs and collar, a floppy straw hat, stitched-burlap face paint over natural skin, a raggedy look
+a scarecrow getup, frayed denim overalls over a checked shirt stuffed with straw, a wide-brimmed tattered hat, a burlap-sack mask over the head with stitched features and no hair visible, rope-tied wrists
+a homemade scarecrow costume, thrifted flannel and patched jeans with straw tucked into the sleeves and boots, a straw hat, a painted triangle-nose and stitch face paint over natural skin, twine at the cuffs
+a creepy scarecrow costume, a grimy tattered coat and burlap trousers, a stitched burlap-sack hood pulled over the head with dark hollow eyeholes and no hair visible, straw bursting from the seams, a gnarled crooked stance
+a scarecrow costume in autumn plaid, straw-stuffed layers, a floppy hat, a burlap-stitch face painted on over natural skin, hay poking from every cuff
+a scarecrow costume in faded denim, straw-stuffed layers, a floppy hat, a burlap-stitch face painted on over natural skin, hay poking from every cuff
+a scarecrow costume in patched burlap, straw-stuffed layers, a floppy hat, a burlap-stitch face painted on over natural skin, hay poking from every cuff
+
+# -- WEREWOLF
+a werewolf costume, a torn plaid shirt and shredded trousers over a shaggy brown fur bodysuit on the arms and chest, a wolf-snout mask with pointed ears and fangs covering the face and head, clawed gloves, a costumed person in a wolf mask, not a real wolf
+a werewolf getup, ragged clothing bursting at the seams over a brown fur bodysuit, furry clawed gloves, a snarling wolf half-mask with ears over the upper face, painted-on hairy sideburns and fanged teeth
+a homemade werewolf costume, a ripped flannel shirt, brown faux-fur glued to the arms, a store-bought wolf mask over the head, plastic claws, smudged brown costume face paint on natural skin
+a werewolf costume, a shredded shirt over a shaggy grey-brown fur bodysuit, a fanged muzzle mask and pointed ears covering the head with no hair visible, clawed hands, hunched and bristling
+a werewolf costume in brown fur, tattered clothes over a furred chest and arms, a snouted fanged mask over the face, clawed gloves, a feral crouch, clearly a costume
+a werewolf costume in grey fur, tattered clothes over a furred chest and arms, a snouted fanged mask over the face, clawed gloves, a feral crouch, clearly a costume
+a werewolf costume in black fur, tattered clothes over a furred chest and arms, a snouted fanged mask over the face, clawed gloves, a feral crouch, clearly a costume
+
+# -- ZOMBIE
+a zombie costume, tattered dirt-and-grime-streaked everyday clothes, grey-green costume face paint painted over natural skin, painted-on dark sunken eye shadow, a dab of theatrical fake blood at the mouth, a slack vacant look — an ordinary person made up in zombie costume makeup, not a real corpse
+a zombie getup, a torn and muddied shirt and trousers, ashen costume face paint over natural skin with painted-on hollow shadowed eyes, smears of theatrical fake blood, a shuffling stoop, plainly a person in stage makeup
+a homemade zombie costume, thrifted shredded clothes rubbed with dirt, grey costume face paint and painted-on dark eye shadow, dabs of theatrical fake blood, a ripped collar, clearly applied Halloween makeup on a normal face
+a zombie bride or groom costume, a tattered muddied wedding gown or dark suit, ashen costume face paint and painted dark-ringed eyes over natural skin, a wilted bouquet or crooked tie, touches of theatrical fake blood
+a zombie costume in grey costume face paint over natural skin, ragged fake-blood-stained clothes, painted sunken eyes, a limp dragging posture, costume-grade Halloween makeup with no real gore or exposed anatomy
+a zombie costume in greenish costume face paint over natural skin, ragged fake-blood-stained clothes, painted sunken eyes, a limp dragging posture, costume-grade Halloween makeup with no real gore or exposed anatomy
+a zombie costume in ashen costume face paint over natural skin, ragged fake-blood-stained clothes, painted sunken eyes, a limp dragging posture, costume-grade Halloween makeup with no real gore or exposed anatomy
+
+
+# ---- CUTE / GLAM
+
+# -- BAT
+a bat costume, a sleek black bodysuit with scalloped webbed bat-wing capes stretched between the arms and body, a black bat-ear headband, black tights, subtle dark eye makeup
+a cute bat costume, a black hoodie with felt scalloped wings sewn under the arms, plush bat ears on the hood, black leggings, a little painted nose
+a glam bat costume, a black sequined leotard with sheer wired wings, dramatic smoky eye makeup, sheer black tights, small fang tips, a jeweled bat-ear headband
+a homemade bat getup, an all-black outfit with umbrella-fabric wings safety-pinned to the arms, cardboard bat ears on a headband, black gloves
+a bat costume in black, a fitted bodysuit with membranous scalloped wings, a pointed-ear headband, matching tights, a dusting of shimmer
+a bat costume in charcoal grey, a fitted bodysuit with membranous scalloped wings, a pointed-ear headband, matching tights, a dusting of shimmer
+a bat costume in deep purple, a fitted bodysuit with membranous scalloped wings, a pointed-ear headband, matching tights, a dusting of shimmer
+
+# -- BLACK CAT
+a black cat costume, a sleek black bodysuit with a long plush tail, a black cat-ear headband, painted whiskers and a little black nose, black gloves and tights
+a black cat dress costume, a short black dress with a curled wire tail, a velvet cat-ear headband, drawn-on whiskers, black tights and flats
+a glam black cat costume, a black sequined catsuit with a long sleek tail, dramatic winged eyeliner and painted whiskers, a rhinestone cat-ear headband, elbow gloves
+a homemade black cat getup, all-black sweats and a hoodie, pipe-cleaner whiskers and a felt-ear headband, a stuffed-tights tail pinned at the back, an eyeliner nose and whiskers
+a cat costume in black, a fitted bodysuit with a matching plush tail and ear headband, painted whiskers and a pink nose, soft paw mittens
+a cat costume in grey, a fitted bodysuit with a matching plush tail and ear headband, painted whiskers and a pink nose, soft paw mittens
+a cat costume in white, a fitted bodysuit with a matching plush tail and ear headband, painted whiskers and a pink nose, soft paw mittens
+
+# -- FAIRY
+a fairy costume, a gauzy pastel tulle dress with a layered petal skirt, glittered gossamer wings on the back, a flower crown, delicate slippers, shimmer on the cheeks
+a fairy costume, a shimmering leaf-and-petal dress, iridescent wired wings, a sparkling wand in hand, ballet flats, dewy glitter makeup
+a woodland fairy getup, a moss-and-leaf-trimmed earth-toned dress, translucent veined wings, a twig-and-flower circlet, soft slippers, freckled shimmer
+a homemade fairy costume, a tutu and a pastel top, cellophane-and-wire wings safety-pinned at the back, a foil-star wand, a ribbon-and-flower headband
+a glam fairy costume in pink, a sequined bodice and a floaty layered skirt, large iridescent wings, a jeweled tiara, high shimmer, no wand
+a glam fairy costume in lilac, a sequined bodice and a floaty layered skirt, large iridescent wings, a jeweled tiara, high shimmer, no wand
+a glam fairy costume in mint, a sequined bodice and a floaty layered skirt, large iridescent wings, a jeweled tiara, high shimmer, no wand
+a glam fairy costume in gold, a sequined bodice and a floaty layered skirt, large iridescent wings, a jeweled tiara, high shimmer, no wand
+
+# -- JACK-O'-LANTERN
+a jack-o'-lantern costume, a round padded orange pumpkin body printed with a black carved grinning face, a green stem cap and a green leaf collar, green tights, orange shoes
+a pumpkin costume, a round stuffed orange tunic with black ribbed segment lines, a green stalk beanie, green leggings, rosy cheeks
+a cute pumpkin dress costume, an orange tutu dress with a black jack-o'-lantern face on the front, a green stem headband with curling vine tendrils, orange-and-green striped tights
+a homemade pumpkin getup, an orange sweatshirt stuffed round with a taped-on black felt face, a green knit hat as the stem, green sweatpants
+a jack-o'-lantern costume in classic orange, a padded round body with a carved face, a green stem and leaf collar, matching tights
+a jack-o'-lantern costume in pale ghost-pumpkin white, a padded round body with a carved face, a green stem and leaf collar, matching tights
+a jack-o'-lantern costume in deep burnt orange, a padded round body with a carved face, a green stem and leaf collar, matching tights
+
+# -- SPIDER
+a spider costume, a black-and-purple bodysuit with a web pattern, four extra spindly jointed legs arching from the back, a black headband with small spider eyes, dark makeup
+a spider-queen costume, a black web-motif gown with a high spiked collar, wire-and-stuffed legs curving over the shoulders, a jeweled spider on the chest, dramatic dark glam makeup
+a cute spider costume, a fuzzy black-and-purple outfit with plush dangling legs sewn at the sides, a headband with googly spider eyes, striped tights
+a homemade spider getup, all-black clothing with four extra legs made from stuffed black tights pinned along the sides, a web drawn on the shirt, a pipe-cleaner-eyes headband
+a glam spider costume in black, a sequined web-pattern bodysuit, arching jointed legs on a back harness, a veiled spider headpiece, high-shine dark makeup
+a glam spider costume in deep purple, a sequined web-pattern bodysuit, arching jointed legs on a back harness, a veiled spider headpiece, high-shine dark makeup
+a glam spider costume in midnight blue, a sequined web-pattern bodysuit, arching jointed legs on a back harness, a veiled spider headpiece, high-shine dark makeup
+
+
+# ---- MODERN
+
+# -- BARBIE
+a Barbie costume, a bright bubblegum-pink Western-style outfit with a fringed cowboy shirt and flared trousers, a white cowboy hat and neckerchief, a bedazzled belt, white cowboy boots, glossy glam makeup and long styled blonde hair
+a homemade Barbie getup, an all-hot-pink outfit of a pink gingham dress and white heeled shoes, pink hoop earrings, big blown-out blonde hair, bold pink lipstick
+a glam Barbie costume, a sparkling pink halter gown with rhinestones, elbow-length pink gloves, white sunglasses pushed up into styled blonde hair, statement earrings, high-shine makeup
+a Barbie costume, a pink polka-dot swing dress with a matching headscarf, white cat-eye sunglasses, hoop earrings, white mules, retro glam makeup
+a Ken beach costume, a pastel-and-neon 80s-style outfit, a denim vest over a bright tee, white sneakers, sun-bleached styled hair, playful glam
+
+# -- DARTH VADER
+a Darth Vader costume, a glossy black molded helmet with a sculpted breath mask and angular eye lenses fully enclosing the head with the hair completely hidden and no hair visible, a black cape and long black robes over a black jumpsuit, a segmented chest control box printed with rows of buttons, a wide black belt, black gloves and boots
+a homemade Darth Vader getup, a black rubber Vader mask pulled fully over the head with no hair showing, a black graduation-style robe and cape, a spray-painted cardboard chest panel with drawn-on switches, black gloves, holding a red plastic lightsaber
+a boxed dime-store Vader costume, a shiny black-and-grey vinyl smock silk-screened with Vader's chest, belt and cape, a hard plastic Vader half-mask pushed up off the face and worn on top of the head with the wearer's own hair visible beneath, tied at the back, early-80s box-creased
+a deluxe Darth Vader costume with a two-piece helmet fully covering the head and hair with none visible, a quilted black chest tunic, flowing cape, molded belt with a printed control box, black tabard panels, black gloves, an illuminated red lightsaber in hand
+a Darth Vader costume, a full black helmet and mask completely enclosing the head with no hair visible, black robes and cape, printed chest box, wide belt, black gloves and boots, arms crossed with no lightsaber
+
+# -- FREDDY KRUEGER
+a Freddy Krueger costume, a dirty red-and-dark-green striped knit sweater, a battered brown fedora, a worn bladed glove on one hand with four thin metal finger-knives, costume burn-scar makeup and face paint over natural skin
+a Freddy Krueger getup, a grimy red-and-green horizontal-striped jumper, a brown felt hat pulled low, a leather work glove fitted with foil-and-cardboard blades, latex costume scar appliances and reddened costume face paint over natural skin
+a deluxe Freddy costume, a tattered striped sweater over dark trousers, a scorched fedora, a molded rubber burn-scar half-mask over the face, an articulated bladed glove, grime-streaked and singed
+a Freddy Krueger costume, a striped sweater and brown hat, a bladed glove raised, heavy costume burn-scar makeup with painted-on peeling latex wounds over natural skin, a menacing hunched stance
+a milder Freddy costume, a red-and-green striped sweater, a brown fedora, a plastic toy bladed glove, light costume greasepaint scarring, no gore
+
+# -- GHOSTBUSTERS
+a Ghostbusters costume, a tan cotton jumpsuit with a name patch and a no-ghost logo patch on the arm, a foam-and-plastic proton pack backpack with a wand on a coiled hose, black utility straps, black boots
+a homemade Ghostbusters getup, a khaki coverall with a stitched-on red-slash ghost patch, a cardboard-and-spray-paint proton pack, a hose-and-dowel neutrona wand, work gloves and boots
+a deluxe Ghostbusters costume, a beige flight suit with printed patches, an elaborate molded proton pack accented with red and yellow, a corded thrower wand clipped at the hip, a radio on the chest strap
+a Ghostbusters costume, tan jumpsuit with arm patches, a foam proton pack, wand stowed, no thrower in hand
+a Ghostbusters costume with a fitted khaki jumpsuit, ghost-logo patches, a boxy proton pack, elbow-length gloves, holding the neutrona wand out ahead
+
+# -- GHOSTFACE (SCREAM)
+a Ghostface costume, a loose black hooded robe with tattered draping sleeves pulled up over the head, a white molded elongated-teardrop ghost mask covering the face with the hood covering the hair and none visible, black gloves
+a Scream-style Ghostface getup, a flowing black shroud robe with a ragged hem and a hood over the head, a white rubber screaming-face mask covering the face with no hair visible, black gloves, one hand raising a kitchen knife smeared with theatrical fake blood
+a deluxe Ghostface costume, a heavy black hooded cloak with a wired drooping face, the classic white distorted mask covering the face and the hood covering the hair with none visible, black gloves, a rubber prop knife in hand
+a Ghostface costume, a black hooded robe and white ghost mask fully covering the face and hair with none visible, black gloves, empty-handed, looming in shadow
+a Ghostface costume with a torn black robe and hood, a white warped mask over the face with no hair visible, a collar flecked with theatrical fake blood, a plastic knife held low
+
+# -- HARRY POTTER
+a Harry Potter costume, a black open school robe over a grey jumper, a white collared shirt and a red-and-gold striped house tie, round wire glasses, grey trousers, a drawn-on lightning-bolt forehead scar
+a homemade Harry Potter getup, a black graduation robe, a thrifted grey sweater and striped tie, taped round glasses, a penned scar, holding a chopstick wand
+a deluxe Hogwarts costume, a lined house robe with an embroidered crest, a knit house scarf in red and gold, a white shirt and tie, round spectacles, a sculpted wand in hand
+a Harry Potter costume, a black robe, house tie and jumper, round glasses, a scar on the brow, wand tucked away
+a wizard student costume, a black pleated robe, a striped house scarf and tie, round glasses, a raised wand mid-spell
+
+# -- IRON MAN (AVENGERS)
+an Iron Man costume, a red-and-gold molded muscle-chest suit with segmented plating, a glowing round chest reactor disc, a two-piece helmet with a hinged faceplate and lit eye slits fully covering the head with no hair visible, gold gauntlets and boots
+a homemade Iron Man getup, a red hoodie and sweats painted with gold panel lines, a cardboard-and-foam helmet covering the head with no hair showing, a battery-lit jar-lid chest reactor, gold gloves
+a deluxe Avengers Iron Man costume, an EVA-foam armored suit in red and gold with sculpted plates, a light-up arc reactor and palm repulsors, an articulated helmet fully enclosing the head with no hair visible
+an Iron Man costume, a red-and-gold armor jumpsuit with printed plating, a full helmet covering the head and hair with none visible, a glowing chest disc, arms at the sides
+an Iron Man costume with molded chest armor, the helmet faceplate lifted to show the face while the helmet still covers the hair, a lit reactor, one palm raised in a repulsor pose
+
+# -- POWER RANGERS
+a red Power Ranger costume, a fitted red spandex suit with a white diamond-patterned chest and white cuffs, a white belt with a rectangular buckle and a holstered blade-blaster, white gloves and boots, a full red helmet with a black wraparound visor shaped to a tyrannosaurus crest, fully enclosing the head with no hair visible
+a blue Power Ranger costume, a blue spandex suit with white diamond chest trim and white cuffs, a white belt and buckle with a holstered blade-blaster, white gloves and boots, a full blue helmet with a black visor shaped to a triceratops crest, fully covering the head with no hair visible
+a black Power Ranger costume, a black spandex suit with white diamond chest trim and white cuffs, a white belt and buckle, white gloves and boots, a full black helmet with a black visor shaped to a mastodon crest, fully covering the head with no hair visible
+a yellow Power Ranger costume, a yellow spandex suit with white diamond chest trim and white cuffs, a white belt and buckle, white gloves and boots, a full yellow helmet with a black visor shaped to a sabertooth-tiger crest, fully covering the head with no hair visible
+a pink Power Ranger costume, a pink spandex suit with white diamond chest trim and a short white skirt, a white belt and buckle, white gloves and boots, a full pink helmet with a black visor shaped to a pterodactyl crest, fully covering the head with no hair visible
+a green Power Ranger costume, a green spandex suit with a gold armored dragon-shield breastplate edged in gold chevrons across the chest and shoulders, gold wrist gauntlets, a white belt, white gloves and boots, a full green helmet with a black visor shaped to a dragon crest, fully covering the head with no hair visible
+a white Power Ranger costume, a white spandex suit with a gold chest-armor shield bearing a tiger emblem, gold-trimmed gauntlets and shoulders, a white belt, white gloves and boots, a full white helmet with a black visor shaped to a tiger crest, fully covering the head with no hair visible
+a homemade Power Ranger getup in red, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a homemade Power Ranger getup in blue, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a homemade Power Ranger getup in black, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a homemade Power Ranger getup in yellow, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a homemade Power Ranger getup in pink, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a homemade Power Ranger getup in green, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a homemade Power Ranger getup in white, matching colored sweats or a morphsuit, a cardboard-and-foam helmet covering the head with no hair showing, a white cardboard belt buckle, white gloves and boots
+a deluxe Power Ranger costume in red, a muscle-padded colored suit with printed white chest diamonds, a two-piece molded helmet with a tinted black visor and a sculpted zord crest fully covering the head with no hair visible, a white utility belt, white gloves and boots
+a deluxe Power Ranger costume in blue, a muscle-padded colored suit with printed white chest diamonds, a two-piece molded helmet with a tinted black visor and a sculpted zord crest fully covering the head with no hair visible, a white utility belt, white gloves and boots
+a deluxe Power Ranger costume in black, a muscle-padded colored suit with printed white chest diamonds, a two-piece molded helmet with a tinted black visor and a sculpted zord crest fully covering the head with no hair visible, a white utility belt, white gloves and boots
+a deluxe Power Ranger costume in yellow, a muscle-padded colored suit with printed white chest diamonds, a two-piece molded helmet with a tinted black visor and a sculpted zord crest fully covering the head with no hair visible, a white utility belt, white gloves and boots
+a deluxe Power Ranger costume in pink, a muscle-padded colored suit with printed white chest diamonds, a two-piece molded helmet with a tinted black visor and a sculpted zord crest fully covering the head with no hair visible, a white utility belt, white gloves and boots
+a Power Ranger costume in red, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in blue, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in black, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in yellow, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in pink, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in green, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in white, a colored spandex suit and a full crested helmet with a black visor fully covering the head with no hair visible, white diamond chest trim, a white belt, white gloves and boots
+a Power Ranger costume in red, a colored suit and a full crested helmet covering the head with no hair visible, a white belt and gloves, holding a toy blade-blaster in one hand
+a Power Ranger costume in blue, a colored suit and a full crested helmet covering the head with no hair visible, a white belt and gloves, holding a toy blade-blaster in one hand
+a Power Ranger costume in black, a colored suit and a full crested helmet covering the head with no hair visible, a white belt and gloves, holding a toy blade-blaster in one hand
+a Power Ranger costume in yellow, a colored suit and a full crested helmet covering the head with no hair visible, a white belt and gloves, holding a toy blade-blaster in one hand
+a Power Ranger costume in pink, a colored suit and a full crested helmet covering the head with no hair visible, a white belt and gloves, holding a toy blade-blaster in one hand
+
+# -- SPIDER-MAN
+a Spider-Man costume, a full red-and-blue spandex bodysuit printed with black web lines and a chest spider emblem, a full face mask covering the head with large white lensed eyes and no hair visible, matching red gloves and boots
+a homemade Spider-Man getup, a red hoodie and blue morphsuit with marker-drawn webbing, a pull-over red mask covering the head with felt eye patches and no hair showing, red fingerless gloves
+a boxed dime-store Spider-Man costume, a red-and-blue vinyl smock silk-screened with the webbed chest and emblem, a plastic Spider-Man half-mask pushed up off the face and worn atop the head with the wearer's hair visible beneath, tied at the back
+a deluxe Spider-Man costume, a muscle-textured black suit with raised rubber webbing, 3D white eye lenses on a full mask covering the head with no hair visible, a printed emblem, gloves and boots, in a crouched web-slinging pose
+a Spider-Man costume, a gray-and-blue webbed suit and a full mask covering the head with no hair visible, one hand raised in a web-shooting gesture
+
+# -- TEENAGE MUTANT NINJA TURTLES
+a person wearing a Teenage Mutant Ninja Turtle Leonardo costume, a green foam muscle-suit with a molded plastic plastron and domed back shell, a foam turtle-head mask with a blue eye-mask bandana covering the head with no human hair visible, brown-wrapped forearms and shins, a knotted belt, green three-fingered gloves, wielding a pair of toy katana — clearly a costumed person, not an actual turtle
+a person wearing a Ninja Turtle Raphael costume, a green foam muscle-suit and molded plastic shell, a foam turtle-head mask with a red eye-mask bandana covering the head with no human hair visible, brown wrappings, a knotted belt, green gloves, brandishing a pair of toy sai — a costumed person, not a real turtle
+a person wearing a Ninja Turtle Donatello costume, a green foam muscle-suit and molded plastic shell, a foam turtle-head mask with a purple eye-mask bandana covering the head with no human hair visible, brown wrappings, a knotted belt, green gloves, holding a long toy bo staff — clearly a costume, not an actual turtle
+a person wearing a Ninja Turtle Michelangelo costume, a green foam muscle-suit and molded plastic shell, a foam turtle-head mask with an orange eye-mask bandana covering the head with no human hair visible, brown wrappings and a knotted belt, green gloves, swinging a pair of foam nunchucks — a costumed person, not a real turtle
+a person wearing a Ninja Turtle Leonardo costume, a green foam muscle-suit and molded shell, a blue eye-mask bandana tied over the head with the wearer's own face showing and hair tucked under the bandana, brown wrappings and a knotted belt, green gloves, twin toy katana sheathed in a back scabbard — clearly a Halloween costume, not an actual turtle
+a person wearing a Ninja Turtle Raphael costume, a green foam muscle-suit and molded shell, a red eye-mask bandana tied over the head with the wearer's face showing, brown wrappings and a knotted belt, green gloves, a pair of toy sai tucked into the belt — a costumed person, not a real turtle
+a person wearing a Ninja Turtle Donatello costume, a green foam muscle-suit and molded shell, a purple eye-mask bandana over the head with the wearer's face showing, brown wrappings and a knotted belt, green gloves, a toy bo staff slung across the back of the shell — clearly a costume, not an actual turtle
+a person wearing a Ninja Turtle Michelangelo costume, a green foam muscle-suit and molded shell, an orange eye-mask bandana over the head with the wearer's face showing, brown wrappings and a knotted belt, green gloves, toy nunchucks looped at the hip — a costumed person, not a real turtle
+a homemade Ninja Turtle costume in a blue eye-mask, green sweats and a green hoodie worn by a person, a painted cardboard or bowl shell strapped front and back, brown knee and elbow wraps, no weapons — clearly a homemade Halloween costume, not an actual turtle
+a homemade Ninja Turtle costume in a red eye-mask, green sweats and a green hoodie worn by a person, a painted cardboard or bowl shell strapped front and back, brown knee and elbow wraps, no weapons — clearly a homemade Halloween costume, not an actual turtle
+a homemade Ninja Turtle costume in a purple eye-mask, green sweats and a green hoodie worn by a person, a painted cardboard or bowl shell strapped front and back, brown knee and elbow wraps, no weapons — clearly a homemade Halloween costume, not an actual turtle
+a homemade Ninja Turtle costume in a orange eye-mask, green sweats and a green hoodie worn by a person, a painted cardboard or bowl shell strapped front and back, brown knee and elbow wraps, no weapons — clearly a homemade Halloween costume, not an actual turtle
+a deluxe Ninja Turtle costume in a blue eye-mask worn by a person, a padded green foam bodysuit with a sculpted plastron and shell, an oversized foam turtle head covering the wearer's head with no human hair visible, taped wrists, a toy weapon slung at the back — a costumed person, not a real turtle
+a deluxe Ninja Turtle costume in a red eye-mask worn by a person, a padded green foam bodysuit with a sculpted plastron and shell, an oversized foam turtle head covering the wearer's head with no human hair visible, taped wrists, a toy weapon slung at the back — a costumed person, not a real turtle
+a deluxe Ninja Turtle costume in a purple eye-mask worn by a person, a padded green foam bodysuit with a sculpted plastron and shell, an oversized foam turtle head covering the wearer's head with no human hair visible, taped wrists, a toy weapon slung at the back — a costumed person, not a real turtle
+a deluxe Ninja Turtle costume in a orange eye-mask worn by a person, a padded green foam bodysuit with a sculpted plastron and shell, an oversized foam turtle head covering the wearer's head with no human hair visible, taped wrists, a toy weapon slung at the back — a costumed person, not a real turtle
+a person wearing a Ninja Turtle costume in a blue eye-mask, a green foam muscle suit and molded plastic shell, brown wrappings and a knotted belt, green three-fingered gloves, no weapons — clearly a Halloween costume, not an actual turtle
+a person wearing a Ninja Turtle costume in a red eye-mask, a green foam muscle suit and molded plastic shell, brown wrappings and a knotted belt, green three-fingered gloves, no weapons — clearly a Halloween costume, not an actual turtle
+a person wearing a Ninja Turtle costume in a purple eye-mask, a green foam muscle suit and molded plastic shell, brown wrappings and a knotted belt, green three-fingered gloves, no weapons — clearly a Halloween costume, not an actual turtle
+a person wearing a Ninja Turtle costume in a orange eye-mask, a green foam muscle suit and molded plastic shell, brown wrappings and a knotted belt, green three-fingered gloves, no weapons — clearly a Halloween costume, not an actual turtle
+
+# -- E.T.
+a person wearing an E.T. costume, a squat brown wrinkled alien bodysuit with a long extendable neck, an oversized big-eyed E.T. head mask covering the head with no human hair visible, stubby padded limbs, a glowing red heart-light on the chest — a costumed person, not a real alien
+a person in an E.T. costume, a textured greyish-brown creature bodysuit with a padded pot-belly, long-fingered gloves with a lit fingertip, a big domed alien-head mask over the head with no hair visible and large expressive eyes — clearly a costume, not an actual creature
+an E.T.-in-disguise costume, a person in the little-alien suit bundled in a red hooded sweatshirt with a blue-and-white dress and a blonde wig draped over the alien head, brown alien face and gloved hands peeking out — a costumed person, not a real alien
+a homemade E.T. getup, a brown hoodie stuffed round at the belly worn by a person, a foam long neck and a big-eyed alien mask over the head, a red-painted glowing fingertip — clearly a homemade costume, not an actual alien
+a person wearing an E.T. costume, a wrinkled greyish-brown alien bodysuit, a long craning padded neck, a wide-eyed domed alien-head mask with no human hair visible, a single long raised finger, a small hunched figure — a costume, not a real creature
+
+# -- FROZEN ELSA
+an Elsa costume, a sparkling ice-blue off-the-shoulder gown with a fitted crystal bodice, a long sheer snowflake-glittered cape trailing behind, a platinum-blonde side braid, icy shimmer makeup
+a Frozen Elsa costume, a shimmering pale-blue satin dress with a sequined bodice and a translucent glitter train, a long braided blonde wig, snowflake accents
+a homemade Elsa getup, a light-blue dress with a sheer sparkly curtain-fabric cape, a blonde braid, silver snowflake stickers, glitter on the cheeks
+an Elsa costume, an icy-blue gown with a high sheer snowflake collar, a beaded bodice, a flowing sparkled cape, a side-swept platinum braid, a small tiara
+a snow-queen Elsa costume, a glittering blue-and-white gown, a crystalline cape, a braided blonde wig, frosted eye makeup, elegant and regal
+
+# -- HARLEY QUINN
+a Harley Quinn costume, a red-and-black diamond harlequin catsuit with a jester collar and hood, a black-and-red domino mask over the eyes, white costume face paint over natural skin with painted black eye diamonds
+a modern Harley Quinn costume, blonde pigtails dip-dyed pink and blue, a printed slogan tee, red-and-blue sequined shorts, fishnets, a studded choker, a baseball bat over the shoulder
+a homemade Harley Quinn getup, a red-and-black outfit with dip-dyed pigtails, smudged eye makeup, a foam mallet or painted toy bat, fishnet tights
+a Harley Quinn costume, a red-and-black corset and shorts, pink-and-blue tipped pigtails, a choker and wristbands, high boots, no weapon, a cocky stance
+a jester Harley Quinn costume, a classic red-and-black diamond bodysuit with a white ruffled collar and pom-poms, a two-point jester hat over the hair, harlequin white costume face paint over natural skin
+
+# -- JASON VOORHEES
+a Jason Voorhees costume, a dirty white-and-red hockey mask covering the face with the wearer's hair visible around it, tattered dark work clothes and a grimy jacket, heavy boots, a looming silent stance
+a Jason costume, a weathered hockey goalie mask with red triangle marks over the face and the hair visible around it, muddy ragged coveralls, torn gloves, a machete in one hand
+a homemade Jason getup, a thrifted hockey mask over the face with hair showing around it, dark ripped clothes rubbed with dirt, a plastic machete, work boots
+a Jason Voorhees costume, a cracked hockey mask over the face with hair visible around it, a filthy layered jacket and trousers, a matted look, empty-handed, a heavy menacing silhouette
+a Jason costume, a scuffed hockey mask over the face and grimy dark clothing, an alternate sackcloth hood pulled over the head with no hair visible, torn gloves, a slow looming posture
+
+# -- MICHAEL MYERS
+a Michael Myers costume, dark navy mechanic's coveralls, a pale expressionless white mask covering the face only, framed by tousled brown hair left visible around and above it, a blank flat stare, work boots
+a Michael Myers costume, faded blue-grey coveralls, a featureless white face mask with the wearer's brown hair visible around it, a large kitchen knife held low at the side
+a homemade Michael Myers getup, thrifted dark coveralls, a plain white face mask painted featureless, worn with a brown wig visible around the mask, a plastic knife
+a Michael Myers costume, navy coveralls and a bone-white blank face mask, brown hair visible around the mask, hands empty at the sides, an eerily still and silent stance
+a Michael Myers costume, dark boiler-suit coveralls, a pallid expressionless face mask with messy brown hair left visible around it, a slow deliberate menace
+
+# -- PIKACHU
+a person wearing a Pikachu costume, a bright yellow hooded onesie with pointed black-tipped ears, red circle cheeks, a brown-striped back, and a jagged lightning-bolt tail — clearly a costume, not an actual Pikachu
+a Pikachu getup, a yellow hoodie and yellow leggings worn by a person, a Pikachu ear headband, painted red cheek circles, a felt lightning-bolt tail pinned at the back — a costumed person, not a real creature
+a homemade Pikachu costume, a yellow sweatshirt and sweatpants on a person, taped-on black ear tips and a cardboard lightning tail, red-blush cheeks — clearly a homemade costume, not an actual Pikachu
+a Pikachu kigurumi costume, a person in a plush full-body yellow Pikachu suit with a hood forming the face and ears and covering the hair, a big lightning tail, mitten paws — a costumed person, not a real creature
+a person wearing a Pikachu costume, a yellow dress or romper with a lightning-bolt hem, an ear headband, red cheeks, a bolt tail, cute and rounded — clearly a costume, not an actual Pikachu
+
+# -- TERMINATOR
+a Terminator costume, a black leather biker jacket, black jeans and boots, dark sunglasses, and a chrome endoskeleton half-face reveal made of costume prosthetic and paint over natural skin with a glowing red eye — a costumed person, not a real machine
+a Terminator T-800 costume, an all-black leather outfit, a costume-latex torn-cheek appliance exposing a painted metallic skull and red eye over natural skin, a chrome-foil forearm prop with exposed pistons
+a homemade Terminator getup, a black leather jacket and shades, silver costume face paint and a foil-and-cardboard endoskeleton cheek over natural skin, a chrome-taped arm
+a Terminator costume, a black leather jacket, a dark tee, sunglasses, and a battle-damaged latex face-appliance showing painted chrome beneath over natural skin
+an endoskeleton Terminator costume, a person in a full chrome-silver robotic-skeleton bodysuit with a chrome skull mask covering the head with red eyes and exposed piston props — clearly a costume, not a real endoskeleton
+
+# -- WEDNESDAY ADDAMS
+a Wednesday Addams costume, a black long-sleeved dress with a crisp white Peter-Pan collar and cuffs, two long black braids, pale costume face powder over natural skin, black stockings and shoes, a deadpan stare
+a Wednesday Addams costume, a black pleated collared dress, black braided pigtails, pale costume face powder, dark shoes, folded arms, an unamused expression
+a Nevermore-uniform Wednesday costume, a black-and-purple striped blazer over a white collared shirt, a pleated black skirt, black braids, a stern look
+a homemade Wednesday getup, a plain black long-sleeved dress with a white collar sewn on, two dark braids, pale costume face powder, black tights
+a Wednesday Addams costume, a severe black collared dress, twin braids, pale costume face powder over natural skin, a small black bow, a flat cold gaze
+
+# -- WONDER WOMAN
+a Wonder Woman costume, a red bustier with a gold eagle emblem, blue star-spangled shorts, a gold tiara with a red star, gold arm cuffs, red-and-gold knee boots
+a Wonder Woman costume, a red-and-gold armored bodice, a blue starred skirt, a gold headband tiara, silver bracelets, a gold lasso coiled at the hip, tall red boots
+a homemade Wonder Woman getup, a red top and a blue star-print skirt, a gold-painted cardboard tiara and cuffs, a gold rope lasso in hand, red boots
+a Wonder Woman costume, a red corset with the gold emblem, blue briefs with white stars, gold tiara and gauntlets, red boots, hands on the hips, no lasso
+a warrior Wonder Woman costume, a bronze-and-red armored bodice, a leather-panel skirt, a gold tiara and arm guards, a lasso on the belt, laced boots

@@ -1,0 +1,65 @@
+# ============================================================
+# HALLOWEEN POSES - KREA2 (natural-language prose)
+# Gender-neutral: subject referred to as "the subject"; body parts take "the"
+# (the hip, the neck) - no gendered pronouns anywhere.
+# Attribute-clean: no skin, hair, eye, or garment callouts. Weapon- and prop-
+# free (props live in the costume lines). Fixtures are PORTABLE features found
+# across Halloween settings (low walls, railings, gates, doorframes, steps,
+# tree trunks) so poses carry across every environment in the pool.
+# Two layers:
+#   1. GENERIC PORTABLE - neutral body postures that suit any costume.
+#   2. SPOOKY BODY-LANGUAGE - looming, lurching, creeping, beckoning and other
+#      costume-agnostic menace and atmosphere that flatters monster costumes
+#      without locking to any one of them.
+# Pair with __halloween_environment__ and a costume line. One pose per line.
+# ============================================================
+
+# ==== LAYER 1: GENERIC PORTABLE ====
+
+# -- standing / at ease
+the subject stands squarely with weight even on both feet, the arms relaxed at the sides, the chin level, a calm settled posture
+the subject stands with weight shifted onto one hip in an easy contrapposto, one hand resting at the waist and the other hanging loose, the head tilted slightly
+the subject stands with both hands planted on the hips, the elbows out and the feet set apart, a confident squared stance
+the subject stands turned three-quarters away with the head turned back over one shoulder toward the viewer, an over-the-shoulder glance
+
+# -- leaning on portable fixtures
+the subject leans one shoulder against a doorframe with the ankles crossed and the arms folded, an unhurried waiting posture
+the subject leans back against a low wall with both palms braced on the top edge, the hips pushed forward and one foot crossed over the other, idle and casual
+the subject leans against an iron railing with both forearms hooked over it, the gaze cast outward
+the subject rests one foot on a low step with a forearm draped across the raised knee, leaning into it and looking ahead
+
+# -- crouching / kneeling / seated
+the subject crouches on the balls of the feet with the forearms over the knees, the head lifted and the gaze forward, a low ready crouch
+the subject kneels on one knee with the opposite forearm braced across the raised thigh, the torso upright and steady
+the subject sits on a low step with the knees apart and the forearms on the thighs, the shoulders rounded forward, resting
+the subject sits on the edge of a low wall with the hands gripping the lip and the legs hanging, leaning forward
+
+# -- motion / gesture
+the subject is caught mid-stride walking forward, one arm swinging and the weight rolling onto the leading foot
+the subject pauses mid-step and turns to glance back over one shoulder, the torso twisting while the trailing foot stays planted
+the subject stretches both arms overhead with the spine arched, rising onto the toes, a long easing stretch
+the subject stands with one hand raised to the back of the neck, the elbow lifted, a relaxed idle gesture
+
+# ==== LAYER 2: SPOOKY BODY-LANGUAGE ====
+
+# -- looming / advancing
+the subject looms forward from the waist with both arms lifted and reaching toward the viewer, the fingers spread, a slow menacing advance
+the subject rears back with both arms raised high and wide overhead and the chin lifted, a towering looming pose
+the subject reaches one arm slowly toward the viewer with the fingers splayed, the other arm trailing behind and the head lowered
+
+# -- lurching / prowling
+the subject shambles forward with a stiff dragging gait, the arms hanging heavy and the head lolling to one side
+the subject creeps low and forward on bent knees with the torso hunched and one arm extended ahead, stalking
+the subject moves in a slow prowl, one foot placed directly ahead of the other, the torso held low and the arms out for balance
+
+# -- coiled / still / unnatural
+the subject stands unnaturally rigid and still, the arms flat at the sides and the shoulders square, the head tilted at an odd angle
+the subject hunches with the shoulders drawn up around the neck and the hands curled near the chest, a coiled crouch
+the subject stands with the head bowed and the arms hanging limp at the sides, motionless, a lifeless drooping stance
+the subject holds the arms slightly out from the sides with the posture erect and still, a gliding weightless drift
+
+# -- lurking / reacting
+the subject peers around the edge of a doorframe with only the head and one hand showing, the body concealed behind it
+the subject beckons with one curled hand while half-turned away, glancing back over the shoulder, an inviting lure
+the subject cowers and recoils with both arms thrown up to shield the face, the weight rocked back onto the heels, a startled flinch
+the subject twists sharply at the waist to face back over one shoulder with both hands raised, caught mid-turn in a sudden startle

@@ -1,0 +1,162 @@
+# Cyberpunk full-coverage suits — armored plug/skin/under/jump/zentai/tech suits.
+# Companion to outfits.txt: coverage-first, for characters meant to be fully clad.
+# Transparent variants dropped as non-covering; leotard variants retained.
+
+# COMPRESSION (56)
+compression plugsuit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression skinsuit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression undersuit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression jumpsuit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression zentai suit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression leotard, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression techsuit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+compression bodysuit, segmented chest armor plating, tapered abdominal plating, reinforced armored waistband, lightweight shin armor plating, outer-thigh strike protection, low-profile shoulder armor caps, precision combat forearm plating, reinforced high-collar neck guard
+tailored compression plugsuit in dark corporate tones
+tailored compression skinsuit in dark corporate tones
+tailored compression undersuit in dark corporate tones
+tailored compression jumpsuit in dark corporate tones
+tailored compression zentai suit in dark corporate tones
+tailored compression leotard in dark corporate tones
+tailored compression techsuit in dark corporate tones
+tailored compression bodysuit in dark corporate tones
+sleek compression plugsuit with matte corporate finish
+sleek compression skinsuit with matte corporate finish
+sleek compression undersuit with matte corporate finish
+sleek compression jumpsuit with matte corporate finish
+sleek compression zentai suit with matte corporate finish
+sleek compression leotard with matte corporate finish
+sleek compression techsuit with matte corporate finish
+sleek compression bodysuit with matte corporate finish
+compression plugsuit contoured to the body
+compression skinsuit contoured to the body
+compression undersuit contoured to the body
+compression jumpsuit contoured to the body
+compression zentai suit contoured to the body
+compression leotard contoured to the body
+compression techsuit contoured to the body
+compression bodysuit contoured to the body
+compression plugsuit stretched tight
+compression skinsuit stretched tight
+compression undersuit stretched tight
+compression jumpsuit stretched tight
+compression zentai suit stretched tight
+compression leotard stretched tight
+compression techsuit stretched tight
+compression bodysuit stretched tight
+compression plugsuit in matte dark fabric
+compression skinsuit in matte dark fabric
+compression undersuit in matte dark fabric
+compression jumpsuit in matte dark fabric
+compression zentai suit in matte dark fabric
+compression leotard in matte dark fabric
+compression techsuit in matte dark fabric
+compression bodysuit in matte dark fabric
+compression plugsuit
+compression skinsuit
+compression undersuit
+compression jumpsuit
+compression zentai suit
+compression leotard
+compression techsuit
+compression bodysuit
+
+# SENSOR-LINED (16)
+sensor-lined plugsuit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined skinsuit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined undersuit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined jumpsuit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined zentai suit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined leotard, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined techsuit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined bodysuit, anatomical rib-guard armor panels, tapered midsection armor bands, flexible groin armor mesh
+sensor-lined plugsuit
+sensor-lined skinsuit
+sensor-lined undersuit
+sensor-lined jumpsuit
+sensor-lined zentai suit
+sensor-lined leotard
+sensor-lined techsuit
+sensor-lined bodysuit
+
+# BIOMETRIC MESH (16)
+biometric mesh plugsuit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh skinsuit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh undersuit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh jumpsuit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh zentai suit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh leotard, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh techsuit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh bodysuit, flexible composite chest harness, elastic composite abdomen armor, articulated pelvic guard system, reinforced articulated knee guards, armored wrist interface guards, armored neck ring assembly, combat eyeglasses or sunglasses
+biometric mesh plugsuit
+biometric mesh skinsuit
+biometric mesh undersuit
+biometric mesh jumpsuit
+biometric mesh zentai suit
+biometric mesh leotard
+biometric mesh techsuit
+biometric mesh bodysuit
+
+# ANTI-STATIC TACTICAL (24)
+anti-static tactical plugsuit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical skinsuit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical undersuit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical jumpsuit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical zentai suit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical leotard, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical techsuit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical bodysuit, low-profile armored vest shell, layered abdominal guard segments
+anti-static tactical plugsuit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical skinsuit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical undersuit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical jumpsuit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical zentai suit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical leotard, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical techsuit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical bodysuit, spine-reinforced back plate, articulated abdominal armor panels, segmented hip protection panels, asymmetrical leg armor panels, compact pauldron shoulder guards, tech goggles with blue lenses
+anti-static tactical plugsuit
+anti-static tactical skinsuit
+anti-static tactical undersuit
+anti-static tactical jumpsuit
+anti-static tactical zentai suit
+anti-static tactical leotard
+anti-static tactical techsuit
+anti-static tactical bodysuit
+
+# NEURAL-INTERFACE (16)
+neural-interface plugsuit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface skinsuit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface undersuit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface jumpsuit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface zentai suit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface leotard, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface techsuit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface bodysuit, floating thoracic armor segments, flexible lower-torso plating, armored harness waist assembly, partial thigh armor plates, mobility-focused leg exosleeves, minimal upper-arm armor segments, reinforced forearm bracers, smart visor with ballistic framing
+neural-interface plugsuit
+neural-interface skinsuit
+neural-interface undersuit
+neural-interface jumpsuit
+neural-interface zentai suit
+neural-interface leotard
+neural-interface techsuit
+neural-interface bodysuit
+
+# COVERING (8)
+plugsuit stretched tight covering the body
+skinsuit stretched tight covering the body
+undersuit stretched tight covering the body
+jumpsuit stretched tight covering the body
+zentai suit stretched tight covering the body
+leotard stretched tight covering the body
+techsuit stretched tight covering the body
+bodysuit stretched tight covering the body
+
+# HOODED (8)
+hooded plugsuit with integrated hood
+hooded skinsuit with integrated hood
+hooded undersuit with integrated hood
+hooded jumpsuit with integrated hood
+hooded zentai suit with integrated hood
+hooded leotard with integrated hood
+hooded techsuit with integrated hood
+hooded bodysuit with integrated hood
+

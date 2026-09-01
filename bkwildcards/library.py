@@ -80,7 +80,7 @@ def read_lines(path):
 
 # Brand/acronym labels kept verbatim rather than title-cased (which would turn
 # "BKSTYLE" into "Bkstyle"). Everything else still title-cases as before.
-_VERBATIM_LABELS = {"BKSTYLE"}
+_VERBATIM_LABELS = {"BKSTYLE", "E.T."}
 
 
 def clean_section_name(header):
@@ -99,7 +99,11 @@ def clean_section_name(header):
     if not h or h.startswith("=") or set(h) <= set("-—= "):
         return None
     h = h.lstrip("-—").strip()
-    h = re.split(r"\s*[\(\[]", h, 1)[0].strip().rstrip(":,.")
+    h = re.split(r"\s*[\(\[]", h, 1)[0].strip()
+    if h in _VERBATIM_LABELS:
+        # Check before rstrip so a verbatim label like "E.T." keeps its trailing dot.
+        return h
+    h = h.rstrip(":,.")
     if not h or len(h) > 40:
         return None
     if h in _VERBATIM_LABELS:

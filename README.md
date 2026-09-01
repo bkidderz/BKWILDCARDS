@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **4,832 hand-written entries** across **50 categories** and **7 themes** — art styles, cybernetics, outfits, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
+Ships with **5,277 hand-written entries** across **54 categories** and **8 themes** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -38,7 +38,7 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.11`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.12`), so you can confirm the update took.
 
 ### Manual install (git)
 
@@ -110,7 +110,7 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 | **Physical** | Build, Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Cybernetics** | The augment (arm, leg, torso, …) and its finish color |
 | **Hair** | Hair Type, Hair Style, Hair Color |
-| **Wardrobe** | The active theme's tattoos, outfits, weapons / carry |
+| **Wardrobe** | The active theme's tattoos, outfits, weapons / carry (in _ghost.runner, also a full-coverage Compression / Zentai Suits category) |
 | **Scene** | Accent palette, environments, poses (plus spell casting/effects in Whimsical Woods) |
 | **Camera** | Shot angle, shot framing |
 | **Settings** | Separator, seed, labeled output, Mayhem — then the output box |
@@ -123,12 +123,13 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 
 | Theme | Categories |
 |---|---|
-| **_ghost.runner** *(cyberpunk)* | Outfits (270, 18 sections) · Tattoos (75) · Weapons / Carry (28) · Accent Palette (28) · Environments (360, 20 sections — interiors + exteriors) · Poses (29) |
+| **_ghost.runner** *(cyberpunk)* | Outfits (270, 18 sections) · **Compression / Zentai Suits (144, 7 families — full-coverage armored suits)** · Tattoos (75) · Weapons / Carry (28) · Accent Palette (28) · Environments (360, 20 sections — interiors + exteriors) · Poses (29) |
 | **Whimsical Woods** *(dark fantasy)* | Outfits (360, 24 sections) · Tattoos (75) · Weapons / Carry (30) · Accent Palette (31) · Environments (360, 20 sections — interiors + exteriors) · Poses (28) · **Spell Casting** (15) · **Spell Effects** (20) |
 | **Autumnal Oxidation** *(gothic autumn)* | Outfits (337, 12 goth substyles) · Accent Palette (23) · Environments (13) · Poses (23) |
 | **Cassette Futurism** *(retro analog sci-fi)* | Outfits (139, 14 sections) · Accent Palette (23) · Environments (24) · Poses (24) |
 | **All the Dresses** | Gowns & Dresses (530) · Eastern Attire (530, 11 sections) · Accent Palette (24) · Environments (13) · Poses (24, dance-forward) |
 | **Nettie Necket** *(steampunk)* | Outfits (235, 23 archetypes) · Environments (41, Interiors / Exteriors) · Poses (30, 7 groups) |
+| **Haunted Hallows** *(Halloween)* | Costumes (245, 36 sections — classic monsters, cute/glam, franchise costumes) · Environments (26, Interiors / Exteriors) · Poses (30, 8 groups) |
 | **COZY SEXY LACY RACY Sleepwear** ⚠️ *adult* | Lingerie Sets (530, 12 sections) |
 
 ### Always available (every theme)
@@ -155,7 +156,7 @@ Ancestry and Metatype combine freely — a Japanese werewolf or a Korean full-co
 By default the node tags each selection so the renderer reads structured attributes instead of one run-on sentence:
 
 ```
-gender: a woman,
+gender: an adult woman,
 ancestry: korean, warm-toned East Asian features, monolid eyes, …,
 hair: soft black hair, with loose open S-shaped waves, half-up …,
 outfit: a sleeveless heavy canvas coverall unzipped low over …,

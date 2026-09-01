@@ -1,0 +1,42 @@
+# ============================================================
+# HALLOWEEN ENVIRONMENTS - KREA2 (natural-language prose)
+# Seasonal and spooky backdrops for costumed subjects: haunted and gothic
+# horror settings (graveyard, crypt, haunted house, dark forest) alongside
+# social Halloween settings (decorated porch, trick-or-treat street, costume
+# party, pumpkin patch) so ANY costume - classic monster or modern franchise,
+# eerie or glam - finds a fitting stage.
+# Person-free settings (decorations and set dressing only, no people).
+# Atmosphere, lighting, and palette called out at the end of each line.
+# Pair with __halloween_pose__ and a costume line. One environment per line.
+# 16 interiors + 10 exteriors.
+# ============================================================
+
+# -- INTERIORS
+a haunted mansion grand foyer, a sweeping curved staircase with a broken banister, a cobweb-draped chandelier hanging crooked overhead, peeling damask wallpaper, furniture shrouded under dust sheets, a tarnished mirror, guttering candlelight throwing long shadows, muted grey and faded-gold palette
+a shrouded Victorian parlor, high-backed armchairs and a settee draped in white dust sheets, thick cobwebs strung across a dark oil portrait, a cold ash-choked fireplace, a stopped mantel clock, dim blue moonlight through tall shuttered windows, muted grey-brown palette
+a cobwebbed attic under slanted rafters, stacked old steamer trunks and a headless dressmaker's dummy, moth-eaten drapes and a broken rocking horse, a round window filmed with dust, a single shaft of pale moonlight cutting the gloom, dusty sepia and grey palette
+a dank stone cellar, dripping mortared walls hung with rusted chains and iron hooks, stacked wooden barrels and broken crates, a low vaulted ceiling, puddled water on the flagstones, the orange flutter of a guttering wall torch, deep shadow, muted grey and rust palette
+a crypt interior, carved stone sarcophagi lidded with weathered effigies, a mournful stone angel in a niche, thick cobwebs bridging the columns, dead leaves drifted in the corners, a shaft of cold pale light from a grated slit, muted slate-grey palette
+a witch's cottage interior, bundled dried herbs and roots hanging from the beams, a black iron cauldron steaming over a stone hearth, cluttered shelves of dusty labeled jars and candle stubs, a worn broom in the corner, warm flickering firelight, muted amber and mossy-green palette
+an abandoned asylum corridor, cracked and peeling tiled walls, a rusted wheelchair and an overturned gurney, flaking paint and water-stained ceilings, a flickering fluorescent tube buzzing overhead, long institutional shadows, sickly green-grey palette
+a candlelit ritual chamber, a chalk circle scrawled on a stone floor ringed with dripping black candles, a rough stone altar, tattered banners on the walls, drifting smoke, deep pooled shadow and low guttering flame-light, muted charcoal and ember-orange palette
+a Halloween house party room, orange and purple string lights looped along the walls, cobweb stretch-webbing and dangling paper bats, carved jack-o'-lanterns glowing on the tables, a punch bowl and scattered candy, a festive cluttered warmth, saturated orange and violet palette
+a dusty old library and study, towering bookshelves crammed with crumbling volumes, a globe and a guttering candelabra on a leather-topped desk, cracked leather wing chairs, cobwebs in the cornices, warm dim candlelight, muted brown and gold palette
+a decaying grand ballroom, a cracked marble floor scattered with leaves, a shattered crystal chandelier hanging askew, tattered velvet drapes at arched windows, faded gilt mouldings, cold silver moonlight flooding across the dust, muted grey and tarnished-gold palette
+a haunted funhouse interior, warped fairground mirrors and garish peeling paint, faded candy-striped walls, broken clown props and a jammed ticket booth, dead colored bulbs strung crooked, an eerie off-kilter gloom, clashing faded red and teal palette
+a morgue examination room, a wall of steel body drawers, cold white tiled walls streaked with grime, a sheet-draped steel table under a hanging lamp, an instrument tray, a hard cold fluorescent glare, sterile blue-white and steel-grey palette
+a cobwebbed banquet hall, a long dark table set with tarnished candelabra and dust-filmed goblets, high carved chairs, a cold hearth beneath a shrouded portrait, cobwebs draping the rafters, wan moonlight and low candleglow, muted grey-brown and pewter palette
+a shadowy basement boiler room, a maze of rusted pipes and valve wheels, a soot-blackened furnace with a dim glowing grate, a bare bulb swinging on a cord throwing moving shadows, damp concrete, oil-stained grey and rust palette
+a jack-o'-lantern-lit entry hall, a row of carved grinning pumpkins glowing along the floor, cobweb garlands and dangling paper bats over a dark doorway, a threadbare runner rug, a coat stand in shadow, warm orange candle-glow against deep gloom, orange-and-black palette
+
+# -- EXTERIORS
+a foggy graveyard at night, rows of leaning weathered headstones and a rusted wrought-iron fence, bare gnarled trees clawing at the sky, low ground mist curling between the graves, a full moon behind ragged clouds, cold blue-grey and silver palette
+an overgrown cemetery with a stone mausoleum, moss-furred tombs and a weeping stone angel, dead leaves banked against the crypt door, a crooked iron gate ajar, thin drifting fog, pale washed moonlight, muted grey-green palette
+a haunted mansion exterior, a looming Victorian silhouette with turrets and boarded windows, a sagging wraparound porch, a dead tangled garden behind a broken fence, a single dim light in an upper window, a churning storm sky, cold slate and ink-blue palette
+a decorated suburban porch on Halloween night, carved jack-o'-lanterns glowing on the wooden steps, cobweb webbing stretched across the railings, dangling paper bats and a bowl of candy by the door, a warm porch light, a crisp autumn dark, orange-and-amber palette
+a trick-or-treat street at dusk, rows of houses trimmed with glowing pumpkins and orange lights, fallen leaves scattered across the sidewalk and lawns, a hazy violet October sky, a few bare trees, warm scattered window-glow, muted purple and amber palette
+a dark misty forest path, twisted bare trees and tangled exposed roots, low ground fog pooling along the trail, scattered dead leaves, thin shafts of moonlight breaking through the branches, a deep blue-grey gloom, desaturated cold palette
+a pumpkin patch at dusk, rows of fat orange pumpkins on sprawling tangled vines, a leaning wooden rail fence, a weathered barn on the horizon, dry grass and a scarecrow in the distance, a burnt-amber sunset sky, warm orange and umber palette
+a corn maze at night, towering dry rustling cornstalks pressing in on a narrow dirt path, a big pale harvest moon low on the horizon, deep black shadows between the rows, a cold still air, muted straw-gold and blue-black palette
+a foggy cobblestone alley, wet uneven stones glistening under a flickering gas lamp, looming soot-darkened brick walls, drifting fog swallowing the far end, a scatter of damp leaves, a gothic amber-and-grey gloom, muted sepia and slate palette
+a haunted carnival exterior, a dark motionless Ferris wheel against the clouds, shuttered game booths with faded paint, a crooked string of half-lit bulbs, a scatter of trampled leaves and litter, a low ground haze, faded carnival red and teal against the dark
