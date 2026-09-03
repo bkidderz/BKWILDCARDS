@@ -1,8 +1,10 @@
 """BKWILDCARDS node definitions."""
 
 import random
+import re
 
 from . import library
+from . import sliders
 
 # Scanned once at import. INPUT_TYPES is called on every /object_info request,
 # so the walk is cached here. Adding a wildcard file needs a ComfyUI restart or
@@ -16,9 +18,10 @@ _GENDERS = library.genders(_PACKS)
 # Written into the workflow node's `properties` so the resolved text survives a
 # save and, via extra_pnginfo, an embed into a generated PNG.
 PROP_PROMPT = "bk_resolved"
+PROP_SLIDERS = "bk_sliders"  # slider lane state (mode, values, register) per run
 
 
-def _stamp_workflow(extra_pnginfo, unique_id, prompt_text):
+def _stamp_workflow(extra_pnginfo, unique_id, prompt_text, extra_props=None):
     """Write the resolved text into the workflow snapshot bound for the PNG.
 
     ComfyUI captures the workflow at queue time, before this node runs, so a
@@ -44,6 +47,8 @@ def _stamp_workflow(extra_pnginfo, unique_id, prompt_text):
                 props = {}
                 node["properties"] = props
             props[PROP_PROMPT] = prompt_text
+            for key, value in (extra_props or {}).items():
+                props[key] = value
             break
     except Exception as exc:  # never let metadata stamping break a render
         print("[BKWILDCARDS] could not stamp workflow metadata: {}".format(exc))
@@ -112,14 +117,39 @@ def _is_bald(text):
     return bool(text) and text.strip().lower().startswith("bald")
 
 
+# "hair", "hairs", "haired", "long-haired" — but not "hairless"/"hairline".
+_HAIR_WORD = re.compile(r"(?<![A-Za-z0-9_-])[A-Za-z0-9_-]*hair(?:ed|s)?(?![A-Za-z0-9_])", re.IGNORECASE)
+
+
+def _scrub_hair(text):
+    """Remove every comma-separated clause that mentions hair; inside a clause
+    joined by ' and ', drop only the hair half. Other picks (art styles,
+    ancestry, outfits, poses) describe hair in passing — 'layered anime hair',
+    'long wavy hair' — and under a bald head those clauses must not reach the
+    renderer or it grows hair anyway (owner-reported, 2026-09-01)."""
+    if not _HAIR_WORD.search(text):
+        return text
+    out = []
+    for clause in text.split(", "):
+        if not _HAIR_WORD.search(clause):
+            out.append(clause)
+            continue
+        keep = [p for p in clause.split(" and ") if not _HAIR_WORD.search(p)]
+        if keep:
+            out.append(" and ".join(keep))
+    return ", ".join(out)
+
+
 def _drop_if_bald(raw):
     """raw is a list of (order, label, text, key). If the hair_type pick is
-    bald, drop the hair colour/style picks. Returns (order, label, text) triples
-    ready for _format_picks. Applies whether bald was chosen or randomly drawn.
+    bald, drop the hair colour/style picks AND scrub hair clauses out of every
+    other pick's text. Returns (order, label, text) triples ready for
+    _format_picks. Applies whether bald was chosen or randomly drawn.
     """
     bald = any(k == "hair_type" and _is_bald(t) for _, _, t, k in raw)
     if bald:
-        raw = [r for r in raw if r[3] not in _HAIR_SUPPRESSED_BY_BALD]
+        raw = [(o, l, t if k == "hair_type" else _scrub_hair(t), k)
+               for o, l, t, k in raw if k not in _HAIR_SUPPRESSED_BY_BALD]
     return [(o, l, t) for o, l, t, _k in raw]
 
 
@@ -149,6 +179,110 @@ def _apply_cyber_color(raw):
     return out
 
 
+# --- Slider Build Control (EXPERIMENTAL, may never ship) --------------------
+# A manual body-shaping lane parallel to the Build presets. Master toggle ON ->
+# the slider-synthesized build emits under the Build slot and every Build
+# preset pick is dropped for that run (one body description, never two).
+# OFF -> the sliders are inert. Value->prose rules live in sliders.py; the
+# gender->register mapping is here with the rest of the gender logic.
+# Register = Gender (the owner's "hard lock", 2026-09-01): Female/Male -> the
+# gendered banks; Fluid and Off -> the androgynous bank; Random never reaches
+# here (resolve_prompt rolls it to a concrete gender first). A masculine..
+# feminine blend slider stood in for this for part of 2026-09-01 and was
+# removed the same day.
+_SLIDER_REGISTER = {
+    "Female": "feminine",
+    "Male": "masculine",
+    GENDER_FLUID: "androgynous",
+    GENDER_OFF: "androgynous",
+}
+_SLIDER_DEFAULT_REGISTER = "androgynous"
+# The Build preset picks the slider build replaces, and the slot it takes over.
+_BUILD_KEYS = {c["key"] for c in _CATEGORIES if c["id"] == "build"}
+_BUILD_CAT = next((c for c in _CATEGORIES if c["id"] == "build"), None)
+_BUILD_ORDER = _BUILD_CAT["order"] if _BUILD_CAT else 15
+_BUILD_LABEL = (_BUILD_CAT.get("prompt_label") or _BUILD_CAT["label"]) if _BUILD_CAT else "build"
+_SLIDER_KEY = "__body_sliders__"
+
+
+def _slider_register(gender):
+    return _SLIDER_REGISTER.get(gender, _SLIDER_DEFAULT_REGISTER)
+
+
+def _resolve_gender(seed, gender):
+    """Random -> a concrete gender rolled per seed on its own rng stream (so
+    the per-category draws are unchanged). Deterministic, so preview still
+    matches execution. Everything else passes through."""
+    if gender == GENDER_RANDOM and _GENDERS:
+        return random.Random(
+            int(seed) + library.stable_offset("__gender_roll__")
+        ).choice(_GENDERS)
+    return gender
+
+
+def _preset_pick(seed, gender, choices):
+    """(register, section) of the Build preset that will emit this run, or
+    None. Mirrors the category loop's draw for the build categories so the
+    section of a `— random —` preset is known at preview time."""
+    gender = _resolve_gender(seed, gender)
+    active = [c for c in _CATEGORIES if c["id"] == "build" and _in_scope(c, None, gender)]
+    for cat in active:
+        rng = random.Random(int(seed) + library.stable_offset(cat["key"]))
+        pick = library.draw(cat, choices.get(cat["key"]), rng)
+        if not pick:
+            continue
+        section = next((name for name, rows in library.read_sections(cat["path"]) if pick in rows), None)
+        return _SLIDER_REGISTER.get(cat["gender"], _SLIDER_DEFAULT_REGISTER), section
+    return None
+
+
+def slider_state(seed, gender, choices):
+    """What the slider lane will do for this run, or None when it is off.
+
+    {"mode", "values": {axis: 0-10} | None, "register", "section"?} — under
+    `— random —` the values are rolled from the seed (sliders.roll_values);
+    under `on` they are read from the widgets; under `preset` they are the
+    emitting preset section's vector (display only — the preset prose is what
+    emits). Gender `— off —` -> None: the lane is suppressed like the gendered
+    presets are. Shared by resolve_prompt (to build the text), build() (to
+    stamp the state into the PNG workflow) and the populate endpoint (to hand
+    the values back so the on-node sliders show them). Pure function of its
+    arguments, so all three agree.
+    """
+    choices = choices or {}
+    mode = sliders.mode_of(choices.get(sliders.TOGGLE_INPUT))
+    if mode == sliders.MODE_OFF or sliders.BANKS is None or gender == GENDER_OFF:
+        return None
+    register = _slider_register(_resolve_gender(seed, gender))
+    if mode == sliders.MODE_PRESET:
+        pick = _preset_pick(seed, gender, choices)
+        if pick is None:
+            return {"mode": mode, "values": None, "register": register, "section": None}
+        reg, section = pick
+        return {"mode": mode, "values": sliders.preset_vector(reg, section),
+                "register": reg, "section": section}
+    if mode == sliders.MODE_RANDOM:
+        values = sliders.roll_values(seed)
+    else:
+        values = {axis: sliders.clamp(choices.get(name))
+                  for axis, name in sliders.AXIS_INPUTS.items()}
+    return {"mode": mode, "values": values, "register": register}
+
+
+def _apply_body_sliders(raw, seed, gender, choices):
+    """raw is a list of (order, label, text, key). With the slider lane on or
+    random, replace the Build preset picks with the synthesized slider build.
+    Fails soft: no banks -> presets untouched."""
+    state = slider_state(seed, gender, choices)
+    if state is None or state["mode"] == sliders.MODE_PRESET:
+        return raw  # off, Gender off, or the presets' turn to speak
+    text = sliders.synthesize(state["register"], state["values"])
+    raw = [r for r in raw if r[3] not in _BUILD_KEYS]
+    if text:
+        raw.append((_BUILD_ORDER, _BUILD_LABEL, text, _SLIDER_KEY))
+    return raw
+
+
 # --- Mayhem mode -----------------------------------------------------------
 # One-click, no-input, seeded, cross-theme composition. Maps each category id
 # to the "slot" it competes in; mayhem picks at most one category per slot from
@@ -171,9 +305,9 @@ _MAYHEM_CORE = {"ancestry", "build", "hair_color", "hair_type",
 _MAYHEM_EXTRA_PROB = 0.5
 
 
-def _resolve_mayhem(seed, separator, labeled, choices=None):
+def _mayhem_compose(seed, choices=None):
     """Seeded cross-theme random composition, ignoring every input EXCEPT the
-    Art Style selection.
+    Art Style selection. Returns (raw picks, slider-lane state).
 
     Rolls a gender, then for each slot picks one category from a random source
     theme and a random line from it. Fully determined by `seed`, so the
@@ -218,7 +352,53 @@ def _resolve_mayhem(seed, separator, labeled, choices=None):
             continue
         raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                     rng.choice(pool), cat["key"]))
+    return _mayhem_slider_lane(seed, gender, raw)
+
+
+# Mayhem's build slot: a preset line (as always) or a rolled slider body, on a
+# seeded coin. Its own rng stream, so every other Mayhem pick for a seed is
+# unchanged by this feature. Tuning knob (owner: 50/50, 2026-09-01).
+_MAYHEM_SLIDER_PROB = 0.5
+
+
+def _mayhem_slider_lane(seed, gender, raw):
+    """raw is a list of (order, label, text, key). With a preset build in the
+    composition, flip the coin: heads -> replace it with a slider body rolled
+    from the seed in the rolled gender's register; tails -> keep the preset and
+    report its section's vector. Returns (raw, state) where state is what the
+    sliders mirror ({"mode": "mayhem", "values", "register", "section"?}) or
+    None when Mayhem rolled no gender (no body, as with Gender off)."""
+    build = next((r for r in raw if r[3] in _BUILD_KEYS), None)
+    if gender is None or build is None or sliders.BANKS is None:
+        return raw, None
+    rng = random.Random(int(seed) + library.stable_offset("__mayhem_sliders__"))
+    register = _SLIDER_REGISTER.get(gender, _SLIDER_DEFAULT_REGISTER)
+    if rng.random() < _MAYHEM_SLIDER_PROB:
+        values = {axis: rng.randint(sliders.SLIDER_MIN, sliders.SLIDER_MAX)
+                  for axis in sliders.AXES}
+        text = sliders.synthesize(register, values)
+        if text:
+            raw = [r for r in raw if r[3] not in _BUILD_KEYS]
+            raw.append((_BUILD_ORDER, _BUILD_LABEL, text, _SLIDER_KEY))
+            return raw, {"mode": sliders.MODE_MAYHEM, "values": values, "register": register}
+    cat = next((c for c in _CATEGORIES if c["key"] == build[3]), None)
+    section = None
+    if cat:
+        section = next((name for name, rows in library.read_sections(cat["path"])
+                        if build[2] in rows), None)
+    return raw, {"mode": sliders.MODE_MAYHEM, "values": sliders.preset_vector(register, section),
+                 "register": register, "section": section}
+
+
+def _resolve_mayhem(seed, separator, labeled, choices=None):
+    raw, _state = _mayhem_compose(seed, choices)
     return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
+
+
+def mayhem_slider_state(seed, choices=None):
+    """The slider-lane state of a Mayhem run (for the populate endpoint and the
+    PNG stamp), from the same seeded composition build() emits."""
+    return _mayhem_compose(seed, choices)[1]
 
 
 def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
@@ -242,10 +422,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
     # Random gender -> roll a concrete gender per seed (own rng stream, so the
     # per-category draws are unchanged). Fluid falls through to _in_scope, which
     # drops the gender gate. Deterministic, so preview still matches execution.
-    if gender == GENDER_RANDOM and _GENDERS:
-        gender = random.Random(
-            int(seed) + library.stable_offset("__gender_roll__")
-        ).choice(_GENDERS)
+    gender = _resolve_gender(seed, gender)
     active_pack = _THEME_TO_PACK.get(theme)
     raw = []  # (order, label, text, key)
     # Lead with the gender subject word so the prompt is directed toward a gender
@@ -263,6 +440,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
         if pick:
             raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                         pick, cat["key"]))
+    raw = _apply_body_sliders(raw, seed, gender, choices)
     return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
 
 
@@ -371,8 +549,57 @@ class BKWildcardSelector:
             ordered += by_display([c for c in _CATEGORIES if c["pack"] == pack])
         ordered += post_globals
 
+        # Slider Build Control (experimental): six fixed inputs emitted directly
+        # after the last Build-preset category so they render inside the
+        # Physical - Body section: the mode selector, the Build presets under
+        # it, then the five body sliders (the JS hides them while the mode is off).
+        # Inserting mid-list shifts widgets_values (a one-time node re-add) —
+        # the owner's explicit call.
+        def emit_body_mode():
+            required[sliders.TOGGLE_INPUT] = (
+                list(sliders.MODES),
+                {
+                    "default": sliders.MODE_OFF,
+                    "tooltip": "Experimental. on: the five sliders below are synthesized into one "
+                    "build phrase (register follows Gender) and the Build preset is ignored. "
+                    "— random —: the five values are rolled from the seed each run and shown "
+                    "on the sliders. preset: the Build preset dropdown speaks and the sliders "
+                    "snap to its section as a starting point. — off —: sliders hidden and "
+                    "inert. Gender — off — silences the lane. Mayhem ignores it.",
+                },
+            )
+        def emit_body_axes():
+            # No tooltips on the five body sliders: each slider's own label reads
+            # out its value and the phrase it selects, live, as it moves (owner,
+            # 2026-09-01 — the hover pop-up got in the way of the slider).
+            for axis in sliders.AXES:
+                required[sliders.AXIS_INPUTS[axis]] = (
+                    "INT",
+                    {
+                        "default": sliders.SLIDER_DEFAULT,
+                        "min": sliders.SLIDER_MIN,
+                        "max": sliders.SLIDER_MAX,
+                        "step": 1,
+                        "display": "slider",
+                    },
+                )
+
+        # Physical - Body order (owner, 2026-09-01): the Body Sliders selector,
+        # then the Build preset dropdowns directly under it, then the five
+        # sliders. The selector goes out just before the first Physical - Body
+        # category and the sliders right after the last.
+        body_cats = [c for c in ordered if c.get("group") == sliders.BODY_GROUP]
+        body_first = body_cats[0] if body_cats else None
+        body_last = body_cats[-1] if body_cats else None
         for cat in ordered:
+            if cat is body_first:
+                emit_body_mode()
             emit(cat)
+            if cat is body_last:
+                emit_body_axes()
+        if not body_cats:  # no Build categories found: still expose the lane
+            emit_body_mode()
+            emit_body_axes()
 
         # --- run controls, below the selectors ---
         required["separator"] = (
@@ -464,7 +691,12 @@ class BKWildcardSelector:
             seed, separator, gender, theme, choices,
             labeled=bool(label_output), mayhem=bool(mayhem),
         )
-        _stamp_workflow(extra_pnginfo, unique_id, prompt_text)
+        # The slider lane's effective values (rolled under — random —) ride
+        # along in `properties` so the saved workflow and the PNG carry them.
+        state = (mayhem_slider_state(seed, choices) if mayhem
+                 else slider_state(seed, gender, choices))
+        _stamp_workflow(extra_pnginfo, unique_id, prompt_text,
+                        {PROP_SLIDERS: state} if state else None)
 
         # Printed to the ComfyUI server log every run. If a new line appears
         # here on each queue while the on-node box stays frozen, the backend is

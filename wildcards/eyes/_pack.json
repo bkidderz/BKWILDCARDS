@@ -11,7 +11,7 @@
       "display": 21,
       "select": "section",
       "default": false,
-      "group": "Physical",
+      "group": "Physical - Head",
       "prompt_label": "eyes"
     }
   ]

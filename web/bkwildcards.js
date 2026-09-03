@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.9.12";
+const BUILD = "0.9.13";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
@@ -42,6 +42,14 @@ const SPECIAL_GROUPS = {
   control_after_generate: "Settings",
   label_output: "Settings",
   mayhem: "Settings",
+  // Experimental Slider Build Control: fixed INT/BOOLEAN inputs that sit with
+  // the Build presets (Python emits them right after the Build categories).
+  body_mass: "Physical - Body",
+  body_bust: "Physical - Body",
+  body_waist: "Physical - Body",
+  body_hips: "Physical - Body",
+  body_tone: "Physical - Body",
+  body_sliders: "Physical - Body",
 };
 
 // Display labels for the fixed (non-category) widgets. Only the on-node label is
@@ -49,7 +57,68 @@ const SPECIAL_GROUPS = {
 const FIXED_LABELS = {
   theme: "Theme",
   gender: "Gender",
+  body_mass: "Mass",
+  body_bust: "Bust",
+  body_waist: "Waist",
+  body_hips: "Hips",
+  body_tone: "Muscle Tone",
+  body_sliders: "Body Sliders",
 };
+
+// Experimental Slider Build Control: the five sliders are shown only while the
+// master toggle is on. Cosmetic — Python already ignores them when it is off.
+const BODY_SLIDER_TOGGLE = "body_sliders";
+const BODY_SLIDER_AXES = ["body_mass", "body_bust", "body_waist", "body_hips", "body_tone"];
+// The preset Build dropdowns show only in `preset` mode (owner, 2026-09-01:
+// hidden, not removed, in the other modes). Python still honours them if a
+// saved workflow carries a value.
+const PRESET_WIDGETS = new Set(["female_build", "male_build"]);
+// Register the readouts use, by Gender value. Random gender: the register comes
+// back with each queue-time preview (node._bkSliderRegister); androgynous
+// until then. Mirrors nodes._SLIDER_REGISTER — cosmetic only.
+function sliderRegister(node, layout) {
+  const g = node.widgets?.find((w) => w.name === "gender")?.value;
+  if (g === layout.gender_random) return node._bkSliderRegister || "androgynous";
+  if (g === "Female") return "feminine";
+  if (g === "Male") return "masculine";
+  return "androgynous";
+}
+function sliderMode(node, layout) {
+  const v = node.widgets?.find((w) => w.name === BODY_SLIDER_TOGGLE)?.value;
+  const ui = layout?.slider_ui || {};
+  if (v === true) return "on"; // pre-dropdown boolean, tolerated
+  if (!v || v === ui.mode_off) return "off";
+  if (v === ui.mode_random) return "random";
+  if (v === ui.mode_preset) return "preset";
+  return "on";
+}
+/** Snap the sliders to the chosen Build preset section's vector (layout
+ * `slider_ui.presets`, display only). A `— random —` preset has no section
+ * until the queue-time preview, which mirrors it via applySliderState. */
+function snapToPreset(node, layout) {
+  try {
+    const ui = layout?.slider_ui;
+    if (!ui?.presets || sliderMode(node, layout) !== "preset") return;
+    const g = node.widgets?.find((w) => w.name === "gender")?.value;
+    const order = g === "Male" ? ["male_build", "female_build"] : ["female_build", "male_build"];
+    for (const name of order) {
+      const w = node.widgets?.find((x) => x.name === name);
+      const section = w?.value;
+      const reg = name === "male_build" ? "masculine" : "feminine";
+      const vec = ui.presets?.[reg]?.[section];
+      if (!vec) continue;
+      for (const [axis, value] of Object.entries(vec)) {
+        const s = node.widgets?.find((x) => x.name === "body_" + axis);
+        if (s && typeof value === "number") s.value = value;
+      }
+      node._bkSliderRegister = reg;
+      break;
+    }
+    node.setDirtyCanvas?.(true, true);
+  } catch (err) {
+    console.warn("[BKWILDCARDS] preset snap failed:", err);
+  }
+}
 
 let LAYOUT = null;
 let LAYOUT_PROMISE = null;
@@ -247,6 +316,70 @@ function groupOf(w, byKey) {
   return undefined;
 }
 
+/**
+ * Experimental Slider Build Control: draw each slider's label as
+ * "Mass: 0 | a gaunt, frail frame", updating live while it is dragged.
+ *
+ * Cosmetic. The phrase tables come from the layout payload (sliders.ui_tables
+ * in Python — the same phrases the prompt is built from), so the JS only
+ * indexes them: no tier or blend logic lives here. The frontend's own slider
+ * draw always appends the numeric value after the label, so the readout is
+ * drawn here instead, over the stock bar.
+ */
+function installSliderReadouts(node, layout) {
+  const ui = layout?.slider_ui;
+  if (!ui || !node?.widgets) return;
+  try {
+    const widgetNamed = (name) => node.widgets.find((w) => w.name === name);
+    // Two parts, coloured like every other widget: the label part in the
+    // dimmer label colour, the phrase in the value colour.
+    const readout = (w) => {
+      const v = Math.round(Number(w.value));
+      const base = FIXED_LABELS[w.name] || w.name;
+      const axis = ui.axis_of?.[w.name];
+      const reg = sliderRegister(node, layout);
+      const phrase = ui.phrases?.[reg]?.[axis]?.[v] ?? "";
+      return [`${base}: ${v}`, ` | ${phrase}`];
+    };
+    for (const w of node.widgets) {
+      if (!ui.axis_of?.[w.name]) continue;
+      if (w._bkReadout) continue;
+      const stockDraw = Object.getPrototypeOf(w).drawWidget;
+      if (typeof stockDraw !== "function") continue;
+      w._bkReadout = true;
+      w.drawWidget = function (ctx, opts) {
+        // Stock bar and fill, minus the stock centred "label  value" text.
+        stockDraw.call(this, ctx, { ...opts, showText: false });
+        const width = opts?.width ?? this.width ?? node.size[0];
+        const margin = 15; // litegraph's widget margin
+        const pad = 6;
+        const saved = { fillStyle: ctx.fillStyle, textAlign: ctx.textAlign, strokeStyle: ctx.strokeStyle };
+        if (!this.computedDisabled) {
+          ctx.strokeStyle = this.getOutlineColor?.() ?? "#000";
+          ctx.strokeRect(margin, this.y, width - margin * 2, this.height);
+        }
+        const [head, tail0] = readout(this);
+        let tail = tail0;
+        const maxW = width - margin * 2 - pad * 2;
+        const headW = ctx.measureText(head).width;
+        if (headW + ctx.measureText(tail).width > maxW) {
+          while (tail.length > 3 && headW + ctx.measureText(tail + "…").width > maxW) tail = tail.slice(0, -1);
+          tail += "…";
+        }
+        const baseline = this.y + this.height * 0.7;
+        ctx.textAlign = "left";
+        ctx.fillStyle = this.secondary_text_color ?? this.text_color ?? "#999";
+        ctx.fillText(head, margin + pad, baseline);
+        ctx.fillStyle = this.text_color ?? "#ddd";
+        ctx.fillText(tail, margin + pad + headW, baseline);
+        Object.assign(ctx, saved);
+      };
+    }
+  } catch (err) {
+    console.warn("[BKWILDCARDS] slider readouts failed:", err);
+  }
+}
+
 function insertHeaders(node, layout) {
   if (!node || node._bkHeadersDone) return;
   try {
@@ -363,6 +496,21 @@ function applyTheme(node, layout) {
     const showBoth =
       activeGender === layout.gender_random ||
       activeGender === layout.gender_fluid;
+    let mode = sliderMode(node, layout);
+    const genderOff = activeGender === layout.gender_off;
+    if (genderOff && mode !== "off") {
+      // Owner's call (2026-09-01): Gender off switches Body Sliders off, so a
+      // "preset" selection with no presets showing cannot confuse anyone.
+      // One-way: turning Gender back on leaves the selector at off. Python
+      // already silences the lane under Gender off, so this is UI consistency.
+      const t = node.widgets?.find((w) => w.name === BODY_SLIDER_TOGGLE);
+      const offValue = layout.slider_ui?.mode_off;
+      if (t && offValue !== undefined) {
+        t.value = offValue;
+        mode = "off";
+      }
+    }
+    const bodySlidersOn = mode !== "off";
 
     // Pass 1: category widgets gate on theme+gender; fixed widgets are always in
     // scope. Visible = in scope AND its section isn't collapsed. The output box
@@ -380,10 +528,21 @@ function applyTheme(node, layout) {
       }
       const cat = byKey.get(w.name);
       let inScope = true;
-      if (cat) {
+      if (PRESET_WIDGETS.has(w.name)) {
+        // Only in preset mode, and still gated on gender like any category.
+        const genderOk = !cat?.gender || cat.gender === activeGender || showBoth;
+        inScope = mode === "preset" && !!cat && genderOk;
+      } else if (cat) {
         const themeOk = !activePack || cat.is_global || cat.pack === activePack;
         const genderOk = !cat.gender || cat.gender === activeGender || showBoth;
         inScope = themeOk && genderOk;
+      } else if (BODY_SLIDER_AXES.includes(w.name)) {
+        inScope = bodySlidersOn;
+        // Greyed, not draggable, when the values are not the user's to set:
+        // rolled per run (random), echoing a preset, or silenced by Gender off.
+        if (w.options) w.options.disabled = mode === "random" || mode === "preset" || genderOff;
+      } else if (w.name === BODY_SLIDER_TOGGLE) {
+        if (w.options) w.options.disabled = genderOff; // the lane is silent under Gender off
       }
       w._bkInScope = inScope;
       setHidden(w, !(inScope && !(currentGroup && collapsed[currentGroup])));
@@ -526,10 +685,36 @@ function previewFromPrompt(promptData) {
         if (!json || typeof json.text !== "string") return;
         node._bkPreview = json.text; // cross-checked against execution below
         setResolved(node, json.text);
+        applySliderState(node, json.sliders);
         console.debug("[BKWILDCARDS] queue preview, node", id, "seed", seed,
                       "->", json.text.length, "chars");
       })
       .catch((err) => console.warn("[BKWILDCARDS] populate failed:", err));
+  }
+}
+
+/**
+ * Mirror the slider lane's effective state from a queue-time preview onto the
+ * node: under — random — Python rolled the five values from the seed, and the
+ * sliders (and their readouts) should show that roll. Cosmetic — Python
+ * ignores the widget values in random mode and rerolls from the seed, so
+ * writing them back cannot change the result.
+ */
+function applySliderState(node, state) {
+  try {
+    if (!node || !state || typeof state !== "object") return;
+    if (state.register) node._bkSliderRegister = state.register;
+    const ui = LAYOUT?.slider_ui || {};
+    const mirrored = [ui.mode_random, ui.mode_preset, ui.mode_mayhem];
+    if (mirrored.includes(state.mode) && state.values) {
+      for (const [axis, value] of Object.entries(state.values)) {
+        const w = node.widgets?.find((x) => x.name === "body_" + axis);
+        if (w && typeof value === "number") w.value = value;
+      }
+    }
+    node.setDirtyCanvas?.(true, true);
+  } catch (err) {
+    console.warn("[BKWILDCARDS] slider state mirror failed:", err);
   }
 }
 
@@ -563,17 +748,19 @@ function attach(node, layout) {
   node._bkApply = () => applyTheme(node, layout);
 
   relabel(node, layout);
+  installSliderReadouts(node, layout);
   insertHeaders(node, layout);
   ensureResolvedHeight(node);
 
-  // Both scope dropdowns re-apply hiding when changed.
-  for (const name of ["theme", "gender"]) {
+  // The scope dropdowns and the Body Sliders toggle re-apply hiding when changed.
+  for (const name of ["theme", "gender", BODY_SLIDER_TOGGLE, ...PRESET_WIDGETS]) {
     const widget = node.widgets?.find((w) => w.name === name);
     if (!widget) continue;
     const original = widget.callback;
     widget.callback = function (...args) {
       const result = original?.apply(this, args);
       applyTheme(node, layout);
+      snapToPreset(node, layout); // preset mode: sliders echo the chosen section
       return result;
     };
   }

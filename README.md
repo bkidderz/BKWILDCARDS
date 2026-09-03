@@ -38,7 +38,9 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.12`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.13`), so you can confirm the update took.
+
+**Updating to 0.9.13 from any earlier version: delete the BKWILDCARDS Selector node and add it again.** 0.9.13 adds the Body Sliders controls in the middle of the node, which shifts the saved widget positions of everything below them. A node carried over from an older workflow will show wrong values until it is re-added. This is a one-time step; your other nodes and wiring are unaffected.
 
 ### Manual install (git)
 
@@ -107,7 +109,8 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 |---|---|
 | **Theme** | Theme selector, **Art Style** (leads the prompt) |
 | **Identity** | Gender, Ancestry, Metatype / Species |
-| **Physical** | Build, Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
+| **Physical - Body** | **Body Sliders** mode (off / random / on / preset), the Build presets (shown in preset mode), and the five body sliders — Mass, Bust, Waist, Hips, Muscle Tone |
+| **Physical - Head** | Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Cybernetics** | The augment (arm, leg, torso, …) and its finish color |
 | **Hair** | Hair Type, Hair Style, Hair Color |
 | **Wardrobe** | The active theme's tattoos, outfits, weapons / carry (in _ghost.runner, also a full-coverage Compression / Zentai Suits category) |
@@ -142,8 +145,9 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 | **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
 | **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |
 | **Shots** | Shot Angle (20) · Shot Framing (50) |
-| **Female** *(when Female/Fluid)* | Feminine Build (61, 6 sections) · Face (26) · Nose (9) · Lips (11) |
-| **Male** *(when Male/Fluid)* | Masculine Build (43, 7 sections) · Face (26) · Nose (10) · Lips (10) |
+| **Body Sliders** | Five 0–10 sliders (Mass, Bust, Waist, Hips, Muscle Tone) synthesized into one build phrase in the feminine, masculine or androgynous register, chosen by Gender |
+| **Female** *(when Female/Fluid)* | Feminine Build (61, 6 sections — Body Sliders **preset** mode) · Face (26) · Nose (9) · Lips (11) |
+| **Male** *(when Male/Fluid)* | Masculine Build (43, 7 sections — Body Sliders **preset** mode) · Face (26) · Nose (10) · Lips (10) |
 
 Ancestry and Metatype combine freely — a Japanese werewolf or a Korean full-conversion cyborg is a supported result, not a conflict.
 
@@ -167,9 +171,20 @@ pose: the subject holds one wrist up close to check a strapped readout …
 
 Flip **`label_output`** to `plain` for a single comma-joined string instead.
 
+### Body sliders
+
+**Body Sliders** in the Physical - Body section replaces the single Build dropdown with a shaped body you control. Set the selector to:
+
+- **on** — the five sliders (Mass, Bust, Waist, Hips, Muscle Tone; 0–10, every value is described) are synthesized into one build phrase. Each slider shows the phrase its position selects, live, as you drag it: `Hips: 8 | wide, curvy hips and thick thighs`.
+- **— random —** — the five values are rolled from the seed on every run, and the sliders move to show the body that rendered.
+- **preset** — the Feminine / Masculine Build presets come back and speak instead. The sliders snap to the chosen preset and keep those values if you then switch to **on**, so a preset works as a starting point you can adjust.
+- **— off —** — the lane is silent and the sliders are hidden.
+
+The wording follows **Gender**: Female and Male use their own vocabulary, Fluid uses an androgynous one, and — random — follows the gender rolled for the run. Setting Gender to — off — turns Body Sliders off as well, since a prompt with no subject has no body. Only one build description is ever emitted — the sliders or a preset, never both — and the sliders always show the body that was used, in the preview, in the render and in the saved PNG.
+
 ### Mayhem mode
 
-Flip **`mayhem`** on in Settings for one-click chaos: the node ignores your category selections, the theme and the gender (but keeps your chosen Art Style), and composes a fully random **cross-theme** image — a cyberpunk outfit in a fantasy shrine with a goth pose, and so on. Queue again for a new one. It stays seed-deterministic, so any result you like can be reproduced or recovered from its PNG.
+Flip **`mayhem`** on in Settings for one-click chaos: the node ignores your category selections, the theme and the gender (but keeps your chosen Art Style), and composes a fully random **cross-theme** image — a cyberpunk outfit in a fantasy shrine with a goth pose, and so on. Queue again for a new one. It stays seed-deterministic, so any result you like can be reproduced or recovered from its PNG. For the build, Mayhem flips a seeded coin between one of the Build presets and a body rolled on the sliders, and the sliders show whichever it used.
 
 ### Live output preview
 

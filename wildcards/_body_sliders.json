@@ -1,0 +1,266 @@
+{
+  "_readme": [
+    "SEED DRAFT (2026-09-01) for the experimental Slider Build Control. Claude-authored first pass at Brian's request; Brian revises and owns the final wording.",
+    "Not a wildcard pack: files at the wildcards/ root are ignored by the pack scanner. Loaded once at ComfyUI start by bkwildcards/sliders.py; restart after editing.",
+    "Sliders are 0-10. Tiers: 0-1 = 'lowest', 2-3 = 'low', 4-6 = 'middle', 7-8 = 'high', 9-10 = 'highest'. EVERY tier emits its phrase (owner's call 2026-09-01: no silent averages, intentional control).",
+    "The register follows Gender: Female -> feminine, Male -> masculine, Fluid and — off — -> androgynous, — random — -> the rolled gender. Mode — random — on the Body Sliders selector rolls the five values from the seed.",
+    "Each phrase is a noun phrase fragment. The code joins them corpus-style: '<first> with <a>, <b>, <c>' (a plain comma list, because fragments may themselves contain 'and').",
+    "Emission order: mass -> tone -> silhouette -> bust -> waist -> hips. 'neutral' is only a safety fallback if a bank phrase is missing.",
+    "Silhouette is derived in code from the bust/waist/hips values (thresholds are tuning knobs in bkwildcards/sliders.py); only the labels live here. 'bust' means chest for the masculine and androgynous registers.",
+    "'presets' maps each Build preset SECTION (as the dropdown shows it) to a five-value slider vector. Under mode 'preset' the preset line emits and the sliders snap to this vector (display only); the values persist when you switch to 'on', so a preset works as a starting point. Seed values are Claude's first guess — owner edits."
+  ],
+  "_tiers": {
+    "lowest": [
+      0,
+      1
+    ],
+    "low": [
+      2,
+      3
+    ],
+    "middle": [
+      4,
+      6
+    ],
+    "high": [
+      7,
+      8
+    ],
+    "highest": [
+      9,
+      10
+    ]
+  },
+  "feminine": {
+    "neutral": "an average build",
+    "mass": {
+      "lowest": "a gaunt, frail frame",
+      "low": "a slender, light frame",
+      "middle": "a medium, average build",
+      "high": "a full, heavy-set frame",
+      "highest": "a big, plush, large-framed build"
+    },
+    "bust": {
+      "lowest": "a flat chest",
+      "low": "small breasts",
+      "middle": "medium breasts",
+      "high": "large breasts",
+      "highest": "enormous, heavy breasts"
+    },
+    "waist": {
+      "lowest": "a tiny, cinched waist",
+      "low": "a narrow waist",
+      "middle": "a moderate waist",
+      "high": "a soft, thick waist",
+      "highest": "a wide, heavy midsection"
+    },
+    "hips": {
+      "lowest": "narrow, boyish hips",
+      "low": "slim hips",
+      "middle": "moderate hips",
+      "high": "wide, curvy hips and thick thighs",
+      "highest": "very wide hips, a large rear and heavy thighs"
+    },
+    "tone": {
+      "lowest": "a soft, untoned body with no muscle definition",
+      "low": "a softly toned body with little muscle definition",
+      "middle": "a naturally, lightly toned body",
+      "high": "a toned, athletic, visibly muscular physique",
+      "highest": "a chiseled, hard-muscled, athletic physique with defined abs and cut arms"
+    },
+    "silhouette": {
+      "hourglass": "an hourglass figure",
+      "pear": "a pear-shaped, bottom-heavy figure",
+      "inverted": "a top-heavy, inverted-triangle figure",
+      "round": "a rounded, apple-shaped figure",
+      "straight": "a straight, athletic figure"
+    }
+  },
+  "masculine": {
+    "neutral": "an average build",
+    "mass": {
+      "lowest": "a gaunt, bony frame",
+      "low": "a lean, slight frame",
+      "middle": "a medium, average build",
+      "high": "a thick, heavy-set frame",
+      "highest": "a massive, heavily built frame"
+    },
+    "bust": {
+      "lowest": "a flat, narrow chest",
+      "low": "a slim chest",
+      "middle": "a moderate chest",
+      "high": "a broad chest and wide shoulders",
+      "highest": "a huge barrel chest and heavy shoulders"
+    },
+    "waist": {
+      "lowest": "a tightly tapered, very narrow waist",
+      "low": "a narrow waist",
+      "middle": "a moderate waist",
+      "high": "a thick waist and a soft midsection",
+      "highest": "a heavy, rounded belly"
+    },
+    "hips": {
+      "lowest": "very narrow hips",
+      "low": "slim hips",
+      "middle": "moderate hips",
+      "high": "wide hips and thick legs",
+      "highest": "very wide hips and heavy thighs"
+    },
+    "tone": {
+      "lowest": "a soft, untoned body with no muscle definition",
+      "low": "a soft, lightly muscled body",
+      "middle": "a naturally, lightly toned body",
+      "high": "a fit, muscular, well-defined physique",
+      "highest": "a chiseled, heavily muscular bodybuilder's physique with defined abs and cut, veiny arms"
+    },
+    "silhouette": {
+      "hourglass": "a narrow-waisted, evenly proportioned frame",
+      "pear": "a bottom-heavy, wide-hipped frame",
+      "inverted": "a broad-shouldered V-taper",
+      "round": "a rounded, barrel-shaped torso",
+      "straight": "a straight, squared torso"
+    }
+  },
+  "androgynous": {
+    "neutral": "an average, androgynous build",
+    "mass": {
+      "lowest": "a gaunt, frail frame",
+      "low": "a slight, slender frame",
+      "middle": "a medium, average build",
+      "high": "a full, heavy-set frame",
+      "highest": "a big, heavily built frame"
+    },
+    "bust": {
+      "lowest": "a completely flat, narrow chest",
+      "low": "a flat, slight chest",
+      "middle": "a flat, lean chest, neither masculine nor feminine",
+      "high": "a broad, flat-chested torso",
+      "highest": "a broad, deep, swimmer's chest with no bust"
+    },
+    "waist": {
+      "lowest": "a very narrow, cinched waist",
+      "low": "a narrow waist",
+      "middle": "a moderate waist",
+      "high": "a thick, soft waist",
+      "highest": "a wide, heavy midsection"
+    },
+    "hips": {
+      "lowest": "very narrow, straight hips",
+      "low": "narrow, straight hips",
+      "middle": "straight, squared hips on a straight torso",
+      "high": "broad, squared hips and sturdy thighs on a straight torso",
+      "highest": "wide, solid, squared hips and thick thighs on a straight torso"
+    },
+    "tone": {
+      "lowest": "a soft, untoned body with no muscle definition",
+      "low": "a softly toned body with little muscle definition",
+      "middle": "a naturally, lightly toned body",
+      "high": "a toned, athletic, visibly muscular physique",
+      "highest": "a chiseled, hard-muscled physique with defined abs and cut arms"
+    },
+    "silhouette": {
+      "hourglass": "a narrow-waisted, evenly proportioned androgynous figure",
+      "pear": "a bottom-heavy androgynous figure with squared hips",
+      "inverted": "a broad-shouldered, top-heavy androgynous figure",
+      "round": "a thick-middled, rounded androgynous figure",
+      "straight": "a straight, androgynous figure"
+    }
+  },
+  "presets": {
+    "feminine": {
+      "Athletic": {
+        "mass": 4,
+        "bust": 5,
+        "waist": 3,
+        "hips": 5,
+        "tone": 8
+      },
+      "Average": {
+        "mass": 5,
+        "bust": 5,
+        "waist": 5,
+        "hips": 5,
+        "tone": 5
+      },
+      "Lithe": {
+        "mass": 3,
+        "bust": 4,
+        "waist": 3,
+        "hips": 4,
+        "tone": 6
+      },
+      "Thick": {
+        "mass": 8,
+        "bust": 7,
+        "waist": 7,
+        "hips": 8,
+        "tone": 3
+      },
+      "Skinny": {
+        "mass": 1,
+        "bust": 2,
+        "waist": 2,
+        "hips": 3,
+        "tone": 4
+      },
+      "Plus": {
+        "mass": 10,
+        "bust": 8,
+        "waist": 9,
+        "hips": 9,
+        "tone": 2
+      }
+    },
+    "masculine": {
+      "Athletic": {
+        "mass": 5,
+        "bust": 7,
+        "waist": 3,
+        "hips": 4,
+        "tone": 8
+      },
+      "Average": {
+        "mass": 5,
+        "bust": 5,
+        "waist": 5,
+        "hips": 5,
+        "tone": 5
+      },
+      "Lithe": {
+        "mass": 3,
+        "bust": 4,
+        "waist": 3,
+        "hips": 3,
+        "tone": 6
+      },
+      "Muscular": {
+        "mass": 8,
+        "bust": 9,
+        "waist": 3,
+        "hips": 4,
+        "tone": 10
+      },
+      "Thick": {
+        "mass": 8,
+        "bust": 8,
+        "waist": 7,
+        "hips": 6,
+        "tone": 6
+      },
+      "Skinny": {
+        "mass": 1,
+        "bust": 2,
+        "waist": 2,
+        "hips": 2,
+        "tone": 3
+      },
+      "Plus": {
+        "mass": 10,
+        "bust": 7,
+        "waist": 10,
+        "hips": 7,
+        "tone": 2
+      }
+    }
+  }
+}

@@ -235,6 +235,73 @@ the shorthands for brevity. Pack dirs and category keys are unchanged.
 
 **Enhancements (scoped, deferred — awaiting Brian):**
 
+- **Slider Build Control** — ✅ **SHIPPED IN 0.9.13** (built 2026-09-01, shipped
+  2026-09-02; the owner evaluated it and kept it). Seed phrase banks (93, Claude-drafted at
+  the owner's request) are in `wildcards/_body_sliders.json`; Brian keeps revising them —
+  content-only edits need no re-add. **The 0.9.13 release notes carry the one-time node
+  re-add callout.**
+  An optional manual body-shaping lane: five 0–10 sliders (**mass, bust, waist, hips,
+  muscle tone**) synthesized into coherent figure prose, **independent** of the existing
+  Build presets. Architecture notes live in `CLAUDE.md` (§ Experimental — Slider Build
+  Control).
+  - **Two independent lanes, no coupling.** Existing Build category stays exactly as-is
+    (presets are category-level only, so tying them to slider vectors was judged wasted
+    effort). A **"Body Sliders" master toggle** (default off): ON → the slider-synthesized
+    build emits and the preset Build output is **suppressed** that run; OFF → sliders inert,
+    Build unchanged. One body description, never two.
+  - **Node regroup:** `Physical` → **Physical - Body** (the Body Sliders off/random/on/preset
+    selector, the Build preset dropdowns directly under it — shown in preset mode — then the
+    five body sliders, hidden while off) and new **Physical - Head** (Eyes, Face, Nose,
+    Lips). Cosmetic (`group`/`display`); rides the same re-add the sliders force.
+  - **Register = Gender** (owner, 2026-09-01, final): Female/Male → gendered banks, Fluid
+    and — off — → androgynous, — random — → the rolled gender. The Body Sliders selector is
+    **off / random / on / preset**; random rolls the five values per seed and the node's
+    sliders show the roll after each queue; **preset** (Option 3, 2026-09-01) shows the Build
+    preset dropdowns again and lets them emit while the sliders snap to the section's vector
+    (JSON `presets`, 13 owner-editable entries, display only) and keep it when flipped to
+    on — one build line, never two. Gender — off — silences the lane (no subject, no body).
+    The preset dropdowns are **hidden, not removed**, in the other modes. **Mayhem** flips a
+    seeded 50/50 coin on its build slot between a preset line and a rolled slider body
+    (option 2, 2026-09-01); the sliders mirror whichever rendered. *Superseded same-day design, kept for the record:* a sixth slider,
+    `body_blend` (masculine 0 .. feminine 10), picked the register per axis under every gender: the ends
+    are the gendered banks, 4–6 is the androgynous bank, and 2–3 / 7–8 mix a frame register
+    (mass, tone, waist) with the other register's chest and hips — chest and hips flip first
+    because they read most gendered. The mixed bands are the gender-fluid bodies; 4–6 is
+    androgyny (owner, 2026-09-01, replacing the first cut's single androgynous body, which
+    made fluidity a midpoint the model rendered feminine). The androgynous bust/hips bank
+    was rewritten the same day to describe chest breadth and squared hips on a straight
+    torso, never fullness; **— random —**
+    → the per-seed rolled gender picks the register (deterministic); **— off —** →
+    the slider build **still emits and the blend supplies the subject word** (JSON `subject`
+    table, 5 bands — the sliders can replace the Gender selector; a set Gender keeps its own
+    word; the Gender-scoped head categories still key on Gender — the earlier "suppress under Off" rule emptied the build line in practice and was
+    dropped 2026-09-01).
+  - **Prose model:** owner-authored per-axis phrase banks × 3 registers; each slider maps
+    to 5 tiers and **every tier emits, the middle (4–6) included** — the owner wants
+    intentional control, not averages left to the model (2026-09-01; the first cut had a
+    silent middle tier).
+    Synthesis (code) derives a leading **silhouette** from hip/waist/bust ratios, a
+    **muscle-tone** modifier, and **overall scale** from mass. *Sub-model (locked 2026-09-01):*
+    **per-axis-primary** — every axis emits its own phrase, and the silhouette
+    label leads whenever a ratio rule fires. Chosen because sliders must feel responsive:
+    under synthesis-primary a slider could move without changing the text. Fragments are
+    chained corpus-style ("a slender frame with an hourglass figure, …") so it reads as a
+    figure, not a spec sheet. Synthesis-primary remains one constant away
+    (`sliders.EMITTING_TIERS`). Boundary (agreement #7): the silhouette/tier **rules**
+    are code, and the **final** wording is the owner's — but the **owner has asked for a
+    seed draft to edit** (2026-09-01), so producing a first-pass of the phrase banks (3
+    registers) IS authorized as an editable starting point (the #7 "unless he asks"
+    carve-out); the owner then revises and owns it.
+  - **Authoring scope (the number):** 5 axes × 5 tiers × 3 registers = 75 tier phrases,
+    + 5 silhouette labels × 3 + 3 fallbacks → **93 short phrases** first cut (was ~80–90 with
+    a silent middle tier), owner-authored.
+  - **Forces a one-time node re-add** (the six inputs are inserted mid-list, directly after
+    the Build presets, shifting `widgets_values`) — accepted by the owner as the cost of
+    innovation; **requires a clear re-add callout in the release notes** for whatever build
+    it lands on, *if* it ships at all.
+  - ~~**Open micro-items**~~ — resolved 2026-09-01: (1) `— off —` → suppress;
+    (2) per-axis-primary; (3) placement → mid-list under the Build presets.
+
 - **Cross-theme via a Theme option** (design agreed; not built). Add an "any"
   sentinel option to the Theme dropdown that **drops the theme gate** — every
   theme's categories become in-scope at once, so a user can manually mix a

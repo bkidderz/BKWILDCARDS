@@ -8,7 +8,7 @@ Guidance for Claude Code working in this repository.
 
 A ComfyUI custom node that turns a bundled wildcard library into scoped dropdowns and toggles and emits a finished prompt string. No wildcard syntax for the user to learn, no `__token__` to type.
 
-**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.12` (0.9.12 = **Haunted Hallows** — 8th theme, Halloween costumes/environments/poses (`wildcards/halloween/`: 245 costumes incl. named-franchise costumes kept, `{a|b|c}` variants pre-expanded to individual lines; 26 environments; 30 poses) + **Compression / Zentai Suits** — a new `_ghost.runner` Wardrobe category (`cyberpunk/bodysuits.txt`, 144 full-coverage armored suits, 7 families, `order 45` between Outfits and Weapons, its own `suit:` label) + _ghost.runner **outfits reworded** (270 lines, every `bodysuit` swapped to a varied covering garment — undersuit/plugsuit/zentai/techsuit/leotard/…) + **gender word now explicitly adult** (`an adult woman` / `an adult man` / `an adult androgynous person`). Node is now **54 categories / 8 themes / 6 global packs / 5,277 entries**. Also a one-label library fix: `_VERBATIM_LABELS` gained `E.T.` and the verbatim check now runs before the trailing-punctuation strip so `E.T.` keeps its dot. 0.9.11 = **Bradhamel Style** + **Photorealism** art styles (→ 11 total); Art Style now **exempt from Mayhem** — mayhem honours the user's selection on its own seeded rng instead of rolling it, reversing the 0.9.8 core-slot change. 0.9.9–0.9.10 = **Cybernetics** — a new augment axis (17 species-neutral single + partial augments) in its own group between Physical and Hair, plus a **Cybernetics Color** axis whose pick is folded into the augment's finish word by a `resolve_prompt` cross-category rule; Android + Gynoid metatypes strengthened to 3 variants each; the augment-as-identity metatypes Cybernetic Augmented, Partial Cyborg and Cyber-Eyed removed. 0.9.8 = fix — Mayhem now includes the Art Style category, added to `_MAYHEM_SLOT` as a core slot; it had been skipped since the category shipped in 0.9.3; 0.9.7 = Anime + Anime Photo Realism art-style prompts rewritten from booru tags to natural-language KREA2 prose; 0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry** (tag `v0.9.12`).
+**Owner:** Brian (`bkidderz`) · **Repo:** `BKWILDCARDS` · **Current version:** `0.9.13` — shipped 2026-09-02, tag `v0.9.13` (0.9.13 = **Body Sliders**: the slider build lane — off/random/on/preset selector, five readout sliders, Gender-indexed register, preset snap, Mayhem coin, Physical → Physical - Body / Physical - Head regroup, bald scrubs hair from every pick; **forces a one-time node re-add**; see § Slider Build Control). Earlier: 0.9.12 = **Haunted Hallows** — 8th theme, Halloween costumes/environments/poses (`wildcards/halloween/`: 245 costumes incl. named-franchise costumes kept, `{a|b|c}` variants pre-expanded to individual lines; 26 environments; 30 poses) + **Compression / Zentai Suits** — a new `_ghost.runner` Wardrobe category (`cyberpunk/bodysuits.txt`, 144 full-coverage armored suits, 7 families, `order 45` between Outfits and Weapons, its own `suit:` label) + _ghost.runner **outfits reworded** (270 lines, every `bodysuit` swapped to a varied covering garment — undersuit/plugsuit/zentai/techsuit/leotard/…) + **gender word now explicitly adult** (`an adult woman` / `an adult man` / `an adult androgynous person`). Node is now **54 categories / 8 themes / 6 global packs / 5,277 entries**. Also a one-label library fix: `_VERBATIM_LABELS` gained `E.T.` and the verbatim check now runs before the trailing-punctuation strip so `E.T.` keeps its dot. 0.9.11 = **Bradhamel Style** + **Photorealism** art styles (→ 11 total); Art Style now **exempt from Mayhem** — mayhem honours the user's selection on its own seeded rng instead of rolling it, reversing the 0.9.8 core-slot change. 0.9.9–0.9.10 = **Cybernetics** — a new augment axis (17 species-neutral single + partial augments) in its own group between Physical and Hair, plus a **Cybernetics Color** axis whose pick is folded into the augment's finish word by a `resolve_prompt` cross-category rule; Android + Gynoid metatypes strengthened to 3 variants each; the augment-as-identity metatypes Cybernetic Augmented, Partial Cyborg and Cyber-Eyed removed. 0.9.8 = fix — Mayhem now includes the Art Style category, added to `_MAYHEM_SLOT` as a core slot; it had been skipped since the category shipped in 0.9.3; 0.9.7 = Anime + Anime Photo Realism art-style prompts rewritten from booru tags to natural-language KREA2 prose; 0.9.3 = **Art Style** global category — 2nd under the Theme header, leads the prompt; 0.9.4–0.9.6 = label polish: `BKSTYLE` kept verbatim, theme dropdown alphabetized, `Theme`/`Gender` selectors Title-Cased, `◆`/`·` label prefixes dropped. Earlier: 0.9.1/0.9.2 = _ghost.runner + Whimsical Woods environments 24/20→360, two-level subheader format). **PUBLIC on GitHub + live on Comfy Registry** (tag `v0.9.12`).
 **Git:** committed on `main`, pushed to **https://github.com/bkidderz/BKWILDCARDS** — **public**. The Comfy Registry **auto-publishes** on every push to `main` that changes `pyproject.toml` (see `.github/workflows/publish.yml`). `gh` CLI is required for pushes/releases and must be installed + authed as `bkidderz` on each machine (current machine: v2.97.0, authed, scopes `repo`/`workflow`/`gist`/`read:org`). `SNIPPETS.md` is gitignored (local handoff note, not product).
 **Install path (current machine, 2026-08-12):**
 `C:\Users\Owner\Documents\ComfyUI\custom_nodes\bkwildcards` — a **Portable/manual ComfyUI** under `Documents` (the running copy, pulled from the repo; the dev loop copies changed files here). Paths differ per machine; see `instructions.md` in the workspace root.
@@ -56,9 +56,11 @@ BKWILDCARDS/
 │   ├── __init__.py             re-exports; wraps routes import in try/except
 │   ├── library.py              pack/category scanning, section parsing, seeding, draw()
 │   ├── nodes.py                node classes, scope gating, PNG metadata stamping
+│   ├── sliders.py              EXPERIMENTAL Slider Build Control — tiers, silhouette rules, synthesis
 │   └── routes.py               GET /bkwildcards/layout · POST /bkwildcards/populate (cosmetic)
 ├── web/bkwildcards.js          scope hiding, section headers, queue-preview, connection colour, node title
 └── wildcards/
+    ├── _body_sliders.json      EXPERIMENTAL slider phrase banks (root-level file: not a pack; owner's prose)
     ├── common/     ancestry · metatypes · artstyles · cybernetics · cybernetics_color   (global — Identity; Art Style→Theme; Cybernetics own group)
     ├── female/     builds · face · nose · lips             (global, gender: Female — Physical)
     ├── male/       builds · face · nose · lips             (global, gender: Male — Physical, authored 0.8.1)
@@ -91,8 +93,8 @@ BKWILDCARDS/
 
 **Why #2 is mandatory (the v0.8.7 bug):** ComfyUI's two halves disagree about what a position means. `serialize` skips `serialize:false` widgets **but writes each value at its index in the FULL widgets array**, leaving `null` holes where headers sit. `configure` reads back **sequentially**, also skipping headers. A compact reader against a hole-punched writer shifts every value by the number of preceding headers — so every save, load and Ctrl+Z corrupted the node (gender received the theme's value, etc.). Shipped broken in 0.7.1–0.8.6; fixed in 0.8.7. **Never conclude `serialize:false` alone is sufficient — verify BOTH the read and write paths in the installed frontend bundle before trusting any widget-array injection.**
 
-**3. Input order is frozen at 1.0.**
-Adding or moving an input shifts every `widgets_values` index after it. Pre-1.0 this has been broken several times deliberately. After publish, new inputs go on the END only.
+**3. Changing input order costs users a node re-add — the owner's call, not a hard rule.**
+Adding or moving an input shifts every `widgets_values` index after it, so existing users must delete and re-add the node. Pre-1.0 this was broken several times deliberately. The node's order is 100% Brian's choice: default to appending at the END, but insert or move mid-list on his direct instruction (as with the Slider Build Control, 2026-09-01), and call the re-add out in the release notes of whatever build ships it.
 
 **4. `{pack}_{id}` input names are permanent.**
 That string is stored in every saved workflow. Moving a file between packs or changing its `id` breaks saved workflows. Display labels are safe to rename; `id` is not.
@@ -118,7 +120,7 @@ It is salted per process, so the same seed would give different picks in differe
 
 Do not conflate `order` and `display`. `display` is set so each `group`'s categories are **contiguous** on the node; the JS draws a header row at each group boundary.
 
-**On-node section order:** Theme (theme, **art style**) → Identity (gender, ancestry, metatype) → Physical (build, eyes, face, nose, lips) → **Cybernetics** (augment + colour) → Hair (type, style, color) → Wardrobe (theme outfits/tattoos/weapons) → Scene (palette, environment, poses, spell) → Camera (shot angle, framing) → Settings (separator, seed, control-after-generate) → output box. **Art Style is a `common`-pack category pinned into the Theme section** (`group: "Theme"`) and emitted right after `theme` in `INPUT_TYPES`, *before* gender, so it renders 2nd under the Theme header (0.9.3). **Camera is a global but is pinned *after* the theme block** — `INPUT_TYPES` emits `POST_THEME_GROUPS = {"Camera"}` globals after all theme blocks. `theme`/`gender`/`separator`/`seed`/`label_output` get their section from `SPECIAL_GROUPS` in the JS. The JS `relabel()` prettifies fixed-widget labels via `FIXED_LABELS` (theme→`Theme`, gender→`Gender`) and no longer prefixes category labels with `◆`/`·` (0.9.4–0.9.6). Label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**
+**On-node section order:** Theme (theme, **art style**) → Identity (gender, ancestry, metatype) → Physical - Body (the Body Sliders mode selector, then the Build preset dropdowns directly under it — shown only in preset mode — then the five body sliders, hidden while the mode is off) → Physical - Head (eyes, face, nose, lips) → **Cybernetics** (augment + colour) → Hair (type, style, color) → Wardrobe (theme outfits/tattoos/weapons) → Scene (palette, environment, poses, spell) → Camera (shot angle, framing) → Settings (separator, seed, control-after-generate) → output box. **Art Style is a `common`-pack category pinned into the Theme section** (`group: "Theme"`) and emitted right after `theme` in `INPUT_TYPES`, *before* gender, so it renders 2nd under the Theme header (0.9.3). **Camera is a global but is pinned *after* the theme block** — `INPUT_TYPES` emits `POST_THEME_GROUPS = {"Camera"}` globals after all theme blocks. `theme`/`gender`/`separator`/`seed`/`label_output` get their section from `SPECIAL_GROUPS` in the JS. The JS `relabel()` prettifies fixed-widget labels via `FIXED_LABELS` (theme→`Theme`, gender→`Gender`) and no longer prefixes category labels with `◆`/`·` (0.9.4–0.9.6). Label rule: **selectors Title Case, Settings widgets lowercase, section headers UPPERCASE.**
 
 **Prompt order (`order`):** art style 1 (leads, ahead of the gender word at 5) → ancestry 10 → **cybernetics 14** → build 15 → metatype 20 → face/nose/lips 22/24/26 → hair 27–29 → tattoos 30 → outfit 40 → weapons 50 → palette 60 → environment 70 → pose 80 → spell 82/85 → shots 90/92. **Cybernetics Color** carries no order of its own — a cross-category rule (`_apply_cyber_color`, like `_drop_if_bald`) swaps the chosen colour into the cybernetics augment's `chrome` finish word and drops the colour entry, so it never emits separately.
 
@@ -153,13 +155,13 @@ Entry level:
   "display": 20,
   "select": "section",
   "default": false,
-  "group": "Physical",
+  "group": "Physical - Body",
   "prompt_label": "build"
 }
 ```
 
 - `select: "section"` turns the file's `#` headers into dropdown options instead of a boolean toggle (off / random / each section). Reserved options are `library.SECTION_OFF` (`— off —`) and `library.SECTION_ANY` (`— random —`), em-dash-wrapped so a section literally named "off" cannot collide. **A `section` category with no usable headers silently falls back to a toggle** — that is why a flat file (e.g. the dresses "Gowns & Dresses" list) stays on/off. Most theme categories were converted to `section` across 0.7.8–0.7.11.
-- `group` — the on-node section header the category renders under (Identity / Physical / Hair / Wardrobe / Scene / Camera). Cosmetic; drives display grouping only.
+- `group` — the on-node section header the category renders under (Identity / Physical - Body / Physical - Head / Hair / Wardrobe / Scene / Camera). Cosmetic; drives display grouping only.
 - `prompt_label` — the tag emitted when the node's **Labeled output** toggle is on (`build: …`, `hair: …`). Categories that share a `prompt_label` **and** are adjacent in `order` merge under one label (the three hair categories → one `hair:` line).
 
 **Removing a category = delete its `.txt` file, not just its `entries` row.** `library._load_pack` scans *every* `.txt` in the pack dir and loads undeclared files with a filename-derived label. (This is how the goth granular pieces were removed in 0.7.12 — files deleted, not just de-listed.)
@@ -237,7 +239,7 @@ The `executed` handler cross-checks: it compares the queue-time preview against 
 ## Features shipped in the 0.7.x–0.8.0 line (all uncommitted, on the live install for testing)
 
 - **Collapsible section headers (0.8.5–0.8.6).** The header rows are clickable (litegraph calls `widget.mouse` on custom widgets). Clicking toggles `node.properties._bkCollapsed[group]` — persisted, so a saved workflow remembers collapsed sections — and draws a ▸/▾ arrow. `applyTheme` folds collapse into the scope pass: visible = in-scope AND section not collapsed; the output box never collapses. **Header visibility must be judged per header instance against ITS OWN members (widgets until the next header), not by group name** — Wardrobe/Scene headers repeat once per theme, and keying on the name showed every theme's header when any one was in scope (the 0.8.5 duplicate-headers bug, fixed 0.8.6 via `_bkInScope` markers).
-- **Bald hair + Feminine/Masculine labels (0.8.4).** Hair Type gained a **Bald** section (all lines start with "bald"). `_drop_if_bald()` — run by both `resolve_prompt` and `_resolve_mayhem` over a `(order,label,text,key)` list — detects a bald `hair_type` pick and removes the `hair_color`/`hair_style` picks (a bald head has neither), whether bald was chosen or randomly drawn. This is one of **two cross-category rules** (the other is `_apply_cyber_color`, 0.9.10, which folds the Cybernetics Color pick into the cybernetics augment); keep both in the shared post-process helpers. The female/male Physical categories are labelled **Feminine/Masculine** Build/Face/Nose/Lips so they're distinguishable when both show under Fluid/Random.
+- **Bald hair + Feminine/Masculine labels (0.8.4).** Hair Type gained a **Bald** section (all lines start with "bald"). `_drop_if_bald()` — run by both `resolve_prompt` and `_resolve_mayhem` over a `(order,label,text,key)` list — detects a bald `hair_type` pick and removes the `hair_color`/`hair_style` picks (a bald head has neither), whether bald was chosen or randomly drawn. This is one of **two cross-category rules** (the other is `_apply_cyber_color`, 0.9.10, which folds the Cybernetics Color pick into the cybernetics augment); keep both in the shared post-process helpers. The female/male Physical categories are labelled **Feminine/Masculine** Build/Face/Nose/Lips so they're distinguishable when both show under Fluid/Random. **Extended 2026-09-01:** it also runs `_scrub_hair()` over every other pick's text, dropping comma-separated clauses (or the `and`-joined half of one) that mention hair — art styles ("layered anime hair", "realistic hair with individual strands"), ancestry ("long wavy hair"), outfits and poses all describe hair in passing, and the renderer grew hair on a bald subject from those clauses alone. This is the one **cross-category rule**; keep it in the shared helper. The female/male Physical categories are labelled **Feminine/Masculine** Build/Face/Nose/Lips so they're distinguishable when both show under Fluid/Random.
 - **Gender emitted + Random / Fluid (0.8.2–0.8.3).** The gender dropdown options are `— off — · — random — · Female · Male · Fluid` — `GENDER_OFF`/`GENDER_RANDOM` reuse `library.SECTION_OFF`/`SECTION_ANY` so they read like the section dropdowns. **The gender is now injected into the prompt as a subject word** (`_GENDER_TEXT`: a woman / a man; Fluid → "an androgynous person"; Off → nothing), at `order 5` so it leads — previously gender was scope-only and never reached the text, so the render wasn't directed toward a gender at all. **Random** rolls a concrete gender per seed (own rng stream via `stable_offset("__gender_roll__")`, deterministic → preview matches; also rolled in mayhem). **Fluid** drops the gender gate in `_in_scope` so both genders' physical categories contribute. The JS reads the sentinels (`gender_off`/`gender_random`/`gender_fluid`) from the layout payload rather than hardcoding the em-dash strings, and shows both genders' categories under Random/Fluid.
 - **Male Physical content (0.8.1).** `male` pack authored (build/face/nose/lips) mirroring female — Claude-authored, pending Brian's prose review.
 - **Mayhem mode (0.8.0).** A `mayhem` toggle (Settings). When on, `resolve_prompt` calls `_resolve_mayhem(seed, …)` — ignores every category widget and the theme/gender gate, **except Art Style, which mayhem honours from the user's selection** (its own seeded rng stream, so changing the style on a fixed seed leaves the rest identical; 0.9.11) — and composes a **seeded cross-theme** image: rolls a gender, then picks one category per *slot* (`_MAYHEM_SLOT`) from a random source theme + a random line. Core slots always appear; extras roll in at `_MAYHEM_EXTRA_PROB` (0.5). Includes all themes + adult content. Still a pure function of `seed` (core slots use `or` short-circuit so they never consume an extra-roll) → preview matches render, PNG reproduces. `resolve_prompt` shares a `_format_picks` helper with the normal path; the normal path is byte-identical to before the refactor.
@@ -333,6 +335,103 @@ Done in 0.7.x–0.9.x: resolved-live-update (0.6.5), hair `{a|b|c}` split, `grou
 | GitHub publish | ✅ **Public** on GitHub + **live on the Comfy Registry** (auto-publishes on version bump touching `pyproject.toml`; `REGISTRY_ACCESS_TOKEN` secret configured). **Git tagging initialized at `v0.9.6`** (first tag, 2026-08-12) — annotate + push a `vX.Y.Z` tag on each release going forward. |
 | Canonical source | Node package vs Civitai collection. Undecided. |
 | Phase 2 | Module listed as a resource on image outputs. Surface unidentified. Partially anticipated by the PNG stamping. |
+| **Slider Build Control** | ✅ **Shipped in 0.9.13** (2026-09-02). Body sliders (mass/bust/waist/hips/muscle tone) synthesized to figure prose; off/random/on/preset modes; Mayhem coin. Phrase banks are the owner's to keep revising (`wildcards/_body_sliders.json`). See the section below + `CONTENT_PLAN.md` §2. |
+
+## Slider Build Control (0.9.13)
+
+**Built 2026-09-01, shipped 2026-09-02 in 0.9.13** (`bkwildcards/sliders.py`,
+`wildcards/_body_sliders.json`, six inputs in `nodes.INPUT_TYPES`, JS group/label entries,
+readouts and mirrors). The release notes MUST carry the one-time re-add callout. Full content-facing scope is in
+`CONTENT_PLAN.md` §2 (Enhancements). Decisions locked with the owner 2026-09-01: gender
+`— off —` → **suppressed**; prose sub-model → **per-axis-primary** (every non-middle axis
+emits, silhouette label leads when a ratio rule fires — sliders must feel responsive;
+`sliders.EMITTING_TIERS` is the one knob for sparser models); **every tier emits, 4–6
+included** (no silent averages, 2026-09-01); inputs placed **mid-list
+directly after the Build presets** (the re-add is accepted). Architecture:
+
+- **What it is.** An optional manual body-shaping lane *parallel to* the existing Build
+  category: five 0–10 sliders (**mass, bust, waist, hips, muscle tone**) + a **"Body
+  Sliders" master toggle**, synthesized in Python into one figure-prose build phrase.
+  Independent of the Build presets; the two never both emit — master toggle **ON
+  suppresses the preset Build output** for that run.
+- **Inputs (invariants #3, #4).** Six new inputs — a `body_sliders` mode dropdown (`— off —` /
+  `— random —` / `on` / `preset`, reusing the section sentinels) + 5 `INT` (`min:0, max:10, step:1,
+  display:"slider"`) named `body_mass`/`body_bust`/`body_waist`/`body_hips`/`body_tone` (so a
+  pack dir named `body` is reserved). A `body_blend` slider existed for part of 2026-09-01
+  and was removed the same day. Emitted by
+  `INPUT_TYPES` **directly after the last `Physical - Body` category** (the Build presets),
+  so they render under the presets with no JS reordering (invariant #2 intact). This shifts
+  `widgets_values` → **one-time node re-add**; call it out in the release notes. Order on
+  the node: the `body_sliders` mode, the Build presets under it, then the five body sliders
+  (owner, 2026-09-01). The JS adds
+  `SPECIAL_GROUPS`/`FIXED_LABELS` entries for the six names, **hides the sliders while the
+  mode is off**, greys them under `— random —` (`options.disabled`), **shows the preset Build dropdowns only in `preset` mode** (`PRESET_WIDGETS` — hidden, not
+  removed, otherwise; Python still honours a saved value), greys the sliders in `preset`
+  mode and under Gender `— off —` (the selector too — and **Gender `— off —` writes the
+  selector to `— off —`**, one-way, owner's call 2026-09-01: a live `preset` selection with no
+  presets showing would confuse), and **snaps the sliders to the chosen
+  preset section's vector** (`snapToPreset`, from `slider_ui.presets`; a random preset snaps
+  after the preview), and after each queue-time preview **mirrors the rolled values** onto the
+  sliders (`applySliderState`, from the populate response's `sliders` state), and draws a **live readout on each slider** (`installSliderReadouts`:
+  "Mass: 0 | a gaunt, frail frame", left-aligned, truncated to the bar) from per-value phrase
+  tables the layout endpoint ships (`sliders.ui_tables`) — cosmetic, no tier/blend logic in JS;
+  the six sliders carry **no tooltip** (the hover pop-up got in the way — owner, 2026-09-01) (`applyTheme`, re-applied on the toggle's callback like
+  theme/gender) — cosmetic, Python ignores them when off regardless.
+- **Python authoritative (invariant #1).** `sliders.py` owns tiers (0–1 / 2–3 / 4–6 / 7–8 /
+  9–10 — **every tier emits**, the middle included, since 2026-09-01: the owner wants
+  intentional control, not averages left to the model), the silhouette rules (hourglass / pear / inverted / round /
+  straight, thresholds are module constants) and `synthesize()`; `nodes._apply_body_sliders`
+  runs after the category loop in `resolve_prompt` (so the populate endpoint shares it),
+  drops every `id == "build"` pick and appends the slider build at the Build `order`/
+  `prompt_label`. Fails soft: banks missing → presets untouched. A pure function of
+  (register, five values) → **preview == execution** holds (400-trial headless check, incl.
+  string-typed values from the JSON payload). The register's `neutral` phrase is only a
+  fallback for a missing bank phrase.
+- **Register = Gender** (the owner's "hard lock", 2026-09-01, after a blend-slider detour the
+  same day): `nodes._SLIDER_REGISTER` — Female/Male → the gendered banks, Fluid and Off →
+  androgynous, Random → the rolled gender. `— random —` mode rolls the five values per seed
+  (`sliders.roll_values`, one stream per input name); **`preset` mode** lets the Build preset
+  dropdowns emit (Option 3, 2026-09-01): `nodes._preset_pick` re-derives which preset line
+  will emit (same rng as the category loop) and its section, `sliders.preset_vector` maps
+  the section to a five-value vector (JSON `presets`, owner-editable, display only) that the
+  sliders snap to and keep when the mode flips to `on` — a preset is a starting point, never
+  a second build line; **Gender `— off —` silences the lane** (state None) as it does the
+  gendered presets — landscapes have no body; `nodes.slider_state()` is the one pure
+  function `resolve_prompt`, `build()` (stamps `properties.bk_sliders`) and the populate
+  endpoint share, so the on-node sliders, the box, the render and the PNG all agree. Earlier
+  same-day design, superseded: **the `body_blend` slider picked the register per axis
+  under every gender** (`sliders.blend_registers`:
+  0–1 masculine, 2–3 masculine frame + androgynous chest/hips, 4–6 androgynous, 7–8
+  androgynous frame + feminine bust/hips, 9–10 feminine — chest and hips flip first because
+  they read most gendered; the mixed bands are the gender-fluid bodies, 4–6 is androgyny.
+  Replaced the first cut's "Fluid collapses to one androgynous body", which turned fluidity
+  into a midpoint the model kept rendering feminine — owner, 2026-09-01); **Random →
+  per-seed rolled gender** (existing `stable_offset("__gender_roll__")`, deterministic);
+  **Off → the slider build still emits, and the blend supplies the subject word** from the
+  JSON `subject` table (`sliders.blend_subject`, 5 blend bands: an adult man / … / an adult
+  woman), so the sliders can stand in for the Gender selector; a set Gender keeps its own word
+  (owner, 2026-09-01 — with Off and no subject word the masculine body text alone did not
+  anchor the render). An earlier cut suppressed it under Off, which silently emptied the build
+  line for the owner's Off-gender runs — dropped 2026-09-01.
+- **Mayhem rolls the lane itself** (owner, option 2, 2026-09-01): it still ignores the
+  selector and slider widgets, but `_mayhem_slider_lane` flips a seeded coin
+  (`_MAYHEM_SLIDER_PROB`, 0.5) on its build slot — heads replaces the preset line with a
+  slider body rolled in the rolled gender's register, tails keeps the preset and reports its
+  section's vector. Own rng stream (`__mayhem_sliders__`), so every other Mayhem pick for a
+  seed is unchanged. `nodes.mayhem_slider_state` feeds the populate mirror and the PNG stamp,
+  so the sliders always show the body Mayhem rendered. No gender rolled → no body. Still no
+  slider slot in `_MAYHEM_SLOT`.
+- **Regroup.** `group` `Physical` → `Physical - Body` + `Physical - Head` (Eyes/Face/Nose/
+  Lips move to Head). Cosmetic (JS header + `display`); collapse state re-keys on the new
+  group names.
+- **Content boundary (agreement #7).** Silhouette/tier **rules** are code; the phrase
+  content is the owner's. The owner asked for a seed draft (2026-09-01) — the #7 "unless he
+  asks" carve-out — so `wildcards/_body_sliders.json` holds a Claude-authored **93-phrase
+  first pass** (3 registers × (5 axes × 5 tiers + 5 silhouette labels + 1 neutral fallback))
+  that Brian revises and owns. Edit the JSON, restart ComfyUI (loaded once at import).
+  Emission order: mass → tone → silhouette → bust → waist → hips (frame + musculature lead,
+  2026-09-01). Phrases are noun-phrase fragments; code joins them corpus-style ("a slender frame with a
+  toned, athletic, visibly muscular physique, an hourglass figure, large breasts, a narrow waist").
 
 ## Planned hierarchy
 

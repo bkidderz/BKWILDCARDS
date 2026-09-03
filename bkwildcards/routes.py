@@ -8,6 +8,7 @@ node still behaves correctly, because theme gating is enforced in Python.
 
 from . import library
 from . import nodes
+from . import sliders
 
 try:
     from server import PromptServer
@@ -27,6 +28,9 @@ def _payload():
         "gender_off": nodes.GENDER_OFF,
         "gender_random": nodes.GENDER_RANDOM,
         "gender_fluid": nodes.GENDER_FLUID,
+        # Experimental Slider Build Control: per-value phrase tables for the
+        # live on-node readouts (cosmetic; see sliders.ui_tables).
+        "slider_ui": sliders.ui_tables(),
         "categories": [
             {
                 "key": c["key"],
@@ -83,4 +87,15 @@ if PromptServer is not None and web is not None:
             )
         except Exception as exc:
             return web.json_response({"error": str(exc)}, status=400)
-        return web.json_response({"text": text})
+        # The slider lane's effective state (rolled values under — random —),
+        # so the on-node sliders can show what this run used. Same pure
+        # function build() uses, so it cannot disagree with the render.
+        state = None
+        try:
+            if choices.get("mayhem", False):
+                state = nodes.mayhem_slider_state(data.get("seed", 0), choices)
+            else:
+                state = nodes.slider_state(data.get("seed", 0), data.get("gender"), choices)
+        except Exception:
+            state = None
+        return web.json_response({"text": text, "sliders": state})

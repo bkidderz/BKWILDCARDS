@@ -12,7 +12,7 @@
       "select": "section",
       "default": false,
       "display": 20,
-      "group": "Physical",
+      "group": "Physical - Body",
       "prompt_label": "build"
     },
     {
@@ -22,7 +22,7 @@
       "order": 22,
       "display": 22,
       "default": false,
-      "group": "Physical",
+      "group": "Physical - Head",
       "prompt_label": "face"
     },
     {
@@ -32,7 +32,7 @@
       "order": 24,
       "display": 24,
       "default": false,
-      "group": "Physical",
+      "group": "Physical - Head",
       "prompt_label": "nose"
     },
     {
@@ -42,7 +42,7 @@
       "order": 26,
       "display": 26,
       "default": false,
-      "group": "Physical",
+      "group": "Physical - Head",
       "prompt_label": "lips"
     }
   ]
