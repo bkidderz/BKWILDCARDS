@@ -1,0 +1,10 @@
+# Not needed to run the node. Excluded from the Comfy Registry package.
+.github/
+.gitignore
+.comfyignore
+CLAUDE.md
+CONTENT_PLAN.md
+SNIPPETS.md
+tools/
+__pycache__/
+*.pyc

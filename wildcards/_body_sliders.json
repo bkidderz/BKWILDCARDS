@@ -48,14 +48,14 @@
       "highest": "enormous, heavy breasts"
     },
     "waist": {
-      "lowest": "a tiny, cinched waist",
+      "lowest": "a sharply cinched waist",
       "low": "a narrow waist",
       "middle": "a moderate waist",
       "high": "a soft, thick waist",
       "highest": "a wide, heavy midsection"
     },
     "hips": {
-      "lowest": "narrow, boyish hips",
+      "lowest": "narrow, straight hips",
       "low": "slim hips",
       "middle": "moderate hips",
       "high": "wide, curvy hips and thick thighs",
@@ -63,7 +63,7 @@
     },
     "tone": {
       "lowest": "a soft, untoned body with no muscle definition",
-      "low": "a softly toned body with little muscle definition",
+      "low": "a softly toned body with minimal muscle definition",
       "middle": "a naturally, lightly toned body",
       "high": "a toned, athletic, visibly muscular physique",
       "highest": "a chiseled, hard-muscled, athletic physique with defined abs and cut arms"
@@ -153,7 +153,7 @@
     },
     "tone": {
       "lowest": "a soft, untoned body with no muscle definition",
-      "low": "a softly toned body with little muscle definition",
+      "low": "a softly toned body with minimal muscle definition",
       "middle": "a naturally, lightly toned body",
       "high": "a toned, athletic, visibly muscular physique",
       "highest": "a chiseled, hard-muscled physique with defined abs and cut arms"
