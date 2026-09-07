@@ -1,21 +1,14 @@
 # Publishes to the Comfy Registry — AUTOMATIC on every release.
 #
-# The repo is public and the REGISTRY_ACCESS_TOKEN secret is set, so publishing
-# is now standard operation: every push to main that changes pyproject.toml
-# (i.e. every version bump) republishes the node to the Registry. Manual runs
-# are also available via Actions > "Publish to Comfy Registry" > Run workflow.
+# Fires on every push to main that changes pyproject.toml (i.e. every version
+# bump) and publishes the node WITH the per-version changelog read from NOTES.md,
+# so the Registry "Updates" section is populated.
 #
-# RELEASE FLOW (unchanged): bump `version` in pyproject.toml + BUILD in the JS,
-# commit, push. The push auto-publishes. The Registry REJECTS re-publishing an
-# existing version, so the version MUST be bumped for each release — a commit
-# that touches pyproject.toml WITHOUT bumping the version will fail this job
-# (harmless, but noisy). One version bump = one publish.
-#
-# Setup (all complete):
-#   [x] PublisherId set in pyproject.toml ([tool.comfy] PublisherId = bkidderz)
-#   [x] License set (MIT, see LICENSE)
-#   [x] REGISTRY_ACCESS_TOKEN secret set in repo Actions secrets
-#   [x] Repository public
+# We invoke comfy-cli directly instead of the thin Comfy-Org/publish-node-action
+# because that action exposes no changelog input. The registry token stays the
+# encrypted REGISTRY_ACCESS_TOKEN secret — passed via env, never printed, masked
+# in logs. Keep NOTES.md at the repo root holding the CURRENT version's notes
+# (replaced each release; it becomes that version's changelog).
 
 name: Publish to Comfy Registry
 
@@ -25,12 +18,22 @@ on:
     paths: ["pyproject.toml"]
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Publish
-        uses: Comfy-Org/publish-node-action@main
+      - uses: actions/setup-python@v5
         with:
-          personal_access_token: ${{ secrets.REGISTRY_ACCESS_TOKEN }}
+          python-version: "3.12"
+      - name: Install comfy-cli
+        run: pip install comfy-cli
+      - name: First-run setup (non-interactive)
+        run: comfy --skip-prompt --no-enable-telemetry env
+      - name: Publish with changelog
+        run: comfy --skip-prompt --no-enable-telemetry node publish --token "$REGISTRY_TOKEN" --changelog-file NOTES.md
+        env:
+          REGISTRY_TOKEN: ${{ secrets.REGISTRY_ACCESS_TOKEN }}

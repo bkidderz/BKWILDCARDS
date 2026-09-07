@@ -713,60 +713,10 @@ class BKWildcardSelector:
         }
 
 
-class BKWildcardInfo:
-    """Diagnostic: list every category the loader found, with entry counts."""
-
-    @classmethod
-    def INPUT_TYPES(cls):
-        return {"required": {}}
-
-    RETURN_TYPES = ("STRING",)
-    RETURN_NAMES = ("report",)
-    FUNCTION = "report"
-    CATEGORY = "BKWILDCARDS"
-    DESCRIPTION = "Lists the wildcard packs and categories BKWILDCARDS loaded."
-
-    def report(self):
-        lines = ["Wildcard root: {}".format(library.WILDCARD_ROOT), ""]
-        total = 0
-
-        for pack in _PACKS:
-            flags = []
-            if pack["is_global"]:
-                flags.append("global")
-            if pack["gender"]:
-                flags.append(pack["gender"])
-            lines.append(
-                "[{}]{}".format(pack["label"], "  ({})".format(", ".join(flags)) if flags else "")
-            )
-            cats = [c for c in _CATEGORIES if c["pack"] == pack["pack"]]
-            if not cats:
-                lines.append("  (no wildcard files yet)")
-            for cat in cats:
-                style = (
-                    "sections: " + ", ".join(cat["sections"])
-                    if cat["select"] == library.SELECT_SECTION
-                    else "on/off"
-                )
-                lines.append(
-                    "  {:<20} {:>5} entries   {}".format(cat["label"], cat["count"], style)
-                )
-                lines.append("  {:<20} input: {}".format("", cat["key"]))
-                total += cat["count"]
-
-        lines.append("")
-        lines.append("Genders: {}".format(", ".join(_GENDERS) or "(none)"))
-        lines.append("Themes: {}".format(", ".join(_THEMES) or "(none)"))
-        lines.append("{} categories, {} total entries".format(len(_CATEGORIES), total))
-        return ("\n".join(lines),)
-
-
 NODE_CLASS_MAPPINGS = {
     "BKWildcardSelector": BKWildcardSelector,
-    "BKWildcardInfo": BKWildcardInfo,
 }
 
 NODE_DISPLAY_NAME_MAPPINGS = {
     "BKWildcardSelector": "BKWILDCARDS Selector",
-    "BKWildcardInfo": "BKWILDCARDS Info",
 }

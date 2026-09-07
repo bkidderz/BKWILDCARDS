@@ -15,7 +15,6 @@ Ships with **5,277 hand-written entries** across **54 categories** and **8 theme
 - [The node at a glance](#the-node-at-a-glance)
 - [Themes and content](#themes-and-content)
 - [Features](#features)
-- [How scoping works](#how-scoping-works)
 - [License](#license)
 
 ---
@@ -38,9 +37,9 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.13`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.15`), so you can confirm the update took.
 
-**Updating to 0.9.13 from any earlier version: delete the BKWILDCARDS Selector node and add it again.** 0.9.13 adds the Body Sliders controls in the middle of the node, which shifts the saved widget positions of everything below them. A node carried over from an older workflow will show wrong values until it is re-added. This is a one-time step; your other nodes and wiring are unaffected.
+**Updating from a pre–Body Sliders version: delete the BKWILDCARDS Selector node and add it again once.** The Body Sliders controls sit in the middle of the node and shifted the saved widget positions below them, so a node carried over from an older workflow can show wrong values until it's re-added. One-time step; your other nodes and wiring are unaffected.
 
 ### Manual install (git)
 
@@ -139,7 +138,7 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 
 | Pack | Categories |
 |---|---|
-| **Art Style** | 11 styles — BKSTYLE, GLADAS STYLE, Anime, Anime Photo Realism, Painterly, Pixel Art 16-Bit, Surreal, Semi-Realism, Western Comics, Bradhamel Style, Photorealism (leads the prompt; sits under Theme) |
+| **Art Style** | 11 styles — Anime, Anime Photo Realism, BKSTYLE, Gladas Style, Painterly, Painterly Photorealism, Photorealism, Pixel Art 16-Bit, Semi-Realism, Surreal, Western Comics (alphabetical; leads the prompt; sits under Theme) |
 | **Common** | Ancestry (44, 16 sections) · Metatype / Species (53, 29 sections) |
 | **Cybernetics** | 17 augments — single/both limbs, jaw, torso, neural jack, + Partial Cyborg presets · 14 finish colors (— off — = chrome) |
 | **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
