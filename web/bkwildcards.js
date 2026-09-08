@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.9.15";
+const BUILD = "0.9.16";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
@@ -50,6 +50,9 @@ const SPECIAL_GROUPS = {
   body_hips: "Physical - Body",
   body_tone: "Physical - Body",
   body_sliders: "Physical - Body",
+  // Metatype-driven coloration axis (experimental, 0.9.16): a dropdown under the
+  // sliders in the same section. Always visible (a normal off/random/family combo).
+  skin_tone: "Physical - Body",
 };
 
 // Display labels for the fixed (non-category) widgets. Only the on-node label is
@@ -63,6 +66,7 @@ const FIXED_LABELS = {
   body_hips: "Hips",
   body_tone: "Muscle Tone",
   body_sliders: "Body Sliders",
+  skin_tone: "Skin Tone",
 };
 
 // Experimental Slider Build Control: the five sliders are shown only while the
@@ -741,6 +745,41 @@ function restoreResolved(node) {
   }
 }
 
+/**
+ * Limit the Skin Tone dropdown to the selected Metatype's families (+ off/random).
+ * Metatype-conditioned options: green tones never show for Human, undead never for
+ * Android, etc. The Python resolver stays coherent regardless — this only narrows
+ * what is selectable. The full flat family list is the server-side validation
+ * superset, so any narrowed pick is still a valid value at queue time.
+ */
+function updateSkinToneOptions(node) {
+  try {
+    const cfg = LAYOUT?.skin_tones;
+    if (!cfg?.input) return;
+    const skinW = node.widgets?.find((w) => w.name === cfg.input);
+    if (!skinW) return;
+    const mtW = node.widgets?.find((w) => w.name === cfg.metatype_key);
+    const mtVal = mtW ? mtW.value : undefined;
+    let families;
+    if (mtVal === cfg.random) {
+      families = []; // metatype rolled per seed -> only off/random are coherent
+    } else if (mtVal === undefined || mtVal === cfg.off) {
+      families = cfg.default_families || []; // no metatype -> default (human) group
+    } else {
+      families = cfg.metatype_families?.[mtVal] || cfg.default_families || [];
+    }
+    const options = [cfg.off, cfg.random, ...families];
+    skinW.options = skinW.options || {};
+    skinW.options.values = options;
+    if (!options.includes(skinW.value)) {
+      skinW.value = cfg.random; // stale family after a metatype switch -> group roll
+    }
+    node.setDirtyCanvas?.(true, true);
+  } catch (err) {
+    console.warn("[BKWILDCARDS] skin-tone option update failed:", err);
+  }
+}
+
 function attach(node, layout) {
   if (!node || !layout || node._bkAttached) return;
   node._bkAttached = true;
@@ -763,6 +802,22 @@ function attach(node, layout) {
       snapToPreset(node, layout); // preset mode: sliders echo the chosen section
       return result;
     };
+  }
+
+  // Metatype drives which Skin Tone families are offered (limit to that race).
+  const skinCfg = layout.skin_tones;
+  if (skinCfg?.metatype_key) {
+    const mtW = node.widgets?.find((w) => w.name === skinCfg.metatype_key);
+    if (mtW) {
+      const original = mtW.callback;
+      mtW.callback = function (...args) {
+        const result = original?.apply(this, args);
+        updateSkinToneOptions(node);
+        return result;
+      };
+    }
+    updateSkinToneOptions(node); // initial state
+    requestAnimationFrame(() => updateSkinToneOptions(node)); // after saved values restore
   }
 }
 

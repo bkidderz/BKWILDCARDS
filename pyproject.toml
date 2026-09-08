@@ -1,7 +1,7 @@
 [project]
 name = "bkwildcards"
-description = "Scoped wildcard selector for ComfyUI. Pick a theme and categories from a bundled 5,277-entry library; get a finished prompt string. No wildcard syntax required."
-version = "0.9.15"
+description = "Scoped wildcard selector for ComfyUI. Pick a theme and categories from a bundled 5,200+ entry library with metatype-driven skin tone; get a finished prompt string. No wildcard syntax required."
+version = "0.9.16"
 license = { file = "LICENSE" }
 requires-python = ">=3.9"
 dependencies = []

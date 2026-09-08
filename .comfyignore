@@ -4,6 +4,7 @@
 .comfyignore
 CLAUDE.md
 CONTENT_PLAN.md
+SKIN_TONE_DESIGN.md
 SNIPPETS.md
 tools/
 __pycache__/

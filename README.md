@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **5,277 hand-written entries** across **54 categories** and **8 themes** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, camera framing and more, all written for natural-language prompting.
+Ships with **5,244 hand-written entries** across **54 categories** and **8 themes** — plus a **192-tone, metatype-driven coloration bank** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, skin tone, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -37,9 +37,9 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.15`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.16`), so you can confirm the update took.
 
-**Updating from a pre–Body Sliders version: delete the BKWILDCARDS Selector node and add it again once.** The Body Sliders controls sit in the middle of the node and shifted the saved widget positions below them, so a node carried over from an older workflow can show wrong values until it's re-added. One-time step; your other nodes and wiring are unaffected.
+**Updating to 0.9.16: delete the BKWILDCARDS Selector node and add it again once.** This version adds a Skin Tone control in the middle of the node, which shifts the saved widget positions below it, so a node carried over from an older workflow can show wrong values until it's re-added. (The same is true when updating from a pre–Body Sliders version.) One-time step; your other nodes and wiring are unaffected.
 
 ### Manual install (git)
 
@@ -108,7 +108,7 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 |---|---|
 | **Theme** | Theme selector, **Art Style** (leads the prompt) |
 | **Identity** | Gender, Ancestry, Metatype / Species |
-| **Physical - Body** | **Body Sliders** mode (off / random / on / preset), the Build presets (shown in preset mode), and the five body sliders — Mass, Bust, Waist, Hips, Muscle Tone |
+| **Physical - Body** | **Body Sliders** mode (off / random / on / preset), the Build presets (shown in preset mode), the five body sliders — Mass, Bust, Waist, Hips, Muscle Tone — and **Skin Tone** (a coloration that fits the selected Metatype) |
 | **Physical - Head** | Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Cybernetics** | The augment (arm, leg, torso, …) and its finish color |
 | **Hair** | Hair Type, Hair Style, Hair Color |
@@ -139,16 +139,17 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 | Pack | Categories |
 |---|---|
 | **Art Style** | 11 styles — Anime, Anime Photo Realism, BKSTYLE, Gladas Style, Painterly, Painterly Photorealism, Photorealism, Pixel Art 16-Bit, Semi-Realism, Surreal, Western Comics (alphabetical; leads the prompt; sits under Theme) |
-| **Common** | Ancestry (44, 16 sections) · Metatype / Species (53, 29 sections) |
+| **Common** | Ancestry (44, 16 sections — facial structure only) · Metatype / Species (40, 30 sections) |
 | **Cybernetics** | 17 augments — single/both limbs, jaw, torso, neural jack, + Partial Cyborg presets · 14 finish colors (— off — = chrome) |
 | **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
 | **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |
-| **Shots** | Shot Angle (20) · Shot Framing (50) |
+| **Shots** | Shot Angle (17) · Shot Framing (33) |
 | **Body Sliders** | Five 0–10 sliders (Mass, Bust, Waist, Hips, Muscle Tone) synthesized into one build phrase in the feminine, masculine or androgynous register, chosen by Gender |
+| **Skin Tone** | Metatype-driven coloration (192 tones, 12 groups) — human skin tones, tiefling reds/violets, dragonborn scales, android synthetic skin, beast-form fur, vampire pallor, hologram glow. The dropdown offers only the palette that fits the selected Metatype. |
 | **Female** *(when Female/Fluid)* | Feminine Build (61, 6 sections — Body Sliders **preset** mode) · Face (26) · Nose (9) · Lips (11) |
 | **Male** *(when Male/Fluid)* | Masculine Build (43, 7 sections — Body Sliders **preset** mode) · Face (26) · Nose (10) · Lips (10) |
 
-Ancestry and Metatype combine freely — a Japanese werewolf or a Korean full-conversion cyborg is a supported result, not a conflict.
+Ancestry (facial structure) and Metatype combine freely — a Japanese werewolf or a Korean full-conversion cyborg is a supported result — and the separate Skin Tone control colors it to match.
 
 ---
 
@@ -159,8 +160,9 @@ Ancestry and Metatype combine freely — a Japanese werewolf or a Korean full-co
 By default the node tags each selection so the renderer reads structured attributes instead of one run-on sentence:
 
 ```
-gender: an adult woman,
-ancestry: korean, warm-toned East Asian features, monolid eyes, …,
+gender: a feminine adult,
+ancestry: Korean, warm-toned East Asian features, monolid eyes, …,
+coloration: warm caramel-brown skin,
 hair: soft black hair, with loose open S-shaped waves, half-up …,
 outfit: a sleeveless heavy canvas coverall unzipped low over …,
 color palette: muted olive-drab and warm-tan accents …,
@@ -180,6 +182,10 @@ Flip **`label_output`** to `plain` for a single comma-joined string instead.
 - **— off —** — the lane is silent and the sliders are hidden.
 
 The wording follows **Gender**: Female and Male use their own vocabulary, Fluid uses an androgynous one, and — random — follows the gender rolled for the run. Setting Gender to — off — turns Body Sliders off as well, since a prompt with no subject has no body. Only one build description is ever emitted — the sliders or a preset, never both — and the sliders always show the body that was used, in the preview, in the render and in the saved PNG.
+
+### Skin tone (metatype-driven coloration)
+
+**Skin Tone**, in the Physical - Body section, rolls a coloration that fits your **Metatype** and emits it right after the metatype in the prompt. Every metatype has its own palette — human skin tones for people and same-skin species, reds / violets / golds for tieflings, colored scales for dragonborn, matte and chrome **synthetic skin** for androids, coat colors for full beast-forms, a drained pallor across every skin depth for vampires, and a glow color for holograms. The dropdown only offers the families that belong to the selected Metatype, so you can't pick a green tone for a human or an undead tone for an android. Set it to **— off —** for none, **— random —** to roll within the metatype's palette, or pick a specific family. **Mayhem** keeps the coloration coherent with a selected Metatype. Like everything else it is seed-deterministic and reproduces from the saved PNG.
 
 ### Mayhem mode
 

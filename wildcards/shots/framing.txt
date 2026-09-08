@@ -1,6 +1,10 @@
 # ============================================================
 # SHOTS - FRAMING (global). Section-select: off / random / pick one.
-# Duplicate terms removed; underscores normalized. One framing per section.
+# One framing per section. 2026-09-07: removed the appended duplicate block
+# (extreme close-up, close-up, portrait, headshot portrait, bust portrait/shot,
+# half-length portrait, upper body, full-length portrait, full body, wide shot,
+# silhouette, off-center composition, cropped legs), mid thigh shot (= cowboy shot),
+# and the cross-category dups over the shoulder shot / from behind shot (see Shot Angle).
 # ============================================================
 
 #extreme close up shot
@@ -32,9 +36,6 @@ hip up shot
 
 #hip up intimate shot
 hip up intimate shot
-
-#mid thigh shot
-mid thigh shot
 
 #cowboy shot
 cowboy shot
@@ -96,60 +97,11 @@ fabric obscured composition
 #environmental occlusion composition
 environmental occlusion composition
 
-#over the shoulder shot
-over the shoulder shot
-
-#from behind shot
-from behind shot
-
-#full-length portrait
-full-length portrait
-
 #full body portrait
 full body portrait
-
-#half-length portrait
-half-length portrait
-
-#bust portrait
-bust portrait
-
-#headshot portrait
-headshot portrait
 
 #self-portrait
 self-portrait
 
-#extreme close-up
-extreme close-up
-
-#close-up
-close-up
-
-#portrait
-portrait
-
 #headshot
 headshot
-
-#bust shot
-bust shot
-
-#upper body
-upper body
-
-#full body
-full body
-
-#cropped legs
-cropped legs
-
-#wide shot
-wide shot
-
-#silhouette
-silhouette
-
-#off-center composition
-off-center composition
-

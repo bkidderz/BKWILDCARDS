@@ -10,8 +10,9 @@
 # kept as variants rather than one being discarded.
 #
 # Same-skin species carry no skin token so they do not override an
-# ancestry line; colored-skin species override tone only and state that
-# the underlying bone structure is retained.
+# ancestry line; colored-skin species (tiefling, dragonborn, drow, …)
+# override the skin tone. Underlying-feature / ancestry callbacks are
+# intentionally omitted — ancestry supplies human features/skin when set.
 # ============================================================
 
 # -- Human
@@ -19,81 +20,72 @@ human, natural human features
 human, no metahuman traits, natural human features
 
 # -- Elf
-elf, long tapered pointed ears, refined ethereal features, faintly upswept eyes, the underlying face and skin left natural
+elf, long tapered pointed ears, refined ethereal features, faintly upswept eyes
 
 # -- High Elf
-high elf, long elegant pointed ears, sharp regal features, luminous eyes, the underlying face and skin left natural
+high elf, long elegant pointed ears, sharp regal features, luminous eyes
 
 # -- Wood Elf
-wood elf, long pointed ears, angular wild features, faint natural skin markings, the underlying face and skin left natural
+wood elf, long pointed ears, angular wild features, faint natural skin markings
 
 # -- Half-Elf
-half-elf, subtly pointed ears, softly refined features, the underlying face and skin left natural
+half-elf, subtly pointed ears, softly refined features
 
 # -- Dark Elf
-dark elf, long pointed ears, sharp angular features, dusky violet-grey skin, the underlying eye shape and bone structure retained
-dark elf, long pointed ears, sharp angular features, dusky blue-grey skin, the underlying eye shape and bone structure retained
-dark elf, long pointed ears, sharp angular features, dusky pink-grey skin, the underlying eye shape and bone structure retained
-dark elf, long pointed ears, sharp angular features, dusky grey skin, the underlying eye shape and bone structure retained
+dark elf, long pointed ears, sharp angular features
 
 # -- Ork
-ork, a broad heavy build, prominent lower tusks, a strong heavy brow and jaw, slightly pointed ears, natural skin tone unchanged from ancestry
+ork, prominent lower tusks, a strong heavy brow and jaw, slightly pointed ears
 
 # -- Half-Ork
-half-ork, an athletic build, small lower tusks, a strong jaw and brow, natural skin tone unchanged from ancestry
+half-ork, small lower tusks, a strong jaw and brow
 
 # -- Troll
-troll, a towering massive build, thick hide, prominent tusks, curved horns, bony dermal ridges along the brow, natural skin tone unchanged from ancestry
+troll, thick hide, prominent tusks, curved horns, bony dermal ridges along the brow
 
 # -- Dwarf
-dwarf, a short stocky powerful build, broad features, a strong brow, natural skin tone unchanged from ancestry
+dwarf, a short stocky powerful build, broad features, a strong brow
 
 # -- Tiefling
-tiefling, curved horns, a long slender tail, sharp facial features, skin flushed a deep red and intermittently sparse scales, the underlying eye shape and bone structure retained
-tiefling, curved horns, a long slender tail, sharp facial features, skin flushed a pale blue and intermittently sparse scales, the underlying eye shape and bone structure retained
-tiefling, curved horns, a long slender tail, sharp facial features, skin of metallic golden scales, the underlying eye shape and bone structure retained
-tiefling, curved horns, a long slender tail, sharp features, skin flushed a deep red and features intermittent scales throughout, the underlying eye shape and bone structure retained
-tiefling, curved horns, a long slender tail, sharp features, skin flushed a cool blue and features intermittent scales throughout, the underlying eye shape and bone structure retained
-tiefling, curved horns, a long slender tail, sharp features, skin flushed a vivid lilac and features intermittent scales throughout, the underlying eye shape and bone structure retained
+tiefling, curved horns, a long slender tail, sharp facial features
 
 # -- Demon
-demon, curved black horns, small fangs, a barbed tail, leathery wings, intense glowing eyes, the underlying facial features retained
-demon, huge and curved brown horns, sharp and long fangs, a very long and barbed tail, enormous leathery wings, intensly glowing eyes, the underlying facial features retained
+demon, curved black horns, small fangs, a barbed tail, leathery wings, intense glowing eyes
+demon, huge and curved brown horns, sharp and long fangs, a very long and barbed tail, enormous leathery wings, intensly glowing eyes
+
+# -- Dragonborn
+dragonborn, entire body is sheathed in fine dragon-hide scales, covering from head to toe. Overlapping plated scales cover the face, throat and shoulders and run the length of both arms to clawed fingertips. The scaling continues unbroken across the chest and sheathes the bare stomach, where a band of close-set, hardened belly scales tightens around the navel and fans out across the flanks and hips, so the exposed midriff is ridged, textured dragon hide. The scaling carries down the hips and legs to clawed, scaled feet, and every visible surface is scaled hide, uniform in texture.
 
 # -- Aasimar
-aasimar, a faint halo glow hovering above her head, luminous eyes, radiant skin, large and feathered wings, the underlying face and features preserved
-aasimar, a faint golden halo glow hovers above the head, luminous and glowing eyes, subtle radiance and glow, enormous feathered wings, the underlying face and features preserved
+aasimar, a faint halo glow hovering above her head, luminous eyes, radiant skin, large and feathered wings
+aasimar, a faint golden halo glow hovers above the head, luminous and glowing eyes, subtle radiance and glow, enormous feathered wings
 
 # -- Vampire
-vampire, visible subtle fangs, a cooler paler cast over the natural complexion, sharp predatory eyes, the underlying facial features preserved
-vampire, visible long fangs, a pallid complexion, sharp predatory eyes and facial features, the underlying facial features preserved
-vampire, visible fangs, a cooler paler cast over the natural complexion, sharp predatory eyes, the underlying facial features preserved
-vampire, visible fangs, a pallid skintone casts a subtle purple hue over the natural complexion and darkens significantly around the eyes, hungry and predatory eyes, the underlying facial features preserved though significantly more gaunt than traditionally seen
-
-vampire, elongated needle-fine fangs, translucent porcelain skin with faint blue veining at the temples, crimson-ringed irises, the underlying facial features preserved
-vampire, a full set of extended predatory fangs bared, bloodshot crimson sclera, blood-flushed lips against an ashen complexion, the underlying facial features preserved
-vampire, prominent forward-set incisors, taut grey-white skin drawn tight over the skull, deeply sunken hollow eyes, long clawed fingers, pointed tapered ears, the underlying facial features preserved
-vampire, cracked colourless lips drawn back from long fangs, desiccated ash-grey skin, sunken and darkly ringed eyes, the underlying facial features preserved
+vampire, visible fangs, sharp predatory eyes
+vampire, visible fangs, complexion darkens significantly around the eyes, hungry and predatory eyes, significantly gaunt features 
+vampire, elongated needle-fine fangs, crimson-ringed irises
+vampire, a full set of extended predatory fangs bared, bloodshot crimson sclera
+vampire, prominent forward-set incisors, deeply sunken hollow eyes, long clawed fingers, pointed tapered ears
+vampire, cracked colourless lips drawn back from long fangs, sunken and darkly ringed eyes
 
 # -- Dhampir
-dhampir, small fangs, a faint pallor over the natural skin, striking eyes, the underlying facial features preserved
-dhampir, long and wickedly sharp fangs, a notable pallor over the natural skin tone, slitted eyes, the underlying facial features preserved
+dhampir, small fangs, striking eyes
+dhampir, long and wickedly sharp fangs, slitted eyes
 
 # -- Zombie
-zombie, a reanimated corpse, ashen grey-mottled decaying skin, dark rot veins, clouded sunken eyes, gaunt hollow cheeks, the underlying facial structure still readable beneath the decay
+zombie, a reanimated corpse, ashen grey-mottled decaying skin, dark rot veins, clouded sunken eyes, gaunt hollow cheeks
 
 # -- Catgirl
-catgirl, a natural human face and skin, feline ears atop the head, a matching cat tail, vertical slit pupils, the underlying features preserved
+catgirl, a natural human face and skin, feline ears atop the head, a matching cat tail, vertical slit pupils
 
 # -- Foxgirl
-foxgirl, a natural human face and skin, fox ears atop the head, one or more fox tails, sharp eyes, the underlying features preserved
+foxgirl, a natural human face and skin, fox ears atop the head, one or more fox tails, sharp eyes
 
 # -- Wolfgirl
-wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, amber eyes, the underlying features preserved
-wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, keen slit-pupil eyes, the underlying features preserved
+wolfgirl, a natural human face and skin, wolf ears atop the head, a bushy tail, keen slit-pupil eyes
 
 # -- Werewolf
-werewolf, a partly-shifted lycanthrope, a powerful muscular build, coarse fur along the forearms and jaw, pointed lupine ears, prominent fangs, clawed hands, keen slit-pupil eyes, a still-human face with the underlying features preserved
+werewolf, a partly-shifted lycanthrope, coarse fur along the forearms and jaw, pointed lupine ears, prominent fangs, clawed hands, keen slit-pupil eyes, a still-human face
 
 # -- Full Nekomimi
 full nekomimi, a fully feline catgirl, a complete fur coat over the whole body, feline facial structure, a cat nose and whiskers, no human skin, cat ears and a long tail, vertical slit pupils
@@ -102,26 +94,23 @@ full nekomimi, a fully feline catgirl, a complete fur coat over the whole body, 
 full kitsune, a fully vulpine foxgirl, a complete fur coat, vulpine facial structure, no human skin, fox ears and multiple tails, slit eyes
 
 # -- Full Werewolf
-full werewolf, a towering anthropomorphic lycanthrope, a complete coat of coarse fur, an elongated wolf muzzle, bared fangs, pointed ears, clawed hands, digitigrade legs, no human skin, a fully lupine face
+full werewolf, a towering anthropomorphic lycanthrope, a complete coat of coarse fur, an elongated wolf muzzle, bared fangs, pointed ears, clawed hands, digitigrade legs, a fully lupine face
 
 # -- Full Zombie
-full zombie, a rotted walking corpse, heavily decomposed grey flesh, exposed bone and sinew, a partially skeletal face, sunken hollow eye sockets, no living skin
+full zombie, a rotted walking corpse, heavily decomposed grey flesh, exposed bone and sinew, a partially skeletal face, sunken hollow eye sockets
 
 # -- Android
-an android, a synthetic humanoid engineered to resemble a person yet clearly artificial, its entire body covered in smooth seamless synthetic skin of matte polymer, uniform and poreless with no blemishes, veins or fine hair, the same flawless manufactured surface across the face, neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, faint seam lines only where the panels meet at the joints, a lifelike but fabricated face with a subtle matte synthetic sheen, no organic flesh or living tissue anywhere, purposefully built not born
-an android, a synthetic humanoid engineered to pass convincingly as a person, its entire body covered in soft lifelike synthetic skin of fine matte silicone, uniform and poreless with an unnervingly flawless finish, the same near-perfect surface across the face, neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, virtually no visible seams and only the faintest joint lines, a serene lifelike face with a subtle soft sheen that reads almost human until examined closely, no organic flesh or living tissue anywhere, a fabricated being built not born
-an android, a synthetic humanoid that makes no attempt to hide its construction, its entire body covered in a firm semi-gloss synthetic skin, uniform and poreless, divided by visible seam lines and panel joints running across the face, neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, clean segmented sections meeting at crisp seams with articulated joints between them, a fabricated face with a smooth semi-gloss synthetic surface, evidently a manufactured machine at a glance yet still skinned rather than plated, no organic flesh or living tissue anywhere, purposefully built not born
+a life-like android, smooth and flawless sleek synthetic being with plastic polymer skin traced by fine and delicate seam lines etched into the surface, thin geometric panel-lines following the shoulders, collarbone, upper arms, legs, hips, torso and joints along the contours of the body and face
 
 # -- Gynoid
-a gynoid, a fully synthetic android whose entire body is hard synthetic plating instead of skin, a sculpted faceplate of glossy pearl-white paneling with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face with a matte synthetic sheen, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by fine panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic skin anywhere on the body, precisely inorganic and unmistakably machine
-a gynoid, a fully synthetic android whose entire body is hard synthetic plating instead of skin, a sculpted faceplate of matte obsidian-black paneling with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face with a deep non-reflective matte finish, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by fine panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic skin anywhere on the body, precisely inorganic and unmistakably machine
-a gynoid, a fully synthetic android whose entire body is hard synthetic plating instead of skin, a sculpted faceplate of polished mirror-chrome paneling with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face with a bright mirror-like reflective chrome finish that catches and warps the surrounding light, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by fine panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic skin anywhere on the body, precisely inorganic and unmistakably machine
+a gynoid, a fully synthetic android whose entire body is hard plating rather than flesh, a sculpted faceplate with fine seams tracing the jawline, cheekbones and hairline, a mask-like manufactured face, the same continuous plating sheathing the neck, shoulders, chest, torso, abdomen, back, hips, thighs, legs, arms and hands, every surface segmented by explicit panel seams and joint lines with actuators visible beneath, no pores, no flesh and no organic tissue anywhere, precisely inorganic and unmistakably machine
 
 # -- Full-Conversion Cyborg
-full-conversion cyborg, a fully mechanical chassis, a chrome and matte-alloy body, an armored sculpted faceplate, glowing optical sensors, no human skin
+full-conversion cyborg, a fully mechanical chassis, a chrome and matte-alloy body, an armored sculpted faceplate, glowing optical sensors
 
 # -- Hologram
-hologram, a fully digital being, a translucent glowing body, transparent limbs and features, scanline shimmer, no physical skin
+a hologram, a full-body figure made of glowing translucent light rather than solid flesh, a semi-transparent glass-like body that light shines through, luminous and glowing from within, contours and edges traced in bright radiant light, a faint scanline shimmer across the luminous surface, softly emissive and casting a glow on its surroundings
+a hologram, a full-body wireframe figure made of glowing lines of light rather than solid flesh, a see-through volumetric projection defined by luminous contour lines and a fine glowing grid, glowing from within, a faint scanline shimmer across the form, softly emissive and casting a glow
 
 # -- Drone-Synth
-drone-synth, a fully robotic being, angular armored plating, a featureless sensor visor, exposed cabling, no human features
+drone-synth, a fully robotic being, angular armored plating, a featureless sensor visor, exposed cabling

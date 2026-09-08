@@ -1,0 +1,356 @@
+GROUP: human
+MEMBERS: Human, Elf, High Elf, Wood Elf, Half-Elf, Dwarf, Aasimar, Catgirl, Foxgirl, Wolfgirl, Werewolf
+
+Very Fair
+* porcelain skin with cool pink undertones
+* fair porcelain skin with neutral undertones
+* pale ivory skin with warm cream undertones
+* fair rosy skin with a soft pink flush
+
+Light
+* light skin with cool undertones
+* light beige skin with neutral undertones
+* fair freckled skin with warm undertones
+* light peach skin with soft warm undertones
+* light warm skin with golden undertones
+* light olive skin with green-gold undertones
+* warm olive skin with neutral undertones
+
+Medium
+* medium skin with neutral beige undertones
+* medium skin with soft rosy undertones
+* medium warm skin with golden undertones
+* olive-toned medium skin
+
+Tan
+* light golden-tan skin
+* warm tan skin with golden undertones
+* sun-warmed tan skin with bronze undertones
+* warm bronze skin
+* golden-brown skin
+* warm caramel-brown skin
+* rich amber-brown skin
+
+Brown
+* warm brown skin
+* rich chestnut-brown skin
+* deep brown skin with warm undertones
+* cool-toned deep brown skin
+
+Deep
+* deep umber-brown skin
+* rich espresso-brown skin
+* deep ebony skin with warm undertones
+* very deep near-black skin with warm undertones
+* deep blue-black skin with cool undertones
+
+
+==========
+
+GROUP: Dark Elf
+MEMBERS: Dark Elf
+
+Very fair
+* very faint grey skin with cool blue undertones
+* very faint grey skin with subtle lilac undertones
+* very faint purple-grey skin with subtle blue undertones
+* pale ashen-grey skin with a cool cast
+* soft dove-grey skin
+* pale lavender-grey skin
+
+Light
+* light blue skin with cool purple undertones
+* light grey freckled skin with cool blue undertones
+* grey skin with subtle lilac undertones
+* muted slate-grey skin
+* cool steel-grey skin
+* neutral ash-grey skin
+
+Deep
+* blue-grey skin
+* deep grey skin
+* deep dusky purple-grey skin
+* dark plum-grey skin
+* deep ebony skin
+* deep blue-black skin with cool undertones
+* near-black obsidian-grey skin
+* deep obsidian-black skin with a cool sheen
+* black skin with a faint violet sheen
+* black skin with a faint blue sheen
+
+==========
+
+GROUP: Orc
+MEMBERS: Ork, Half-Ork, Troll
+
+Pale
+* pale sage-green skin
+* soft moss-green skin
+* muted celadon-green skin
+* cool stone-grey skin
+* ashen grey skin with a faint green cast
+* muted gunmetal-grey skin
+
+Medium
+* olive-green skin
+* muted jade-green skin
+* grey-green skin
+* muted slate-green skin
+* ashen olive-green skin with a cool cast
+* deep forest-green skin
+
+Deep
+* deep pine-green skin
+* dark moss-green skin
+* deep olive-drab skin
+* dark grey-green skin
+
+==========
+
+GROUP: Tiefling
+MEMBERS: Tiefling, Demon
+NOTE: hue-differentiated, not a single light-to-dark axis; families ordered by rough lightness, lines within each family light-to-dark
+
+Pink
+* soft rose-pink skin
+* vivid magenta-pink skin
+
+Gold
+* metallic golden skin
+* burnished bronze-gold skin
+* warm ember-orange skin
+
+Red
+* vivid scarlet-red skin
+* deep crimson-red skin
+* muted brick-red skin
+* dark maroon-red skin
+
+Purple
+* vivid lilac skin
+* rich amethyst-purple skin
+* deep violet-purple skin
+* dusky plum-purple skin
+
+Blue
+* pale ice-blue skin
+* cool cerulean-blue skin
+* muted slate-blue skin
+* deep sapphire-blue skin
+
+Cool Deep
+* deep indigo skin
+* dark charcoal skin with a faint red cast
+
+==========
+
+GROUP: Dragonborn
+MEMBERS: Dragonborn
+NOTE: scale/hide colour, not skin — the Dragonborn metatype carries the scaled-hide surface; these supply the scale colour. Tiefling palette reworded as scales, plus white/silver/metallic/black. Hue-differentiated, families ordered by rough lightness.
+
+White
+* pearl-white scales
+* bone-white scales
+
+Silver
+* polished silver scales
+* pale steel-grey scales
+
+Pink
+* soft rose-pink scales
+* vivid magenta-pink scales
+
+Gold
+* metallic golden scales
+* burnished gold scales
+
+Bronze
+* warm bronze scales
+* dark burnished-bronze scales
+
+Red
+* vivid scarlet-red scales
+* deep crimson-red scales
+* dark maroon-red scales
+
+Purple
+* rich amethyst-purple scales
+* deep violet-purple scales
+
+Blue
+* cool cerulean-blue scales
+* deep sapphire-blue scales
+
+Cool Deep
+* deep indigo scales
+* dark charcoal scales with a faint red cast
+
+Black
+* glossy obsidian-black scales
+* matte black scales
+
+==========
+
+GROUP: Vampire
+MEMBERS: Vampire, Dhampir
+NOTE: the human depth range recoloured to a vampire pallor with concrete colour words (pale/cool/grey/ashen/muted/dull) so it actually renders; base ethnic depth survives, cooled and drained. Mirrors the human families 1:1, lightest to darkest.
+
+Very Fair
+* cold porcelain skin with a faint blue-grey cast
+* waxen pale ivory skin, cool-toned
+* pale waxen skin with a neutral cool cast
+* pale skin with a faded, greyish-rose flush
+
+Light
+* pale ashen skin with cool grey undertones
+* pale greyish-beige skin
+* pale sallow freckled skin, cool-toned
+* pale greyed-peach skin
+* pale skin with muted greyed-gold undertones
+* pale grey-green olive skin
+* muted ashen-olive skin
+
+Medium
+* cool greyish-beige medium skin
+* pale medium skin with a faded cool-rose cast
+* medium skin with muted greyed-gold undertones
+* dull ashen olive-toned skin
+
+Tan
+* pale greyed golden-tan skin
+* muted ashen tan skin
+* dull greyish bronze-tan skin
+* cool muted bronze skin with a grey cast
+* dull ashen golden-brown skin
+* muted ashen caramel-brown skin
+* dull greyed amber-brown skin
+
+Brown
+* ashen warm-brown skin, cool and muted
+* dull greyed chestnut-brown skin
+* cool ashen deep-brown skin
+* cool grey-toned deep brown skin
+
+Deep
+* ashen umber-brown skin with a cool cast
+* dull greyed espresso-brown skin
+* cool ashen deep skin with a greyish cast
+* very deep near-black skin with a cool ashen-grey sheen
+* deep blue-black skin with a cold grey cast
+
+==========
+
+GROUP: Undead
+MEMBERS: Zombie, Full Zombie
+NOTE: decay overrides normal tone
+
+Fresh Decay
+* ashen grey-mottled skin
+* sickly grey-green skin with faint mottling
+
+Advanced Decay
+* mottled green-grey rotting skin with dark patches
+
+Desiccated
+* dried leathery grey-brown skin over bone
+
+==========
+
+GROUP: Furred
+MEMBERS: Full Nekomimi, Full Kitsune, Full Werewolf
+NOTE: coat/fur colour, not skin; hue-differentiated, families ordered light-to-dark
+
+Light
+* cream-white fur
+* pale silver fur
+
+Warm Red
+* warm ginger-orange fur
+* russet-red fur with white markings
+
+Brown
+* soft grey fur
+* pie-bald brown and white fur
+* warm tawny-brown fur
+
+Dark
+* charcoal-grey fur
+* sleek black fur
+
+
+==========
+
+GROUP: Android
+MEMBERS: Android, Gynoid
+NOTE: the Android metatype now reads as smooth plastic-polymer skin (Edgerunners look), so the coloration anchors to "synthetic skin" — the finish word (matte/satin/glossy/brushed/polished) sells the artificial surface, "synthetic skin" ties the colour to the body. (Gynoid still reads as hard plating; the metallic tones below suit it best.)
+
+Human-Like
+* matte porcelain-white synthetic skin
+* satin fair-ivory synthetic skin
+* matte light-beige synthetic skin
+* satin warm-beige synthetic skin
+* matte golden-tan synthetic skin
+* satin bronze synthetic skin
+* matte warm-brown synthetic skin
+* matte deep-brown synthetic skin
+* matte near-black synthetic skin with warm undertones
+
+Neutral Synthetic
+* matte white synthetic skin
+* glossy pearl-white synthetic skin
+* matte light-grey synthetic skin
+* brushed silver synthetic skin
+* polished mirror-chrome synthetic skin
+* matte gunmetal-grey synthetic skin
+* matte charcoal synthetic skin
+* glossy black synthetic skin
+* matte black synthetic skin
+* matte obsidian-black synthetic skin
+
+Colored Matte
+* matte crimson-red synthetic skin
+* matte cobalt-blue synthetic skin
+* matte teal synthetic skin
+* matte olive-drab synthetic skin
+* matte emerald-green synthetic skin
+* matte violet synthetic skin
+* matte amber-gold synthetic skin
+* matte magenta synthetic skin
+
+==========
+
+GROUP: Cyborg
+MEMBERS: Full-Conversion Cyborg
+NOTE: only remaining organic skin here — metal/chrome comes from the Cybernetics Color axis (cyber_color); do not add metal tones
+
+Remaining organic skin
+* patches of pale human skin between plating
+* strips of tan human skin around the frame
+* remnants of deep brown skin at the jaw and neck
+
+==========
+
+GROUP: Hologram
+MEMBERS: Hologram
+NOTE: not skin — the glow COLOUR only. The Hologram metatype now carries the translucent-light body / scanlines / emissive form; these supply the luminescence hue. Hue-differentiated, not a light-to-dark axis.
+
+Cool
+* glowing with cyan luminescence
+* glowing with electric-blue luminescence
+* glowing with teal-green luminescence
+* glowing with violet luminescence
+
+Warm
+* glowing with amber luminescence
+* glowing with orange luminescence
+* glowing with magenta luminescence
+
+==========
+
+GROUP: Drone-Synth
+MEMBERS: Drone-Synth
+NOTE: no organic skin — bare chassis/plating; could defer finish to cyber_color
+
+Chassis
+* matte industrial-grey chassis plating
+* utilitarian gunmetal casing

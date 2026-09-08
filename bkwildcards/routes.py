@@ -9,6 +9,7 @@ node still behaves correctly, because theme gating is enforced in Python.
 from . import library
 from . import nodes
 from . import sliders
+from . import skintones
 
 try:
     from server import PromptServer
@@ -31,6 +32,13 @@ def _payload():
         # Experimental Slider Build Control: per-value phrase tables for the
         # live on-node readouts (cosmetic; see sliders.ui_tables).
         "slider_ui": sliders.ui_tables(),
+        # Metatype-driven skin tone: lets the frontend limit the Skin Tone
+        # dropdown to the selected metatype's families (see skintones.frontend_map).
+        "skin_tones": dict(
+            skintones.frontend_map(),
+            input=skintones.INPUT,
+            metatype_key=nodes._METATYPE_KEY,
+        ),
         "categories": [
             {
                 "key": c["key"],

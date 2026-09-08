@@ -1,6 +1,7 @@
 # ============================================================
 # SHOTS - CAMERA ANGLE (global). Section-select: off / random / pick one.
 # One angle per single-entry section for direct selection.
+# 2026-09-07: removed pov, close-up (a framing term), and aerial view (dup of bird's eye).
 # ============================================================
 
 #from above
@@ -45,15 +46,6 @@ worm's eye view
 #dutch angle
 dutch angle
 
-#aerial view
-aerial view
-
-#close-up
-close-up
-
-#pov
-pov
-
 #fisheye lens
 fisheye lens
 
@@ -62,4 +54,3 @@ foreshortening
 
 #establishing shot
 establishing shot
-

@@ -5,6 +5,7 @@ import re
 
 from . import library
 from . import sliders
+from . import skintones
 
 # Scanned once at import. INPUT_TYPES is called on every /object_info request,
 # so the walk is cached here. Adding a wildcard file needs a ComfyUI restart or
@@ -62,14 +63,25 @@ GENDER_FLUID = "Fluid"               # no gender gate — both genders' categori
 
 # The subject word each gender injects into the prompt so the render is actually
 # directed toward a gender. Emitted at order 5, ahead of everything else.
-_GENDER_TEXT = {"Female": "an adult woman", "Male": "an adult man"}
-_GENDER_FLUID_TEXT = "an adult androgynous person"
+_GENDER_TEXT = {"Female": "a feminine adult", "Male": "a masculine adult"}
+_GENDER_FLUID_TEXT = "an androgynous adult"
 _GENDER_ORDER = 5
 
 # The Art Style category leads both the node (second, under the Theme header)
 # and the prompt output. Its key is fixed by pack+id (common + art_style); its
 # low `order` in _pack.json puts its text first, ahead of the gender word.
 ART_STYLE_KEY = "common_art_style"
+
+# Metatype-driven skin tone: the active metatype section chooses the skin-group
+# the coloration is rolled from (see skintones). Map each metatype line back to
+# its section once at import so a drawn/rolled metatype resolves to its group.
+_METATYPE_CAT = next((c for c in _CATEGORIES if c["id"] == "metatype"), None)
+_METATYPE_KEY = _METATYPE_CAT["key"] if _METATYPE_CAT else "common_metatype"
+_METATYPE_LINE_SECTION = {}
+if _METATYPE_CAT:
+    for _sec, _rows in library.read_sections(_METATYPE_CAT["path"]):
+        for _ln in _rows:
+            _METATYPE_LINE_SECTION.setdefault(_ln, _sec)
 
 
 def _in_scope(cat, active_pack, active_gender):
@@ -283,6 +295,34 @@ def _apply_body_sliders(raw, seed, gender, choices):
     return raw
 
 
+def _apply_skin_tone(raw, seed, choices, force_random=False):
+    """raw is a list of (order, label, text, key). Append a coloration pick
+    rolled from the ACTIVE metatype's skin group (skintones). The metatype line
+    already emitted is mapped back to its section to pick the group.
+    force_random (Mayhem) ignores the widget and always rolls; otherwise the
+    skin_tone widget drives it (off/random/family). Fails soft: no bank -> no-op.
+    """
+    if skintones.GROUPS is None:
+        return raw
+    choice = skintones.TONE_RANDOM if force_random else choices.get(skintones.INPUT)
+    if not choice or choice == skintones.TONE_OFF:
+        return raw
+    mt_index = next((i for i, (_o, _l, _t, k) in enumerate(raw) if k == _METATYPE_KEY), None)
+    pick = raw[mt_index][2] if mt_index is not None else None
+    section = _METATYPE_LINE_SECTION.get(pick) if pick else None
+    tone = skintones.roll(seed, section, choice)
+    if tone:
+        entry = (skintones.ORDER, skintones.PROMPT_LABEL, tone, skintones.KEY)
+        # Insert right after the metatype line (they tie at order 20, and eyes is
+        # 20 too), so the stable sort emits metatype -> coloration -> eyes. No
+        # metatype selected -> append (nothing to anchor to).
+        if mt_index is not None:
+            raw.insert(mt_index + 1, entry)
+        else:
+            raw.append(entry)
+    return raw
+
+
 # --- Mayhem mode -----------------------------------------------------------
 # One-click, no-input, seeded, cross-theme composition. Maps each category id
 # to the "slot" it competes in; mayhem picks at most one category per slot from
@@ -323,11 +363,17 @@ def _mayhem_compose(seed, choices=None):
     choices = choices or {}
     rng = random.Random(int(seed))
     gender = rng.choice([None] + list(_GENDERS))
+    # A user-SELECTED specific metatype is honoured (kept), like Art Style, so its
+    # skin stays within that metatype's group; — off — / — random — let mayhem roll it.
+    mt_choice = choices.get(_METATYPE_KEY)
+    honour_metatype = mt_choice not in (None, library.SECTION_OFF, library.SECTION_ANY)
     slots = {}
     for cat in _CATEGORIES:
         if cat["gender"] and cat["gender"] != gender:
             continue
         slot = _MAYHEM_SLOT.get(cat["id"])
+        if slot == "metatype" and honour_metatype:
+            continue  # honoured below, not randomised
         if slot:
             slots.setdefault(slot, []).append(cat)
     raw = []  # (order, label, text, key)
@@ -343,6 +389,16 @@ def _mayhem_compose(seed, choices=None):
     gtext = _GENDER_TEXT.get(gender)
     if gtext:
         raw.append((_GENDER_ORDER, "gender", gtext, None))
+    # Honoured metatype: drawn on its own rng stream (like Art Style) so it does
+    # not disturb the other mayhem rolls; the skin injection below then keeps the
+    # coloration inside this metatype's group.
+    if honour_metatype and _METATYPE_CAT:
+        mt_rng = random.Random(int(seed) + library.stable_offset(_METATYPE_CAT["key"]))
+        mt_pick = library.draw(_METATYPE_CAT, mt_choice, mt_rng)
+        if mt_pick:
+            raw.append((_METATYPE_CAT["order"],
+                        _METATYPE_CAT.get("prompt_label") or _METATYPE_CAT["label"],
+                        mt_pick, _METATYPE_CAT["key"]))
     for slot, cats in slots.items():
         if slot not in _MAYHEM_CORE and rng.random() >= _MAYHEM_EXTRA_PROB:
             continue
@@ -352,6 +408,7 @@ def _mayhem_compose(seed, choices=None):
             continue
         raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                     rng.choice(pool), cat["key"]))
+    raw = _apply_skin_tone(raw, seed, choices, force_random=True)
     return _mayhem_slider_lane(seed, gender, raw)
 
 
@@ -441,6 +498,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
             raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                         pick, cat["key"]))
     raw = _apply_body_sliders(raw, seed, gender, choices)
+    raw = _apply_skin_tone(raw, seed, choices)
     return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
 
 
@@ -516,10 +574,10 @@ class BKWildcardSelector:
                 [GENDER_OFF, GENDER_RANDOM] + _GENDERS + [GENDER_FLUID],
                 {
                     "default": _GENDERS[0],
-                    "tooltip": "The subject's gender, injected into the prompt (an adult woman / an adult man). "
+                    "tooltip": "The subject's gender, injected into the prompt (a feminine adult / a masculine adult). "
                     "— off —: no gender word and no gendered categories. — random —: roll a gender "
                     "per seed. Fluid: both genders' physical options available and mixable "
-                    "(an adult androgynous subject).",
+                    "(an androgynous adult subject).",
                 },
             )
 
@@ -584,6 +642,23 @@ class BKWildcardSelector:
                     },
                 )
 
+        def emit_skin_tone():
+            # Metatype-driven coloration axis (experimental, 0.9.16). Renders in
+            # Physical - Body, under the sliders. off / random / family; the roll
+            # is kept coherent with the active Metatype's skin group in Python.
+            opts = skintones.family_options()
+            required[skintones.INPUT] = (
+                opts,
+                {
+                    "default": opts[0],
+                    "tooltip": "Experimental. Coloration rolled from a palette that fits the "
+                    "current Metatype (human tones for people, reds/violets for tieflings, "
+                    "matte/chrome for androids, fur for beast-forms, …). — off —: none. "
+                    "— random —: roll within the metatype's group. A family name: roll within "
+                    "it. Set Metatype for a fitting roll; with none it defaults to human tones.",
+                },
+            )
+
         # Physical - Body order (owner, 2026-09-01): the Body Sliders selector,
         # then the Build preset dropdowns directly under it, then the five
         # sliders. The selector goes out just before the first Physical - Body
@@ -597,9 +672,11 @@ class BKWildcardSelector:
             emit(cat)
             if cat is body_last:
                 emit_body_axes()
+                emit_skin_tone()
         if not body_cats:  # no Build categories found: still expose the lane
             emit_body_mode()
             emit_body_axes()
+            emit_skin_tone()
 
         # --- run controls, below the selectors ---
         required["separator"] = (

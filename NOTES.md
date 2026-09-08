@@ -1,6 +1,7 @@
-## v0.9.15
-
-- Removed the **BKWILDCARDS Info** diagnostic node. BKWILDCARDS is now a single node (the Selector). Any old workflow that referenced the Info node will show it as missing and can be deleted.
-- Renamed the **Bradhamel Style** art style to **Painterly Photorealism**. If a saved workflow had "Bradhamel Style" selected, re-pick it from the Art Style dropdown.
-- **Art Style** options are now listed alphabetically.
-- Documentation refreshed for accuracy.
+- IMPORTANT: this version adds a new Skin Tone control, which shifts the node's inputs. Delete and re-add the BKWILDCARDS Selector node once after updating; older saved workflows will need the node re-added.
+- New Skin Tone control (Physical - Body, under the body sliders). It rolls a coloration that fits the chosen Metatype: human skin tones for people, reds/violets for tieflings, colored scales for dragonborn, matte/chrome synthetic skin for androids, fur for full beast-forms, a drained pallor for vampires, a glow color for holograms. The dropdown only offers the palette that fits the selected metatype, and Mayhem keeps the coloration coherent with a chosen metatype.
+- Metatypes reworked so they render more faithfully. Dragonborn restored with its own scaled coloration. Android rebuilt to a life-like synthetic look (smooth plastic-polymer skin with fine etched seam lines) instead of a bulky robot. Hologram rebuilt as a glowing translucent light-being. Vampire coloration now spans every skin depth, each drained to a pallor, rather than only pale tones.
+- Ancestry simplified to facial structure only (regional features, eyes, cheekbones, nose, lips). Hair and skin tone were removed from ancestry so they no longer fight the Hair controls or the new Skin Tone control; the demonym still carries default coloring on its own.
+- Gender wording changed to "a feminine adult" / "a masculine adult" / "an androgynous adult" so non-human metatypes (colored skin, fur, scales) render more reliably.
+- Shot Angle and Shot Framing de-duplicated; POV removed from Shot Angle.
+- Minor art-direction tweak to the BKSTYLE art style.

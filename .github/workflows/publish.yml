@@ -9,6 +9,8 @@
 # encrypted REGISTRY_ACCESS_TOKEN secret — passed via env, never printed, masked
 # in logs. Keep NOTES.md at the repo root holding the CURRENT version's notes
 # (replaced each release; it becomes that version's changelog).
+# PLAIN TEXT ONLY in NOTES.md — the Comfy Registry does NOT render markdown in the
+# Updates/version notes, so no #, *, **, _, etc. (they show as literal characters).
 
 name: Publish to Comfy Registry
 
