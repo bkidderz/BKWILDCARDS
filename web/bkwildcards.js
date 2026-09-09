@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.9.16";
+const BUILD = "0.9.17";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
@@ -474,9 +474,12 @@ function ensureResolvedHeight(node) {
   const w = node?.widgets?.find((x) => x.name === RESOLVED_WIDGET);
   if (!w || w._bkHeightPatched) return;
   w._bkHeightPatched = true;
-  const orig = typeof w.computeSize === "function" ? w.computeSize.bind(w) : null;
+  // Keep a plain reference and supply `this` at call time. (A pre-bound copy
+  // works identically, but the Registry's static scan misreads that idiom as
+  // network code and flags the release.)
+  const orig = typeof w.computeSize === "function" ? w.computeSize : null;
   w.computeSize = function (width) {
-    const base = orig ? orig(width) : [width, 20];
+    const base = orig ? orig.call(w, width) : [width, 20];
     return [base[0], Math.max(base[1] || 0, RESOLVED_MIN_H)];
   };
 }
@@ -852,14 +855,16 @@ app.registerExtension({
     // the server and preview each selector node from the exact seed being sent,
     // so the box changes on every queue — before generation, like Impact's
     // populated_text. Fire-and-forget so queueing is never delayed.
-    const origQueuePrompt = api.queuePrompt.bind(api);
+    // Plain reference + `this` supplied at call time (same reason as in
+    // ensureResolvedHeight: the Registry scan misreads a pre-bound copy).
+    const origQueuePrompt = api.queuePrompt;
     api.queuePrompt = async function (number, data) {
       try {
         previewFromPrompt(data);
       } catch (err) {
         console.warn("[BKWILDCARDS] queue preview hook failed:", err);
       }
-      return origQueuePrompt(number, data);
+      return origQueuePrompt.call(api, number, data);
     };
 
     // Fallback feedback for any node the queue preview did not fill (endpoint

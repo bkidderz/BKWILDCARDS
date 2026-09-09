@@ -37,9 +37,9 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.16`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.17`), so you can confirm the update took.
 
-**Updating to 0.9.16: delete the BKWILDCARDS Selector node and add it again once.** This version adds a Skin Tone control in the middle of the node, which shifts the saved widget positions below it, so a node carried over from an older workflow can show wrong values until it's re-added. (The same is true when updating from a pre–Body Sliders version.) One-time step; your other nodes and wiring are unaffected.
+**Updating to 0.9.16 or later from an older version: delete the BKWILDCARDS Selector node and add it again once.** Version 0.9.16 added a Skin Tone control in the middle of the node, which shifts the saved widget positions below it, so a node carried over from an older workflow can show wrong values until it's re-added. (The same is true when updating from a pre–Body Sliders version.) One-time step; your other nodes and wiring are unaffected.
 
 ### Manual install (git)
 
