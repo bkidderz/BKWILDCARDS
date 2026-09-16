@@ -1,5 +1,6 @@
 """BKWILDCARDS node definitions."""
 
+import json
 import random
 import re
 
@@ -99,16 +100,39 @@ def _in_scope(cat, active_pack, active_gender):
     return True
 
 
-def _format_picks(picks, separator, labeled):
-    """Join (order, label, text) picks — plain, or as merged 'label: ...' lines.
+# label_output modes (the Settings dropdown). Legacy saved workflows stored this
+# as a BOOLEAN; _label_mode() coerces True -> labeled, False -> comma-separated,
+# so an old workflow still resolves the same way it always did.
+LABEL_PLAIN = "comma-separated"      # the old "plain": comma-joined text only
+LABEL_LABELED = "labeled"            # "build: ..., hair: ..." lines (default)
+LABEL_JSON = "JSON"                  # the labeled picks as a JSON object
+_LABEL_MODES = (LABEL_PLAIN, LABEL_LABELED, LABEL_JSON)
+
+
+def _label_mode(value):
+    """Normalise the label_output widget value (or a legacy boolean) to a mode."""
+    if value is True:
+        return LABEL_LABELED
+    if value is False:
+        return LABEL_PLAIN
+    if isinstance(value, str) and value in _LABEL_MODES:
+        return value
+    return LABEL_LABELED
+
+
+def _format_picks(picks, separator, mode):
+    """Join (order, label, text) picks by output mode.
 
     Stable sort by `order` matches the pre-existing behaviour (`_CATEGORIES` is
     already ordered by (order, pack, id), so equal-order picks keep their place).
-    labeled=True merges adjacent same-label picks (the three hair categories ->
-    one 'hair:' line).
+    - LABEL_PLAIN: comma-joined text only (uses the separator widget).
+    - LABEL_LABELED: 'label: ...' lines; adjacent same-label picks merge (the
+      three hair categories -> one 'hair:' line).
+    - LABEL_JSON: the SAME labeled picks as a JSON object {label: text}; same
+      off-omission, same-label picks merged into one key.
     """
     picks = sorted(picks, key=lambda p: p[0])
-    if not labeled:
+    if mode == LABEL_PLAIN:
         return separator.join(text for _, _, text in picks)
     groups = []
     for _, label, text in picks:
@@ -116,6 +140,12 @@ def _format_picks(picks, separator, labeled):
             groups[-1][1].append(text)
         else:
             groups.append((label, [text]))
+    if mode == LABEL_JSON:
+        obj = {}
+        for label, texts in groups:
+            val = ", ".join(texts)
+            obj[label] = (obj[label] + ", " + val) if label in obj else val
+        return json.dumps(obj, indent=2, ensure_ascii=False)
     return ",\n".join(
         "{}: {}".format(label, ", ".join(texts)) for label, texts in groups
     )
@@ -447,9 +477,9 @@ def _mayhem_slider_lane(seed, gender, raw):
                  "register": register, "section": section}
 
 
-def _resolve_mayhem(seed, separator, labeled, choices=None):
+def _resolve_mayhem(seed, separator, mode, choices=None):
     raw, _state = _mayhem_compose(seed, choices)
-    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
+    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, mode)
 
 
 def mayhem_slider_state(seed, choices=None):
@@ -459,7 +489,7 @@ def mayhem_slider_state(seed, choices=None):
 
 
 def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
-                   labeled=False, mayhem=False):
+                   label_mode=LABEL_LABELED, mayhem=False):
     """Draw one line from each in-scope, enabled category and join them.
 
     The single source of truth for the emitted prompt. Both build() (during
@@ -469,12 +499,14 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
     because per-category seeding is deterministic across processes
     (library.stable_offset uses zlib.crc32, never the salted built-in hash()).
 
-    labeled=True tags each selection with what it is ("build: ...", "hair: ...").
-    mayhem=True ignores the inputs entirely and returns a seeded cross-theme
-    random composition (see _resolve_mayhem) — still a pure function of `seed`.
+    label_mode selects the format: LABEL_LABELED tags each selection
+    ("build: ...", "hair: ..."), LABEL_JSON emits the same picks as a JSON
+    object, LABEL_PLAIN is the comma-joined string. mayhem=True ignores the
+    inputs entirely and returns a seeded cross-theme random composition (see
+    _resolve_mayhem) — still a pure function of `seed`.
     """
     if mayhem:
-        return _resolve_mayhem(seed, separator, labeled, choices)
+        return _resolve_mayhem(seed, separator, label_mode, choices)
     choices = choices or {}
     # Random gender -> roll a concrete gender per seed (own rng stream, so the
     # per-category draws are unchanged). Fluid falls through to _in_scope, which
@@ -499,7 +531,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
                         pick, cat["key"]))
     raw = _apply_body_sliders(raw, seed, gender, choices)
     raw = _apply_skin_tone(raw, seed, choices)
-    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, labeled)
+    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, label_mode)
 
 
 class BKWildcardSelector:
@@ -698,13 +730,13 @@ class BKWildcardSelector:
             },
         )
         required["label_output"] = (
-            "BOOLEAN",
+            [LABEL_PLAIN, LABEL_LABELED, LABEL_JSON],
             {
-                "default": True,
-                "label_on": "labeled",
-                "label_off": "plain",
-                "tooltip": "Labeled: tag each selection (build:, hair:, scene/background:, …) "
-                "so the renderer reads structured attributes. Plain: one comma-joined string.",
+                "default": LABEL_LABELED,
+                "tooltip": "How the prompt is formatted. comma-separated: one comma-joined "
+                "string. labeled: tag each active selection (build:, hair:, …) so the "
+                "renderer reads structured attributes. JSON: the same labeled selections "
+                "as a JSON object. All three omit categories set to off.",
             },
         )
         required["mayhem"] = (
@@ -758,7 +790,7 @@ class BKWildcardSelector:
         resolved="",
         gender=None,
         theme=None,
-        label_output=True,
+        label_output=LABEL_LABELED,
         mayhem=False,
         extra_pnginfo=None,
         unique_id=None,
@@ -766,7 +798,7 @@ class BKWildcardSelector:
     ):
         prompt_text = resolve_prompt(
             seed, separator, gender, theme, choices,
-            labeled=bool(label_output), mayhem=bool(mayhem),
+            label_mode=_label_mode(label_output), mayhem=bool(mayhem),
         )
         # The slider lane's effective values (rolled under — random —) ride
         # along in `properties` so the saved workflow and the PNG carry them.

@@ -90,7 +90,7 @@ if PromptServer is not None and web is not None:
                 data.get("gender"),
                 data.get("theme"),
                 choices,
-                labeled=bool(choices.get("label_output", True)),
+                label_mode=nodes._label_mode(choices.get("label_output")),
                 mayhem=bool(choices.get("mayhem", False)),
             )
         except Exception as exc:

@@ -1,2 +1,4 @@
-- Internal: two method-binding calls in the frontend script were rewritten so the Comfy Registry's automated scan no longer misreads them as network code. No behaviour change.
-- No node re-add is needed for this version. If you are updating from a version before 0.9.16, the one-time re-add described for 0.9.16 still applies.
+- New output format: the Settings "label_output" control is now a three-way selector. "labeled" (the default) tags each selection as before; "comma-separated" is the old plain single-string output; "JSON" emits the same labeled selections as a JSON object, with the node's labels as keys.
+- The label_output control changed from a checkbox to a dropdown. On a workflow saved before this version, that one control resets to "labeled" on first load; set it to your preferred format once. No node re-add is needed.
+- Content: the Gladas Style art style prompt was shortened and refocused (anime-styled face over an otherwise photoreal image). The dropdown option name is unchanged, so existing workflows keep working.
+- If you are updating from a version before 0.9.16, the one-time node re-add described for 0.9.16 still applies.
