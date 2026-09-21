@@ -14,6 +14,9 @@ A varied polychromatic palette digital rendering with distinct and contrasting c
 # GLADAS STYLE
 Render the face in a different style from the rest of the image. Only the face is anime style. The rest of the image including the hair, skin, clothing and background are rendered in RAW photo quality realism. Use soft dimensional shading and smooth color gradients on the face.
 
+# MANGA
+A clean modern full color manga illustration with a polished cover-art look, confident brush-pen linework with tapering thick-to-thin weight variation and heavy contour blacks, large expressive manga eyes with a bold upper lash line, hatched irises and catchlights left as bare white paper, a simplified nose and small delicate mouth, softly stylized proportions, no color of any kind, form and shadow built from 60-line halftone screentone, parallel hatching and crosshatching with sharp tonal steps rather than smooth gradients, solid black beta fills massing the hair with sharp white highlight bands left unlinked, gradient tone for ambient shade and scraped tone for soft light, clean white skin with minimal texture and only light tone at the jaw and collar, crisp printed ink on off-white paper, a single unbordered figure illustration.
+
 # PAINTERLY
 A dreamy anime style clean line and ink wash illustration. Serene magical atmosphere, crisp details, lush details and accurate textures, cinematic wide shot, painterly texture, gentle mood, award winning masterpiece, delicate ink drawing aesthetic. 
 

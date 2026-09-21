@@ -184,7 +184,7 @@ def _load_pack(pack_dir, pack_name):
     for entry in manifest.get("entries", []) or []:
         fname = entry.get("file")
         if fname:
-            declared[fname] = entry
+            declared.setdefault(fname, []).append(entry)
 
     categories = []
     for fname in sorted(os.listdir(pack_dir)):
@@ -194,38 +194,46 @@ def _load_pack(pack_dir, pack_name):
         if not os.path.isfile(path):
             continue
 
-        entry = declared.get(fname, {})
+        # One category per declared manifest entry for this file — normally one.
+        # Declaring the same file twice makes two independent dropdowns over a
+        # single content file (e.g. two Art Style pickers over one artstyles.txt,
+        # 0.9.19), so edits to the list apply to both with no duplicated file.
+        # Each must carry its own id (the key is {pack}_{id}). An undeclared file
+        # still yields exactly one default category, as before.
+        entries_for_file = declared.get(fname) or [{}]
         stem = os.path.splitext(fname)[0]
-        cid = entry.get("id") or re.sub(r"[^a-z0-9]+", "_", stem.lower()).strip("_")
+        lines_count = len(read_lines(path))
+        for entry in entries_for_file:
+            cid = entry.get("id") or re.sub(r"[^a-z0-9]+", "_", stem.lower()).strip("_")
 
-        select = entry.get("select", SELECT_TOGGLE)
-        section_names = []
-        if select == SELECT_SECTION:
-            section_names = [name for name, rows in read_sections(path) if name and rows]
-            if not section_names:
-                # Declared section-select but the file has no usable headers.
-                select = SELECT_TOGGLE
+            select = entry.get("select", SELECT_TOGGLE)
+            section_names = []
+            if select == SELECT_SECTION:
+                section_names = [name for name, rows in read_sections(path) if name and rows]
+                if not section_names:
+                    # Declared section-select but the file has no usable headers.
+                    select = SELECT_TOGGLE
 
-        categories.append(
-            {
-                "key": "{}_{}".format(pack_name, cid),
-                "pack": pack_name,
-                "pack_label": pack["label"],
-                "is_global": pack["is_global"],
-                "gender": pack["gender"],
-                "id": cid,
-                "group": entry.get("group"),
-                "prompt_label": entry.get("prompt_label"),
-                "label": entry.get("label") or _prettify(stem),
-                "path": path,
-                "order": entry.get("order", DEFAULT_ORDER),
-                "display": entry.get("display", entry.get("order", DEFAULT_ORDER)),
-                "default": bool(entry.get("default", False)),
-                "select": select,
-                "sections": section_names,
-                "count": len(read_lines(path)),
-            }
-        )
+            categories.append(
+                {
+                    "key": "{}_{}".format(pack_name, cid),
+                    "pack": pack_name,
+                    "pack_label": pack["label"],
+                    "is_global": pack["is_global"],
+                    "gender": pack["gender"],
+                    "id": cid,
+                    "group": entry.get("group"),
+                    "prompt_label": entry.get("prompt_label"),
+                    "label": entry.get("label") or _prettify(stem),
+                    "path": path,
+                    "order": entry.get("order", DEFAULT_ORDER),
+                    "display": entry.get("display", entry.get("order", DEFAULT_ORDER)),
+                    "default": bool(entry.get("default", False)),
+                    "select": select,
+                    "sections": section_names,
+                    "count": lines_count,
+                }
+            )
     return pack, categories
 
 

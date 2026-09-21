@@ -37,6 +37,17 @@
       "prompt_label": "art style"
     },
     {
+      "file": "artstyles.txt",
+      "id": "art_style_2",
+      "label": "Art Style 2",
+      "order": 2,
+      "display": 2,
+      "select": "section",
+      "default": false,
+      "group": "Theme",
+      "prompt_label": "art style 2"
+    },
+    {
       "file": "cybernetics.txt",
       "id": "cybernetics",
       "label": "Cybernetics",

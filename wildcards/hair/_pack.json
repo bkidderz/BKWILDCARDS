@@ -4,6 +4,16 @@
   "global": true,
   "entries": [
     {
+      "file": "bald.txt",
+      "id": "bald",
+      "label": "Bald",
+      "order": 27,
+      "display": 29,
+      "default": false,
+      "group": "Hair",
+      "prompt_label": "hair"
+    },
+    {
       "file": "type.txt",
       "id": "type",
       "label": "Hair Type",

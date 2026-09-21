@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **5,244 hand-written entries** across **54 categories** and **8 themes** — plus a **192-tone, metatype-driven coloration bank** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, skin tone, camera framing and more, all written for natural-language prompting.
+Ships with **5,268 hand-written entries** across **56 categories** and **8 themes** — plus a **192-tone, metatype-driven coloration bank** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, skin tone, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -37,9 +37,9 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.18`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.19`), so you can confirm the update took.
 
-**Updating to 0.9.16 or later from an older version: delete the BKWILDCARDS Selector node and add it again once.** Version 0.9.16 added a Skin Tone control in the middle of the node, which shifts the saved widget positions below it, so a node carried over from an older workflow can show wrong values until it's re-added. (The same is true when updating from a pre–Body Sliders version.) One-time step; your other nodes and wiring are unaffected.
+**Updating from an earlier version can require deleting the BKWILDCARDS Selector node and adding it again once.** Some versions add a control in the middle of the node — a Skin Tone control in 0.9.16, and a Bald toggle plus a second Art Style in 0.9.19 — which shifts the saved widget positions below it, so a node carried over from an older workflow can show wrong values until it's re-added. One-time step; your other nodes and wiring are unaffected.
 
 ### Manual install (git)
 
@@ -106,12 +106,12 @@ Widgets are grouped into labelled sections. **Click any section header to collap
 
 | Section | Contains |
 |---|---|
-| **Theme** | Theme selector, **Art Style** (leads the prompt) |
+| **Theme** | Theme selector, **Art Style** + **Art Style 2** (lead the prompt) |
 | **Identity** | Gender, Ancestry, Metatype / Species |
 | **Physical - Body** | **Body Sliders** mode (off / random / on / preset), the Build presets (shown in preset mode), the five body sliders — Mass, Bust, Waist, Hips, Muscle Tone — and **Skin Tone** (a coloration that fits the selected Metatype) |
 | **Physical - Head** | Eyes, Face, Nose, Lips (Eyes always available; the rest feminine and/or masculine) |
 | **Cybernetics** | The augment (arm, leg, torso, …) and its finish color |
-| **Hair** | Hair Type, Hair Style, Hair Color |
+| **Hair** | **Bald** toggle, Hair Type, Hair Style, Hair Color |
 | **Wardrobe** | The active theme's tattoos, outfits, weapons / carry (in _ghost.runner, also a full-coverage Compression / Zentai Suits category) |
 | **Scene** | Accent palette, environments, poses (plus spell casting/effects in Whimsical Woods) |
 | **Camera** | Shot angle, shot framing |
@@ -138,10 +138,10 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 
 | Pack | Categories |
 |---|---|
-| **Art Style** | 11 styles — Anime, Anime Photo Realism, BKSTYLE, Gladas Style, Painterly, Painterly Photorealism, Photorealism, Pixel Art 16-Bit, Semi-Realism, Surreal, Western Comics (alphabetical; leads the prompt; sits under Theme) |
+| **Art Style** | 12 styles — Anime, Anime Photo Realism, BKSTYLE, Gladas Style, Manga, Painterly, Painterly Photorealism, Photorealism, Pixel Art 16-Bit, Semi-Realism, Surreal, Western Comics (alphabetical; **a second Art Style dropdown can blend two**; leads the prompt; sits under Theme) |
 | **Common** | Ancestry (44, 16 sections — facial structure only) · Metatype / Species (40, 30 sections) |
 | **Cybernetics** | 17 augments — single/both limbs, jaw, torso, neural jack, + Partial Cyborg presets · 14 finish colors (— off — = chrome) |
-| **Hair** | Hair Color (49) · Hair Type (24, incl. **Bald**) · Hair Style (53) |
+| **Hair** | **Bald** (on/off toggle) · Hair Color (49) · Hair Type (20) · Hair Style (53) |
 | **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |
 | **Shots** | Shot Angle (17) · Shot Framing (33) |
 | **Body Sliders** | Five 0–10 sliders (Mass, Bust, Waist, Hips, Muscle Tone) synthesized into one build phrase in the feminine, masculine or androgynous register, chosen by Gender |

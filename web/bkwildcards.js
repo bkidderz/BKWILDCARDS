@@ -18,7 +18,7 @@
 import { app } from "../../scripts/app.js";
 import { api } from "../../scripts/api.js";
 
-const BUILD = "0.9.18";
+const BUILD = "0.9.19";
 const NODE = "BKWildcardSelector";
 const NODE_TITLE = "BKWILDCARDS Selector";
 const HIDDEN_TYPE = "bkwildcards-hidden";
@@ -77,6 +77,11 @@ const BODY_SLIDER_AXES = ["body_mass", "body_bust", "body_waist", "body_hips", "
 // hidden, not removed, in the other modes). Python still honours them if a
 // saved workflow carries a value.
 const PRESET_WIDGETS = new Set(["female_build", "male_build"]);
+// Bald (0.9.19) is a top-level Hair on/off toggle. When on, the Hair Type,
+// Style and Colour widgets are hidden (Python drops them too — invariant #1).
+// They are hidden, not cleared, so turning Bald off restores the prior picks.
+const BALD_TOGGLE = "hair_bald";
+const HAIR_SUPPRESSED_BY_BALD = new Set(["hair_type", "hair_style", "hair_color"]);
 // Register the readouts use, by Gender value. Random gender: the register comes
 // back with each queue-time preview (node._bkSliderRegister); androgynous
 // until then. Mirrors nodes._SLIDER_REGISTER — cosmetic only.
@@ -518,6 +523,10 @@ function applyTheme(node, layout) {
       }
     }
     const bodySlidersOn = mode !== "off";
+    // Bald toggle (0.9.19): when on, hide the Hair Type/Style/Colour widgets.
+    // Non-destructive — the values are kept and reappear when Bald is turned
+    // off. Python suppresses the same picks regardless (invariant #1).
+    const baldOn = !!node.widgets?.find((w) => w.name === BALD_TOGGLE)?.value;
 
     // Pass 1: category widgets gate on theme+gender; fixed widgets are always in
     // scope. Visible = in scope AND its section isn't collapsed. The output box
@@ -543,6 +552,7 @@ function applyTheme(node, layout) {
         const themeOk = !activePack || cat.is_global || cat.pack === activePack;
         const genderOk = !cat.gender || cat.gender === activeGender || showBoth;
         inScope = themeOk && genderOk;
+        if (baldOn && HAIR_SUPPRESSED_BY_BALD.has(w.name)) inScope = false;
       } else if (BODY_SLIDER_AXES.includes(w.name)) {
         inScope = bodySlidersOn;
         // Greyed, not draggable, when the values are not the user's to set:
@@ -795,7 +805,7 @@ function attach(node, layout) {
   ensureResolvedHeight(node);
 
   // The scope dropdowns and the Body Sliders toggle re-apply hiding when changed.
-  for (const name of ["theme", "gender", BODY_SLIDER_TOGGLE, ...PRESET_WIDGETS]) {
+  for (const name of ["theme", "gender", BODY_SLIDER_TOGGLE, BALD_TOGGLE, ...PRESET_WIDGETS]) {
     const widget = node.widgets?.find((w) => w.name === name);
     if (!widget) continue;
     const original = widget.callback;

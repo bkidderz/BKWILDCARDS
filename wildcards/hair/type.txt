@@ -25,9 +25,3 @@ with springy, tightly coiled afro texture
 with tight zig-zag kinks and a dense, cottony feel
 with fine, delicate coils that shrink close to the scalp
 with coarse, wiry coils packed thick and full
-
-#BALD
-bald, a smooth clean-shaven head
-bald with a closely shaved scalp
-bald, a bare and shiny scalp
-bald, a shaved head with light stubble

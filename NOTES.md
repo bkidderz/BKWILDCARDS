@@ -1,4 +1,5 @@
-- New output format: the Settings "label_output" control is now a three-way selector. "labeled" (the default) tags each selection as before; "comma-separated" is the old plain single-string output; "JSON" emits the same labeled selections as a JSON object, with the node's labels as keys.
-- The label_output control changed from a checkbox to a dropdown. On a workflow saved before this version, that one control resets to "labeled" on first load; set it to your preferred format once. No node re-add is needed.
-- Content: the Gladas Style art style prompt was shortened and refocused (anime-styled face over an otherwise photoreal image). The dropdown option name is unchanged, so existing workflows keep working.
-- If you are updating from a version before 0.9.16, the one-time node re-add described for 0.9.16 still applies.
+- New art style: Manga (a clean black-and-white manga cover-art look).
+- Bald is now its own top-level Hair toggle instead of one of the Hair Type options, so it no longer turns up as often on a random roll. When Bald is on, Hair Type, Style and Color are hidden and left out; when off, they work as before.
+- New second Art Style dropdown (Art Style 2), so two styles can be blended. It defaults to off, and Mayhem honors both selections.
+- Whimsical Woods (fantasy) outfits expanded: new Witch, Dancer and Shaman archetypes, plus additional variants for Artificer, Assassin, Barbarian, Cleric, Fighter and Tavern.
+- This version adds new controls, so update the node once: delete the BKWILDCARDS Selector node and add it again. Your other nodes and wiring are unaffected. If you are updating from a version before 0.9.16, the same one-time re-add applies.

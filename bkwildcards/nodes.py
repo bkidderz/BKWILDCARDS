@@ -72,6 +72,12 @@ _GENDER_ORDER = 5
 # and the prompt output. Its key is fixed by pack+id (common + art_style); its
 # low `order` in _pack.json puts its text first, ahead of the gender word.
 ART_STYLE_KEY = "common_art_style"
+# A second, optional Art Style dropdown over the same list (0.9.19). Aliases the
+# same artstyles.txt (library allows two manifest entries per file). Default off,
+# its own prompt_label ("art style 2") and its own rng stream, so two styles can
+# be blended. _dedupe_second_art_style drops it when it matches the first.
+ART_STYLE_KEY_2 = "common_art_style_2"
+_ART_STYLE_KEYS = (ART_STYLE_KEY, ART_STYLE_KEY_2)
 
 # Metatype-driven skin tone: the active metatype section chooses the skin-group
 # the coloration is rolled from (see skintones). Map each metatype line back to
@@ -151,12 +157,12 @@ def _format_picks(picks, separator, mode):
     )
 
 
-# Bald hair type suppresses hair colour and style (a bald head has neither).
-_HAIR_SUPPRESSED_BY_BALD = {"hair_color", "hair_style"}
-
-
-def _is_bald(text):
-    return bool(text) and text.strip().lower().startswith("bald")
+# The Bald toggle (a top-level Hair on/off, key _BALD_KEY) suppresses the Hair
+# Type, Style and Colour picks — a bald head has none of them. (Before 0.9.19
+# bald was a Hair Type section; it moved to its own toggle so it stops eating
+# ~1/5 of a random Hair Type roll — owner request 2026-09-19.)
+_BALD_KEY = "hair_bald"
+_HAIR_SUPPRESSED_BY_BALD = {"hair_color", "hair_style", "hair_type"}
 
 
 # "hair", "hairs", "haired", "long-haired" — but not "hairless"/"hairline".
@@ -183,16 +189,31 @@ def _scrub_hair(text):
 
 
 def _drop_if_bald(raw):
-    """raw is a list of (order, label, text, key). If the hair_type pick is
-    bald, drop the hair colour/style picks AND scrub hair clauses out of every
-    other pick's text. Returns (order, label, text) triples ready for
-    _format_picks. Applies whether bald was chosen or randomly drawn.
+    """raw is a list of (order, label, text, key). When the Bald toggle is on
+    (a pick with key _BALD_KEY is present), drop the Hair Type/Style/Colour
+    picks AND scrub hair clauses out of every other pick's text, then return
+    (order, label, text) triples ready for _format_picks. Both the normal path
+    and Mayhem call this, so neither can produce a half-bald head or a bald head
+    with a hair colour. The bald pick itself is kept and never scrubbed.
     """
-    bald = any(k == "hair_type" and _is_bald(t) for _, _, t, k in raw)
+    bald = any(k == _BALD_KEY for _, _, _t, k in raw)
     if bald:
-        raw = [(o, l, t if k == "hair_type" else _scrub_hair(t), k)
+        raw = [(o, l, t if k == _BALD_KEY else _scrub_hair(t), k)
                for o, l, t, k in raw if k not in _HAIR_SUPPRESSED_BY_BALD]
     return [(o, l, t) for o, l, t, _k in raw]
+
+
+def _dedupe_second_art_style(raw):
+    """raw is a list of (order, label, text, key). Drop the second Art Style
+    pick when its text is identical to the first, so two — random — rolls that
+    land on the same style don't emit it twice. Keyed list in, keyed list out —
+    runs before _drop_if_bald strips the keys; shared by the normal path and
+    Mayhem."""
+    first = next((t for _, _, t, k in raw if k == ART_STYLE_KEY), None)
+    if first is None:
+        return raw
+    return [(o, l, t, k) for o, l, t, k in raw
+            if not (k == ART_STYLE_KEY_2 and t == first)]
 
 
 # Cybernetics finish colour: the Cybernetics Color pick replaces the "chrome"
@@ -373,6 +394,10 @@ _MAYHEM_SLOT = {
 _MAYHEM_CORE = {"ancestry", "build", "hair_color", "hair_type",
                 "hair_style", "outfit", "environment", "pose"}
 _MAYHEM_EXTRA_PROB = 0.5
+# Bald in Mayhem: an uncommon look. Its own low-probability coin (owner: 5%,
+# 2026-09-19) on a dedicated rng stream, so it never renders half-bald and never
+# disturbs the other rolls. When it lands, _drop_if_bald removes the hair picks.
+_MAYHEM_BALD_PROB = 0.05
 
 
 def _mayhem_compose(seed, choices=None):
@@ -407,9 +432,15 @@ def _mayhem_compose(seed, choices=None):
         if slot:
             slots.setdefault(slot, []).append(cat)
     raw = []  # (order, label, text, key)
-    # Art Style is honoured from the user's selection, not randomised by mayhem.
-    art_cat = next((c for c in _CATEGORIES if c["key"] == ART_STYLE_KEY), None)
-    if art_cat:
+    # Both Art Style dropdowns are honoured from the user's selection, not
+    # randomised by mayhem — each on its own rng stream so the look stays put
+    # while everything else goes wild. Off contributes nothing; a specific style
+    # stays; — random — rolls per seed. _dedupe_second_art_style (in
+    # _resolve_mayhem) drops the second if it lands on the first's style.
+    for akey in _ART_STYLE_KEYS:
+        art_cat = next((c for c in _CATEGORIES if c["key"] == akey), None)
+        if not art_cat:
+            continue
         art_rng = random.Random(int(seed) + library.stable_offset(art_cat["key"]))
         pick = library.draw(art_cat, choices.get(art_cat["key"]), art_rng)
         if pick:
@@ -438,6 +469,19 @@ def _mayhem_compose(seed, choices=None):
             continue
         raw.append((cat["order"], cat.get("prompt_label") or cat["label"],
                     rng.choice(pool), cat["key"]))
+    # Bald: an independent low-probability roll on its own rng stream, so it does
+    # not disturb the other mayhem rolls (the queue preview stays == execution).
+    # When it hits, the shared _drop_if_bald (in _resolve_mayhem) removes the
+    # rolled hair type/style/colour, so Mayhem never renders a half-bald head.
+    bald_cat = next((c for c in _CATEGORIES if c["key"] == _BALD_KEY), None)
+    if bald_cat:
+        bald_rng = random.Random(int(seed) + library.stable_offset(_BALD_KEY))
+        if bald_rng.random() < _MAYHEM_BALD_PROB:
+            pool = library.read_lines(bald_cat["path"])
+            if pool:
+                raw.append((bald_cat["order"],
+                            bald_cat.get("prompt_label") or bald_cat["label"],
+                            bald_rng.choice(pool), _BALD_KEY))
     raw = _apply_skin_tone(raw, seed, choices, force_random=True)
     return _mayhem_slider_lane(seed, gender, raw)
 
@@ -479,7 +523,7 @@ def _mayhem_slider_lane(seed, gender, raw):
 
 def _resolve_mayhem(seed, separator, mode, choices=None):
     raw, _state = _mayhem_compose(seed, choices)
-    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, mode)
+    return _format_picks(_drop_if_bald(_dedupe_second_art_style(_apply_cyber_color(raw))), separator, mode)
 
 
 def mayhem_slider_state(seed, choices=None):
@@ -531,7 +575,7 @@ def resolve_prompt(seed, separator, gender=None, theme=None, choices=None,
                         pick, cat["key"]))
     raw = _apply_body_sliders(raw, seed, gender, choices)
     raw = _apply_skin_tone(raw, seed, choices)
-    return _format_picks(_drop_if_bald(_apply_cyber_color(raw)), separator, label_mode)
+    return _format_picks(_drop_if_bald(_dedupe_second_art_style(_apply_cyber_color(raw))), separator, label_mode)
 
 
 class BKWildcardSelector:
@@ -592,14 +636,17 @@ class BKWildcardSelector:
                 },
             )
 
-        # Art Style: second option under the Theme header (emitted here, right
-        # after the theme selector and before gender) and first in the output
-        # (its low `order` in _pack.json leads the prompt text).
-        art_style_cat = next(
-            (c for c in _CATEGORIES if c["key"] == ART_STYLE_KEY), None
-        )
-        if art_style_cat:
-            emit(art_style_cat)
+        # Art Style (and the optional Art Style 2): the options under the Theme
+        # header, emitted here right after the theme selector and before gender,
+        # and leading the output (their low `order`s in _pack.json). Both are
+        # excluded from the general globals loop below so they render here, not
+        # in the Identity/Physical block.
+        for akey in _ART_STYLE_KEYS:
+            art_style_cat = next(
+                (c for c in _CATEGORIES if c["key"] == akey), None
+            )
+            if art_style_cat:
+                emit(art_style_cat)
 
         if _GENDERS:
             required["gender"] = (
@@ -625,7 +672,7 @@ class BKWildcardSelector:
         # The Camera section is pinned BELOW the theme's Scene, so its globals
         # are emitted after all theme blocks.
         POST_THEME_GROUPS = {"Camera"}
-        globals_all = [c for c in _CATEGORIES if c["is_global"] and c["key"] != ART_STYLE_KEY]
+        globals_all = [c for c in _CATEGORIES if c["is_global"] and c["key"] not in _ART_STYLE_KEYS]
         pre_globals = by_display(
             [c for c in globals_all if c.get("group") not in POST_THEME_GROUPS]
         )
