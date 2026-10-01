@@ -4,7 +4,7 @@
 
 No wildcard syntax to learn. No `__token__` to type. Pick a theme, choose the categories you want, wire one output into your prompt, and generate.
 
-Ships with **5,268 hand-written entries** across **56 categories** and **8 themes** — plus a **192-tone, metatype-driven coloration bank** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, skin tone, camera framing and more, all written for natural-language prompting.
+Ships with **5,331 hand-written entries** across **56 categories** and **8 themes** — plus a **192-tone, metatype-driven coloration bank** — art styles, cybernetics, outfits, Halloween costumes, environments, poses, ancestry, species, hair, eyes, physical features, skin tone, camera framing and more, all written for natural-language prompting.
 
 ---
 
@@ -37,7 +37,7 @@ The easiest way. BKWILDCARDS is published on the [Comfy Registry](https://regist
 - **Via ComfyUI-Manager:** open **Manager → Custom Nodes Manager**, find **BKWILDCARDS**, and click **Update** (or use **Update All**). Restart ComfyUI to load the new version. Manager pulls the latest release from the Comfy Registry.
 - **Via git** (if you installed with `git clone`): run `git pull` inside the `BKWILDCARDS` folder, then restart ComfyUI.
 
-The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.19`), so you can confirm the update took.
+The node title shows the build number (e.g. `BKWILDCARDS Selector 0.9.20`), so you can confirm the update took.
 
 **Updating from an earlier version can require deleting the BKWILDCARDS Selector node and adding it again once.** Some versions add a control in the middle of the node — a Skin Tone control in 0.9.16, and a Bald toggle plus a second Art Style in 0.9.19 — which shifts the saved widget positions below it, so a node carried over from an older workflow can show wrong values until it's re-added. One-time step; your other nodes and wiring are unaffected.
 
@@ -125,8 +125,8 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 
 | Theme | Categories |
 |---|---|
-| **_ghost.runner** *(cyberpunk)* | Outfits (270, 18 sections) · **Compression / Zentai Suits (144, 7 families — full-coverage armored suits)** · Tattoos (75) · Weapons / Carry (28) · Accent Palette (28) · Environments (360, 20 sections — interiors + exteriors) · Poses (29) |
-| **Whimsical Woods** *(dark fantasy)* | Outfits (360, 24 sections) · Tattoos (75) · Weapons / Carry (30) · Accent Palette (31) · Environments (360, 20 sections — interiors + exteriors) · Poses (28) · **Spell Casting** (15) · **Spell Effects** (20) |
+| **_ghost.runner** *(cyberpunk)* | Outfits (309, 21 sections) · **Compression / Zentai Suits (144, 7 families — full-coverage armored suits)** · Tattoos (75) · Weapons / Carry (28) · Accent Palette (28) · Environments (360, 20 sections — interiors + exteriors) · Poses (29) |
+| **Whimsical Woods** *(dark fantasy)* | Outfits (408, 32 sections) · Tattoos (75) · Weapons / Carry (30) · Accent Palette (31) · Environments (360, 20 sections — interiors + exteriors) · Poses (28) · **Spell Casting** (15) · **Spell Effects** (20) |
 | **Autumnal Oxidation** *(gothic autumn)* | Outfits (337, 12 goth substyles) · Accent Palette (23) · Environments (13) · Poses (23) |
 | **Cassette Futurism** *(retro analog sci-fi)* | Outfits (139, 14 sections) · Accent Palette (23) · Environments (24) · Poses (24) |
 | **All the Dresses** | Gowns & Dresses (530) · Eastern Attire (530, 11 sections) · Accent Palette (24) · Environments (13) · Poses (24, dance-forward) |
@@ -139,7 +139,7 @@ Each theme is one of the owner's standalone wildcard releases, kept true to that
 | Pack | Categories |
 |---|---|
 | **Art Style** | 12 styles — Anime, Anime Photo Realism, BKSTYLE, Gladas Style, Manga, Painterly, Painterly Photorealism, Photorealism, Pixel Art 16-Bit, Semi-Realism, Surreal, Western Comics (alphabetical; **a second Art Style dropdown can blend two**; leads the prompt; sits under Theme) |
-| **Common** | Ancestry (44, 16 sections — facial structure only) · Metatype / Species (40, 30 sections) |
+| **Common** | Ancestry (44, 16 sections — facial structure only) · Metatype / Species (39, 30 sections) |
 | **Cybernetics** | 17 augments — single/both limbs, jaw, torso, neural jack, + Partial Cyborg presets · 14 finish colors (— off — = chrome) |
 | **Hair** | **Bald** (on/off toggle) · Hair Color (49) · Hair Type (20) · Hair Style (53) |
 | **Eyes** | Eyes (29) — Natural · Cybernetic · Magical · Heterochromia |

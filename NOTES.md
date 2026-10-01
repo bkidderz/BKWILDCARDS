@@ -1,5 +1,4 @@
-- New art style: Manga (a clean black-and-white manga cover-art look).
-- Bald is now its own top-level Hair toggle instead of one of the Hair Type options, so it no longer turns up as often on a random roll. When Bald is on, Hair Type, Style and Color are hidden and left out; when off, they work as before.
-- New second Art Style dropdown (Art Style 2), so two styles can be blended. It defaults to off, and Mayhem honors both selections.
-- Whimsical Woods (fantasy) outfits expanded: new Witch, Dancer and Shaman archetypes, plus additional variants for Artificer, Assassin, Barbarian, Cleric, Fighter and Tavern.
-- This version adds new controls, so update the node once: delete the BKWILDCARDS Selector node and add it again. Your other nodes and wiring are unaffected. If you are updating from a version before 0.9.16, the same one-time re-add applies.
+- Hologram metatype reworked so the whole figure, head and face included, reads as a translucent glowing light-being with contour lines, scanlines, a wireframe grid and a strong bloom. The glow color comes from the Skin Tone (coloration) control.
+- Western Comics art style refined so it no longer fights the Shot Framing and Shot Angle controls.
+- Many new outfits. Whimsical Woods gains Witch, Dancer, Shaman, four mage classes and a Summoner, plus more variants for several existing archetypes. _ghost.runner gains Street Techwear, Samurai Streetwear and Mecha / Sci-Fi sections.
+- No node re-add is needed for this version. If you are updating from a version before 0.9.16, the earlier one-time re-add still applies.

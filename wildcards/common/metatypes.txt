@@ -109,8 +109,7 @@ a gynoid, a fully synthetic android whose entire body is hard plating rather tha
 full-conversion cyborg, a fully mechanical chassis, a chrome and matte-alloy body, an armored sculpted faceplate, glowing optical sensors
 
 # -- Hologram
-a hologram, a full-body figure made of glowing translucent light rather than solid flesh, a semi-transparent glass-like body that light shines through, luminous and glowing from within, contours and edges traced in bright radiant light, a faint scanline shimmer across the luminous surface, softly emissive and casting a glow on its surroundings
-a hologram, a full-body wireframe figure made of glowing lines of light rather than solid flesh, a see-through volumetric projection defined by luminous contour lines and a fine glowing grid, glowing from within, a faint scanline shimmer across the form, softly emissive and casting a glow
+a hologram, a full-body figure whose entire body and head are visible through a luminous, semi-transparent glass-like hologram of glowing translucent light, grounded in a real body shape rather than abstract light, the face and all of its features rendered as part of the same translucent hologram, the head just as see-through and luminous as the body, the features suggested by glowing contour lines and scanlines rather than as solid opaque skin, the whole form defined by radiant contour lines and a fine glowing wireframe grid tracing its contours, horizontal CRT-style scanlines shimmering across the surface, softly emissive and pulsing with a strong bloom that casts a glow on the surroundings as if internally illuminated
 
 # -- Drone-Synth
 drone-synth, a fully robotic being, angular armored plating, a featureless sensor visor, exposed cabling
