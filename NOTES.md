@@ -1,4 +1,4 @@
-- Hologram metatype reworked so the whole figure, head and face included, reads as a translucent glowing light-being with contour lines, scanlines, a wireframe grid and a strong bloom. The glow color comes from the Skin Tone (coloration) control.
-- Western Comics art style refined so it no longer fights the Shot Framing and Shot Angle controls.
-- Many new outfits. Whimsical Woods gains Witch, Dancer, Shaman, four mage classes and a Summoner, plus more variants for several existing archetypes. _ghost.runner gains Street Techwear, Samurai Streetwear and Mecha / Sci-Fi sections.
+- Body Sliders set to off now emits no build description at all. Before, a Build preset picked earlier could still reach the prompt through the hidden preset dropdown. A Build preset now speaks only when the selector is set to preset.
+- If a saved workflow relied on a Build preset while Body Sliders was off (this includes workflows made before 0.9.13), its build line will be missing until you set the Body Sliders selector to preset.
+- Section headers fixed on newer ComfyUI frontends (1.53 and later), where the collapsible header rows disappeared after saving, loading or undoing.
 - No node re-add is needed for this version. If you are updating from a version before 0.9.16, the earlier one-time re-add still applies.

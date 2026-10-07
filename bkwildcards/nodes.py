@@ -333,12 +333,24 @@ def slider_state(seed, gender, choices):
 
 
 def _apply_body_sliders(raw, seed, gender, choices):
-    """raw is a list of (order, label, text, key). With the slider lane on or
-    random, replace the Build preset picks with the synthesized slider build.
-    Fails soft: no banks -> presets untouched."""
+    """raw is a list of (order, label, text, key). The Body Sliders lane governs
+    the build slot:
+      off      -> no build at all. The Build preset speaks ONLY in preset mode
+                  (owner, 2026-10-03), so off drops any Build-preset pick and
+                  adds nothing — a preset selected earlier can no longer leak in
+                  through the hidden dropdown.
+      preset   -> the Build preset pick stands (the presets' turn to speak).
+      on/random -> replace the Build-preset pick with the synthesized slider build.
+    Fails soft: no banks -> presets untouched (classic Build behavior).
+    """
+    if sliders.BANKS is None:
+        return raw  # fail-soft: slider banks unavailable, leave the presets alone
+    mode = sliders.mode_of((choices or {}).get(sliders.TOGGLE_INPUT))
+    if mode == sliders.MODE_OFF:
+        return [r for r in raw if r[3] not in _BUILD_KEYS]
     state = slider_state(seed, gender, choices)
     if state is None or state["mode"] == sliders.MODE_PRESET:
-        return raw  # off, Gender off, or the presets' turn to speak
+        return raw  # Gender off (no body), or the preset's turn to speak
     text = sliders.synthesize(state["register"], state["values"])
     raw = [r for r in raw if r[3] not in _BUILD_KEYS]
     if text:
